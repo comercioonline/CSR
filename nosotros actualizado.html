@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios - CSR s.r.l.</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --primary-color: #1e3a8a;
+            --secondary-color: #3b82f6;
+            --accent-color: #60a5fa;
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f8fafc;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            padding-top: 80px;
+        }
+        
+        /* Header Styles */
+        .navbar {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 15px 0;
+        }
+        
+        .navbar-brand {
+            font-weight: bold;
+            color: var(--primary-color) !important;
+            font-size: 1.5rem;
+        }
+        
+        .navbar-nav .nav-link {
+            color: var(--text-dark) !important;
+            font-weight: 500;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-nav .nav-link:hover, .navbar-nav .nav-link.active {
+            color: var(--primary-color) !important;
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 80px 0 60px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 20s infinite ease-in-out;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(180deg); }
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .company-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 20px;
+            border-radius: 25px;
+            margin-bottom: 20px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .company-info {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 30px;
+        }
+        
+        .company-info h3 {
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        
+        .company-info p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+        
+        .company-highlight {
+            font-weight: 600;
+            color: #fbbf24;
+        }
+        
+        /* Service Cards */
+        .service-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        }
+        
+        .service-header {
+            padding: 30px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            text-align: center;
+        }
+        
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 36px;
+        }
+        
+        .service-body {
+            padding: 30px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .service-title {
+            font-size: 1.75rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .service-description {
+            margin-bottom: 25px;
+            color: var(--text-light);
+        }
+        
+        .service-features {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .service-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            align-items: center;
+        }
+        
+        .service-features li:last-child {
+            border-bottom: none;
+        }
+        
+        .service-features i {
+            color: var(--success-color);
+            margin-right: 12px;
+            font-size: 1.2rem;
+        }
+        
+        .service-gallery {
+            display: flex;
+            gap: 15px;
+            margin-top: auto;
+            padding-top: 20px;
+        }
+        
+        .gallery-item {
+            flex: 1;
+            height: 120px;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .service-footer {
+            padding: 20px 30px;
+            background: var(--bg-light);
+            text-align: center;
+        }
+        
+        .btn-service {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 30px;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-service:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-download {
+            background: var(--success-color);
+            color: white;
+            border: none;
+            padding: 10px 30px;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .btn-download:hover {
+            background: #059669;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-whatsapp {
+            background: #25D366;
+            color: white;
+            border: none;
+            padding: 10px 30px;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            width: 100%;
+            justify-content: center;
+        }
+        
+        .btn-whatsapp:hover {
+            background: #128C7E;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Stats Section */
+        .stats-section {
+            background: var(--bg-light);
+            padding: 60px 0;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .stat-number {
+            font-size: 48px;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            color: var(--text-light);
+            font-size: 18px;
+        }
+        
+        /* About Section */
+        .about-section {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-image {
+            flex: 1;
+        }
+        
+        .about-image img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-highlight {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 30px;
+        }
+        
+        .about-highlight h4 {
+            margin-bottom: 15px;
+        }
+        
+        .about-highlight ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .about-highlight li {
+            padding: 8px 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .about-highlight i {
+            margin-right: 10px;
+            color: #fbbf24;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        /* Download Modal */
+        .download-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .download-content {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+        }
+        
+        .download-progress {
+            width: 100%;
+            height: 10px;
+            background: #e5e7eb;
+            border-radius: 5px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+        
+        .download-progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+        
+        .download-status {
+            margin: 10px 0;
+            font-weight: 500;
+        }
+        
+        .download-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-light);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 60px 0 40px;
+            }
+            
+            .stat-number {
+                font-size: 36px;
+            }
+            
+            .service-gallery {
+                flex-wrap: wrap;
+            }
+            
+            .gallery-item {
+                flex: 0 0 calc(50% - 8px);
+                height: 100px;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+        
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#inicio">
+                <i class="bi bi-building"></i> CSR s.r.l.
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#inicio">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#servicios">Piezas de Auto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#nosotros">Contenedores</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contacto">Informacion</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contacto">Nosotros</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero-section">
+        <div class="container">
+            <div class="hero-content text-center">
+                <span class="company-badge">
+                    <i class="bi bi-building"></i> MIPYME Certificada
+                </span>
+                <h1 class="display-4 fw-bold mb-4">CSR s.r.l.</h1>
+                <p class="lead mb-4">Para Hacerlo Todo Más Fácil</p>
+                
+                <div class="company-info">
+                    <h3>Nuestra Empresa</h3>
+                    <p>
+                        Somos una <span class="company-highlight">MIPYME especializada</span> en ofrecer servicios de 
+                        <span class="company-highlight">venta, alquiler, reparación y mantenimiento</span> a cámaras frías, 
+                        contenedores refrigeradas y de carga seca.
+                    </p>
+                    <p>
+                        <span class="company-highlight">Ofrecemos la mejor solución</span> para todos los problemas de 
+                        refrigeración en cuanto a congelación y conservación de alimentos.
+                    </p>
+                    <p>
+                        Con <span class="company-highlight">más de 18 años de experiencia</span> en el mercado nacional y un 
+                        equipo de especialistas que ofrece asistencia técnica todo el año las 24 horas del día, 
+                        de forma rápida y eficiente.
+                    </p>
+                    <p>
+                        <span class="company-highlight">Brindamos un servicio de alta calidad</span>, con partes y piezas 
+                        originales del mercado internacional.
+                    </p>
+                </div>
+                
+                <button class="btn btn-light btn-lg mt-4" onclick="scrollToSection('servicios')">
+                    Ver Servicios <i class="bi bi-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicios" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5 fade-in">
+                <h2 class="fw-bold">Nuestros Servicios</h2>
+                <p class="text-muted">Soluciones completas para tus necesidades de transporte, refrigeración y reparación</p>
+            </div>
+            
+            <div class="row g-4">
+                <!-- Venta de Contenedores -->
+                <div class="col-lg-4 fade-in">
+                    <div class="service-card">
+                        <div class="service-header">
+                            <div class="service-icon">
+                                <i class="bi bi-box-seam"></i>
+                            </div>
+                            <h3 class="mb-0">Venta de Contenedores</h3>
+                        </div>
+                        <div class="service-body">
+                            <h4 class="service-title">Contenedores de Calidad</h4>
+                            <p class="service-description">
+                                Ofrecemos una amplia variedad de contenedores nuevos y usados para satisfacer todas tus necesidades de transporte y almacenamiento.
+                            </p>
+                            <ul class="service-features">
+                                <li><i class="bi bi-check-circle-fill"></i> Contenedores refrigerados (reefer)</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Contenedores de carga seca</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Contenedores abiertos (flat rack)</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Contenedores tanque</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Capacidades: 20', 40', 45'</li>
+                            </ul>
+                            <div class="service-gallery">
+                                <div class="gallery-item">
+                                    <img src="https://picsum.photos/seed/contenedor-venta1/200/120" alt="Contenedor refrigerado">
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="https://picsum.photos/seed/contenedor-venta2/200/120" alt="Contenedor seco">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="service-footer">
+                            <button class="btn btn-download" onclick="downloadCatalog('contenedores')">
+                                <i class="bi bi-download"></i> Descargar Catálogo
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reparación y Mantenimiento -->
+                <div class="col-lg-4 fade-in">
+                    <div class="service-card">
+                        <div class="service-header">
+                            <div class="service-icon">
+                                <i class="bi bi-tools"></i>
+                            </div>
+                            <h3 class="mb-0">Reparación y Mantenimiento</h3>
+                        </div>
+                        <div class="service-body">
+                            <h4 class="service-title">Servicio Técnico Especializado</h4>
+                            <p class="service-description">
+                                Equipo técnico altamente capacitado para reparación y mantenimiento preventivo de contenedores y equipos de refrigeración.
+                            </p>
+                            <ul class="service-features">
+                                <li><i class="bi bi-check-circle-fill"></i> Diagnóstico y reparación de unidades frigoríficas</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Mantenimiento preventivo y correctivo</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Cambio de compresores y componentes</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Servicio 24/7 para emergencias</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Certificación de equipos</li>
+                            </ul>
+                            <div class="service-gallery">
+                                <div class="gallery-item">
+                                    <img src="https://picsum.photos/seed/reparacion1/200/120" alt="Reparación de contenedor">
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="https://picsum.photos/seed/reparacion2/200/120" alt="Mantenimiento técnico">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="service-footer">
+                            <button class="btn btn-service" onclick="scrollToSection('contacto')">
+                                <i class="bi bi-calendar-check me-2"></i> Solicitar Servicio
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Venta de Piezas de Autos -->
+                <div class="col-lg-4 fade-in">
+                    <div class="service-card">
+                        <div class="service-header">
+                            <div class="service-icon">
+                                <i class="bi bi-gear"></i>
+                            </div>
+                            <h3 class="mb-0">Venta de Piezas de Autos</h3>
+                        </div>
+                        <div class="service-body">
+                            <h4 class="service-title">Componentes de Refrigeración</h4>
+                            <p class="service-description">
+                                Amplio inventario de piezas y componentes de refrigeración para automóviles y vehículos comerciales.
+                            </p>
+                            <ul class="service-features">
+                                <li><i class="bi bi-check-circle-fill"></i> Compresores originales y compatibles</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Condensadores y evaporadores</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Termostatos y válvulas</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Bobinas y filtros</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Piezas para todas las marcas</li>
+                            </ul>
+                            <div class="service-gallery">
+                                <div class="gallery-item">
+                                    <img src="https://picsum.photos/seed/piezas1/200/120" alt="Compresores">
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="https://picsum.photos/seed/piezas2/200/120" alt="Componentes">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="service-footer">
+                            <button class="btn btn-download" onclick="downloadCatalog('piezas')">
+                                <i class="bi bi-download"></i> Descargar Catálogo
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="nosotros" class="about-section">
+        <div class="container">
+            <div class="about-content fade-in">
+                <div class="about-text">
+                    <h2 class="fw-bold mb-4">Por Qué Elegirnos</h2>
+                    <p class="mb-4">
+                        Con más de 18 años de experiencia en el mercado nacional, hemos consolidado nuestra posición como líderes en soluciones de refrigeración industrial.
+                    </p>
+                    <p class="mb-4">
+                        Nuestro equipo de especialistas está disponible las 24 horas del día, los 365 días del año, para garantizar que tus operaciones nunca se detengan.
+                    </p>
+                    <p class="mb-4">
+                        Utilizamos partes y piezas originales del mercado internacional, asegurando la máxima calidad y durabilidad en todos nuestros servicios.
+                    </p>
+                    
+                    <div class="about-highlight">
+                        <h4><i class="bi bi-star-fill"></i> Nuestros Compromisos</h4>
+                        <ul>
+                            <li><i class="bi bi-check-circle-fill"></i> Asistencia técnica rápida y eficiente</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Soluciones personalizadas para cada cliente</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Mantenimiento preventivo para evitar fallas</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Soporte continuo post-venta</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="https://picsum.photos/seed/equipo-tecnico/600/400" alt="Equipo técnico especializado">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-6">
+                    <div class="stat-item fade-in">
+                        <div class="stat-number" data-target="18">0</div>
+                        <div class="stat-label">Años de Experiencia</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-item fade-in">
+                        <div class="stat-number" data-target="500">0</div>
+                        <div class="stat-label">Contenedores Vendidos</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-item fade-in">
+                        <div class="stat-number" data-target="1000">0</div>
+                        <div class="stat-label">Piezas en Inventario</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-item fade-in">
+                        <div class="stat-number" data-target="95">0</div>
+                        <div class="stat-label">% Clientes Satisfechos</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="py-5 bg-light">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <h3 class="fw-bold mb-4">¿Listo para trabajar con nosotros?</h3>
+                    <p class="mb-4">
+                        Nuestro equipo de especialistas está listo para asesorarte y ofrecerte la mejor solución para tus necesidades.
+                    </p>
+                    <div class="d-flex gap-3 flex-wrap">
+                        <div class="d-flex align-items-center">
+                            <i class="bi bi-geo-alt-fill text-primary me-2" style="font-size: 1.5rem;"></i>
+                            <div>
+                                <strong>Ubicación</strong>
+                                <p class="mb-0 text-muted">Calle Principal 123, La Habana</p>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <i class="bi bi-telephone-fill text-primary me-2" style="font-size: 1.5rem;"></i>
+                            <div>
+                                <strong>Teléfono</strong>
+                                <p class="mb-0 text-muted">+53 7 123 4567</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card shadow-sm">
+                        <div class="card-body p-4">
+                            <h5 class="card-title mb-4">Solicita Información</h5>
+                            <form id="contactForm">
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">Nombre</label>
+                                    <input type="text" class="form-control" id="name" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="subject" class="form-label">Asunto</label>
+                                    <input type="text" class="form-control" id="subject" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="service" class="form-label">Servicio de Interés</label>
+                                    <select class="form-select" id="service">
+                                        <option value="">Selecciona un servicio</option>
+                                        <option value="contenedores">Venta de Contenedores</option>
+                                        <option value="reparacion">Reparación y Mantenimiento</option>
+                                        <option value="piezas">Venta de Piezas</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="message" class="form-label">Mensaje</label>
+                                    <textarea class="form-control" id="message" rows="3"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-whatsapp">
+                                    <i class="bi bi-whatsapp"></i> Enviar al WhatsApp 
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="bi bi-envelope-fill"></i>
+                    <span>csrhabana@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <i class="bi bi-telephone-fill"></i>
+                    <span>+53 7 123 4567</span>
+                </div>
+                <div class="contact-item">
+                    <i class="bi bi-geo-alt-fill"></i>
+                    <span>Calle Principal 123, La Habana, Cuba</span>
+                </div>
+            </div>
+            <hr class="my-4 bg-light">
+            <div class="row">
+                <div class="col-md-6 mb-4 mb-md-0">
+                    <h5 class="mb-3">CSR s.r.l.</h5>
+                    <p class="mb-0">Especialistas en soluciones de refrigeración industrial y contenedores desde 2006.</p>
+                    <p class="mb-0 mt-2"><em>"Para Hacerlo Todo Más Fácil"</em></p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0">&copy; 2024 CSR s.r.l. Todos los derechos reservados.</p>
+                    <p class="mb-0 mt-1">Con más de 18 años de experiencia en el mercado nacional</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Download Modal -->
+    <div class="download-modal" id="downloadModal">
+        <div class="download-content">
+            <button class="download-close" onclick="closeDownloadModal()">&times;</button>
+            <h4 class="mb-3">Descargando Catálogo</h4>
+            <div class="download-icon mb-3">
+                <i class="bi bi-file-earmark-pdf" style="font-size: 4rem; color: #dc3545;"></i>
+            </div>
+            <p class="mb-3" id="downloadFileName">Catálogo de Contenedores</p>
+            <div class="download-progress">
+                <div class="download-progress-bar" id="downloadProgressBar"></div>
+            </div>
+            <p class="download-status" id="downloadStatus">Iniciando descarga...</p>
+            <div class="mt-3">
+                <button class="btn btn-secondary" onclick="closeDownloadModal()">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Configuración de catálogos disponibles
+        const catalogs = {
+            contenedores: {
+                name: 'Catálogo de Contenedores CSR s.r.l.',
+                url: 'https://example.com/catalogo-contenedores.pdf',
+                filename: 'catalogo-contenedores-csr.pdf'
+            },
+            piezas: {
+                name: 'Catálogo de Piezas CSR s.r.l.',
+                url: 'https://example.com/catalogo-piezas.pdf',
+                filename: 'catalogo-piezas-csr.pdf'
+            }
+        };
+
+        // Smooth scroll function
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // Animate numbers on scroll
+        const observerOptions = {
+            threshold: 0.5
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const target = entry.target;
+                    const finalValue = parseInt(target.getAttribute('data-target'));
+                    let currentValue = 0;
+                    const increment = finalValue / 50;
+                    
+                    const updateNumber = () => {
+                        currentValue += increment;
+                        if (currentValue < finalValue) {
+                            target.textContent = Math.floor(currentValue);
+                            requestAnimationFrame(updateNumber);
+                        } else {
+                            target.textContent = finalValue;
+                        }
+                    };
+                    
+                    updateNumber();
+                    observer.unobserve(target);
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.stat-number').forEach(stat => {
+            observer.observe(stat);
+        });
+        
+        // Fade in animation
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        fadeElements.forEach(el => {
+            fadeObserver.observe(el);
+        });
+        
+        // Handle contact form submission for WhatsApp
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = {
+                name: document.getElementById('name').value,
+                subject: document.getElementById('subject').value,
+                service: document.getElementById('service').value,
+                message: document.getElementById('message').value
+            };
+            
+            // Validate form
+            if (!formData.name || !formData.subject) {
+                alert('Por favor, complete los campos obligatorios (Nombre y Asunto)');
+                return;
+            }
+            
+            // Format message for WhatsApp
+            let message = `*Solicitud de Información - CSR s.r.l.*\n\n`;
+            message += `*Nombre:* ${formData.name}\n`;
+            message += `*Asunto:* ${formData.subject}\n`;
+            message += `*Servicio de Interés:* ${formData.service || 'No especificado'}\n\n`;
+            message += `*Mensaje:*\n${formData.message || 'No proporcionado'}`;
+            
+            // Encode message for URL
+            const encodedMessage = encodeURIComponent(message);
+            
+            // Open WhatsApp
+            const whatsappUrl = `https://wa.me/56578961?text=${encodedMessage}`;
+            window.open(whatsappUrl, '_blank');
+            
+            // Reset form
+            this.reset();
+            
+            // Show success message
+            alert('¡Su mensaje ha sido enviado a WhatsApp! Nos pondremos en contacto con usted pronto.');
+        });
+        
+        // Add active class to navbar links on scroll
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section[id]');
+            const scrollY = window.pageYOffset;
+            
+            sections.forEach(current => {
+                const sectionHeight = current.offsetHeight;
+                const sectionTop = current.offsetTop - 100;
+                const sectionId = current.getAttribute('id');
+                
+                if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                    document.querySelector('.navbar-nav .nav-link[href="#' + sectionId + '"]').classList.add('active');
+                } else {
+                    document.querySelector('.navbar-nav .nav-link[href="#' + sectionId + '"]').classList.remove('active');
+                }
+            });
+        });
+        
+        // Download catalog function
+        function downloadCatalog(type) {
+            const catalog = catalogs[type];
+            if (!catalog) {
+                alert('Error: catálogo no encontrado');
+                return;
+            }
+            
+            // Show download modal
+            const modal = document.getElementById('downloadModal');
+            modal.style.display = 'flex';
+            
+            // Update file name
+            document.getElementById('downloadFileName').textContent = catalog.name;
+            
+            // Start download simulation
+            simulateDownload(catalog);
+        }
+        
+        // Simulate download process
+        function simulateDownload(catalog) {
+            const progressBar = document.getElementById('downloadProgressBar');
+            const statusText = document.getElementById('downloadStatus');
+            
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += Math.random() * 15;
+                if (progress > 100) progress = 100;
+                
+                progressBar.style.width = progress + '%';
+                
+                if (progress < 30) {
+                    statusText.textContent = 'Conectando al servidor...';
+                } else if (progress < 60) {
+                    statusText.textContent = 'Descargando archivo...';
+                } else if (progress < 90) {
+                    statusText.textContent = 'Finalizando descarga...';
+                } else {
+                    statusText.textContent = '¡Descarga completada!';
+                }
+                
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    
+                    // Start actual download
+                    setTimeout(() => {
+                        // Create a blob with dummy PDF content
+                        const blob = new Blob(['Contenido del catálogo de ' + catalog.name], { type: 'application/pdf' });
+                        const url = window.URL.createObjectURL(blob);
+                        const a = document.createElement('a');
+                        a.href = url;
+                        a.download = catalog.filename;
+                        document.body.appendChild(a);
+                        a.click();
+                        document.body.removeChild(a);
+                        window.URL.revokeObjectURL(url);
+                        
+                        // Close modal
+                        closeDownloadModal();
+                        
+                        // Show success message
+                        alert('¡' + catalog.name + ' descargado exitosamente!');
+                    }, 1000);
+                }
+            }, 200);
+        }
+        
+        // Close download modal
+        function closeDownloadModal() {
+            const modal = document.getElementById('downloadModal');
+            modal.style.display = 'none';
+            
+            // Reset progress bar
+            document.getElementById('downloadProgressBar').style.width = '0%';
+            document.getElementById('downloadStatus').textContent = 'Iniciando descarga...';
+        }
+        
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('downloadModal');
+            if (event.target == modal) {
+                closeDownloadModal();
+            }
+        }
+    </script>
+</body>
+</html>

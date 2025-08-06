@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piezas de Carros y Contenedores</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .cart-item-enter {
+            animation: slideIn 0.3s ease-out;
+        }
+        
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        .product-card {
+            transition: all 0.3s ease;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .category-badge {
+            transition: all 0.2s ease;
+        }
+        
+        .category-badge:hover {
+            transform: scale(1.05);
+        }
+        
+        .detail-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 100;
+            overflow-y: auto;
+        }
+        
+        .detail-content {
+            background-color: white;
+            margin: 50px auto;
+            padding: 30px;
+            width: 90%;
+            max-width: 800px;
+            border-radius: 10px;
+            position: relative;
+            animation: slideUp 0.3s ease-out;
+        }
+        
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        .whatsapp-form-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 101;
+            overflow-y: auto;
+        }
+        
+        .whatsapp-form-content {
+            background-color: white;
+            margin: 50px auto;
+            padding: 30px;
+            width: 90%;
+            max-width: 800px;
+            border-radius: 10px;
+            position: relative;
+            animation: slideUp 0.3s ease-out;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <i class="fas fa-car text-blue-600 text-2xl mr-3"></i>
+                    <h1 class="text-xl font-bold text-gray-800">Ventas de Piezas de Carro</h1>
+                </div>
+                
+                <nav class="hidden md:flex space-x-8">
+                   
+                    <a href="#car-parts" class="text-gray-600 hover:text-blue-600 transition">Inicio</a>
+                    <a href="#car-parts" class="text-gray-600 hover:text-blue-600 transition">Piezas Autos</a>
+                    <a href="#containers" class="text-gray-600 hover:text-blue-600 transition">Contenedores</a>
+                    <a href="#contact" class="text-gray-600 hover:text-blue-600 transition">Contacto</a>
+                    <a href="#containers" class="text-gray-600 hover:text-blue-600 transition">Información</a>
+                    <a href="#" class="text-gray-600 hover:text-blue-600 transition">Nosotros</a>
+                </nav>
+                
+                <div class="flex items-center space-x-4">
+                    <button id="cart-btn" class="relative p-2 text-gray-600 hover:text-blue-600 transition">
+                        <i class="fas fa-shopping-cart text-xl"></i>
+                        <span id="cart-count" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                    </button>
+                    <button class="md:hidden p-2 text-gray-600" onclick="toggleMobileMenu()">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <a href="#car-parts" class="block py-2 text-gray-600 hover:text-blue-600">inicio</a>
+                <a href="#car-parts" class="block py-2 text-gray-600 hover:text-blue-600">Piezas Autos</a>
+                <a href="#containers" class="block py-2 text-gray-600 hover:text-blue-600">Contenedores</a>
+                <a href="#contact" class="block py-2 text-gray-600 hover:text-blue-600">Contacto</a>
+                <a href="#contact" class="block py-2 text-gray-600 hover:text-blue-600">Información</a>
+                <a href="#" class="text-gray-600 hover:text-blue-600 transition">Nosotros</a>
+             
+            </div>
+        </div>
+    </header>
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4">Piezas de Autos y Contenedores de Calidad</h2>
+            <p class="text-xl mb-8">Encuentra todo lo que necesitas para tu vehículo y almacenamiento</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button onclick="scrollToSection('car-parts')" class="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">
+                    Ver Piezas Autos
+                </button>
+                <button onclick="scrollToSection('containers')" class="bg-transparent border-2 border-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition">
+                    Ver Contenedores
+                </button>
+            </div>
+        </div>
+    </section>
+    <!-- Categories -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <h3 class="text-2xl font-bold text-center mb-8">Categorías Populares</h3>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="category-badge bg-blue-100 p-4 rounded-lg text-center cursor-pointer hover:bg-blue-200" onclick="filterByCategory('motor')">
+                    <i class="fas fa-cog text-blue-600 text-2xl mb-2"></i>
+                    <p class="text-sm font-semibold">Motor</p>
+                </div>
+                <div class="category-badge bg-green-100 p-4 rounded-lg text-center cursor-pointer hover:bg-green-200" onclick="filterByCategory('frenos')">
+                    <i class="fas fa-circle text-green-600 text-2xl mb-2"></i>
+                    <p class="text-sm font-semibold">Frenos</p>
+                </div>
+                <div class="category-badge bg-purple-100 p-4 rounded-lg text-center cursor-pointer hover:bg-purple-200" onclick="filterByCategory('electricos')">
+                    <i class="fas fa-bolt text-purple-600 text-2xl mb-2"></i>
+                    <p class="text-sm font-semibold">Eléctricos</p>
+                </div>
+                <div class="category-badge bg-orange-100 p-4 rounded-lg text-center cursor-pointer hover:bg-orange-200" onclick="filterByCategory('contenedores')">
+                    <i class="fas fa-box text-orange-600 text-2xl mb-2"></i>
+                    <p class="text-sm font-semibold">Contenedores</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Car Parts Section -->
+    <section id="car-parts" class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Piezas para Automóviles</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="car-parts-container">
+                <!-- Productos de piezas de autos se cargarán aquí -->
+            </div>
+        </div>
+    </section>
+    <!-- Containers Section -->
+    <section id="containers" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Contenedores para Almacenamiento</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="containers-container">
+                <!-- Productos de contenedores se cargarán aquí -->
+            </div>
+        </div>
+    </section>
+    <!-- Offers Section -->
+    <section id="offers" class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Por qué elegirnos</h2>
+            <div class="bg-gradient-to-r from-yellow-400 to-orange-500 rounded-lg p-8 text-white">
+                <div class="grid md:grid-cols-3 gap-8 text-center">
+                    <div>
+                        <i class="fas fa-percentage text-4xl mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">Ofrecemos productos de calidad con garantía y servicio al cliente excepcional</h3>
+                    </div>
+                    <div>
+                        <i class="fas fa-truck text-4xl mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">Recibe tus productos en 24-48 horas con nuestro servicio de envío express.</h3>
+                    </div>
+                    <div>
+                        <i class="fas fa-shield-alt text-4xl mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">Garantía 1 Año</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Cart Modal -->
+    <div id="cart-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
+        <div class="fixed right-0 top-0 h-full w-full md:w-96 bg-white shadow-xl transform translate-x-full transition-transform" id="cart-sidebar">
+            <div class="p-4 border-b flex justify-between items-center">
+                <h3 class="text-xl font-bold">Tu Carrito</h3>
+                <button onclick="closeCart()" class="text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            
+            <div class="p-4 overflow-y-auto h-96" id="cart-items">
+                <!-- Items del carrito se cargarán aquí -->
+            </div>
+            
+            <div class="border-t p-4">
+                <div class="flex justify-between mb-4">
+                    <span class="font-semibold">Total:</span>
+                    <span class="font-bold text-xl" id="cart-total">$0</span>
+                </div>
+                <button onclick="showWhatsAppForm()" class="w-full bg-green-600 text-white py-3 rounded-lg hover:bg-green-700 transition">
+                    <i class="fab fa-whatsapp mr-2"></i>Contactar por WhatsApp
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- Product Detail Modal -->
+    <div id="detail-modal" class="detail-modal">
+        <div class="detail-content">
+            <button onclick="closeDetailModal()" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+            <div id="detail-container">
+                <!-- Detalles del producto se cargarán aquí -->
+            </div>
+        </div>
+    </div>
+    <!-- WhatsApp Form Modal -->
+    <div id="whatsapp-form-modal" class="whatsapp-form-modal">
+        <div class="whatsapp-form-content">
+            <button onclick="closeWhatsAppForm()" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+            <h2 class="text-2xl font-bold mb-6 text-center">Contactar por WhatsApp</h2>
+            
+            <form id="whatsapp-form" onsubmit="sendWhatsAppMessage(event)">
+                <div class="mb-6">
+                    <h3 class="text-lg font-semibold mb-4">Productos en tu carrito:</h3>
+                    <div id="cart-summary" class="bg-gray-50 p-4 rounded-lg mb-4">
+                        <!-- Resumen del carrito se cargará aquí -->
+                    </div>
+                </div>
+                
+                <div class="mb-4">
+                    <label for="nombre" class="block text-gray-700 font-medium mb-2">Nombre Completo</label>
+                    <input type="text" id="nombre" name="nombre" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500" required>
+                </div>
+                
+                <div class="mb-4">
+                    <label for="direccion" class="block text-gray-700 font-medium mb-2">Dirección</label>
+                    <input type="text" id="direccion" name="direccion" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500" required>
+                </div>
+                
+                <div class="mb-4">
+                    <label for="carnet" class="block text-gray-700 font-medium mb-2">Carnet de Identidad</label>
+                    <input type="text" id="carnet" name="carnet" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500" required>
+                </div>
+                
+                <div class="mb-6">
+                    <label for="mensaje" class="block text-gray-700 font-medium mb-2">Mensaje Adicional</label>
+                    <textarea id="mensaje" name="mensaje" rows="4" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500" placeholder="Escribe cualquier información adicional que quieras compartir..."></textarea>
+                </div>
+                
+                <div class="flex gap-4">
+                    <button type="submit" class="flex-1 bg-green-600 text-white py-3 rounded-lg hover:bg-green-700 transition">
+                        <i class="fab fa-whatsapp mr-2"></i>Enviar por WhatsApp
+                    </button>
+                    <button type="button" onclick="closeWhatsAppForm()" class="flex-1 bg-gray-200 text-gray-800 py-3 rounded-lg hover:bg-gray-300 transition">
+                        Cancelar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Contáctanos</h2>
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="bg-white p-8 rounded-lg shadow">
+                    <h3 class="text-xl font-bold mb-4">Información de Contacto</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <i class="fas fa-phone text-blue-600 mr-4"></i>
+                            <span>+53 56578961</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope text-blue-600 mr-4"></i>
+                            <span>Mundodigital930518@gmail.com</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-map-marker-alt text-blue-600 mr-4"></i>
+                            <span>Habana</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-clock text-blue-600 mr-4"></i>
+                            <span>Lunes a Viernes: 8:00 AM - 6:00 PM</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-8 rounded-lg shadow">
+                    <h3 class="text-xl font-bold mb-4">Envíanos un Mensaje</h3>
+                    <form onsubmit="sendContactWhatsApp(event)">
+                        <div class="mb-4">
+                            <input type="text" placeholder="Nombre" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500" required>
+                        </div>
+                        <div class="mb-4">
+                            <input type="text" placeholder="Asunto" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500" required>
+                        </div>
+                        <div class="mb-4">
+                            <select class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500" required>
+                                <option value="">Selecciona una opción</option>
+                                <option value="reservar_piezas">Reservar piezas</option>
+                                <option value="reservar_contenedor">Reservar contenedor</option>
+                                <option value="mas_info">Más info</option>
+                                <option value="pedidos">Pedidos</option>
+                            </select>
+                        </div>
+                        <div class="mb-4">
+                            <textarea placeholder="Mensaje" rows="4" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500" required></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition">
+                            Enviar Mensaje
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; Imperium. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    <script>
+        // Productos con información detallada
+        const carParts = [
+            { 
+                id: 1, 
+                name: "Filtro de Aire", 
+                price: 25000, 
+                category: "motor", 
+                image: "https://picsum.photos/seed/filtro/300/200", 
+                stock: 50,
+                description: "Filtro de aire de alta calidad para motores de gasolina y diésel. Fabricado con materiales duraderos que garantizan una filtración óptima del aire.",
+                specifications: ["Compatible con la mayoría de vehículos", "Duración: 15,000 km", "Material: Papel filtrante de alta densidad"],
+                compatibleModels: ["Toyota Hilux 2015-2020", "Nissan NP300 2018-2023", "Mitsubishi L200 2017-2022"]
+            },
+            { 
+                id: 2, 
+                name: "Pastillas de Freno", 
+                price: 45000, 
+                category: "frenos", 
+                image: "https://picsum.photos/seed/frenos/300/200", 
+                stock: 30,
+                description: "Pastillas de freno de alto rendimiento con compuesto cerámico. Ofrecen una excelente respuesta y durabilidad superior.",
+                specifications: ["Tipo: Cerámico", "Material: Compuesto cerámico sin asbestos", "Resistencia al calor: hasta 450°C"],
+                compatibleModels: ["Toyota Corolla 2016-2021", "Honda Civic 2017-2022", "Mazda 3 2019-2023"]
+            },
+            { 
+                id: 3, 
+                name: "Batería 12V", 
+                price: 85000, 
+                category: "electricos", 
+                image: "https://picsum.photos/seed/bateria/300/200", 
+                stock: 20,
+                description: "Batería de 12V con tecnología de calcio-calcio para mayor duración y rendimiento en condiciones extremas.",
+                specifications: ["Capacidad: 60Ah", "CCA: 450A", "Garantía: 24 meses"],
+                compatibleModels: ["Toyota Yaris 2015-2020", "Suzuki Swift 2018-2023", "Hyundai i10 2017-2022"]
+            },
+            { 
+                id: 4, 
+                name: "Aceite Motor 5W-30", 
+                price: 18000, 
+                category: "motor", 
+                image: "https://picsum.photos/seed/aceite/300/200", 
+                stock: 100,
+                description: "Aceite motor sintético de alto rendimiento formulado para motores modernos. Protege contra el desgaste y mejora la eficiencia del combustible.",
+                specifications: ["Tipo: Sintético", "Viscosidad: 5W-30", "Capacidad: 1L"],
+                compatibleModels: ["Toyota Camry 2018-2023", "Honda CR-V 2017-2022", "Mazda CX-5 2019-2023"]
+            },
+            { 
+                id: 5, 
+                name: "Lámpara LED", 
+                price: 12000, 
+                category: "electricos", 
+                image: "https://picsum.photos/seed/led/300/200", 
+                stock: 80,
+                description: "Lámpara LED de alta eficiencia energética con 50,000 horas de vida útil. Ideal para iluminación interior y exterior.",
+                specifications: ["Potencia: 9W (equivalente a 60W)", "Temperatura de color: 6000K (blanco frío)", "IP65: Resistente al agua y polvo"],
+                compatibleModels: ["Toyota Hilux, Nissan NP300, Mitsubishi L200"]
+            },
+            { 
+                id: 6, 
+                name: "Discos de Freno", 
+                price: 35000, 
+                category: "frenos", 
+                image: "https://picsum.photos/seed/discos/300/200", 
+                stock: 25,
+                description: "Discos de freno ventilados de alta calidad fabricados con aleación de acero resistente al calor. Mejoran la capacidad de frenado.",
+                specifications: ["Material: Aleación de acero resistente al calor", "Diámetro: 296mm", "Grosor: 12mm"],
+                compatibleModels: ["Toyota Hilux 2015-2020", "Nissan Navara 2018-2023", "Mitsubishi L200 2017-2022"]
+            }
+        ];
+        const containers = [
+            { 
+                id: 7, 
+                name: "Contenedor 20ft Nuevo", 
+                price: 2500000, 
+                category: "contenedores", 
+                image: "https://picsum.photos/seed/container20/300/200", 
+                stock: 10,
+                description: "Contenedor estándar de 20 pies fabricado con acero de alta resistencia. Ideal para transporte y almacenamiento de mercancías.",
+                specifications: ["Capacidad: 33.1 m³", "Carga máxima: 28,200 kg", "Peso propio: 2,300 kg"],
+                features: ["Pintura exterior anti-corrosión", "Puertas de acero con triple cierre", "Certificado ISO"]
+            },
+            { 
+                id: 8, 
+                name: "Contenedor 40ft Usado", 
+                price: 1800000, 
+                category: "contenedores", 
+                image: "https://picsum.photos/seed/container40/300/200", 
+                stock: 15,
+                description: "Contenedor de 40 pies en buen estado de uso. Revisado y certificado para garantizar su seguridad y funcionalidad.",
+                specifications: ["Capacidad: 67.7 m³", "Carga máxima: 28,800 kg", "Peso propio: 3,800 kg"],
+                features: ["Estado: Bueno", "Certificado de inspección", "Ideal para almacenamiento prolongado"]
+            },
+            { 
+                id: 9, 
+                name: "Contenedor Refrigerado", 
+                price: 3200000, 
+                category: "contenedores", 
+                image: "https://picsum.photos/seed/containerfrigo/300/200", 
+                stock: 5,
+                description: "Contenedor refrigerado de última generación con sistema de control de temperatura digital. Mantiene productos perecederos en condiciones óptimas.",
+                specifications: ["Capacidad: 28.5 m³", "Rango de temperatura: -30°C a +30°C", "Motor: Carrier 4400"],
+                features: ["Control digital de temperatura", "Sistema de monitoreo remoto", "Certificado para transporte de alimentos"]
+            },
+            { 
+                id: 10, 
+                name: "Contenedor 10ft", 
+                price: 1200000, 
+                category: "contenedores", 
+                image: "https://picsum.photos/seed/container10/300/200", 
+                stock: 8,
+                description: "Contenedor pequeño de 10 pies perfecto para almacenamiento en espacios reducidos o para mercancías de bajo volumen.",
+                specifications: ["Capacidad: 16.8 m³", "Carga máxima: 10,000 kg", "Peso propio: 1,300 kg"],
+                features: ["Tamaño compacto", "Fácil de transportar", "Ideal para uso doméstico o pequeño negocio"]
+            },
+            { 
+                id: 11, 
+                name: "Contenedor Abierto", 
+                price: 1500000, 
+                category: "contenedores", 
+                image: "https://picsum.photos/seed/containeropen/300/200", 
+                stock: 12,
+                description: "Contenedor abierto superior para carga y descarga rápida. Ideal para mercancías que requieren acceso desde arriba.",
+                specifications: ["Capacidad: 32.6 m³", "Carga máxima: 26,500 kg", "Peso propio: 2,200 kg"],
+                features: ["Diseño abierto superior", "Lados reforzados", "Perfecto para grúas y montacargas"]
+            },
+            { 
+                id: 12, 
+                name: "Contenedor Plegable", 
+                price: 900000, 
+                category: "contenedores", 
+                image: "https://picsum.photos/seed/containerfold/300/200", 
+                stock: 20,
+                description: "Contenedor plegable que ocupa mínimo espacio cuando está vacío. Ideal para almacenamiento temporal o transporte de mercancías.",
+                specifications: ["Capacidad: 15.2 m³", "Carga máxima: 1,500 kg", "Plegado: 30% del volumen original"],
+                features: ["Sistema de plegado rápido", "Resistente a la intemperie", "Económico y práctico"]
+            },
+                   ];
+        let cart = [];
+        let currentFilter = null;
+        // Inicializar página
+        document.addEventListener('DOMContentLoaded', () => {
+            renderProducts(carParts, 'car-parts-container');
+            renderProducts(containers, 'containers-container');
+            updateCartCount();
+        });
+        // Renderizar productos
+        function renderProducts(products, containerId) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = '';
+            
+            const filteredProducts = currentFilter ? 
+                products.filter(p => p.category === currentFilter) : 
+                products;
+            
+            filteredProducts.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.className = 'product-card bg-white rounded-lg shadow-lg overflow-hidden';
+                productCard.innerHTML = `
+                    <img src="${product.image}" alt="${product.name}" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">${product.name}</h3>
+                        <p class="text-gray-600 mb-4">Stock: ${product.stock} unidades</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-blue-600">$${product.price.toLocaleString()}</span>
+                            <button onclick="showProductDetail(${product.id})" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">
+                                <i class="fas fa-info-circle mr-2"></i>Detalle
+                            </button>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(productCard);
+            });
+        }
+        // Mostrar detalles del producto
+        function showProductDetail(productId) {
+            const allProducts = [...carParts, ...containers];
+            const product = allProducts.find(p => p.id === productId);
+            
+            if (!product) return;
+            
+            const detailContainer = document.getElementById('detail-container');
+            let specificationsHTML = '';
+            let featuresHTML = '';
+            let compatibleModelsHTML = '';
+            
+            // Mostrar especificaciones
+            if (product.specifications) {
+                specificationsHTML = `
+                    <h4 class="font-semibold text-lg mb-2">Especificaciones:</h4>
+                    <ul class="list-disc pl-5 mb-4">
+                        ${product.specifications.map(spec => `<li>${spec}</li>`).join('')}
+                    </ul>
+                `;
+            }
+            
+            // Mostrar características
+            if (product.features) {
+                featuresHTML = `
+                    <h4 class="font-semibold text-lg mb-2">Características:</h4>
+                    <ul class="list-disc pl-5 mb-4">
+                        ${product.features.map(feature => `<li>${feature}</li>`).join('')}
+                    </ul>
+                `;
+            }
+            
+            // Mostrar modelos compatibles
+            if (product.compatibleModels) {
+                compatibleModelsHTML = `
+                    <h4 class="font-semibold text-lg mb-2">Modelos Compatibles:</h4>
+                    <ul class="list-disc pl-5 mb-4">
+                        ${product.compatibleModels.map(model => `<li>${model}</li>`).join('')}
+                    </ul>
+                `;
+            }
+            
+            detailContainer.innerHTML = `
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <img src="${product.image}" alt="${product.name}" class="w-full h-64 object-cover rounded-lg mb-4">
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <p class="text-sm text-gray-600 mb-1">Categoría</p>
+                            <p class="font-semibold">${product.category.charAt(0).toUpperCase() + product.category.slice(1)}</p>
+                        </div>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold mb-4">${product.name}</h2>
+                        <p class="text-gray-700 mb-6">${product.description}</p>
+                        
+                        <div class="mb-6">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-gray-600">Precio:</span>
+                                <span class="text-2xl font-bold text-blue-600">$${product.price.toLocaleString()}</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-600">Stock disponible:</span>
+                                <span class="font-semibold">${product.stock} unidades</span>
+                            </div>
+                        </div>
+                        
+                        ${specificationsHTML}
+                        ${featuresHTML}
+                        ${compatibleModelsHTML}
+                        
+                        <div class="flex gap-4 mt-6">
+                            <button onclick="addToCartFromDetail(${product.id})" class="flex-1 bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition">
+                                <i class="fas fa-cart-plus mr-2"></i>Añadir al Carrito
+                            </button>
+                            <button onclick="closeDetailModal()" class="flex-1 bg-gray-200 text-gray-800 py-3 rounded-lg hover:bg-gray-300 transition">
+                                Cerrar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            document.getElementById('detail-modal').style.display = 'block';
+        }
+        // Cerrar modal de detalles
+        function closeDetailModal() {
+            document.getElementById('detail-modal').style.display = 'none';
+        }
+        // Añadir al carrito desde el detalle
+        function addToCartFromDetail(productId) {
+            closeDetailModal();
+            const allProducts = [...carParts, ...containers];
+            const product = allProducts.find(p => p.id === productId);
+            
+            if (product && product.stock > 0) {
+                const existingItem = cart.find(item => item.id === productId);
+                
+                if (existingItem) {
+                    if (existingItem.quantity < product.stock) {
+                        existingItem.quantity++;
+                    } else {
+                        showNotification('Stock insuficiente', 'error');
+                        return;
+                    }
+                } else {
+                    cart.push({ ...product, quantity: 1 });
+                }
+                
+                updateCartCount();
+                showNotification('Producto añadido al carrito', 'success');
+            }
+        }
+        // Añadir al carrito (función original para mantener compatibilidad)
+        function addToCart(productId) {
+            const allProducts = [...carParts, ...containers];
+            const product = allProducts.find(p => p.id === productId);
+            
+            if (product && product.stock > 0) {
+                const existingItem = cart.find(item => item.id === productId);
+                
+                if (existingItem) {
+                    if (existingItem.quantity < product.stock) {
+                        existingItem.quantity++;
+                    } else {
+                        showNotification('Stock insuficiente', 'error');
+                        return;
+                    }
+                } else {
+                    cart.push({ ...product, quantity: 1 });
+                }
+                
+                updateCartCount();
+                showNotification('Producto añadido al carrito', 'success');
+            }
+        }
+        // Actualizar contador del carrito
+        function updateCartCount() {
+            const count = cart.reduce((total, item) => total + item.quantity, 0);
+            document.getElementById('cart-count').textContent = count;
+        }
+        // Mostrar carrito
+        document.getElementById('cart-btn').addEventListener('click', () => {
+            document.getElementById('cart-modal').classList.remove('hidden');
+            setTimeout(() => {
+                document.getElementById('cart-sidebar').classList.remove('translate-x-full');
+            }, 10);
+            renderCartItems();
+        });
+        // Cerrar carrito
+        function closeCart() {
+            document.getElementById('cart-sidebar').classList.add('translate-x-full');
+            setTimeout(() => {
+                document.getElementById('cart-modal').classList.add('hidden');
+            }, 300);
+        }
+        // Renderizar items del carrito
+        function renderCartItems() {
+            const cartItemsContainer = document.getElementById('cart-items');
+            const cartTotal = document.getElementById('cart-total');
+            
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<p class="text-center text-gray-500">Tu carrito está vacío</p>';
+                cartTotal.textContent = '$0';
+                return;
+            }
+            
+            cartItemsContainer.innerHTML = '';
+            let total = 0;
+            
+            cart.forEach((item, index) => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                
+                const cartItem = document.createElement('div');
+                cartItem.className = 'flex items-center gap-4 mb-4 p-4 bg-gray-50 rounded-lg cart-item-enter';
+                cartItem.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}" class="w-20 h-20 object-cover rounded">
+                    <div class="flex-1">
+                        <h4 class="font-semibold">${item.name}</h4>
+                        <p class="text-gray-600">$${item.price.toLocaleString()} x ${item.quantity}</p>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button onclick="updateQuantity(${index}, -1)" class="w-8 h-8 bg-gray-200 rounded-full hover:bg-gray-300 transition">
+                            <i class="fas fa-minus text-sm"></i>
+                        </button>
+                        <span class="w-8 text-center">${item.quantity}</span>
+                        <button onclick="updateQuantity(${index}, 1)" class="w-8 h-8 bg-gray-200 rounded-full hover:bg-gray-300 transition">
+                            <i class="fas fa-plus text-sm"></i>
+                        </button>
+                    </div>
+                    <button onclick="removeFromCart(${index})" class="text-red-500 hover:text-red-700">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                `;
+                cartItemsContainer.appendChild(cartItem);
+            });
+            
+            cartTotal.textContent = `$${total.toLocaleString()}`;
+        }
+        // Actualizar cantidad
+        function updateQuantity(index, change) {
+            const item = cart[index];
+            const product = [...carParts, ...containers].find(p => p.id === item.id);
+            
+            if (change > 0 && item.quantity < product.stock) {
+                item.quantity += change;
+            } else if (change < 0 && item.quantity > 1) {
+                item.quantity += change;
+            }
+            
+            updateCartCount();
+            renderCartItems();
+        }
+        // Eliminar del carrito
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCartCount();
+            renderCartItems();
+        }
+        // Filtrar por categoría
+        function filterByCategory(category) {
+            currentFilter = category;
+            
+            // Resetear contenedores
+            document.getElementById('car-parts-container').innerHTML = '';
+            document.getElementById('containers-container').innerHTML = '';
+            
+            // Renderizar productos filtrados
+            renderProducts(carParts, 'car-parts-container');
+            renderProducts(containers, 'containers-container');
+        }
+        // Navegación suave
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+        }
+        // Menú móvil
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+        // Manejar formulario de contacto
+        function sendContactWhatsApp(event) {
+            event.preventDefault();
+            
+            // Obtener los datos del formulario
+            const nombre = event.target[0].value;
+            const asunto = event.target[1].value;
+            const opcion = event.target[2].value;
+            const mensaje = event.target[3].value;
+            
+            // Construir el mensaje para WhatsApp
+            let whatsappMessage = `Hola, soy ${nombre}.\n\n`;
+            whatsappMessage += `Asunto: ${asunto}\n`;
+            whatsappMessage += `Opción seleccionada: ${opcion}\n\n`;
+            whatsappMessage += `Mensaje:\n${mensaje}`;
+            
+            // Codificar el mensaje para URL
+            const encodedMessage = encodeURIComponent(whatsappMessage);
+            
+            // Número de WhatsApp
+            const phoneNumber = '56578961';
+            
+            // Abrir WhatsApp Web
+            window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
+            
+            // Mostrar notificación
+            showNotification('Redirigiendo a WhatsApp...', 'success');
+            
+            // Limpiar el formulario
+            event.target.reset();
+        }
+        // Notificaciones
+        function showNotification(message, type) {
+            const notification = document.createElement('div');
+            notification.className = `fixed top-20 right-4 p-4 rounded-lg shadow-lg z-50 ${
+                type === 'success' ? 'bg-green-500' : 'bg-red-500'
+            } text-white`;
+            notification.textContent = message;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+        // Mostrar formulario de WhatsApp
+        function showWhatsAppForm() {
+            if (cart.length === 0) {
+                showNotification('Tu carrito está vacío. Añade productos antes de contactar.', 'error');
+                return;
+            }
+            
+            // Generar resumen del carrito
+            let cartSummaryHTML = '';
+            let total = 0;
+            
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                cartSummaryHTML += `
+                    <div class="flex justify-between items-center py-2 border-b">
+                        <span>${item.name} (x${item.quantity})</span>
+                        <span>$${itemTotal.toLocaleString()}</span>
+                    </div>
+                `;
+            });
+            
+            cartSummaryHTML += `
+                <div class="flex justify-between items-center py-2 font-bold">
+                    <span>Total:</span>
+                    <span>$${total.toLocaleString()}</span>
+                </div>
+            `;
+            
+            document.getElementById('cart-summary').innerHTML = cartSummaryHTML;
+            
+            // Mostrar el modal del formulario
+            document.getElementById('whatsapp-form-modal').style.display = 'block';
+        }
+        // Cerrar formulario de WhatsApp
+        function closeWhatsAppForm() {
+            document.getElementById('whatsapp-form-modal').style.display = 'none';
+        }
+        // Enviar mensaje por WhatsApp
+        function sendWhatsAppMessage(event) {
+            event.preventDefault();
+            
+            // Obtener datos del formulario
+            const nombre = document.getElementById('nombre').value;
+            const direccion = document.getElementById('direccion').value;
+            const carnet = document.getElementById('carnet').value;
+            const mensaje = document.getElementById('mensaje').value;
+            
+            // Generar mensaje para WhatsApp
+            let whatsappMessage = `Hola, soy ${nombre}.\n\n`;
+            whatsappMessage += `Carnet de Identidad: ${carnet}\n`;
+            whatsappMessage += `Dirección: ${direccion}\n\n`;
+            
+            whatsappMessage += `Productos que quiero comprar:\n\n`;
+            
+            let total = 0;
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                whatsappMessage += `${item.name} - Cantidad: ${item.quantity} - Subtotal: $${itemTotal.toLocaleString()}\n`;
+            });
+            
+            whatsappMessage += `\nTotal: $${total.toLocaleString()}\n\n`;
+            
+            if (mensaje) {
+                whatsappMessage += `Mensaje adicional:\n${mensaje}\n\n`;
+            }
+            
+            whatsappMessage += `Por favor, confirmen la disponibilidad de estos productos y las condiciones de entrega.`;
+            
+            // Codificar el mensaje para URL
+            const encodedMessage = encodeURIComponent(whatsappMessage);
+            
+            // Número de WhatsApp
+            const phoneNumber = '56578961';
+            
+            // Abrir WhatsApp Web
+            window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
+            
+            // Cerrar el formulario
+            closeWhatsAppForm();
+            
+            // Limpiar el formulario
+            document.getElementById('whatsapp-form').reset();
+            
+            // Mostrar notificación
+            showNotification('Redirigiendo a WhatsApp...', 'success');
+            
+            // Actualizar stock de los productos
+            updateProductStock();
+        }
+        // Actualizar stock de productos
+        function updateProductStock() {
+            cart.forEach(item => {
+                const product = [...carParts, ...containers].find(p => p.id === item.id);
+                if (product) {
+                    product.stock -= item.quantity;
+                }
+            });
+            
+            // Limpiar el carrito
+            cart = [];
+            updateCartCount();
+            
+            // Actualizar la vista de productos
+            renderProducts(carParts, 'car-parts-container');
+            renderProducts(containers, 'containers-container');
+        }
+        // Cerrar modales al hacer clic fuera
+        document.getElementById('cart-modal').addEventListener('click', (e) => {
+            if (e.target.id === 'cart-modal') {
+                closeCart();
+            }
+        });
+        document.getElementById('detail-modal').addEventListener('click', (e) => {
+            if (e.target.id === 'detail-modal') {
+                closeDetailModal();
+            }
+        });
+        document.getElementById('whatsapp-form-modal').addEventListener('click', (e) => {
+            if (e.target.id === 'whatsapp-form-modal') {
+                closeWhatsAppForm();
+            }
+        });
+    </script>
+</body>
+</html>
