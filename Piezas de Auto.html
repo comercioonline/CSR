@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Piezas de Carros</title>
+    <title>Piezas CSR - Venta Profesional de Repuestos Automotrices</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -24,11 +24,30 @@
         
         .product-card {
             transition: all 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
         
         .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+        
+        .product-image {
+            height: 280px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .product-card:hover .product-image {
+            transform: scale(1.05);
+        }
+        
+        .product-info {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
         }
         
         .category-badge {
@@ -56,10 +75,12 @@
             margin: 50px auto;
             padding: 30px;
             width: 90%;
-            max-width: 800px;
-            border-radius: 10px;
+            max-width: 1000px;
+            border-radius: 12px;
             position: relative;
             animation: slideUp 0.3s ease-out;
+            max-height: 90vh;
+            overflow-y: auto;
         }
         
         @keyframes slideUp {
@@ -91,9 +112,49 @@
             padding: 30px;
             width: 90%;
             max-width: 800px;
-            border-radius: 10px;
+            border-radius: 12px;
             position: relative;
             animation: slideUp 0.3s ease-out;
+        }
+        
+        .stock-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 10;
+        }
+        
+        .price-tag {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            z-index: 10;
+        }
+        
+        .feature-card {
+            transition: all 0.3s ease;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .feature-card:hover {
+            border-color: #3b82f6;
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.1);
+            transform: translateY(-5px);
+        }
+        
+        .spec-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        
+        .compatibility-tag {
+            display: inline-block;
+            background: #f3f4f6;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            margin: 2px;
         }
     </style>
 </head>
@@ -103,15 +164,16 @@
         <div class="container mx-auto px-4">
             <div class="flex items-center justify-between h-16">
                 <div class="flex items-center">
-                    <i class="fas fa-car text-blue-600 text-2xl mr-3"></i>
-                     <h1 class="text-xl font-bold text-gray-800">CSR s.r.l</h1>
+                   <img src="imagenes de Inicio/Logo2.jpg" alt="Logo CSR" class="h-10 w-auto mr-3">
+                    <h1 class="text-xl font-bold text-gray-800">CSR s.r.l - Piezas Automotrices</h1>
                 </div>
                 
-                <nav class="hidden md:flex space-x-8">
+                 <nav class="hidden md:flex space-x-8">
                     <a href="https://comercioonline.github.io/CSR/Inicio" class="text-gray-600 hover:text-blue-600 transition">Inicio</a>
-                    <a href="https://comercioonline.github.io/CSR/Piezas%20de%20Auto" class="text-gray-600 hover:text-blue-600 transition">Piezas Autos</a>
-                    <a href="https://comercioonline.github.io/CSR/venta%20de%20contenedores" class="text-gray-600 hover:text-blue-600 transition">Contenedores</a>
-                    <a href="https://comercioonline.github.io/CSR/informacion" class="text-gray-600 hover:text-blue-600 transition">Información</a>
+                    <a href="#tipos" class="text-gray-600 hover:text-blue-600 transition">Piezas de Autos</a>
+                    <a href="#tipos" class="text-gray-600 hover:text-blue-600 transition">Contenedores</a>
+                    <a href="#servicios" class="text-gray-600 hover:text-blue-600 transition">Servicios</a>
+                    <a href="#contact" class="text-gray-600 hover:text-blue-600 transition">Información</a>
                     <a href="https://comercioonline.github.io/CSR/nosotros%20actualizado" class="text-gray-600 hover:text-blue-600 transition">Nosotros</a>
                 </nav>
                 
@@ -128,54 +190,210 @@
             
             <!-- Mobile Menu -->
             <div id="mobile-menu" class="hidden md:hidden pb-4">
-                <a href="https://comercioonline.github.io/CSR/Inicio" class="block py-2 text-gray-600 hover:text-blue-600">inicio</a>
-                <a href="https://comercioonline.github.io/CSR/Piezas%20de%20Auto" class="block py-2 text-gray-600 hover:text-blue-600">Piezas Autos</a>
-                <a href="https://comercioonline.github.io/CSR/venta%20de%20contenedores" class="block py-2 text-gray-600 hover:text-blue-600">Contacto</a>
-                <a href="https://comercioonline.github.io/CSR/informacion" class="block py-2 text-gray-600 hover:text-blue-600">Información</a>
-                <a href="https://comercioonline.github.io/CSR/nosotros%20actualizado" class="text-gray-600 hover:text-blue-600 transition">Nosotros</a>
+                <a href="https://comercioonline.github.io/CSR/Inicio" class="block py-2 text-gray-600 hover:text-blue-600">Inicio</a>
+                <a href="#tipos" class="block py-2 text-gray-600 hover:text-blue-600">Piezas de Autos</a>
+                <a href="#tipos" class="block py-2 text-gray-600 hover:text-blue-600">Contenedores</a>
+                <a href="#servicios" class="block py-2 text-gray-600 hover:text-blue-600">Servicios</a>
+                <a href="#contact" class="block py-2 text-gray-600 hover:text-blue-600">Información</a>
+                <a href="https://comercioonline.github.io/CSR/nosotros%20actualizado" class="block py-2 text-gray-600 hover:text-blue-600">Nosotros</a>
             </div>
         </div>
     </header>
+    
     <!-- Hero Section -->
-    <section class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
+    <section class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-24">
         <div class="container mx-auto px-4 text-center">
-            <h2 class="text-4xl md:text-5xl font-bold mb-4">Piezas de Autos de Calidad</h2>
-            <p class="text-xl mb-8">Encuentra todo lo que necesitas para tu vehículo</p>
-            <button onclick="scrollToSection('car-parts')" class="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">
-                Ver Piezas Autos
-            </button>
+            <h2 class="text-4xl md:text-5xl font-bold mb-4">Repuestos Automotrices de Calidad</h2>
+            <p class="text-xl mb-8 max-w-3xl mx-auto">Venta profesional de piezas originales y compatibles para todas las marcas y modelos de vehículos</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button onclick="scrollToSection('categorias')" class="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">
+                    Ver Piezas
+                </button>
+                <button onclick="scrollToSection('servicios')" class="bg-transparent border-2 border-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition">
+                    Nuestros Servicios
+                </button>
+            </div>
         </div>
     </section>
-    <!-- Categories -->
-    <section class="py-12 bg-white">
+    
+    <!-- Beneficios Section -->
+    <section class="py-16 bg-blue-50">
         <div class="container mx-auto px-4">
-            <h3 class="text-2xl font-bold text-center mb-8">Categorías Populares</h3>
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-                <div class="category-badge bg-blue-100 p-4 rounded-lg text-center cursor-pointer hover:bg-blue-200" onclick="filterByCategory('motor')">
-                    <i class="fas fa-cog text-blue-600 text-2xl mb-2"></i>
-                    <p class="text-sm font-semibold">Motor</p>
+            <h2 class="text-3xl font-bold text-center mb-12">Por qué elegir CSR</h2>
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-certificate text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-lg mb-2">Calidad Certificada</h3>
+                    <p class="text-gray-600">Piezas originales y compatibles con certificación de calidad</p>
                 </div>
-                <div class="category-badge bg-green-100 p-4 rounded-lg text-center cursor-pointer hover:bg-green-200" onclick="filterByCategory('frenos')">
-                    <i class="fas fa-circle text-green-600 text-2xl mb-2"></i>
-                    <p class="text-sm font-semibold">Frenos</p>
+                <div class="text-center">
+                    <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-tools text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-lg mb-2">Servicios Técnicos</h3>
+                    <p class="text-gray-600">Instalación, diagnóstico y mantenimiento profesional</p>
                 </div>
-                <div class="category-badge bg-purple-100 p-4 rounded-lg text-center cursor-pointer hover:bg-purple-200" onclick="filterByCategory('electricos')">
-                    <i class="fas fa-bolt text-purple-600 text-2xl mb-2"></i>
-                    <p class="text-sm font-semibold">Eléctricos</p>
+                <div class="text-center">
+                    <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-truck text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-lg mb-2">Entrega Rápida</h3>
+                    <p class="text-gray-600">Disponibilidad inmediata y entrega en 24-48 horas</p>
+                </div>
+                <div class="text-center">
+                    <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-shield-alt text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-lg mb-2">Garantía Extendida</h3>
+                    <p class="text-gray-600">Hasta 2 años de garantía en todas las piezas</p>
                 </div>
             </div>
         </div>
     </section>
-    <!-- Car Parts Section -->
-    <section id="car-parts" class="py-16">
+    
+    <!-- Categorías de Piezas Section -->
+    <section id="categorias" class="py-16">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12">Piezas para Automóviles</h2>
+            <h2 class="text-3xl font-bold text-center mb-12">Nuestros Productos</h2>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="car-parts-container">
                 <!-- Productos de piezas de autos se cargarán aquí -->
             </div>
         </div>
     </section>
+    
+    <!-- Servicios Section -->
+    <section id="servicios" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Nuestros Servicios</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="feature-card bg-white p-6 rounded-lg">
+                    <div class="text-blue-600 text-3xl mb-4">
+                        <i class="fas fa-wrench"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Instalación Profesional</h3>
+                    <p class="text-gray-600 mb-4">Servicio de instalación de piezas por técnicos certificados y especializados.</p>
+                    <ul class="list-disc pl-5 text-gray-600">
+                        <li>Instalación de motor</li>
+                        <li>Sistema de frenos</li>
+                        <li>Suspensión y dirección</li>
+                        <li>Transmisión y caja</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-card bg-white p-6 rounded-lg">
+                    <div class="text-blue-600 text-3xl mb-4">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Diagnóstico y Reparación</h3>
+                    <p class="text-gray-600 mb-4">Servicio técnico especializado con equipos de diagnóstico avanzado.</p>
+                    <ul class="list-disc pl-5 text-gray-600">
+                        <li>Diagnóstico computarizado</li>
+                        <li>Reparación de sistemas</li>
+                        <li>Mantenimiento preventivo</li>
+                        <li>Revisión técnica</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-card bg-white p-6 rounded-lg">
+                    <div class="text-blue-600 text-3xl mb-4">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Asesoría Técnica</h3>
+                    <p class="text-gray-600 mb-4">Asesoría especializada para seleccionar las piezas correctas para tu vehículo.</p>
+                    <ul class="list-disc pl-5 text-gray-600">
+                        <li>Selección de piezas</li>
+                        <li>Compatibilidad de modelos</li>
+                        <li>Recomendaciones técnicas</li>
+                        <li>Soporte post-venta</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Marcas Section -->
+    <section id="marcas" class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Marcas que Representamos</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="bg-gray-100 w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-car text-4xl text-gray-600"></i>
+                    </div>
+                    <h4 class="font-semibold">Lada</h4>
+                </div>
+                <div class="text-center">
+                    <div class="bg-gray-100 w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-car text-4xl text-gray-600"></i>
+                    </div>
+                    <h4 class="font-semibold">Toyota</h4>
+                </div>
+                <div class="text-center">
+                    <div class="bg-gray-100 w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-car text-4xl text-gray-600"></i>
+                    </div>
+                    <h4 class="font-semibold">Nissan</h4>
+                </div>
+                <div class="text-center">
+                    <div class="bg-gray-100 w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-car text-4xl text-gray-600"></i>
+                    </div>
+                    <h4 class="font-semibold">Chevrolet</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Proceso de Compra Section -->
+    <section class="py-16 bg-blue-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Proceso de Compra y Servicio</h2>
+            
+            <div class="grid md:grid-cols-5 gap-4">
+                <div class="text-center">
+                    <div class="bg-blue-600 text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <span class="font-bold">1</span>
+                    </div>
+                    <h4 class="font-semibold mb-2">Consulta</h4>
+                    <p class="text-sm text-gray-600">Contacta con nuestros expertos</p>
+                </div>
+                <div class="text-center">
+                    <div class="bg-blue-600 text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <span class="font-bold">2</span>
+                    </div>
+                    <h4 class="font-semibold mb-2">Diagnóstico</h4>
+                    <p class="text-sm text-gray-600">Identificamos tu necesidad</p>
+                </div>
+                <div class="text-center">
+                    <div class="bg-blue-600 text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <span class="font-bold">3</span>
+                    </div>
+                    <h4 class="font-semibold mb-2">Selección</h4>
+                    <p class="text-sm text-gray-600">Elegimos la pieza adecuada</p>
+                </div>
+                <div class="text-center">
+                    <div class="bg-blue-600 text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <span class="font-bold">4</span>
+                    </div>
+                    <h4 class="font-semibold mb-2">Cotización</h4>
+                    <p class="text-sm text-gray-600">Recibes tu presupuesto</p>
+                </div>
+                <div class="text-center">
+                    <div class="bg-blue-600 text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <span class="font-bold">5</span>
+                    </div>
+                    <h4 class="font-semibold mb-2">Instalación</h4>
+                    <p class="text-sm text-gray-600">Servicio técnico profesional</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
     <!-- Cart Modal -->
     <div id="cart-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
         <div class="fixed right-0 top-0 h-full w-full md:w-96 bg-white shadow-xl transform translate-x-full transition-transform" id="cart-sidebar">
@@ -201,6 +419,7 @@
             </div>
         </div>
     </div>
+    
     <!-- Product Detail Modal -->
     <div id="detail-modal" class="detail-modal">
         <div class="detail-content">
@@ -212,6 +431,7 @@
             </div>
         </div>
     </div>
+    
     <!-- WhatsApp Form Modal -->
     <div id="whatsapp-form-modal" class="whatsapp-form-modal">
         <div class="whatsapp-form-content">
@@ -234,18 +454,47 @@
                 </div>
                 
                 <div class="mb-4">
-                    <label for="direccion" class="block text-gray-700 font-medium mb-2">Dirección</label>
-                    <input type="text" id="direccion" name="direccion" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500" required>
+                    <label for="telefono" class="block text-gray-700 font-medium mb-2">Teléfono</label>
+                    <input type="text" id="telefono" name="telefono" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500" required>
                 </div>
                 
                 <div class="mb-4">
-                    <label for="carnet" class="block text-gray-700 font-medium mb-2">Carnet de Identidad</label>
-                    <input type="text" id="carnet" name="carnet" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500" required>
+                    <label for="marca" class="block text-gray-700 font-medium mb-2">Marca del Vehículo</label>
+                    <select id="marca" name="marca" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500" required>
+                        <option value="">Selecciona una marca</option>
+                        <option value="lada">Lada</option>
+                        <option value="toyota">Toyota</option>
+                        <option value="nissan">Nissan</option>
+                        <option value="chevrolet">Chevrolet</option>
+                        <option value="otra">Otra</option>
+                    </select>
+                </div>
+                
+                <div class="mb-4">
+                    <label for="modelo" class="block text-gray-700 font-medium mb-2">Modelo del Vehículo</label>
+                    <input type="text" id="modelo" name="modelo" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500" required>
+                </div>
+                
+                <div class="mb-4">
+                    <label for="año" class="block text-gray-700 font-medium mb-2">Año del Vehículo</label>
+                    <input type="text" id="año" name="año" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500" required>
+                </div>
+                
+                <div class="mb-4">
+                    <label for="tipo_servicio" class="block text-gray-700 font-medium mb-2">Tipo de Servicio</label>
+                    <select id="tipo_servicio" name="tipo_servicio" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500" required>
+                        <option value="">Selecciona un servicio</option>
+                        <option value="venta">Venta de Piezas</option>
+                        <option value="instalacion">Instalación</option>
+                        <option value="diagnostico">Diagnóstico</option>
+                        <option value="mantenimiento">Mantenimiento</option>
+                        <option value="personalizado">Personalizado</option>
+                    </select>
                 </div>
                 
                 <div class="mb-6">
                     <label for="mensaje" class="block text-gray-700 font-medium mb-2">Mensaje Adicional</label>
-                    <textarea id="mensaje" name="mensaje" rows="4" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500" placeholder="Escribe cualquier información adicional que quieras compartir..."></textarea>
+                    <textarea id="mensaje" name="mensaje" rows="4" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500" placeholder="Describe el problema del vehículo, piezas específicas que necesitas, o cualquier información relevante..."></textarea>
                 </div>
                 
                 <div class="flex gap-4">
@@ -259,91 +508,306 @@
             </form>
         </div>
     </div>
-   
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-8">
-        <div class="container mx-auto px-4 text-center">
-            <p>&copy; Imperium. Todos los derechos reservados.</p>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Contáctanos</h2>
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="bg-white p-8 rounded-lg shadow">
+                    <h3 class="text-xl font-bold mb-4">Información de Contacto</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                         <i class="fas fa-phone text-blue-600 mr-4"></i>
+                            <span>(E.a.m. De Jaegher)+53 53729090</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-phone text-blue-600 mr-4"></i>
+                            <span>(Lic. Raciel Rodríguez Temprana) +53 52493787</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-phone text-blue-600 mr-4"></i>
+                            <span>(Ing. Luis Carlos Triana Alonso) +53 50669462</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope text-blue-600 mr-4"></i>
+                            <span>csrdam@hotmail.com</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope text-blue-600 mr-4"></i>
+                            <span>csrhabana@gmail.com</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-map-marker-alt text-blue-600 mr-4"></i>
+                            <span>Habana, Cuba</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-clock text-blue-600 mr-4"></i>
+                            <span>Lunes a Viernes: 9:00 AM - 6:00 PM</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-tools text-blue-600 mr-4"></i>
+                            <span>Taller: 8:00 AM - 5:00 PM</span>
+                        </div>
+                         <div class="flex items-center">
+                            <i class="fas fa-globe text-blue-600 mr-4"></i>
+                            <span>Atención 24/7 para emergencias</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-8 rounded-lg shadow">
+                    <h3 class="text-xl font-bold mb-4">Envíanos un Mensaje</h3>
+                    <form onsubmit="sendContactWhatsApp(event)">
+                        <div class="mb-4">
+                            <input type="text" placeholder="Nombre" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500" required>
+                        </div>
+                        <div class="mb-4">
+                            <input type="text" placeholder="Teléfono" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500" required>
+                        </div>
+                        <div class="mb-4">
+                            <select class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500" required>
+                                <option value="">Selecciona una opción</option>
+                                <option value="venta">Venta de Piezas</option>
+                                <option value="instalacion">Solicitud de Instalación</option>
+                                <option value="diagnostico">Solicitud de Diagnóstico</option>
+                                <option value="cotizacion">Solicitar Cotización</option>
+                                <option value="emergencia">Ayuda</option>
+                            </select>
+                        </div>
+                        <div class="mb-4">
+                            <textarea placeholder="Mensaje" rows="4" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500" required></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition">
+                            Enviar Mensaje
+                        </button>
+                    </form>
+                </div>
+            </div>
         </div>
-    </footer>
+    </section>
+    
+    <!-- Footer -->
+<footer class="bg-gray-800 text-white py-12">
+    <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <!-- Información de la empresa -->
+            <div>
+                <h3 class="text-xl font-bold mb-4">CSR s.r.l - Piezas Automotrices</h3>
+                <p class="text-gray-300 mb-4">Líder en venta e instalación de repuestos automotrices. Soluciones técnicas profesionales para tu vehículo.</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-300 hover:text-white transition">
+                        <i class="fab fa-facebook-f text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-300 hover:text-white transition">
+                        <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                    <a href="https://wa.me/+529984136581" target="_blank" class="text-gray-300 hover:text-white transition">
+                        <i class="fab fa-whatsapp text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Servicios -->
+            <div>
+                <h3 class="text-xl font-bold mb-4">Servicios</h3>
+                <ul class="space-y-2">
+                    <li><a href="#" class="text-gray-300 hover:text-white transition">Venta de Repuestos</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white transition">Instalación Profesional</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white transition">Diagnóstico Técnico</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white transition">Mantenimiento Preventivo</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white transition">Reparación de Motor</a></li>
+                </ul>
+            </div>
+            
+            <!-- Enlaces rápidos -->
+            <div>
+                <h3 class="text-xl font-bold mb-4">Enlaces Rápidos</h3>
+                <ul class="space-y-2">
+                    <li><a href="https://comercioonline.github.io/CSR/Inicio" class="text-gray-300 hover:text-white transition">Inicio</a></li>
+                    <li><a href="#categorias" class="text-gray-300 hover:text-white transition">Categorías</a></li>
+                    <li><a href="#servicios" class="text-gray-300 hover:text-white transition">Servicios</a></li>
+                    <li><a href="#marcas" class="text-gray-300 hover:text-white transition">Marcas</a></li>
+                    <li><a href="#contact" class="text-gray-300 hover:text-white transition">Contacto</a></li>
+                </ul>
+            </div>
+            
+            <!-- Horarios de atención -->
+            <div>
+                <h3 class="text-xl font-bold mb-4">Horarios de Atención</h3>
+                <div class="bg-gray-700 p-4 rounded-lg mb-4">
+                    <div class="flex justify-between mb-2">
+                        <span class="text-gray-300">Ventas</span>
+                        <span>9:00 AM - 6:00 PM</span>
+                    </div>
+                    <div class="flex justify-between mb-2">
+                        <span class="text-gray-300">Taller</span>
+                        <span>8:00 AM - 5:00 PM</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-gray-300">Sábados</span>
+                        <span>9:00 AM - 1:00 PM</span>
+                    </div>
+                </div>
+                <div class="p-3 bg-blue-600 rounded-lg flex items-center">
+                    <i class="fas fa-phone-alt mr-2"></i>
+                    <span>Atención 24/7 para emergencias</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+            <p>&copy; IMPERIUM. Todos los derechos reservados.</p>
+            <div class="mt-2">
+                <a href="#" class="text-gray-400 hover:text-white mx-2">Términos y Condiciones</a>
+                <a href="#" class="text-gray-400 hover:text-white mx-2">Política de Privacidad</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
     <script>
-        // Productos con información detallada
+        // Productos de piezas de autos con información detallada
         const carParts = [
-            { 
-                id: 1, 
-                name: "Filtro de Aire", 
-                price: 25000, 
-                category: "motor", 
-                image: "https://picsum.photos/seed/filtro/300/200", 
-                stock: 50,
-                description: "Filtro de aire de alta calidad para motores de gasolina y diésel. Fabricado con materiales duraderos que garantizan una filtración óptima del aire.",
-                specifications: ["Compatible con la mayoría de vehículos", "Duración: 15,000 km", "Material: Papel filtrante de alta densidad"],
-                compatibleModels: ["Toyota Hilux 2015-2020", "Nissan NP300 2018-2023", "Mitsubishi L200 2017-2022"]
-            },
-            { 
-                id: 2, 
-                name: "Pastillas de Freno", 
-                price: 45000, 
-                category: "frenos", 
-                image: "https://picsum.photos/seed/frenos/300/200", 
-                stock: 30,
-                description: "Pastillas de freno de alto rendimiento con compuesto cerámico. Ofrecen una excelente respuesta y durabilidad superior.",
-                specifications: ["Tipo: Cerámico", "Material: Compuesto cerámico sin asbestos", "Resistencia al calor: hasta 450°C"],
-                compatibleModels: ["Toyota Corolla 2016-2021", "Honda Civic 2017-2022", "Mazda 3 2019-2023"]
-            },
-            { 
-                id: 3, 
-                name: "Batería 12V", 
-                price: 85000, 
-                category: "electricos", 
-                image: "https://picsum.photos/seed/bateria/300/200", 
-                stock: 20,
-                description: "Batería de 12V con tecnología de calcio-calcio para mayor duración y rendimiento en condiciones extremas.",
-                specifications: ["Capacidad: 60Ah", "CCA: 450A", "Garantía: 24 meses"],
-                compatibleModels: ["Toyota Yaris 2015-2020", "Suzuki Swift 2018-2023", "Hyundai i10 2017-2022"]
-            },
-            { 
-                id: 4, 
-                name: "Aceite Motor 5W-30", 
-                price: 18000, 
-                category: "motor", 
-                image: "https://picsum.photos/seed/aceite/300/200", 
-                stock: 100,
-                description: "Aceite motor sintético de alto rendimiento formulado para motores modernos. Protege contra el desgaste y mejora la eficiencia del combustible.",
-                specifications: ["Tipo: Sintético", "Viscosidad: 5W-30", "Capacidad: 1L"],
-                compatibleModels: ["Toyota Camry 2018-2023", "Honda CR-V 2017-2022", "Mazda CX-5 2019-2023"]
-            },
-            { 
-                id: 5, 
-                name: "Lámpara LED", 
-                price: 12000, 
-                category: "electricos", 
-                image: "https://picsum.photos/seed/led/300/200", 
-                stock: 80,
-                description: "Lámpara LED de alta eficiencia energética con 50,000 horas de vida útil. Ideal para iluminación interior y exterior.",
-                specifications: ["Potencia: 9W (equivalente a 60W)", "Temperatura de color: 6000K (blanco frío)", "IP65: Resistente al agua y polvo"],
-                compatibleModels: ["Toyota Hilux, Nissan NP300, Mitsubishi L200"]
-            },
-            { 
-                id: 6, 
-                name: "Discos de Freno", 
-                price: 35000, 
-                category: "frenos", 
-                image: "https://picsum.photos/seed/discos/300/200", 
-                stock: 25,
-                description: "Discos de freno ventilados de alta calidad fabricados con aleación de acero resistente al calor. Mejoran la capacidad de frenado.",
-                specifications: ["Material: Aleación de acero resistente al calor", "Diámetro: 296mm", "Grosor: 12mm"],
-                compatibleModels: ["Toyota Hilux 2015-2020", "Nissan Navara 2018-2023", "Mitsubishi L200 2017-2022"]
-            }
-        ];
+    { 
+        id: 1, 
+        name: "Motor Completo Lada 2107", 
+        price: 25000, 
+        category: "motor", 
+        image: "Imagenes de Piezas de Carro/Motor de lada1 2107.jpg", 
+        stock: 15,
+        description: "Motor completo para Lada 2107, incluye bomba de agua, alternador y compresor de aire. Motor 100% reconstruido con piezas nuevas.",
+        specifications: ["Cilindros: 4", "Cilindrada: 1.6L", "Potencia: 75 HP", "Tipo: Gasolina", "Material: Hierro fundido"],
+        features: ["Garantía 1 año", "Pistones nuevos", "Anillos de compresión nuevos", "Bielas reforzadas"],
+        compatibleModels: ["Lada 2107", "Lada 2105", "Lada 2104", "Lada 110"],
+        applications: ["Reemplazo completo", "Reconstrucción", "Tuning"]
+    },
+    { 
+        id: 2, 
+        name: "Radiador de Lada", 
+        price: 45000, 
+        category: "motor", 
+        image: "Imagenes de Piezas de Carro/Radiador de lada.jpg", 
+        stock: 25,
+        description: "Radiador de alta eficiencia para motores Lada, diseñado para mantener la temperatura óptima del motor en climas cálidos o recorridos prolongados.",
+        specifications: [
+            "Material: Aluminio con tanques plásticos",
+            "Dimensiones: 56 x 45 cm",
+            "Entrada/Salida: 32 mm",
+            "Capacidad: 4.2 litros"
+        ],
+        features: [
+            "Disipación de calor mejorada",
+            "Diseño anticorrosión",
+            "Instalación directa sin modificaciones",
+            "Compatible con anticongelantes modernos"
+        ],
+        compatibleModels: ["Lada 2101", "Lada 2105", "Lada 2107"],
+        applications: ["Reemplazo de radiador", "Mantenimiento preventivo", "Actualización de sistema de enfriamiento"]
+    },
+    { 
+        id: 3, 
+        name: "Filtro de Aire", 
+        price: 85000, 
+        category: "suspension", 
+        image: "Imagenes de Piezas de Carro/Filtro de Aire.jpg", 
+        stock: 20,
+        description: "Filtro de aire de alto flujo para una mejor combustión y rendimiento del motor, diseñado para vehículos Toyota y similares.",
+        specifications: [
+            "Material: Papel filtrante multicapa",
+            "Diámetro exterior: 200 mm",
+            "Altura: 65 mm",
+            "Eficiencia de filtrado: 99%"
+        ],
+        features: [
+            "Mayor flujo de aire",
+            "Retiene partículas finas",
+            "Instalación rápida",
+            "Durabilidad de hasta 20,000 km"
+        ],
+        compatibleModels: ["Toyota Corolla", "Toyota Hilux", "Toyota Camry"],
+        applications: ["Reemplazo de filtro de aire", "Mantenimiento preventivo", "Optimización de consumo de combustible"]
+    },
+    { 
+        id: 4, 
+        name: "Amortiguadores", 
+        price: 120000, 
+        category: "transmision", 
+        image: "Imagenes de Piezas de Carro/Amortiguadores.jpg", 
+        stock: 10,
+        description: "Juego de amortiguadores hidráulicos de alto desempeño para un manejo estable y seguro en todo tipo de terreno.",
+        specifications: [
+            "Tipo: Hidráulico a gas",
+            "Recorrido: 180 mm",
+            "Compatibilidad: Eje delantero",
+            "Material: Acero reforzado"
+        ],
+        features: [
+            "Absorción de impactos superior",
+            "Mayor confort en carretera",
+            "Protección contra fugas",
+            "Diseño anticorrosión"
+        ],
+        compatibleModels: ["Nissan Sentra", "Toyota Corolla", "Honda Civic"],
+        applications: ["Reemplazo de suspensión", "Mejora de estabilidad", "Reducción de vibraciones"]
+    },
+    { 
+        id: 5, 
+        name: "Caja de Velocidad de Lada", 
+        price: 35000, 
+        category: "embrague", 
+        image: "Imagenes de Piezas de Carro/caja de velocidad de Lada.jpg", 
+        stock: 30,
+        description: "Caja de cambios original de 5 velocidades para vehículos Lada, ideal para restauraciones o reparaciones completas.",
+        specifications: [
+            "Velocidades: 5 hacia adelante + reversa",
+            "Material: Aleación de aluminio",
+            "Sistema: Manual",
+            "Peso: 38 kg"
+        ],
+        features: [
+            "Engranajes reforzados",
+            "Sincronizadores de alta precisión",
+            "Montaje plug & play",
+            "Lubricación optimizada"
+        ],
+        compatibleModels: ["Lada 2107", "Lada 2105", "Lada Niva"],
+        applications: ["Reparación de transmisión", "Reemplazo por desgaste", "Restauración de vehículos clásicos"]
+    },
+    { 
+        id: 6, 
+        name: "Trasero Completo con Diferencial", 
+        price: 55000, 
+        category: "transmision", 
+        image: "Imagenes de Piezas de Carro/Trasero completo con diferencial.jpg", 
+        stock: 18,
+        description: "Eje trasero completo con diferencial para vehículos de tracción trasera, listo para instalación con engranajes calibrados.",
+        specifications: [
+            "Relación de diferencial: 3.90",
+            "Material: Acero templado",
+            "Incluye: Semiejes, rodamientos y sellos",
+            "Peso: 85 kg"
+        ],
+        features: [
+            "Montaje completo sin modificaciones",
+            "Alta resistencia a cargas pesadas",
+            "Lubricación sellada de fábrica",
+            "Reducción de ruido en la transmisión"
+        ],
+        compatibleModels: ["Chevrolet Silverado", "Ford F-150", "Dodge Ram"],
+        applications: ["Reemplazo de eje trasero", "Conversión de diferencial", "Proyectos de alto torque"]
+    }
+];
         
         let cart = [];
         let currentFilter = null;
+        
         // Inicializar página
         document.addEventListener('DOMContentLoaded', () => {
             renderProducts(carParts, 'car-parts-container');
             updateCartCount();
         });
+        
         // Renderizar productos
         function renderProducts(products, containerId) {
             const container = document.getElementById(containerId);
@@ -355,16 +819,69 @@
             
             filteredProducts.forEach(product => {
                 const productCard = document.createElement('div');
-                productCard.className = 'product-card bg-white rounded-lg shadow-lg overflow-hidden';
+                productCard.className = 'product-card bg-white rounded-lg shadow-lg overflow-hidden relative';
+                
+                // Determinar el color del badge según la categoría
+                let badgeColor, badgeText;
+                switch(product.category) {
+                    case 'motor':
+                        badgeColor = 'bg-blue-600';
+                        badgeText = 'Motor';
+                        break;
+                    case 'frenos':
+                        badgeColor = 'bg-blue-600';
+                        badgeText = 'Frenos';
+                        break;
+                    case 'suspension':
+                        badgeColor = 'bg-blue-600';
+                        badgeText = 'Suspensión';
+                        break;
+                    case 'transmision':
+                        badgeColor = 'bg-blue-600';
+                        badgeText = 'Transmisión';
+                        break;
+                    case 'embrague':
+                        badgeColor = 'bg-blue-600';
+                        badgeText = 'Embrague';
+                        break;
+                    case 'escape':
+                        badgeColor = 'bg-blue-600';
+                        badgeText = 'Escape';
+                        break;
+                    default:
+                        badgeColor = 'bg-gray-600';
+                        badgeText = 'Pieza';
+                }
+                
                 productCard.innerHTML = `
-                    <img src="${product.image}" alt="${product.name}" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">${product.name}</h3>
-                        <p class="text-gray-600 mb-4">Stock: ${product.stock} unidades</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-2xl font-bold text-blue-600">$${product.price.toLocaleString()}</span>
-                            <button onclick="showProductDetail(${product.id})" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">
-                                <i class="fas fa-info-circle mr-2"></i>Detalle
+                    <div class="relative overflow-hidden">
+                        <img src="${product.image}" alt="${product.name}" class="product-image w-full">
+                        <span class="stock-badge ${badgeColor} text-white text-xs font-bold px-2 py-1 rounded">
+                            ${product.stock} disponibles
+                        </span>
+                        <div class="price-tag bg-blue-600 text-white px-3 py-1 rounded-tl-lg rounded-br-lg">
+                            <span class="font-bold">$${product.price.toLocaleString()}</span>
+                        </div>
+                    </div>
+                    <div class="product-info p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-semibold text-gray-800">${product.name}</h3>
+                            <span class="category-badge ${badgeColor} text-white text-xs font-bold px-2 py-1 rounded">
+                                ${badgeText}
+                            </span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4 line-clamp-2">${product.description}</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            ${product.applications.slice(0, 3).map(app => 
+                                `<span class="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded">${app}</span>`
+                            ).join('')}
+                        </div>
+                        <div class="flex justify-between items-center mt-auto">
+                            <button onclick="showProductDetail(${product.id})" class="bg-gray-100 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-200 transition flex items-center">
+                                <i class="fas fa-info-circle mr-2"></i>Ver detalles
+                            </button>
+                            <button onclick="addToCart(${product.id})" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition flex items-center">
+                                <i class="fas fa-cart-plus mr-2"></i>Añadir
                             </button>
                         </div>
                     </div>
@@ -372,6 +889,7 @@
                 container.appendChild(productCard);
             });
         }
+        
         // Mostrar detalles del producto
         function showProductDetail(productId) {
             const product = carParts.find(p => p.id === productId);
@@ -382,57 +900,98 @@
             let specificationsHTML = '';
             let featuresHTML = '';
             let compatibleModelsHTML = '';
+            let applicationsHTML = '';
             
             // Mostrar especificaciones
-            if (product.specifications) {
-                specificationsHTML = `
-                    <h4 class="font-semibold text-lg mb-2">Especificaciones:</h4>
-                    <ul class="list-disc pl-5 mb-4">
-                        ${product.specifications.map(spec => `<li>${spec}</li>`).join('')}
-                    </ul>
-                `;
-            }
+            specificationsHTML = `
+                <h4 class="font-semibold text-lg mb-2">Especificaciones Técnicas:</h4>
+                <ul class="list-disc pl-5 mb-4">
+                    ${product.specifications.map(spec => `<li>${spec}</li>`).join('')}
+                </ul>
+            `;
             
             // Mostrar características
-            if (product.features) {
-                featuresHTML = `
-                    <h4 class="font-semibold text-lg mb-2">Características:</h4>
-                    <ul class="list-disc pl-5 mb-4">
-                        ${product.features.map(feature => `<li>${feature}</li>`).join('')}
-                    </ul>
-                `;
-            }
+            featuresHTML = `
+                <h4 class="font-semibold text-lg mb-2">Características:</h4>
+                <ul class="list-disc pl-5 mb-4">
+                    ${product.features.map(feature => `<li>${feature}</li>`).join('')}
+                </ul>
+            `;
             
             // Mostrar modelos compatibles
-            if (product.compatibleModels) {
-                compatibleModelsHTML = `
-                    <h4 class="font-semibold text-lg mb-2">Modelos Compatibles:</h4>
-                    <ul class="list-disc pl-5 mb-4">
-                        ${product.compatibleModels.map(model => `<li>${model}</li>`).join('')}
-                    </ul>
-                `;
+            compatibleModelsHTML = `
+                <h4 class="font-semibold text-lg mb-2">Modelos Compatibles:</h4>
+                <div class="flex flex-wrap gap-2 mb-4">
+                    ${product.compatibleModels.map(model => 
+                        `<span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">${model}</span>`
+                    ).join('')}
+                </div>
+            `;
+            
+            // Mostrar aplicaciones
+            applicationsHTML = `
+                <h4 class="font-semibold text-lg mb-2">Aplicaciones:</h4>
+                <div class="flex flex-wrap gap-2 mb-4">
+                    ${product.applications.map(app => 
+                        `<span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">${app}</span>`
+                    ).join('')}
+                </div>
+            `;
+            
+            // Determinar el color según la categoría
+            let badgeColor, badgeText;
+            switch(product.category) {
+                case 'motor':
+                    badgeColor = 'bg-blue-600';
+                    badgeText = 'Motor';
+                    break;
+                case 'frenos':
+                    badgeColor = 'bg-blue-600';
+                    badgeText = 'Frenos';
+                    break;
+                case 'suspension':
+                    badgeColor = 'bg-blue-600';
+                    badgeText = 'Suspensión';
+                    break;
+                case 'transmision':
+                    badgeColor = 'bg-blue-600';
+                    badgeText = 'Transmisión';
+                    break;
+                case 'embrague':
+                    badgeColor = 'bg-blue-600';
+                    badgeText = 'Embrague';
+                    break;
+                case 'escape':
+                    badgeColor = 'bg-blue-600';
+                    badgeText = 'Escape';
+                    break;
+                default:
+                    badgeColor = 'bg-gray-600';
+                    badgeText = 'Pieza';
             }
             
             detailContainer.innerHTML = `
                 <div class="grid md:grid-cols-2 gap-8">
                     <div>
-                        <img src="${product.image}" alt="${product.name}" class="w-full h-64 object-cover rounded-lg mb-4">
-                        <div class="bg-blue-50 p-4 rounded-lg">
+                        <img src="${product.image}" alt="${product.name}" class="w-full h-72 object-cover rounded-lg mb-4">
+                        <div class="bg-gray-50 p-4 rounded-lg">
                             <p class="text-sm text-gray-600 mb-1">Categoría</p>
-                            <p class="font-semibold">${product.category.charAt(0).toUpperCase() + product.category.slice(1)}</p>
+                            <span class="category-badge ${badgeColor} text-white text-sm font-bold px-3 py-1 rounded inline-block">
+                                ${badgeText}
+                            </span>
                         </div>
                     </div>
                     <div>
                         <h2 class="text-2xl font-bold mb-4">${product.name}</h2>
                         <p class="text-gray-700 mb-6">${product.description}</p>
                         
-                        <div class="mb-6">
+                        <div class="mb-6 bg-blue-50 p-4 rounded-lg">
                             <div class="flex justify-between items-center mb-2">
                                 <span class="text-gray-600">Precio:</span>
                                 <span class="text-2xl font-bold text-blue-600">$${product.price.toLocaleString()}</span>
                             </div>
                             <div class="flex justify-between items-center">
-                                <span class="text-gray-600">Stock disponible:</span>
+                                <span class="text-gray-600">Disponibilidad:</span>
                                 <span class="font-semibold">${product.stock} unidades</span>
                             </div>
                         </div>
@@ -440,6 +999,7 @@
                         ${specificationsHTML}
                         ${featuresHTML}
                         ${compatibleModelsHTML}
+                        ${applicationsHTML}
                         
                         <div class="flex gap-4 mt-6">
                             <button onclick="addToCartFromDetail(${product.id})" class="flex-1 bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition">
@@ -455,10 +1015,12 @@
             
             document.getElementById('detail-modal').style.display = 'block';
         }
+        
         // Cerrar modal de detalles
         function closeDetailModal() {
             document.getElementById('detail-modal').style.display = 'none';
         }
+        
         // Añadir al carrito desde el detalle
         function addToCartFromDetail(productId) {
             closeDetailModal();
@@ -482,7 +1044,8 @@
                 showNotification('Producto añadido al carrito', 'success');
             }
         }
-        // Añadir al carrito (función original para mantener compatibilidad)
+        
+        // Añadir al carrito
         function addToCart(productId) {
             const product = carParts.find(p => p.id === productId);
             
@@ -504,11 +1067,13 @@
                 showNotification('Producto añadido al carrito', 'success');
             }
         }
+        
         // Actualizar contador del carrito
         function updateCartCount() {
             const count = cart.reduce((total, item) => total + item.quantity, 0);
             document.getElementById('cart-count').textContent = count;
         }
+        
         // Mostrar carrito
         document.getElementById('cart-btn').addEventListener('click', () => {
             document.getElementById('cart-modal').classList.remove('hidden');
@@ -517,6 +1082,7 @@
             }, 10);
             renderCartItems();
         });
+        
         // Cerrar carrito
         function closeCart() {
             document.getElementById('cart-sidebar').classList.add('translate-x-full');
@@ -524,6 +1090,7 @@
                 document.getElementById('cart-modal').classList.add('hidden');
             }, 300);
         }
+        
         // Renderizar items del carrito
         function renderCartItems() {
             const cartItemsContainer = document.getElementById('cart-items');
@@ -568,6 +1135,7 @@
             
             cartTotal.textContent = `$${total.toLocaleString()}`;
         }
+        
         // Actualizar cantidad
         function updateQuantity(index, change) {
             const item = cart[index];
@@ -582,52 +1150,46 @@
             updateCartCount();
             renderCartItems();
         }
+        
         // Eliminar del carrito
         function removeFromCart(index) {
             cart.splice(index, 1);
             updateCartCount();
             renderCartItems();
         }
-        // Filtrar por categoría
-        function filterByCategory(category) {
-            currentFilter = category;
-            
-            // Resetear contenedor
-            document.getElementById('car-parts-container').innerHTML = '';
-            
-            // Renderizar productos filtrados
-            renderProducts(carParts, 'car-parts-container');
-        }
+        
         // Navegación suave
         function scrollToSection(sectionId) {
             document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
         }
+        
         // Menú móvil
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
             menu.classList.toggle('hidden');
         }
+        
         // Manejar formulario de contacto
         function sendContactWhatsApp(event) {
             event.preventDefault();
             
             // Obtener los datos del formulario
             const nombre = event.target[0].value;
-            const asunto = event.target[1].value;
+            const telefono = event.target[1].value;
             const opcion = event.target[2].value;
             const mensaje = event.target[3].value;
             
             // Construir el mensaje para WhatsApp
             let whatsappMessage = `Hola, soy ${nombre}.\n\n`;
-            whatsappMessage += `Asunto: ${asunto}\n`;
-            whatsappMessage += `Opción seleccionada: ${opcion}\n\n`;
+            whatsappMessage += `Teléfono: ${telefono}\n`;
+            whatsappMessage += `Servicio solicitado: ${opcion}\n\n`;
             whatsappMessage += `Mensaje:\n${mensaje}`;
             
             // Codificar el mensaje para URL
             const encodedMessage = encodeURIComponent(whatsappMessage);
             
             // Número de WhatsApp
-            const phoneNumber = '56578961';
+            const phoneNumber = '+529984136581';
             
             // Abrir WhatsApp Web
             window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
@@ -638,6 +1200,7 @@
             // Limpiar el formulario
             event.target.reset();
         }
+        
         // Notificaciones
         function showNotification(message, type) {
             const notification = document.createElement('div');
@@ -652,6 +1215,7 @@
                 notification.remove();
             }, 3000);
         }
+        
         // Mostrar formulario de WhatsApp
         function showWhatsAppForm() {
             if (cart.length === 0) {
@@ -686,26 +1250,32 @@
             // Mostrar el modal del formulario
             document.getElementById('whatsapp-form-modal').style.display = 'block';
         }
+        
         // Cerrar formulario de WhatsApp
         function closeWhatsAppForm() {
             document.getElementById('whatsapp-form-modal').style.display = 'none';
         }
+        
         // Enviar mensaje por WhatsApp
         function sendWhatsAppMessage(event) {
             event.preventDefault();
             
             // Obtener datos del formulario
             const nombre = document.getElementById('nombre').value;
-            const direccion = document.getElementById('direccion').value;
-            const carnet = document.getElementById('carnet').value;
+            const telefono = document.getElementById('telefono').value;
+            const marca = document.getElementById('marca').value;
+            const modelo = document.getElementById('modelo').value;
+            const año = document.getElementById('año').value;
+            const tipo_servicio = document.getElementById('tipo_servicio').value;
             const mensaje = document.getElementById('mensaje').value;
             
             // Generar mensaje para WhatsApp
             let whatsappMessage = `Hola, soy ${nombre}.\n\n`;
-            whatsappMessage += `Carnet de Identidad: ${carnet}\n`;
-            whatsappMessage += `Dirección: ${direccion}\n\n`;
+            whatsappMessage += `Teléfono: ${telefono}\n`;
+            whatsappMessage += `Vehículo: ${marca} ${modelo} (${año})\n`;
+            whatsappMessage += `Tipo de servicio: ${tipo_servicio}\n\n`;
             
-            whatsappMessage += `Productos que quiero comprar:\n\n`;
+            whatsappMessage += `Piezas solicitadas:\n\n`;
             
             let total = 0;
             cart.forEach(item => {
@@ -720,13 +1290,13 @@
                 whatsappMessage += `Mensaje adicional:\n${mensaje}\n\n`;
             }
             
-            whatsappMessage += `Por favor, confirmen la disponibilidad de estos productos y las condiciones de entrega.`;
+            whatsappMessage += `Por favor, confirmen la disponibilidad de estas piezas y las condiciones de instalación.`;
             
             // Codificar el mensaje para URL
             const encodedMessage = encodeURIComponent(whatsappMessage);
             
             // Número de WhatsApp
-            const phoneNumber = '56578961';
+            const phoneNumber = '+529984136581';
             
             // Abrir WhatsApp Web
             window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
@@ -743,6 +1313,7 @@
             // Actualizar stock de los productos
             updateProductStock();
         }
+        
         // Actualizar stock de productos
         function updateProductStock() {
             cart.forEach(item => {
@@ -759,17 +1330,20 @@
             // Actualizar la vista de productos
             renderProducts(carParts, 'car-parts-container');
         }
+        
         // Cerrar modales al hacer clic fuera
         document.getElementById('cart-modal').addEventListener('click', (e) => {
             if (e.target.id === 'cart-modal') {
                 closeCart();
             }
         });
+        
         document.getElementById('detail-modal').addEventListener('click', (e) => {
             if (e.target.id === 'detail-modal') {
                 closeDetailModal();
             }
         });
+        
         document.getElementById('whatsapp-form-modal').addEventListener('click', (e) => {
             if (e.target.id === 'whatsapp-form-modal') {
                 closeWhatsAppForm();
@@ -777,10 +1351,4 @@
         });
     </script>
 </body>
-
 </html>
-
-
-
-
-
