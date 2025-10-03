@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Servicios - CSR s.r.l.</title>
+    <title>Nosotros - CSR s.r.l.</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --primary-color: #1e3a8a;
@@ -36,6 +36,13 @@
             font-weight: bold;
             color: var(--primary-color) !important;
             font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .navbar-brand img {
+            height: 50px; /* Aumentado el tamaño del logo */
+            margin-right: 12px; /* Aumentado el margen */
         }
         
         .navbar-nav .nav-link {
@@ -70,6 +77,72 @@
             animation: float 20s infinite ease-in-out;
         }
         
+
+/* Footer Styles */
+footer {
+    background-color: #1f2937;
+    color: white;
+    padding: 60px 0 30px;
+}
+
+footer h3 {
+    color: white;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+footer ul li {
+    margin-bottom: 10px;
+}
+
+footer ul li a {
+    color: #9ca3af;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer ul li a:hover {
+    color: white;
+}
+
+footer .border-t {
+    border-top: 1px solid #374151;
+}
+
+footer .bg-gray-700 {
+    background-color: #374151;
+}
+
+footer .bg-blue-600 {
+    background-color: var(--secondary-color);
+}
+
+footer .text-gray-300 {
+    color: #d1d5db;
+}
+
+footer .text-gray-400 {
+    color: #9ca3af;
+}
+
+footer .text-gray-400:hover {
+    color: white;
+}
+
+footer .fab {
+    font-size: 1.2rem;
+    margin-right: 15px;
+}
+
+footer .fab:hover {
+    color: var(--accent-color);
+}
+
         @keyframes float {
             0%, 100% { transform: translateY(0) rotate(0deg); }
             50% { transform: translateY(-30px) rotate(180deg); }
@@ -355,28 +428,7 @@
             color: #fbbf24;
         }
         
-        /* Footer */
-        footer {
-            background: var(--text-dark);
-            color: white;
-            padding: 40px 0;
-            text-align: center;
-        }
-        
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
+
         /* Download Modal */
         .download-modal {
             display: none;
@@ -460,6 +512,11 @@
                 flex-direction: column;
                 gap: 20px;
             }
+            
+            .navbar-brand img {
+                height: 40px; /* Tamaño más pequeño para móviles */
+                margin-right: 8px; /* Margen más pequeño para móviles */
+            }
         }
         
         /* Animations */
@@ -494,7 +551,8 @@
     <nav class="navbar navbar-expand-lg navbar-light fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#inicio">
-                <i class="bi bi-building"></i> CSR s.r.l.
+                <img src="https://z-cdn-media.chatglm.cn/files/eacc73b2-2122-4c19-9553-dd6b06d2be00_Logo2.jpg?auth_key=1790430396-abc36b9bd8c349ef9d9a7dc13691e34d-0-a4a7e44781f0d1447a417d2e80143d68" alt="Logo CSR">
+                CSR s.r.l.
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -502,19 +560,19 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="https://comercioonline.github.io/CSR/Inicio">Inicio</a>
+                        <a class="nav-link" href="#inicio">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="https://comercioonline.github.io/CSR/Piezas%20de%20Auto">Piezas de Auto</a>
+                        <a class="nav-link active" href="#servicios">Piezas de Auto</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="https://comercioonline.github.io/CSR/venta%20de%20contenedores">Contenedores</a>
+                        <a class="nav-link" href="#nosotros">Contenedores</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="https://comercioonline.github.io/CSR/informacion">Informacion</a>
+                        <a class="nav-link" href="#contacto">Informacion</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="https://comercioonline.github.io/CSR/nosotros%20actualizado">Nosotros</a>
+                        <a class="nav-link" href="#contacto">Nosotros</a>
                     </li>
                 </ul>
             </div>
@@ -592,10 +650,10 @@
                             </ul>
                             <div class="service-gallery">
                                 <div class="gallery-item">
-                                    <img src="https://picsum.photos/seed/contenedor-venta1/200/120" alt="Contenedor refrigerado">
+                                    <img src="Imagenes de Contenedores/Contenedor Refrigerador.jpg" alt="Contenedor refrigerado">
                                 </div>
                                 <div class="gallery-item">
-                                    <img src="https://picsum.photos/seed/contenedor-venta2/200/120" alt="Contenedor seco">
+                                    <img src="Imagenes de Contenedores/Contenedor de 40ftt.jpg" alt="Contenedor seco">
                                 </div>
                             </div>
                         </div>
@@ -630,10 +688,10 @@
                             </ul>
                             <div class="service-gallery">
                                 <div class="gallery-item">
-                                    <img src="https://picsum.photos/seed/reparacion1/200/120" alt="Reparación de contenedor">
+                                    <img src="Imagenes de nosotros/mantenimiento y reparacion.png" alt="Reparación de contenedor">
                                 </div>
                                 <div class="gallery-item">
-                                    <img src="https://picsum.photos/seed/reparacion2/200/120" alt="Mantenimiento técnico">
+                                    <img src="Imagenes de nosotros/screenshot-4-container-repair-and-services-4-iizep.avif" alt="Mantenimiento técnico">
                                 </div>
                             </div>
                         </div>
@@ -660,18 +718,17 @@
                                 Amplio inventario de piezas y componentes de refrigeración para automóviles y vehículos comerciales.
                             </p>
                             <ul class="service-features">
-                                <li><i class="bi bi-check-circle-fill"></i> Compresores originales y compatibles</li>
-                                <li><i class="bi bi-check-circle-fill"></i> Condensadores y evaporadores</li>
-                                <li><i class="bi bi-check-circle-fill"></i> Termostatos y válvulas</li>
-                                <li><i class="bi bi-check-circle-fill"></i> Bobinas y filtros</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Filtros de Aire</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Radiador</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Motor de Lada 2107</li>
                                 <li><i class="bi bi-check-circle-fill"></i> Piezas para todas las marcas</li>
                             </ul>
                             <div class="service-gallery">
                                 <div class="gallery-item">
-                                    <img src="https://picsum.photos/seed/piezas1/200/120" alt="Compresores">
+                                    <img src="Imagenes de nosotros/motor de lada.jpg" alt="Compresores">
                                 </div>
                                 <div class="gallery-item">
-                                    <img src="https://picsum.photos/seed/piezas2/200/120" alt="Componentes">
+                                    <img src="Imagenes de nosotros/Radiador de lada.webp" alt="Componentes">
                                 </div>
                             </div>
                         </div>
@@ -713,7 +770,7 @@
                     </div>
                 </div>
                 <div class="about-image">
-                    <img src="https://picsum.photos/seed/equipo-tecnico/600/400" alt="Equipo técnico especializado">
+                    <img src="Imagenes de Nosotros/Imagen de WhatsApp 2025-09-19 a las 08.13.18_4766f49b.jpg" alt="">
                 </div>
             </div>
         </div>
@@ -772,7 +829,9 @@
                             <i class="bi bi-telephone-fill text-primary me-2" style="font-size: 1.5rem;"></i>
                             <div>
                                 <strong>Teléfono</strong>
-                                <p class="mb-0 text-muted">+53 7 123 4567</p>
+                                <p class="mb-0 text-muted">(E.a.m. De Jaegher) +52 998 4136581</p>
+                                <p class="mb-0 text-muted">(Lic. Raciel Rodríguez Temprana) +53 5 2493787</p>
+                                <p class="mb-0 text-muted">(Ing. Luis Carlos Triana Alonso) +53 50669462</p>
                             </div>
                         </div>
                     </div>
@@ -796,7 +855,7 @@
                                         <option value="">Selecciona un servicio</option>
                                         <option value="contenedores">Venta de Contenedores</option>
                                         <option value="reparacion">Reparación y Mantenimiento</option>
-                                        <option value="piezas">Venta de Piezas</option>
+                                        <option value="piezas">Venta de Piezas de Autos</option>
                                     </select>
                                 </div>
                                 <div class="mb-3">
@@ -814,37 +873,83 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="contact-info">
-                <div class="contact-item">
-                    <i class="bi bi-envelope-fill"></i>
-                    <span>csrhabana@gmail.com</span>
-                </div>
-                <div class="contact-item">
-                    <i class="bi bi-telephone-fill"></i>
-                    <span>+53 7 123 4567</span>
-                </div>
-                <div class="contact-item">
-                    <i class="bi bi-geo-alt-fill"></i>
-                    <span>Calle Principal 123, La Habana, Cuba</span>
+<!-- Footer -->
+<footer class="bg-dark text-white py-5">
+    <div class="container">
+        <div class="row">
+            <!-- Información de la empresa -->
+            <div class="col-md-3 mb-4">
+                <h3 class="fs-5 fw-bold mb-4">CSR s.r.l - Piezas Automotrices</h3>
+                <p class="text-light mb-4">Líder en venta e instalación de repuestos automotrices. Soluciones técnicas profesionales para tu vehículo.</p>
+                <div class="d-flex gap-3">
+                    <a href="#" class="text-light text-decoration-none">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="text-light text-decoration-none">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://wa.me/+529984136581" target="_blank" class="text-light text-decoration-none">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
                 </div>
             </div>
-            <hr class="my-4 bg-light">
-            <div class="row">
-                <div class="col-md-6 mb-4 mb-md-0">
-                    <h5 class="mb-3">CSR s.r.l.</h5>
-                    <p class="mb-0">Especialistas en soluciones de refrigeración industrial y contenedores desde 2006.</p>
-                    <p class="mb-0 mt-2"><em>"Para Hacerlo Todo Más Fácil"</em></p>
+            
+            <!-- Servicios -->
+            <div class="col-md-3 mb-4">
+                <h3 class="fs-5 fw-bold mb-4">Servicios</h3>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><a href="#" class="text-light text-decoration-none">Venta de Repuestos</a></li>
+                    <li class="mb-2"><a href="#" class="text-light text-decoration-none">Instalación Profesional</a></li>
+                    <li class="mb-2"><a href="#" class="text-light text-decoration-none">Diagnóstico Técnico</a></li>
+                    <li class="mb-2"><a href="#" class="text-light text-decoration-none">Mantenimiento Preventivo</a></li>
+                    <li class="mb-2"><a href="#" class="text-light text-decoration-none">Reparación de Motor</a></li>
+                </ul>
+            </div>
+            
+            <!-- Enlaces rápidos -->
+            <div class="col-md-3 mb-4">
+                <h3 class="fs-5 fw-bold mb-4">Enlaces Rápidos</h3>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><a href="https://comercioonline.github.io/CSR/Inicio" class="text-light text-decoration-none">Inicio</a></li>
+                    <li class="mb-2"><a href="#servicios" class="text-light text-decoration-none">Servicios</a></li>
+                    
+                </ul>
+            </div>
+            
+            <!-- Horarios de atención -->
+            <div class="col-md-3 mb-4">
+                <h3 class="fs-5 fw-bold mb-4">Horarios de Atención</h3>
+                <div class="bg-secondary p-3 rounded mb-4">
+                    <div class="d-flex justify-content-between mb-2">
+                        <span class="text-light">Ventas</span>
+                        <span>9:00 AM - 6:00 PM</span>
+                    </div>
+                    <div class="d-flex justify-content-between mb-2">
+                        <span class="text-light">Taller</span>
+                        <span>8:00 AM - 5:00 PM</span>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <span class="text-light">Sábados</span>
+                        <span>9:00 AM - 1:00 PM</span>
+                    </div>
                 </div>
-                <div class="col-md-6 text-md-end">
-                    <p class="mb-0">&copy; 2024 CSR s.r.l. Todos los derechos reservados.</p>
-                    <p class="mb-0 mt-1">Con más de 18 años de experiencia en el mercado nacional</p>
+                <div class="p-2 bg-primary rounded d-flex align-items-center">
+                    <i class="fas fa-phone-alt me-2"></i>
+                    <span>Atención 24/7 para emergencias</span>
                 </div>
             </div>
         </div>
-    </footer>
+        
+        <div class="border-top border-secondary mt-4 pt-4 text-center">
+            <p>&copy; IMPERIUM. Todos los derechos reservados.</p>
+            <div class="mt-2">
+                <a href="#" class="text-muted text-decoration-none me-2">Términos y Condiciones</a>
+                <a href="#" class="text-muted text-decoration-none">Política de Privacidad</a>
+            </div>
+        </div>
+    </div>
+</footer>
+   
 
     <!-- Download Modal -->
     <div class="download-modal" id="downloadModal">
@@ -963,7 +1068,7 @@
             const encodedMessage = encodeURIComponent(message);
             
             // Open WhatsApp
-            const whatsappUrl = `https://wa.me/56578961?text=${encodedMessage}`;
+            const whatsappUrl = `https://wa.me/529984136581?text=${encodedMessage}`;
             window.open(whatsappUrl, '_blank');
             
             // Reset form
@@ -1077,6 +1182,4 @@
         }
     </script>
 </body>
-
 </html>
-
