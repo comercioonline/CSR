@@ -24,11 +24,30 @@
         
         .product-card {
             transition: all 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
         
         .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+        
+        .product-image {
+            height: 240px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .product-card:hover .product-image {
+            transform: scale(1.05);
+        }
+        
+        .product-info {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
         }
         
         .category-badge {
@@ -56,10 +75,12 @@
             margin: 50px auto;
             padding: 30px;
             width: 90%;
-            max-width: 800px;
-            border-radius: 10px;
+            max-width: 900px;
+            border-radius: 12px;
             position: relative;
             animation: slideUp 0.3s ease-out;
+            max-height: 90vh;
+            overflow-y: auto;
         }
         
         @keyframes slideUp {
@@ -91,9 +112,23 @@
             padding: 30px;
             width: 90%;
             max-width: 800px;
-            border-radius: 10px;
+            border-radius: 12px;
             position: relative;
             animation: slideUp 0.3s ease-out;
+        }
+        
+        .stock-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 10;
+        }
+        
+        .price-tag {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            z-index: 10;
         }
     </style>
 </head>
@@ -103,14 +138,14 @@
         <div class="container mx-auto px-4">
             <div class="flex items-center justify-between h-16">
                 <div class="flex items-center">
-                    <i class="fas fa-car text-blue-600 text-2xl mr-3"></i>
+                   <img src="imagenes de Inicio/Logo2.jpg" alt="Logo CSR" class="h-10 w-auto mr-3">
                     <h1 class="text-xl font-bold text-gray-800">CSR s.r.l</h1>
                 </div>
                 
                 <nav class="hidden md:flex space-x-8">
                    
                     <a href="https://comercioonline.github.io/CSR/Inicio" class="text-gray-600 hover:text-blue-600 transition">Inicio</a>
-                    <a href="https://comercioonline.github.io/CSR/Piezas%20de%20Auto" class="text-gray-600 hover:text-blue-600 transition">Piezas Autos</a>
+                    <a href="https://comercioonline.github.io/CSR/Piezas%20de%20Auto" class="text-gray-600 hover:text-blue-600 transition">Piezas de Autos</a>
                     <a href="https://comercioonline.github.io/CSR/venta%20de%20contenedores" class="text-gray-600 hover:text-blue-600 transition">Contenedores</a>
                     <a href="#contact" class="text-gray-600 hover:text-blue-600 transition">Contacto</a>
                     <a href="https://comercioonline.github.io/CSR/informacion" class="text-gray-600 hover:text-blue-600 transition">Información</a>
@@ -155,34 +190,11 @@
             </div>
         </div>
     </section>
-    <!-- Categories -->
-    <section class="py-12 bg-white">
-        <div class="container mx-auto px-4">
-            <h3 class="text-2xl font-bold text-center mb-8">Categorías Populares</h3>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div class="category-badge bg-blue-100 p-4 rounded-lg text-center cursor-pointer hover:bg-blue-200" onclick="filterByCategory('motor')">
-                    <i class="fas fa-cog text-blue-600 text-2xl mb-2"></i>
-                    <p class="text-sm font-semibold">Motor</p>
-                </div>
-                <div class="category-badge bg-green-100 p-4 rounded-lg text-center cursor-pointer hover:bg-green-200" onclick="filterByCategory('frenos')">
-                    <i class="fas fa-circle text-green-600 text-2xl mb-2"></i>
-                    <p class="text-sm font-semibold">Frenos</p>
-                </div>
-                <div class="category-badge bg-purple-100 p-4 rounded-lg text-center cursor-pointer hover:bg-purple-200" onclick="filterByCategory('electricos')">
-                    <i class="fas fa-bolt text-purple-600 text-2xl mb-2"></i>
-                    <p class="text-sm font-semibold">Eléctricos</p>
-                </div>
-                <div class="category-badge bg-orange-100 p-4 rounded-lg text-center cursor-pointer hover:bg-orange-200" onclick="filterByCategory('contenedores')">
-                    <i class="fas fa-box text-orange-600 text-2xl mb-2"></i>
-                    <p class="text-sm font-semibold">Contenedores</p>
-                </div>
-            </div>
-        </div>
-    </section>
+   
     <!-- Car Parts Section -->
     <section id="car-parts" class="py-16">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12">Piezas para Automóviles</h2>
+            <h2 class="text-3xl font-bold text-center mb-12">Piezas para Automóviles más Vendidos</h2>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="car-parts-container">
                 <!-- Productos de piezas de autos se cargarán aquí -->
@@ -192,7 +204,7 @@
     <!-- Containers Section -->
     <section id="containers" class="py-16 bg-gray-100">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12">Contenedores para Almacenamiento</h2>
+            <h2 class="text-3xl font-bold text-center mb-12">Contenedores para Almacenamiento más Vendidos</h2>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="containers-container">
                 <!-- Productos de contenedores se cargarán aquí -->
@@ -215,7 +227,7 @@
                     </div>
                     <div>
                         <i class="fas fa-shield-alt text-4xl mb-4"></i>
-                        <h3 class="text-xl font-bold mb-2">Garantía 1 Año</h3>
+                        <h3 class="text-xl font-bold mb-2">Servicio de venta renta y reparación de contenedores y cámaras refrigeradas</h3>
                     </div>
                 </div>
             </div>
@@ -305,7 +317,7 @@
         </div>
     </div>
     <!-- Contact Section -->
-    <section id="contact" class="py-16 bg-gray-100">
+     <section id="contact" class="py-16 bg-gray-100">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-center mb-12">Contáctanos</h2>
             <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
@@ -314,19 +326,39 @@
                     <div class="space-y-4">
                         <div class="flex items-center">
                             <i class="fas fa-phone text-blue-600 mr-4"></i>
-                            <span>+53 56578961</span>
+                            <span>(E.a.m. De Jaegher)+53 53729090</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-phone text-blue-600 mr-4"></i>
+                            <span>(Lic. Raciel Rodríguez Temprana) +53 52493787</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-phone text-blue-600 mr-4"></i>
+                            <span>(Ing. Luis Carlos Triana Alonso) +53 50669462</span>
                         </div>
                         <div class="flex items-center">
                             <i class="fas fa-envelope text-blue-600 mr-4"></i>
-                            <span>Mundodigital930518@gmail.com</span>
+                            <span>csrdam@hotmail.com</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope text-blue-600 mr-4"></i>
+                            <span>csrhabana@gmail.com</span>
                         </div>
                         <div class="flex items-center">
                             <i class="fas fa-map-marker-alt text-blue-600 mr-4"></i>
-                            <span>Habana</span>
+                            <span>Habana, Cuba</span>
                         </div>
                         <div class="flex items-center">
                             <i class="fas fa-clock text-blue-600 mr-4"></i>
-                            <span>Lunes a Viernes: 8:00 AM - 6:00 PM</span>
+                            <span>Lunes a Viernes: 9:00 AM - 6:00 PM</span>
+                        </div>
+                         <div class="flex items-center">
+                            <i class="fas fa-tools text-blue-600 mr-4"></i>
+                            <span>Taller: 8:00 AM - 5:00 PM</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-globe text-blue-600 mr-4"></i>
+                            <span>Atención 24/7 para emergencias</span>
                         </div>
                     </div>
                 </div>
@@ -360,150 +392,178 @@
             </div>
         </div>
     </section>
+    
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-8">
-        <div class="container mx-auto px-4 text-center">
-            <p>&copy; Imperium. Todos los derechos reservados.</p>
+<footer class="bg-gray-800 text-white py-12">
+    <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <!-- Información de la empresa -->
+            <div>
+                <h3 class="text-xl font-bold mb-4">CSR s.r.l</h3>
+                <p class="text-gray-300 mb-4">Especialistas en piezas de automóviles y contenedores de calidad. Tu confianza es nuestra prioridad.</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-300 hover:text-white transition">
+                        <i class="fab fa-facebook-f text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-300 hover:text-white transition">
+                        <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                    <a href="https://wa.me/+529984136581" target="_blank" class="text-gray-300 hover:text-white transition">
+                        <i class="fab fa-whatsapp text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Contacto rápido -->
+            <div>
+                <h3 class="text-xl font-bold mb-4">Contacto Rápido</h3>
+                <div class="space-y-3">
+                    <div class="flex items-start">
+                        <i class="fas fa-phone-alt text-blue-400 mt-1 mr-3"></i>
+                        <div>
+                            <p class="text-gray-300">Teléfono</p>
+                            <p>+53 5 3729090</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <i class="fas fa-envelope text-blue-400 mt-1 mr-3"></i>
+                        <div>
+                            <p class="text-gray-300">Email</p>
+                            <p>csrdam@hotmail.com</p>
+                            <p>csrhabana@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <i class="fas fa-map-marker-alt text-blue-400 mt-1 mr-3"></i>
+                        <div>
+                            <p class="text-gray-300">Ubicación</p>
+                            <p>Habana, Cuba</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Enlaces rápidos -->
+            <div>
+                <h3 class="text-xl font-bold mb-4">Enlaces Rápidos</h3>
+                <ul class="space-y-2">
+                    <li><a href="https://comercioonline.github.io/CSR/Inicio" class="text-gray-300 hover:text-white transition">Inicio</a></li>
+                    <li><a href="https://comercioonline.github.io/CSR/Piezas%20de%20Auto" class="text-gray-300 hover:text-white transition">Piezas Autos</a></li>
+                    <li><a href="https://comercioonline.github.io/CSR/venta%20de%20contenedores" class="text-gray-300 hover:text-white transition">Contenedores</a></li>
+                    <li><a href="#contact" class="text-gray-300 hover:text-white transition">Contacto</a></li>
+                    <li><a href="https://comercioonline.github.io/CSR/informacion" class="text-gray-300 hover:text-white transition">Información</a></li>
+                    <li><a href="https://comercioonline.github.io/CSR/nosotros%20actualizado" class="text-gray-300 hover:text-white transition">Nosotros</a></li>
+                </ul>
+            </div>
+            
+            <!-- Horarios de atención -->
+            <div>
+                <h3 class="text-xl font-bold mb-4">Horarios de Atención</h3>
+                <div class="bg-gray-700 p-4 rounded-lg">
+                    <div class="flex justify-between mb-2">
+                        <span class="text-gray-300">Lunes a Viernes</span>
+                        <span>9:00 AM - 6:00 PM</span>
+                    </div>
+                    <div class="flex justify-between mb-2">
+                        <span class="text-gray-300">Sábados</span>
+                        <span>9:00 AM - 1:00 PM</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-gray-300">Domingos</span>
+                        <span>Cerrado</span>
+                    </div>
+                </div>
+                <div class="mt-4 p-3 bg-green-600 rounded-lg flex items-center">
+                    <i class="fas fa-phone-alt mr-2"></i>
+                    <span>Atención las 24 horas para consultas o reservas</span>
+                </div>
+            </div>
         </div>
-    </footer>
+        
+        <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+            <p>&copy; 2025 IMPERIUM. Todos los derechos reservados.</p>
+            <div class="mt-2">
+                <a href="#" class="text-gray-400 hover:text-white mx-2">Términos y Condiciones</a>
+                <a href="#" class="text-gray-400 hover:text-white mx-2">Política de Privacidad</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
     <script>
+        
         // Productos con información detallada
         const carParts = [
-            { 
-                id: 1, 
-                name: "Filtro de Aire", 
-                price: 25000, 
-                category: "motor", 
-                image: "https://picsum.photos/seed/filtro/300/200", 
-                stock: 50,
-                description: "Filtro de aire de alta calidad para motores de gasolina y diésel. Fabricado con materiales duraderos que garantizan una filtración óptima del aire.",
-                specifications: ["Compatible con la mayoría de vehículos", "Duración: 15,000 km", "Material: Papel filtrante de alta densidad"],
-                compatibleModels: ["Toyota Hilux 2015-2020", "Nissan NP300 2018-2023", "Mitsubishi L200 2017-2022"]
-            },
-            { 
-                id: 2, 
-                name: "Pastillas de Freno", 
-                price: 45000, 
-                category: "frenos", 
-                image: "https://picsum.photos/seed/frenos/300/200", 
-                stock: 30,
-                description: "Pastillas de freno de alto rendimiento con compuesto cerámico. Ofrecen una excelente respuesta y durabilidad superior.",
-                specifications: ["Tipo: Cerámico", "Material: Compuesto cerámico sin asbestos", "Resistencia al calor: hasta 450°C"],
-                compatibleModels: ["Toyota Corolla 2016-2021", "Honda Civic 2017-2022", "Mazda 3 2019-2023"]
-            },
-            { 
-                id: 3, 
-                name: "Batería 12V", 
-                price: 85000, 
-                category: "electricos", 
-                image: "https://picsum.photos/seed/bateria/300/200", 
-                stock: 20,
-                description: "Batería de 12V con tecnología de calcio-calcio para mayor duración y rendimiento en condiciones extremas.",
-                specifications: ["Capacidad: 60Ah", "CCA: 450A", "Garantía: 24 meses"],
-                compatibleModels: ["Toyota Yaris 2015-2020", "Suzuki Swift 2018-2023", "Hyundai i10 2017-2022"]
-            },
-            { 
-                id: 4, 
-                name: "Aceite Motor 5W-30", 
-                price: 18000, 
-                category: "motor", 
-                image: "https://picsum.photos/seed/aceite/300/200", 
-                stock: 100,
-                description: "Aceite motor sintético de alto rendimiento formulado para motores modernos. Protege contra el desgaste y mejora la eficiencia del combustible.",
-                specifications: ["Tipo: Sintético", "Viscosidad: 5W-30", "Capacidad: 1L"],
-                compatibleModels: ["Toyota Camry 2018-2023", "Honda CR-V 2017-2022", "Mazda CX-5 2019-2023"]
-            },
-            { 
-                id: 5, 
-                name: "Lámpara LED", 
-                price: 12000, 
-                category: "electricos", 
-                image: "https://picsum.photos/seed/led/300/200", 
-                stock: 80,
-                description: "Lámpara LED de alta eficiencia energética con 50,000 horas de vida útil. Ideal para iluminación interior y exterior.",
-                specifications: ["Potencia: 9W (equivalente a 60W)", "Temperatura de color: 6000K (blanco frío)", "IP65: Resistente al agua y polvo"],
-                compatibleModels: ["Toyota Hilux, Nissan NP300, Mitsubishi L200"]
-            },
-            { 
-                id: 6, 
-                name: "Discos de Freno", 
-                price: 35000, 
-                category: "frenos", 
-                image: "https://picsum.photos/seed/discos/300/200", 
-                stock: 25,
-                description: "Discos de freno ventilados de alta calidad fabricados con aleación de acero resistente al calor. Mejoran la capacidad de frenado.",
-                specifications: ["Material: Aleación de acero resistente al calor", "Diámetro: 296mm", "Grosor: 12mm"],
-                compatibleModels: ["Toyota Hilux 2015-2020", "Nissan Navara 2018-2023", "Mitsubishi L200 2017-2022"]
-            }
-        ];
-        const containers = [
-            { 
-                id: 7, 
-                name: "Contenedor 20ft Nuevo", 
-                price: 2500000, 
-                category: "contenedores", 
-                image: "https://picsum.photos/seed/container20/300/200", 
-                stock: 10,
-                description: "Contenedor estándar de 20 pies fabricado con acero de alta resistencia. Ideal para transporte y almacenamiento de mercancías.",
-                specifications: ["Capacidad: 33.1 m³", "Carga máxima: 28,200 kg", "Peso propio: 2,300 kg"],
-                features: ["Pintura exterior anti-corrosión", "Puertas de acero con triple cierre", "Certificado ISO"]
-            },
-            { 
-                id: 8, 
-                name: "Contenedor 40ft Usado", 
-                price: 1800000, 
-                category: "contenedores", 
-                image: "https://picsum.photos/seed/container40/300/200", 
-                stock: 15,
-                description: "Contenedor de 40 pies en buen estado de uso. Revisado y certificado para garantizar su seguridad y funcionalidad.",
-                specifications: ["Capacidad: 67.7 m³", "Carga máxima: 28,800 kg", "Peso propio: 3,800 kg"],
-                features: ["Estado: Bueno", "Certificado de inspección", "Ideal para almacenamiento prolongado"]
-            },
-            { 
-                id: 9, 
-                name: "Contenedor Refrigerado", 
-                price: 3200000, 
-                category: "contenedores", 
-                image: "https://picsum.photos/seed/containerfrigo/300/200", 
-                stock: 5,
-                description: "Contenedor refrigerado de última generación con sistema de control de temperatura digital. Mantiene productos perecederos en condiciones óptimas.",
-                specifications: ["Capacidad: 28.5 m³", "Rango de temperatura: -30°C a +30°C", "Motor: Carrier 4400"],
-                features: ["Control digital de temperatura", "Sistema de monitoreo remoto", "Certificado para transporte de alimentos"]
-            },
-            { 
-                id: 10, 
-                name: "Contenedor 10ft", 
-                price: 1200000, 
-                category: "contenedores", 
-                image: "https://picsum.photos/seed/container10/300/200", 
-                stock: 8,
-                description: "Contenedor pequeño de 10 pies perfecto para almacenamiento en espacios reducidos o para mercancías de bajo volumen.",
-                specifications: ["Capacidad: 16.8 m³", "Carga máxima: 10,000 kg", "Peso propio: 1,300 kg"],
-                features: ["Tamaño compacto", "Fácil de transportar", "Ideal para uso doméstico o pequeño negocio"]
-            },
-            { 
-                id: 11, 
-                name: "Contenedor Abierto", 
-                price: 1500000, 
-                category: "contenedores", 
-                image: "https://picsum.photos/seed/containeropen/300/200", 
-                stock: 12,
-                description: "Contenedor abierto superior para carga y descarga rápida. Ideal para mercancías que requieren acceso desde arriba.",
-                specifications: ["Capacidad: 32.6 m³", "Carga máxima: 26,500 kg", "Peso propio: 2,200 kg"],
-                features: ["Diseño abierto superior", "Lados reforzados", "Perfecto para grúas y montacargas"]
-            },
-            { 
-                id: 12, 
-                name: "Contenedor Plegable", 
-                price: 900000, 
-                category: "contenedores", 
-                image: "https://picsum.photos/seed/containerfold/300/200", 
-                stock: 20,
-                description: "Contenedor plegable que ocupa mínimo espacio cuando está vacío. Ideal para almacenamiento temporal o transporte de mercancías.",
-                specifications: ["Capacidad: 15.2 m³", "Carga máxima: 1,500 kg", "Plegado: 30% del volumen original"],
-                features: ["Sistema de plegado rápido", "Resistente a la intemperie", "Económico y práctico"]
-            },
-                   ];
+    { 
+        id: 1, 
+        name: "Motor de Lada 2107", 
+        price: 0, 
+        category: "motor", 
+        image: "Imagenes de Piezas de Carro/Motor de lada1 2107.jpg", 
+        stock: 50,
+        description: "Motor de 4 cilindros, 1.6L, 8 válvulas refrigerado por agua. Compatible con modelos Lada 2107, 2105, 2104 y otros vehículos con motor VAZ-2106. Ofrece alto rendimiento con bajo consumo de combustible y durabilidad probada en condiciones extremas.",
+        specifications: ["Potencia: 75 HP", "Tipo: Gasolina", "Material: Hierro fundido", "Certificado: ISO 9001"],
+        compatibleModels: ["Lada 2107", "Lada 2105", "Lada 2104", "Fiat 124"]
+    },
+    { 
+        id: 2, 
+        name: "Radiador de Lada", 
+        price: 0, 
+        category: "motor", 
+        image: "Imagenes de Piezas de Carro/Radiador de Lada.jpg", 
+        stock: 0,
+        description: "Radiador de aluminio con núcleos de cobre, capacidad 6.5 litros. Diseñado para sistemas de enfriamiento de vehículos Lada y algunos modelos de Fiat. Mejora la eficiencia del motor, previene sobrecalentamiento y prolonga su vida útil.",
+        specifications: ["Capacidad: 6.5 litros", "Material: Aluminio con núcleos de cobre", "Presión: 1.1 bar", "Resistencia: Corrosión"],
+        compatibleModels: ["Lada 2107", "Lada 2105", "Fiat 124", "ZAZ 1102"]
+    },
+    { 
+        id: 3, 
+        name: "Filtro de Aire", 
+        price: 0, 
+        category: "motor", 
+        image: "Imagenes de Piezas de Carro/Filtro de Aire.jpg", 
+        stock: 20,
+        description: "Filtro de aire universal con papel filtrante de alta densidad. Compatible con motores de gasolina y diésel de vehículos ligeros. Protege el motor de partículas dañinas, mejora la eficiencia del combustible y prolonga la vida del motor.",
+        specifications: ["Material: Papel filtrante de alta densidad", "Porosidad: 10-15 micrones", "Duración: 15,000 km", "Tipo: Universal"],
+        compatibleModels: ["Toyota Hilux", "Nissan NP300", "Mitsubishi L200", "Chevrolet Colorado"]
+    },
+];
+
+const containers = [
+    { 
+        id: 7, 
+        name: "Contenedor 20ft Nuevo", 
+        price: 0, 
+        category: "contenedores", 
+        image: "Imagenes de Contenedores/Contenedor de 20ftt.jpg", 
+        stock: 10,
+        description: "Contenedor estándar de acero de alta resistencia. Dimensiones 6.1m x 2.44m x 2.59m con capacidad de carga de 28,200 kg. Compatible con sistemas de transporte marítimo y terrestre, ideal para almacenamiento y transporte de mercancías.",
+        specifications: ["Dimensiones: 6.1m x 2.44m x 2.59m", "Capacidad: 33.1 m³", "Carga máxima: 28,200 kg", "Peso propio: 2,300 kg"],
+        features: ["Pintura exterior anti-corrosión", "Puertas de acero con triple cierre", "Certificado ISO", "Sistema de ventilación"]
+    },
+    { 
+        id: 8, 
+        name: "Contenedor 40ft Usado", 
+        price: 0, 
+        category: "contenedores", 
+        image: "Imagenes de Contenedores/Contenedor de 40ftt.jpg", 
+        stock: 15,
+        description: "Contenedor de 40 pies en buen estado de uso. Dimensiones 12.2m x 2.44m x 2.59m con capacidad de carga de 28,800 kg. Compatible con sistemas logísticos globales, ideal para almacenamiento a largo plazo.",
+        specifications: ["Dimensiones: 12.2m x 2.44m x 2.59m", "Capacidad: 67.7 m³", "Carga máxima: 28,800 kg", "Peso propio: 3,800 kg"],
+        features: ["Estado: Bueno", "Certificado de inspección", "Ideal para almacenamiento prolongado", "Sistema de seguridad reforzado"]
+    },
+    { 
+        id: 9, 
+        name: "Contenedor Refrigerado", 
+        price: 0, 
+        category: "contenedores", 
+        image: "Imagenes de Contenedores/Contenedor Refrigerador.jpg", 
+        stock: 5,
+        description: "Contenedor refrigerado de última generación con sistema Carrier. Rango de temperatura -30°C a +30°C, capacidad 28.5 m³. Diseñado para productos perecedibles con monitoreo remoto y certificación para alimentos.",
+        specifications: ["Capacidad: 28.5 m³", "Rango de temperatura: -30°C a +30°C", "Motor: Carrier 4400", "Certificado: Alimentos"],
+        features: ["Control digital de temperatura", "Sistema de monitoreo remoto", "Certificado para transporte de alimentos", "Eficiencia energética"]
+    },
+];
         let cart = [];
         let currentFilter = null;
         // Inicializar página
@@ -523,16 +583,35 @@
             
             filteredProducts.forEach(product => {
                 const productCard = document.createElement('div');
-                productCard.className = 'product-card bg-white rounded-lg shadow-lg overflow-hidden';
+                productCard.className = 'product-card bg-white rounded-lg shadow-lg overflow-hidden relative';
+                
+                // Determinar el color del badge según la categoría
+                const badgeColor = product.category === 'motor' ? 'bg-blue-500' : 'bg-green-500';
+                
                 productCard.innerHTML = `
-                    <img src="${product.image}" alt="${product.name}" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">${product.name}</h3>
-                        <p class="text-gray-600 mb-4">Stock: ${product.stock} unidades</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-2xl font-bold text-blue-600">$${product.price.toLocaleString()}</span>
-                            <button onclick="showProductDetail(${product.id})" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">
-                                <i class="fas fa-info-circle mr-2"></i>Detalle
+                    <div class="relative overflow-hidden">
+                        <img src="${product.image}" alt="${product.name}" class="product-image w-full">
+                        <span class="stock-badge ${badgeColor} text-white text-xs font-bold px-2 py-1 rounded">
+                            Stock: ${product.stock}
+                        </span>
+                        <div class="price-tag bg-blue-600 text-white px-3 py-1 rounded-tl-lg rounded-br-lg">
+                            <span class="font-bold">$${product.price.toLocaleString()}</span>
+                        </div>
+                    </div>
+                    <div class="product-info p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-semibold text-gray-800">${product.name}</h3>
+                            <span class="category-badge ${badgeColor} text-white text-xs font-bold px-2 py-1 rounded">
+                                ${product.category === 'motor' ? 'Motor' : 'Contenedor'}
+                            </span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4 line-clamp-2">${product.description}</p>
+                        <div class="flex justify-between items-center mt-auto">
+                            <button onclick="showProductDetail(${product.id})" class="bg-gray-100 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-200 transition flex items-center">
+                                <i class="fas fa-info-circle mr-2"></i>Ver detalles
+                            </button>
+                            <button onclick="addToCart(${product.id})" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition flex items-center">
+                                <i class="fas fa-cart-plus mr-2"></i>Añadir
                             </button>
                         </div>
                     </div>
@@ -582,20 +661,25 @@
                 `;
             }
             
+            // Determinar el color según la categoría
+            const badgeColor = product.category === 'motor' ? 'bg-blue-500' : 'bg-green-500';
+            
             detailContainer.innerHTML = `
                 <div class="grid md:grid-cols-2 gap-8">
                     <div>
                         <img src="${product.image}" alt="${product.name}" class="w-full h-64 object-cover rounded-lg mb-4">
-                        <div class="bg-blue-50 p-4 rounded-lg">
+                        <div class="bg-gray-50 p-4 rounded-lg">
                             <p class="text-sm text-gray-600 mb-1">Categoría</p>
-                            <p class="font-semibold">${product.category.charAt(0).toUpperCase() + product.category.slice(1)}</p>
+                            <span class="category-badge ${badgeColor} text-white text-xs font-bold px-2 py-1 rounded inline-block">
+                                ${product.category === 'motor' ? 'Motor' : 'Contenedor'}
+                            </span>
                         </div>
                     </div>
                     <div>
                         <h2 class="text-2xl font-bold mb-4">${product.name}</h2>
                         <p class="text-gray-700 mb-6">${product.description}</p>
                         
-                        <div class="mb-6">
+                        <div class="mb-6 bg-blue-50 p-4 rounded-lg">
                             <div class="flex justify-between items-center mb-2">
                                 <span class="text-gray-600">Precio:</span>
                                 <span class="text-2xl font-bold text-blue-600">$${product.price.toLocaleString()}</span>
@@ -800,7 +884,7 @@
             const encodedMessage = encodeURIComponent(whatsappMessage);
             
             // Número de WhatsApp
-            const phoneNumber = '56578961';
+            const phoneNumber = '+52 998 4136581';
             
             // Abrir WhatsApp Web
             window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
@@ -899,7 +983,7 @@
             const encodedMessage = encodeURIComponent(whatsappMessage);
             
             // Número de WhatsApp
-            const phoneNumber = '56578961';
+            const phoneNumber = '+529984136581';
             
             // Abrir WhatsApp Web
             window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
@@ -953,8 +1037,3 @@
 </body>
 
 </html>
-
-
-
-
-
