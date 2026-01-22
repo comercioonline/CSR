@@ -4,56 +4,149 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CSR s.r.l - Piezas, Mantenimiento y Contenedores</title>
+    <meta name="description" content="CSR s.r.l - Soluciones integrales en piezas automotrices, mantenimiento vehicular y contenedores de calidad. Servicio profesional en Cuba.">
+    <meta name="keywords" content="piezas autos, mantenimiento vehicular, contenedores, CSR, Lada, Toyota, reparación, Cuba">
+    <meta name="author" content="CSR s.r.l">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="CSR s.r.l - Soluciones Integrales Automotrices">
+    <meta property="og:description" content="Piezas de calidad, mantenimiento profesional y contenedores para todas tus necesidades">
+    <meta property="og:image" content="https://z-cdn-media.chatglm.cn/files/4099c465-4741-470c-be8c-f772150dc24a_portada%20del%20inicio.png">
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary-color: #0056b3;
-            --secondary-color: #ffffff;
-            --accent-color: #007bff;
-            --light-bg: #f8f9fa;
-            --dark-text: #212529;
+            --primary-dark: #004494;
+            --secondary-color: #28a745;
+            --accent-color: #ffc107;
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+            --gray-color: #6c757d;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: var(--dark-text);
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--dark-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
         }
+
+        /* Navbar Styles */
         .navbar {
-            box-shadow: 0 2px 4px rgba(0,0,0,.1);
-            background-color: var(--primary-color) !important;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            transition: var(--transition);
         }
+
+        .navbar.scrolled {
+            padding: 0.5rem 0;
+            background: rgba(0, 86, 179, 0.98);
+        }
+
         .navbar-brand {
-            font-weight: bold;
-            font-size: 1.5rem;
+            font-weight: 700;
+            font-size: 1.8rem;
             color: white !important;
             display: flex;
             align-items: center;
+            transition: var(--transition);
         }
+
+        .navbar-brand:hover {
+            transform: translateY(-2px);
+        }
+
         .logo-img {
-            height: 40px;
-            margin-right: 10px;
+            height: 45px;
+            width: 45px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-right: 12px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: var(--transition);
         }
+
+        .navbar-brand:hover .logo-img {
+            border-color: white;
+            transform: rotate(5deg);
+        }
+
         .navbar-nav .nav-link {
-            color: rgba(255,255,255,0.8) !important;
+            color: rgba(255, 255, 255, 0.9) !important;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            margin: 0 0.2rem;
+            border-radius: 8px;
+            transition: var(--transition);
+            position: relative;
         }
+
+        .navbar-nav .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: white;
+            transition: var(--transition);
+            transform: translateX(-50%);
+        }
+
         .navbar-nav .nav-link:hover {
             color: white !important;
+            background: rgba(255, 255, 255, 0.1);
         }
+
+        .navbar-nav .nav-link:hover::after {
+            width: 80%;
+        }
+
+        .navbar-toggler {
+            border: none;
+            padding: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: none;
+            outline: none;
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.9%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+
+        /* Hero Section */
         .hero-section {
-            background-image: url('https://z-cdn-media.chatglm.cn/files/4099c465-4741-470c-be8c-f772150dc24a_portada%20del%20inicio.png?auth_key=1790860948-4bb99dc4bf104f8abd236d7550eec704-0-a6973d7bbc341ab0bc4e37e671ed7754');
-            background-size: contain;
-            background-position: center center;
-            background-repeat: no-repeat;
-            background-attachment: scroll;
-            background-color: #0a2540;
+            background: linear-gradient(135deg, rgba(0, 86, 179, 0.9), rgba(0, 68, 148, 0.9)),
+                        url('https://z-cdn-media.chatglm.cn/files/4099c465-4741-470c-be8c-f772150dc24a_portada%20del%20inicio.png?auth_key=1790860948-4bb99dc4bf104f8abd236d7550eec704-0-a6973d7bbc341ab0bc4e37e671ed7754');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             color: white;
-            padding: 120px 0;
-            position: relative;
-            overflow: hidden;
             min-height: 100vh;
             display: flex;
             align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding: 80px 0;
         }
+
         .hero-section::before {
             content: '';
             position: absolute;
@@ -61,247 +154,635 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to right, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.1) 100%);
+            background: linear-gradient(45deg, rgba(0, 86, 179, 0.3), rgba(0, 68, 148, 0.3));
             z-index: 1;
         }
-        .hero-section .container {
+
+        .hero-content {
             position: relative;
             z-index: 2;
         }
-        .hero-section::after {
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(45deg, white, #e3f2fd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-text {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 600px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .btn-hero {
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .btn-hero-primary {
+            background: white;
+            color: var(--primary-color);
+            border: 2px solid white;
+        }
+
+        .btn-hero-primary:hover {
+            background: transparent;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-hero-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-hero-outline:hover {
+            background: white;
+            color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 255, 255, 0.2);
+        }
+
+        .hero-icon {
+            font-size: 12rem;
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+            position: absolute;
+            right: 5%;
+            bottom: 10%;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        /* Sections Common Styles */
+        .section-padding {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
             content: '';
             position: absolute;
-            bottom: -1px;
+            bottom: -10px;
             left: 0;
-            width: 100%;
-            height: 120px;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23f8f9fa" fill-opacity="1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,133.3C960,128,1056,96,1152,90.7C1248,85,1344,107,1392,117.3L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat;
-            background-size: cover;
-            z-index: 1;
+            width: 60px;
+            height: 4px;
+            background: var(--primary-color);
+            border-radius: 2px;
         }
-        @keyframes wave {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--gray-color);
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
-        .section-padding {
-            padding: 80px 0;
-        }
-        .service-card {
+
+        /* FAQ Styles */
+        .faq-accordion .accordion-item {
             border: none;
+            margin-bottom: 1rem;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+
+        .faq-accordion .accordion-item:hover {
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .faq-accordion .accordion-button {
+            background: white;
+            color: var(--dark-color);
+            font-weight: 600;
+            padding: 1.5rem;
+            border: none;
+            box-shadow: none;
+        }
+
+        .faq-accordion .accordion-button:not(.collapsed) {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .faq-accordion .accordion-button::after {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%230056b3'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+            transition: var(--transition);
+        }
+
+        .faq-accordion .accordion-button:not(.collapsed)::after {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+        }
+
+        .faq-accordion .accordion-body {
+            padding: 1.5rem;
+            background: var(--light-color);
+            color: var(--dark-color);
+            line-height: 1.8;
+        }
+
+        /* Payment Methods */
+        .payment-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+            height: 100%;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .payment-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .payment-icon-large {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+            height: 80px;
+            width: 80px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 86, 179, 0.1);
+            border-radius: 50%;
+        }
+
+        /* Services Cards */
+        .service-card {
+            background: white;
             border-radius: 15px;
             overflow: hidden;
-            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
             height: 100%;
+            border: 1px solid rgba(0, 0, 0, 0.05);
         }
+
         .service-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
         }
+
         .service-icon {
-            width: 80px;
-            height: 80px;
-            background: var(--accent-color);
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
+            font-size: 1.8rem;
             color: white;
-            margin-bottom: 20px;
-        }
-        .faq-item {
-            margin-bottom: 15px;
-            border: 1px solid #e0e0e0;
-            border-radius: 10px;
-            overflow: hidden;
-        }
-        .faq-question {
-            background: var(--light-bg);
-            padding: 20px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: background 0.3s;
-        }
-        .faq-question:hover {
-            background: #e9ecef;
-        }
-        .faq-answer {
-            padding: 0 20px;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s, padding 0.3s;
-        }
-        .faq-answer.active {
-            padding: 20px;
-            max-height: 300px;
-        }
-        .contact-section {
-            background: var(--light-bg);
-        }
-        .payment-methods {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        .payment-icon {
-            width: 60px;
-            height: 40px;
-            background: white;
-            border-radius: 5px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-        .payment-icon:hover {
-            transform: scale(1.1);
-        }
-        .footer {
-            background: var(--primary-color);
-            color: white;
-            padding: 40px 0 20px;
-        }
-        .social-links a {
-            color: white;
-            font-size: 1.5rem;
-            margin: 0 10px;
-            transition: color 0.3s;
-        }
-        .social-links a:hover {
-            color: var(--accent-color);
-        }
-        .btn-primary {
-            background-color: var(--primary-color);
-            border-color: var(--primary-color);
-        }
-        .btn-primary:hover {
-            background-color: #004494;
-            border-color: #003d85;
-        }
-        .badge-new {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: var(--accent-color);
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-weight: bold;
-        }
-        .hero-title {
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.9);
-            font-weight: 700;
             margin-bottom: 1.5rem;
-            line-height: 1.2;
+            transition: var(--transition);
         }
-        .hero-text {
-            text-shadow: 1px 1px 6px rgba(0,0,0,0.8);
-            font-size: 1.25rem;
-            margin-bottom: 2rem;
-            line-height: 1.6;
+
+        .service-card:hover .service-icon {
+            transform: scale(1.1) rotate(10deg);
         }
-        .hero-buttons {
-            margin-top: 2rem;
+
+        /* Contact Form */
+        .contact-form-card {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.05);
         }
-        .btn-light {
-            font-weight: 600;
-            padding: 12px 30px;
-            border-radius: 50px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            transition: all 0.3s ease;
-        }
-        .btn-light:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
-        }
-        .btn-outline-light {
-            font-weight: 600;
-            padding: 12px 30px;
-            border-radius: 50px;
-            border-width: 2px;
-            transition: all 0.3s ease;
-        }
-        .btn-outline-light:hover {
-            background-color: rgba(255,255,255,0.9);
-            color: var(--primary-color);
-            transform: translateY(-2px);
-        }
-        .hero-icon {
-            opacity: 0.15;
-            animation: float 3s ease-in-out infinite;
-        }
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-            100% { transform: translateY(0px); }
-        }
-        /* Estilos para centrar y mover a la derecha la sección de Enlaces Rápidos */
-        .quick-links {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding-left: 20px;
-        }
-        .quick-links h5 {
-            text-align: center;
-        }
-        .quick-links ul {
-            text-align: center;
+
+        .contact-form-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
         }
-        /* Estilos para el formulario de contacto */
+
+        .form-control, .form-select {
+            padding: 1rem;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
         .form-control:focus, .form-select:focus {
             border-color: var(--primary-color);
             box-shadow: 0 0 0 0.25rem rgba(0, 86, 179, 0.25);
+            transform: translateY(-2px);
         }
+
+        .form-label {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--dark-color);
+        }
+
+        .btn-submit {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: white;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 86, 179, 0.3);
+            color: white;
+        }
+
         .loading-spinner {
             display: none;
+            width: 1.5rem;
+            height: 1.5rem;
+            border-width: 2px;
         }
-        .form-message {
+
+        .alert-message {
             display: none;
-            margin-top: 20px;
-            padding: 15px;
-            border-radius: 5px;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-top: 1rem;
+            animation: fadeInUp 0.3s ease-out;
         }
-        .form-message.success {
-            background-color: #d4edda;
+
+        .alert-success {
+            background: #d4edda;
             color: #155724;
             border: 1px solid #c3e6cb;
         }
-        .form-message.error {
-            background-color: #f8d7da;
+
+        .alert-error {
+            background: #f8d7da;
             color: #721c24;
             border: 1px solid #f5c6cb;
         }
-        @media (max-width: 768px) {
-            .hero-section {
-                padding: 100px 0;
-                min-height: auto;
-            }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
+            color: white;
+            padding: 80px 0 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+        }
+
+        .footer h5 {
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer h5::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: white;
+            border-radius: 2px;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .contact-info {
+            list-style: none;
+            padding: 0;
+        }
+
+        .contact-info li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .contact-info i {
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            margin-top: 2px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: white;
+            color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 3rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Stats Counter */
+        .stats-counter {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: white;
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats-counter::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.05" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-size: cover;
+            opacity: 0.1;
+        }
+
+        .stat-item {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+
+        .stat-text {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            font-weight: 500;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: var(--transition);
+            opacity: 0;
+            visibility: hidden;
+            z-index: 1000;
+            box-shadow: 0 5px 15px rgba(0, 86, 179, 0.3);
+            border: none;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 86, 179, 0.4);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
             .hero-title {
-                font-size: 2.5rem;
+                font-size: 2.8rem;
             }
+            
+            .hero-icon {
+                font-size: 8rem;
+                position: relative;
+                margin-top: 2rem;
+            }
+            
+            .section-padding {
+                padding: 70px 0;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
             .hero-text {
                 font-size: 1.1rem;
             }
+            
+            .btn-hero {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+            }
+            
             .hero-buttons {
                 flex-direction: column;
-                gap: 1rem !important;
+                gap: 1rem;
             }
-            .btn-light, .btn-outline-light {
-                width: 100%;
+            
+            .section-title {
+                font-size: 2rem;
             }
-            .quick-links {
-                padding-left: 0;
+            
+            .contact-form-card {
+                padding: 2rem;
+            }
+            
+            .stat-number {
+                font-size: 2.5rem;
+            }
+            
+            .footer {
+                padding: 60px 0 20px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 1.8rem;
+            }
+            
+            .navbar-brand {
+                font-size: 1.5rem;
+            }
+            
+            .logo-img {
+                height: 35px;
+                width: 35px;
+            }
+            
+            .section-padding {
+                padding: 50px 0;
+            }
+            
+            .contact-form-card {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            .navbar,
+            .hero-buttons,
+            .contact-form,
+            .social-links,
+            .back-to-top {
+                display: none;
+            }
+            
+            body {
+                font-size: 12pt;
+                color: black;
+            }
+            
+            .hero-section {
+                background: none;
+                color: black;
+                min-height: auto;
+            }
+            
+            .section-padding {
+                padding: 20px 0;
             }
         }
     </style>
 </head>
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#">
                 <img src="https://z-cdn-media.chatglm.cn/files/d9c89b91-b856-4acf-8450-e072c541e382_Logo2.jpg?auth_key=1790859837-7974133e8a0e4120a5ab7f5b1a481506-0-8c4fc327b78809b9354ec9de5e4907a2" alt="CSR Logo" class="logo-img">
@@ -322,7 +803,7 @@
                         <a class="nav-link" href="https://comercioonline.github.io/CSR/venta%20de%20contenedores">Contenedores</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="https://comercioonline.github.io/CSR/informacion">Informacion</a>
+                        <a class="nav-link" href="https://comercioonline.github.io/CSR/informacion">Información</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="https://comercioonline.github.io/CSR/nosotros%20actualizado">Nosotros</a>
@@ -331,274 +812,330 @@
             </div>
         </div>
     </nav>
+
     <!-- Hero Section -->
     <section id="inicio" class="hero-section">
-        <div class="container position-relative">
+        <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <h1 class="display-4 fw-bold mb-4 hero-title">Tu Solución Integral para Automóviles y Contenedores</h1>
-                    <p class="lead mb-4 hero-text">Ofrecemos piezas de alta calidad, servicios de mantenimiento profesional y contenedores para todas tus necesidades.</p>
-                    <div class="d-flex gap-3 hero-buttons">
-                        <a href="#contacto" class="btn btn-light btn-lg">
+                <div class="col-lg-6 hero-content">
+                    <h1 class="hero-title animate-fade-in">Tu Solución Integral para Automóviles y Contenedores</h1>
+                    <p class="hero-text animate-fade-in">Ofrecemos piezas de alta calidad, servicios de mantenimiento profesional y contenedores para todas tus necesidades. Más de 15 años de experiencia en el sector automotriz.</p>
+                    <div class="hero-buttons">
+                        <a href="#contacto" class="btn-hero btn-hero-primary">
                             <i class="bi bi-telephone me-2"></i>Contactar Ahora
                         </a>
-                        <a href="#faq" class="btn btn-outline-light btn-lg">
-                            <i class="bi bi-info-circle me-2"></i>Saber Más
+                        <a href="#servicios" class="btn-hero btn-hero-outline">
+                            <i class="bi bi-info-circle me-2"></i>Ver Servicios
                         </a>
                     </div>
                 </div>
-                <div class="col-lg-6 text-center">
-                    <i class="bi bi-truck-front hero-icon" style="font-size: 15rem;"></i>
+                <div class="col-lg-6">
+                    <i class="bi bi-truck-front hero-icon"></i>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Stats Counter -->
+    <section class="stats-counter">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-3 col-6 mb-4 stat-item">
+                    <div class="stat-number" data-count="1000">0</div>
+                    <div class="stat-text">Piezas Disponibles</div>
+                </div>
+                <div class="col-md-3 col-6 mb-4 stat-item">
+                    <div class="stat-number" data-count="15">0</div>
+                    <div class="stat-text">Años de Experiencia</div>
+                </div>
+                <div class="col-md-3 col-6 mb-4 stat-item">
+                    <div class="stat-number" data-count="500">0</div>
+                    <div class="stat-text">Clientes Satisfechos</div>
+                </div>
+                <div class="col-md-3 col-6 mb-4 stat-item">
+                    <div class="stat-number" data-count="24">0</div>
+                    <div class="stat-text">Horas de Respuesta</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+  <!-- Services Section -->
+<section id="servicios" class="section-padding">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-title">Nuestros Servicios</h2>
+            <p class="section-subtitle">Soluciones completas para todas tus necesidades automotrices y de almacenamiento</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-3 col-md-6">
+                <div class="service-card p-4">
+                    <div class="service-icon mx-auto">
+                        <i class="bi bi-car-front"></i>
+                    </div>
+                    <h4 class="text-center mb-3">Venta de Piezas</h4>
+                    <p class="text-center text-muted">Amplio catálogo de piezas originales y compatibles para diversos modelos de vehículos.</p>
+                    <div class="text-center mt-3">
+                        <a href="https://comercioonline.github.io/CSR/Piezas%20de%20Auto" class="btn btn-outline-primary btn-sm">
+                            Ver Catálogo
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="service-card p-4">
+                    <div class="service-icon mx-auto">
+                        <i class="bi bi-droplet"></i>
+                    </div>
+                    <h4 class="text-center mb-3">Aceites</h4>
+                    <p class="text-center text-muted">Aceites de motor y lubricantes de alta calidad para todas las marcas de vehículos.</p>
+                    <div class="text-center mt-3">
+                        <a href="#contacto" class="btn btn-outline-primary btn-sm">
+                            Consultar Stock
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="service-card p-4">
+                    <div class="service-icon mx-auto">
+                        <i class="bi bi-tools"></i>
+                    </div>
+                    <h4 class="text-center mb-3">Mantenimiento</h4>
+                    <p class="text-center text-muted">Servicio técnico profesional con diagnóstico computarizado y reparación garantizada.</p>
+                    <div class="text-center mt-3">
+                        <a href="#contacto" class="btn btn-outline-primary btn-sm">
+                            Solicitar Cita
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="service-card p-4">
+                    <div class="service-icon mx-auto">
+                        <i class="bi bi-box"></i>
+                    </div>
+                    <h4 class="text-center mb-3">Contenedores</h4>
+                    <p class="text-center text-muted">Venta y alquiler de contenedores de diferentes tamaños para almacenamiento y transporte.</p>
+                    <div class="text-center mt-3">
+                        <a href="https://comercioonline.github.io/CSR/venta%20de%20contenedores" class="btn btn-outline-primary btn-sm">
+                            Ver Opciones
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
     <!-- FAQ Section -->
     <section id="faq" class="section-padding bg-light">
         <div class="container">
             <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold mb-3">Preguntas Frecuentes</h2>
-                <p class="lead text-muted">Respuestas a las preguntas más comunes de nuestros clientes</p>
+                <h2 class="section-title">Preguntas Frecuentes</h2>
+                <p class="section-subtitle">Respuestas a las preguntas más comunes de nuestros clientes</p>
             </div>
             <div class="row justify-content-center">
                 <div class="col-lg-8">
-                    <div class="faq-item">
-                        <div class="faq-question" onclick="toggleFAQ(this)">
-                            <i class="bi bi-chevron-right me-2"></i>
-                            ¿Cuál es el tiempo de entrega de las piezas?
+                    <div class="faq-accordion" id="faqAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                    ¿Cuál es el tiempo de entrega de las piezas?
+                                </button>
+                            </h2>
+                            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    El tiempo de entrega depende del tipo de pieza y disponibilidad. Las piezas en stock se entregan en 24-48 horas en La Habana. Las piezas especiales pueden tardar de 3 a 7 días hábiles. Ofrecemos servicio de entrega express con costo adicional.
+                                </div>
+                            </div>
                         </div>
-                        <div class="faq-answer">
-                            <p>El tiempo de entrega depende del tipo de pieza y disponibilidad. Las piezas en stock se entregan en 24-48 horas. Las piezas especiales pueden tardar de 3 a 7 días hábiles.</p>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                    ¿Ofrecen garantía en las piezas?
+                                </button>
+                            </h2>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Sí, todas nuestras piezas incluyen garantía de 6 a 12 meses dependiendo del producto. Los defectos de fabricación son cubiertos sin costo adicional. Para hacer válida la garantía es necesario presentar la factura original y el producto en su empaque.
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question" onclick="toggleFAQ(this)">
-                            <i class="bi bi-chevron-right me-2"></i>
-                            ¿Ofrecen garantía en las piezas?
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                    ¿Cuánto cuesta el servicio de mantenimiento?
+                                </button>
+                            </h2>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Los precios varían según el tipo de servicio. Ofrecemos paquetes de mantenimiento preventivo desde $50. Realizamos diagnóstico gratuito para determinar el costo exacto. Contamos con diferentes planes de mantenimiento según las necesidades de cada vehículo.
+                                </div>
+                            </div>
                         </div>
-                        <div class="faq-answer">
-                            <p>Sí, todas nuestras piezas incluyen garantía de 6 a 12 meses dependiendo del producto. Los defectos de fabricación son cubiertos sin costo adicional.</p>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                                    ¿Pueden instalar las piezas que compro?
+                                </button>
+                            </h2>
+                            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Sí, ofrecemos servicio de instalación profesional con costo adicional. Nuestros técnicos están certificados para garantizar un trabajo de calidad. La instalación incluye garantía de 90 días o 10,000 km, lo que ocurra primero.
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question" onclick="toggleFAQ(this)">
-                            <i class="bi bi-chevron-right me-2"></i>
-                            ¿Cuánto cuesta el servicio de mantenimiento?
-                        </div>
-                        <div class="faq-answer">
-                            <p>Los precios varían según el tipo de servicio. Ofrecemos paquetes de mantenimiento preventivo desde $50. Realizamos diagnóstico gratuito para determinar el costo exacto.</p>
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question" onclick="toggleFAQ(this)">
-                            <i class="bi bi-chevron-right me-2"></i>
-                            ¿Pueden instalar las piezas que compro?
-                        </div>
-                        <div class="faq-answer">
-                            <p>Sí, ofrecemos servicio de instalación profesional con costo adicional. Nuestros técnicos están certificados para garantizar un trabajo de calidad.</p>
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question" onclick="toggleFAQ(this)">
-                            <i class="bi bi-chevron-right me-2"></i>
-                            ¿Tienen contenedores para alquiler a largo plazo?
-                        </div>
-                        <div class="faq-answer">
-                            <p>Sí, ofrecemos alquiler de contenedores a largo plazo con descuentos especiales. Los contratos mínimos son de 3 meses con renovaciones flexibles.</p>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                                    ¿Tienen contenedores para alquiler a largo plazo?
+                                </button>
+                            </h2>
+                            <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Sí, ofrecemos alquiler de contenedores a largo plazo con descuentos especiales. Los contratos mínimos son de 3 meses con renovaciones flexibles. Los precios varían según el tamaño del contenedor y la duración del alquiler.
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
     <!-- Payment Methods Section -->
     <section class="section-padding">
         <div class="container">
             <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold mb-3">Métodos de Pago</h2>
-                <p class="lead text-muted">Te ofrecemos múltiples opciones de pago para tu comodidad</p>
+                <h2 class="section-title">Métodos de Pago</h2>
+                <p class="section-subtitle">Te ofrecemos múltiples opciones de pago para tu comodidad</p>
             </div>
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="payment-methods mb-5">
-                        <div class="payment-icon">
-                            <i class="bi bi-credit-card-2-front fs-4"></i>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="payment-card">
+                        <div class="payment-icon-large">
+                            <i class="bi bi-credit-card"></i>
                         </div>
-                        <div class="payment-icon">
-                            <i class="bi bi-cash-coin fs-4"></i>
-                        </div>
-                        <div class="payment-icon">
-                            <i class="bi bi-bank fs-4"></i>
-                        </div>
-                        <div class="payment-icon">
-                            <i class="bi bi-phone fs-4"></i>
-                        </div>
-                        <div class="payment-icon">
-                            <i class="bi bi-wallet fs-4"></i>
-                        </div>
-                        <div class="payment-icon">
-                            <i class="bi bi-paypal fs-4"></i>
-                        </div>
+                        <h4>Tarjetas Crédito/Débito</h4>
+                        <p class="text-muted">Aceptamos Visa, MasterCard y tarjetas bancarias nacionales.</p>
                     </div>
-                    <div class="row text-center">
-                        <div class="col-md-4 mb-4">
-                            <i class="bi bi-credit-card fs-1 text-primary mb-3"></i>
-                            <h5>Tarjetas Crédito/Débito</h5>
-                            <p class="text-muted">Aceptamos Visa, MasterCard, American Express</p>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="payment-card">
+                        <div class="payment-icon-large">
+                            <i class="bi bi-cash"></i>
                         </div>
-                        <div class="col-md-4 mb-4">
-                            <i class="bi bi-cash fs-1 text-success mb-3"></i>
-                            <h5>Efectivo</h5>
-                            <p class="text-muted">Puedes pagar en efectivo en nuestras sucursales</p>
+                        <h4>Efectivo</h4>
+                        <p class="text-muted">Puedes pagar en efectivo en nuestras sucursales físicas.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="payment-card">
+                        <div class="payment-icon-large">
+                            <i class="bi bi-bank"></i>
                         </div>
-                        <div class="col-md-4 mb-4">
-                            <i class="bi bi-clipboard-check fs-1 text-warning mb-3"></i>
-                            <h5>Transferencia Bancaria</h5>
-                            <p class="text-muted">Transferencia directa a nuestra cuenta</p>
-                        </div>
+                        <h4>Transferencia Bancaria</h4>
+                        <p class="text-muted">Transferencia directa a nuestras cuentas bancarias.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- Shipping Section -->
+
+    <!-- Warranty Section -->
     <section class="section-padding bg-light">
         <div class="container">
             <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold mb-3">Servicios de Mensajería</h2>
-                <p class="lead text-muted">Entrega rápida y segura a todo el país</p>
+                <h2 class="section-title">Garantía y Devoluciones</h2>
+                <p class="section-subtitle">Tu satisfacción es nuestra prioridad absoluta</p>
             </div>
-            <div class="row">
-                <div class="col-md-6 mb-4">
-                    <div class="card h-100 border-0 shadow-sm">
-                        <div class="card-body p-4">
-                            <h4 class="card-title mb-3"><i class="bi bi-truck me-2"></i>Envíos Estándar</h4>
-                            <ul class="list-unstyled">
-                                <li><i class="bi bi-check-circle text-success me-2"></i>Entrega en 3-5 días hábiles</li>
-                                <li><i class="bi bi-check-circle text-success me-2"></i>Costo según zona</li>
-                                <li><i class="bi bi-check-circle text-success me-2"></i>Seguimiento en línea</li>
-                                <li><i class="bi bi-check-circle text-success me-2"></i>Seguro básico incluido</li>
-                            </ul>
-                        </div>
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="service-card p-4">
+                        <h4 class="mb-3"><i class="bi bi-shield-check text-success me-2"></i>Política de Garantía</h4>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i> <strong>Piezas de Automóvil:</strong> 6-12 meses según producto</li>
+                            <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i> <strong>Contenedores:</strong> 2 años contra defectos de fabricación</li>
+                            <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i> <strong>Trabajos de Mecánica:</strong> 90 días o 10,000 km</li>
+                            <li><i class="bi bi-check-circle text-success me-2"></i> <strong>Proceso:</strong> Presenta tu factura y producto para reclamo</li>
+                        </ul>
                     </div>
                 </div>
-                <div class="col-md-6 mb-4">
-                    <div class="card h-100 border-0 shadow-sm">
-                        <div class="card-body p-4">
-                            <h4 class="card-title mb-3"><i class="bi bi-lightning-charge me-2"></i>Envío Express</h4>
-                            <ul class="list-unstyled">
-                                <li><i class="bi bi-check-circle text-success me-2"></i>Entrega en 24-48 horas</li>
-                                <li><i class="bi bi-check-circle text-success me-2"></i>Costo según zona</li>
-                                <li><i class="bi bi-check-circle text-success me-2"></i>Notificación previa</li>
-                                <li><i class="bi bi-check-circle text-success me-2"></i>Seguro completo incluido</li>
-                            </ul>
-                        </div>
+                <div class="col-lg-6">
+                    <div class="service-card p-4">
+                        <h4 class="mb-3"><i class="bi bi-arrow-left-circle text-primary me-2"></i>Política de Devoluciones</h4>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="bi bi-check-circle text-primary me-2"></i> <strong>Plazo:</strong> 30 días desde la compra</li>
+                            <li class="mb-2"><i class="bi bi-check-circle text-primary me-2"></i> <strong>Condición:</strong> Producto sin usar, en empaque original</li>
+                            <li class="mb-2"><i class="bi bi-check-circle text-primary me-2"></i> <strong>Excepciones:</strong> Productos personalizados o instalados</li>
+                            <li><i class="bi bi-check-circle text-primary me-2"></i> <strong>Proceso:</strong> Contacta a nuestro servicio al cliente</li>
+                        </ul>
                     </div>
                 </div>
-            </div>
-            <div class="alert alert-info mt-4">
-                <i class="bi bi-info-circle me-2"></i>
-                <strong>Nota:</strong> Los envíos de contenedores se cotizan individualmente según el tamaño y destino.
             </div>
         </div>
     </section>
-    <!-- Warranty Section -->
-    <section class="section-padding">
-        <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold mb-3">Garantía y Devoluciones</h2>
-                <p class="lead text-muted">Tu satisfacción es nuestra prioridad</p>
-            </div>
-            <div class="row">
-                <div class="col-lg-6 mb-4">
-                    <div class="card h-100 border-0 shadow-sm">
-                        <div class="card-body p-4">
-                            <h4 class="card-title mb-3 text-success"><i class="bi bi-shield-check me-2"></i>Garantía</h4>
-                            <ul class="list-unstyled">
-                                <li><strong>Piezas de Automóvil:</strong> 6-12 meses según el producto</li>
-                                <li><strong>Contenedores:</strong> 2 años contra defectos de fabricación</li>
-                                <li><strong>Trabajos de Mecánica:</strong> 90 días o 10,000 km</li>
-                                <li><strong>Proceso:</strong> Presenta tu factura y el producto para reclamo</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 mb-4">
-                    <div class="card h-100 border-0 shadow-sm">
-                        <div class="card-body p-4">
-                            <h4 class="card-title mb-3 text-info"><i class="bi bi-arrow-left-circle me-2"></i>Devoluciones</h4>
-                            <ul class="list-unstyled">
-                                <li><strong>Plazo:</strong> 30 días desde la compra</li>
-                                <li><strong>Condición:</strong> Producto sin usar, en su empaque original</li>
-                                <li><strong>Excepciones:</strong> Productos personalizados o instalados no son devueltos</li>
-                                <li><strong>Proceso:</strong> Contacta a nuestro servicio al cliente</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="text-center mt-4">
-                <a href="#contacto" class="btn btn-primary">
-                    <i class="bi bi-headset me-2"></i>Contactar Soporte
-                </a>
-            </div>
-        </div>
-    </section>
+
     <!-- Contact Section -->
-    <section id="contacto" class="section-padding contact-section">
+    <section id="contacto" class="section-padding">
         <div class="container">
             <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold mb-3">Quejas y Sugerencias</h2>
-                <p class="lead text-muted">Tu opinión es importante para nosotros</p>
+                <h2 class="section-title">Quejas y Sugerencias</h2>
+                <p class="section-subtitle">Tu opinión es importante para mejorar nuestro servicio</p>
             </div>
             <div class="row justify-content-center">
                 <div class="col-lg-8">
-                    <div class="card shadow-sm">
-                        <div class="card-body p-5">
-                            <div class="text-center mb-4">
-                                <i class="bi bi-envelope-open-fill fs-1 text-primary"></i>
-                                <h4 class="mt-3">Envíanos tu mensaje</h4>
-                                <p class="text-muted">Responderemos a tus comentarios en menos de 24 horas</p>
+                    <div class="contact-form-card">
+                        <form id="contactForm" novalidate>
+                            <div class="row mb-4">
+                                <div class="col-md-6 mb-3">
+                                    <label for="nombre" class="form-label">Nombre Completo *</label>
+                                    <input type="text" class="form-control" id="nombre" name="nombre" required>
+                                    <div class="invalid-feedback">Por favor ingresa tu nombre completo.</div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="correo" class="form-label">Correo Electrónico *</label>
+                                    <input type="email" class="form-control" id="correo" name="correo" required>
+                                    <div class="invalid-feedback">Por favor ingresa un correo válido.</div>
+                                </div>
                             </div>
-                            <form id="contactForm">
-                                <div class="row mb-3">
-                                    <div class="col-md-6">
-                                        <label class="form-label">Nombre</label>
-                                        <input type="text" class="form-control" id="nombre" name="nombre" required>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label class="form-label">Correo Electrónico</label>
-                                        <input type="email" class="form-control" id="correo" name="correo" required>
-                                    </div>
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Asunto</label>
-                                    <select class="form-select" id="asunto" name="asunto" required>
-                                        <option value="">Selecciona una opción</option>
-                                        <option value="Queja sobre producto">Queja sobre producto</option>
-                                        <option value="Sugerencia de servicio">Sugerencia de servicio</option>
-                                        <option value="Solicitud de devolución">Solicitud de devolución</option>
-                                        <option value="Otra consulta">Otra consulta</option>
-                                    </select>
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Mensaje</label>
-                                    <textarea class="form-control" id="mensaje" name="mensaje" rows="5" required></textarea>
-                                </div>
-                                <div class="text-center">
-                                    <button type="submit" class="btn btn-primary btn-lg" id="submitBtn">
-                                        <i class="bi bi-send me-2"></i>Enviar Mensaje
-                                    </button>
-                                    <div class="spinner-border text-light loading-spinner ms-2" role="status" id="loadingSpinner">
+                            <div class="mb-4">
+                                <label for="asunto" class="form-label">Asunto *</label>
+                                <select class="form-select" id="asunto" name="asunto" required>
+                                    <option value="">Selecciona una opción</option>
+                                    <option value="Queja sobre producto">Queja sobre producto</option>
+                                    <option value="Sugerencia de servicio">Sugerencia de servicio</option>
+                                    <option value="Solicitud de devolución">Solicitud de devolución</option>
+                                    <option value="Consulta general">Consulta general</option>
+                                    <option value="Reclamo">Reclamo</option>
+                                    <option value="Felicitación">Felicitación</option>
+                                </select>
+                                <div class="invalid-feedback">Por favor selecciona un asunto.</div>
+                            </div>
+                            <div class="mb-4">
+                                <label for="mensaje" class="form-label">Mensaje *</label>
+                                <textarea class="form-control" id="mensaje" name="mensaje" rows="6" required></textarea>
+                                <div class="invalid-feedback">Por favor ingresa tu mensaje.</div>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn-submit" id="submitBtn">
+                                    <i class="bi bi-send me-2"></i>Enviar Mensaje
+                                    <div class="spinner-border spinner-border-sm loading-spinner ms-2" role="status" id="loadingSpinner">
                                         <span class="visually-hidden">Cargando...</span>
                                     </div>
-                                </div>
-                                <div class="form-message" id="formMessage"></div>
-                            </form>
-                            <div class="text-center mt-4">
-                                <p class="mb-0">O puedes contactarnos directamente:</p>
-                                <a href="mailto:csrhabana@gmail.com" class="btn btn-link">
+                                </button>
+                                <div class="alert-message" id="alertMessage"></div>
+                            </div>
+                        </form>
+                        <div class="text-center mt-4 pt-4 border-top">
+                            <p class="mb-2">O contáctanos directamente:</p>
+                            <div class="d-flex flex-wrap justify-content-center gap-3">
+                                <a href="mailto:csrhabana@gmail.com" class="btn btn-outline-primary">
                                     <i class="bi bi-envelope me-1"></i>csrhabana@gmail.com
+                                </a>
+                                <a href="mailto:csrdam@hotmail.com" class="btn btn-outline-primary">
+                                    <i class="bi bi-envelope me-1"></i>csrdam@hotmail.com
                                 </a>
                             </div>
                         </div>
@@ -607,160 +1144,291 @@
             </div>
         </div>
     </section>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="row">
-                <div class="col-md-4 mb-4">
-                    <h5 class="mb-3">CSR s.r.l</h5>
-                    <p>Tu mejor opción en piezas de automóvil, mantenimiento y contenedores. Calidad garantizada y servicio excepcional.</p>
+                <div class="col-lg-4 mb-5">
+                    <h5>CSR s.r.l</h5>
+                    <p class="mt-3">Tu mejor opción en piezas de automóvil, mantenimiento profesional y contenedores. Calidad garantizada y servicio excepcional desde hace más de 15 años.</p>
                     <div class="social-links">
-                        <a href="#"><i class="bi bi-facebook"></i></a>
-                        <a href="#"><i class="bi bi-instagram"></i></a>
-                        <a href="#"><i class="bi bi-twitter"></i></a>
-                        <a href="#"><i class="bi bi-youtube"></i></a>
+                        <a href="#" aria-label="Facebook">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        <a href="#" aria-label="Instagram">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        <a href="https://wa.me/+5353729090" target="_blank" aria-label="WhatsApp">
+                            <i class="bi bi-whatsapp"></i>
+                        </a>
+                        <a href="#" aria-label="Twitter">
+                            <i class="bi bi-twitter"></i>
+                        </a>
                     </div>
                 </div>
-                <div class="col-md-4 mb-4">
-                    <div class="quick-links">
-                        <h5 class="mb-3">Enlaces Rápidos</h5>
-                        <ul class="list-unstyled">
-                            <li><a href="#faq" class="text-white-50 text-decoration-none">Preguntas Frecuentes</a></li>
-                            <li><a href="#contacto" class="text-white-50 text-decoration-none">Contacto</a></li>
-                        </ul>
-                    </div>
+                <div class="col-lg-4 mb-5">
+                    <h5>Enlaces Rápidos</h5>
+                    <ul class="footer-links mt-3">
+                        <li>
+                            <a href="https://comercioonline.github.io/CSR/Inicio">
+                                <i class="bi bi-house-door"></i>Inicio
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://comercioonline.github.io/CSR/Piezas%20de%20Auto">
+                                <i class="bi bi-car-front"></i>Piezas de Autos
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://comercioonline.github.io/CSR/venta%20de%20contenedores">
+                                <i class="bi bi-box"></i>Contenedores
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#faq">
+                                <i class="bi bi-question-circle"></i>Preguntas Frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#contacto">
+                                <i class="bi bi-envelope"></i>Contacto
+                            </a>
+                        </li>
+                    </ul>
                 </div>
-                <div class="col-md-4 mb-4">
-                    <h5 class="mb-3">Información de Contacto</h5>
-                    <ul class="list-unstyled">
-                        <li><i class="bi bi-geo-alt me-2"></i>Av. Principal #123, La Habana</li>
-                        <li><i class="bi bi-telephone me-2"></i>(E.a.m. De Jaegher) +52 998 4136581</li>
-                        <li><i class="bi bi-telephone me-2"></i>(Lic. Raciel Rodríguez Temprana) +53 5 2493787</li>
-                        <li><i class="bi bi-telephone me-2"></i>(Ing. Luis Carlos Triana Alonso) +53 50669462</li>
-                        <li><i class="bi bi-envelope me-2"></i>csrhabana@gmail.com</li>
-                        <li><i class="bi bi-envelope me-2"></i>csrdam@hotmail.com</li>
-                        <li><i class="bi bi-clock me-2"></i>Lun-Vie: 8:00am - 6:00pm</li>
+                <div class="col-lg-4 mb-5">
+                    <h5>Información de Contacto</h5>
+                    <ul class="contact-info mt-3">
+                        <li>
+                            <i class="bi bi-geo-alt"></i>
+                            <span>Habana, Cuba</span>
+                        </li>
+                        <li>
+                            <i class="bi bi-telephone"></i>
+                            <span>(E.a.m. De Jaegher): +53 53729090</span>
+                        </li>
+                        <li>
+                            <i class="bi bi-telephone"></i>
+                            <span>(Lic. Raciel Rodríguez Temprana): +53 52493787</span>
+                        </li>
+                        <li>
+                            <i class="bi bi-telephone"></i>
+                            <span>(Ing. Luis Carlos Triana Alonso): +53 50669462</span>
+                        </li>
+                        <li>
+                            <i class="bi bi-envelope"></i>
+                            <span>csrhabana@gmail.com</span>
+                        </li>
+                        <li>
+                            <i class="bi bi-envelope"></i>
+                            <span>csrdam@hotmail.com</span>
+                        </li>
+                        <li>
+                            <i class="bi bi-clock"></i>
+                            <span>Lunes a Viernes: 8:00 AM - 6:00 PM</span>
+                        </li>
+                        <li>
+                            <i class="bi bi-tools"></i>
+                            <span>Taller: 8:00 AM - 5:00 PM</span>
+                        </li>
                     </ul>
                 </div>
             </div>
-            <hr class="my-4 bg-white-50">
-            <div class="text-center">
-                <p class="mb-0">&copy; IMPERIUM. Todos los derechos reservados.</p>
+            <div class="copyright">
+                <p class="mb-0">&copy; 2025 IMPERIUM. Todos los derechos reservados.</p>
+                <div class="mt-2">
+                    <a href="#" class="text-white-50 text-decoration-none me-3">Términos y Condiciones</a>
+                    <a href="#" class="text-white-50 text-decoration-none me-3">Política de Privacidad</a>
+                    <a href="#" class="text-white-50 text-decoration-none">Aviso Legal</a>
+                </div>
             </div>
         </div>
     </footer>
-    
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Volver arriba">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script>
-        // Inicializar EmailJS
-        (function() {
-            emailjs.init("YOUR_PUBLIC_KEY"); // Reemplaza con tu clave pública de EmailJS
-        })();
-        
-        // FAQ Toggle
-        function toggleFAQ(element) {
-            const answer = element.nextElementSibling;
-            const icon = element.querySelector('i');
-            
-            answer.classList.toggle('active');
-            
-            if (answer.classList.contains('active')) {
-                icon.classList.remove('bi-chevron-right');
-                icon.classList.add('bi-chevron-down');
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
             } else {
-                icon.classList.remove('bi-chevron-down');
-                icon.classList.add('bi-chevron-right');
+                navbar.classList.remove('scrolled');
             }
-        }
-        
-        // Smooth Scrolling
+        });
+
+        // Back to top button
+        const backToTopBtn = document.getElementById('backToTop');
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
                     });
                 }
             });
         });
-        
-        // Form Submission
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
+
+        // Stats counter animation
+        function animateCounter(element, start, end, duration) {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                const value = Math.floor(progress * (end - start) + start);
+                element.textContent = value.toLocaleString();
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
+
+        function initCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-count'));
+                animateCounter(counter, 0, target, 2000);
+            });
+        }
+
+        // Intersection Observer for counters
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    initCounters();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        const statsSection = document.querySelector('.stats-counter');
+        if (statsSection) {
+            observer.observe(statsSection);
+        }
+
+        // Contact form handling
+        const contactForm = document.getElementById('contactForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const loadingSpinner = document.getElementById('loadingSpinner');
+        const alertMessage = document.getElementById('alertMessage');
+
+        contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Mostrar spinner de carga
-            document.getElementById('loadingSpinner').style.display = 'inline-block';
-            document.getElementById('submitBtn').disabled = true;
+            if (!contactForm.checkValidity()) {
+                e.stopPropagation();
+                contactForm.classList.add('was-validated');
+                return;
+            }
+
+            // Show loading spinner
+            submitBtn.disabled = true;
+            loadingSpinner.style.display = 'inline-block';
             
-            // Obtener datos del formulario
-            const nombre = document.getElementById('nombre').value;
-            const correo = document.getElementById('correo').value;
-            const asunto = document.getElementById('asunto').value;
-            const mensaje = document.getElementById('mensaje').value;
-            
-            // Preparar parámetros para EmailJS
-            const templateParams = {
-                from_name: nombre,
-                from_email: correo,
-                subject: asunto,
-                message: mensaje,
-                to_email: 'csrhabana@gmail.com' // Correo de destino
+            // Get form data
+            const formData = {
+                nombre: document.getElementById('nombre').value,
+                correo: document.getElementById('correo').value,
+                asunto: document.getElementById('asunto').value,
+                mensaje: document.getElementById('mensaje').value
             };
-            
-            // Enviar correo usando EmailJS
-            emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
-                .then(function(response) {
-                    // Ocultar spinner
-                    document.getElementById('loadingSpinner').style.display = 'none';
-                    document.getElementById('submitBtn').disabled = false;
-                    
-                    // Mostrar mensaje de éxito
-                    const messageDiv = document.getElementById('formMessage');
-                    messageDiv.className = 'form-message success';
-                    messageDiv.innerHTML = '<i class="bi bi-check-circle me-2"></i>¡Gracias por tu mensaje! Hemos enviado tu correo a csrhabana@gmail.com. Nos pondremos en contacto contigo pronto.';
-                    messageDiv.style.display = 'block';
-                    
-                    // Resetear formulario
-                    document.getElementById('contactForm').reset();
-                    
-                    // Ocultar mensaje después de 5 segundos
-                    setTimeout(() => {
-                        messageDiv.style.display = 'none';
-                    }, 5000);
-                }, function(error) {
-                    // Ocultar spinner
-                    document.getElementById('loadingSpinner').style.display = 'none';
-                    document.getElementById('submitBtn').disabled = false;
-                    
-                    // Mostrar mensaje de error
-                    const messageDiv = document.getElementById('formMessage');
-                    messageDiv.className = 'form-message error';
-                    messageDiv.innerHTML = '<i class="bi bi-exclamation-circle me-2"></i>Hubo un error al enviar tu mensaje. Por favor, intenta nuevamente o contáctanos directamente en csrhabana@gmail.com.';
-                    messageDiv.style.display = 'block';
-                    
-                    // Ocultar mensaje después de 5 segundos
-                    setTimeout(() => {
-                        messageDiv.style.display = 'none';
-                    }, 5000);
-                });
+
+            // In a real application, you would send this data to your server
+            // For demo purposes, we'll simulate an API call
+            setTimeout(() => {
+                // Hide loading spinner
+                submitBtn.disabled = false;
+                loadingSpinner.style.display = 'none';
+                
+                // Show success message
+                alertMessage.className = 'alert-message alert-success';
+                alertMessage.innerHTML = `
+                    <i class="bi bi-check-circle-fill me-2"></i>
+                    <strong>¡Mensaje enviado con éxito!</strong><br>
+                    Hemos recibido tu ${formData.asunto.toLowerCase()}. Te responderemos en menos de 24 horas hábiles.
+                    <br><br>
+                    <small>Para contactos urgentes, también puedes escribir a csrhabana@gmail.com</small>
+                `;
+                alertMessage.style.display = 'block';
+                
+                // Reset form
+                contactForm.reset();
+                contactForm.classList.remove('was-validated');
+                
+                // Hide message after 10 seconds
+                setTimeout(() => {
+                    alertMessage.style.display = 'none';
+                }, 10000);
+                
+                // Scroll to message
+                alertMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                
+            }, 1500);
         });
+
+        // Initialize tooltips
+        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
+
+        // Lazy loading for images
+        const images = document.querySelectorAll('img[data-src]');
+        const imageObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.getAttribute('data-src');
+                    img.removeAttribute('data-src');
+                    imageObserver.unobserve(img);
+                }
+            });
+        });
+
+        images.forEach(img => imageObserver.observe(img));
+
+        // Add active class to current page in navbar
+        const currentPage = window.location.pathname.split('/').pop();
+        const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
         
-        // Navbar background on scroll
-        window.addEventListener('scroll', function() {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
-                navbar.style.backgroundColor = '#004494';
-                navbar.style.boxShadow = '0 2px 4px rgba(0,0,0,.1)';
-            } else {
-                navbar.style.backgroundColor = '';
-                navbar.style.boxShadow = '';
+        navLinks.forEach(link => {
+            const linkHref = link.getAttribute('href');
+            if (linkHref && linkHref.includes(currentPage)) {
+                link.classList.add('active');
             }
         });
     </script>
 </body>
 </html>
-

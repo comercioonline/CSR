@@ -1,0 +1,2310 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSR s.r.l - Venta Profesional de Repuestos Automotrices</title>
+    <meta name="description" content="CSR s.r.l - Especialistas en venta e instalación de repuestos automotrices. Calidad certificada, servicio técnico profesional y garantía extendida.">
+    <meta name="keywords" content="piezas autos, repuestos automotrices, CSR, Lada, Toyota, Nissan, reparación de autos, mantenimiento vehicular">
+    <meta name="author" content="CSR s.r.l">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="CSR s.r.l - Repuestos Automotrices Profesionales">
+    <meta property="og:description" content="Venta e instalación de repuestos automotrices de calidad con servicio técnico profesional">
+    <meta property="og:image" content="imagenes de Inicio/Logo2.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="imagenes de Inicio/Logo2.jpg">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #1d4ed8;
+            --secondary-color: #059669;
+            --accent-color: #f59e0b;
+        }
+        
+        /* Animaciones mejoradas */
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes slideUp {
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        .animate-slide-in {
+            animation: slideIn 0.4s ease-out;
+        }
+        
+        .animate-slide-up {
+            animation: slideUp 0.4s ease-out;
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 0.3s ease-out;
+        }
+        
+        /* Estilos para modales */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            backdrop-filter: blur(4px);
+        }
+        
+        .modal-content {
+            background-color: white;
+            margin: 2rem auto;
+            padding: 2rem;
+            width: 90%;
+            max-width: 1000px;
+            border-radius: 16px;
+            position: relative;
+            animation: slideUp 0.3s ease-out;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        /* Estilos para cartas de producto */
+        .product-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+            border-color: var(--primary-color);
+        }
+        
+        .product-image-container {
+            height: 280px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        
+        .product-card:hover .product-image {
+            transform: scale(1.08);
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            z-index: 10;
+            backdrop-filter: blur(4px);
+        }
+        
+        .price-tag {
+            position: absolute;
+            bottom: 12px;
+            right: 12px;
+            background: linear-gradient(135deg, var(--primary-color), #3b82f6);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 8px 0 8px 0;
+            font-weight: 700;
+            font-size: 1.1rem;
+            z-index: 10;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+        
+        /* Estilos para botones */
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color), #3b82f6);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: var(--primary-color);
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid var(--primary-color);
+            cursor: pointer;
+        }
+        
+        .btn-secondary:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Estilos para inputs y formularios */
+        .form-input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e5e7eb;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+        }
+        
+        /* Estilos para la barra de navegación */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        /* Estilos para el carrito */
+        .cart-sidebar {
+            position: fixed;
+            top: 0;
+            right: 0;
+            height: 100%;
+            width: 100%;
+            max-width: 420px;
+            background: white;
+            box-shadow: -10px 0 30px rgba(0, 0, 0, 0.15);
+            transform: translateX(100%);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1100;
+        }
+        
+        .cart-sidebar.active {
+            transform: translateX(0);
+        }
+        
+        /* Estilos para secciones */
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+            border-radius: 2px;
+        }
+        
+        /* Estilos para tarjetas de características */
+        .feature-card {
+            transition: all 0.3s ease;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 2rem;
+            background: white;
+            height: 100%;
+        }
+        
+        .feature-card:hover {
+            border-color: var(--primary-color);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.1);
+            transform: translateY(-5px);
+        }
+        
+        /* Estilos para badges de compatibilidad */
+        .compatibility-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            margin: 2px;
+            transition: all 0.2s ease;
+        }
+        
+        .compatibility-tag:hover {
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            color: white;
+            transform: translateY(-1px);
+        }
+        
+        /* Estilos responsivos */
+        @media (max-width: 768px) {
+            .modal-content {
+                margin: 1rem auto;
+                padding: 1.5rem;
+                width: 95%;
+                max-height: 95vh;
+            }
+            
+            .product-image-container {
+                height: 240px;
+            }
+            
+            .cart-sidebar {
+                max-width: 100%;
+            }
+        }
+        
+        /* Estilos para notificaciones */
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 16px 24px;
+            border-radius: 10px;
+            color: white;
+            font-weight: 500;
+            z-index: 2000;
+            animation: slideIn 0.3s ease-out;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .notification.success {
+            background: linear-gradient(135deg, #10b981, #059669);
+        }
+        
+        .notification.error {
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+        }
+        
+        .notification.info {
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+        }
+        
+        /* Estilos para scrollbar personalizada */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 5px;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(to bottom, var(--primary-color), #3b82f6);
+            border-radius: 5px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(to bottom, #1d4ed8, #2563eb);
+        }
+        
+        /* Estilos para el loader */
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid var(--primary-color);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Estilos para el hero section */
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-color), #1e40af);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+        }
+        
+        /* Estilos para marcas */
+        .brand-card {
+            transition: all 0.3s ease;
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .brand-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border-color: var(--primary-color);
+        }
+        
+        /* Estilos para pasos del proceso */
+        .process-step {
+            position: relative;
+        }
+        
+        .process-step::after {
+            content: '';
+            position: absolute;
+            top: 24px;
+            right: -50%;
+            width: 100%;
+            height: 2px;
+            background: #e5e7eb;
+            z-index: 1;
+        }
+        
+        .process-step:last-child::after {
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            .process-step::after {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Header -->
+    <header class="navbar sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <div class="flex items-center gap-3">
+                    <img src="imagenes de Inicio/Logo2.jpg" alt="Logo CSR" 
+                         class="h-12 w-12 rounded-full object-cover border-2 border-blue-100 shadow-sm">
+                    <div>
+                        <h1 class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
+                            CSR s.r.l
+                        </h1>
+                        <p class="text-xs text-gray-500">Especialistas en repuestos automotrices</p>
+                    </div>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <nav class="hidden lg:flex items-center gap-8">
+                    <a href="https://comercioonline.github.io/CSR/Inicio" 
+                       class="text-gray-600 hover:text-blue-600 transition-colors duration-300 font-medium relative group">
+                        Inicio
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="https://comercioonline.github.io/CSR/Piezas%20de%20Auto" 
+                       class="text-gray-600 hover:text-blue-600 transition-colors duration-300 font-medium relative group">
+                        Piezas de Autos
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#servicios" 
+                       class="text-gray-600 hover:text-blue-600 transition-colors duration-300 font-medium relative group">
+                        Servicios
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#marcas" 
+                       class="text-gray-600 hover:text-blue-600 transition-colors duration-300 font-medium relative group">
+                        Marcas
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="https://comercioonline.github.io/CSR/venta%20de%20contenedores" 
+                       class="text-gray-600 hover:text-blue-600 transition-colors duration-300 font-medium relative group">
+                        Contenedores
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#contact" 
+                       class="text-gray-600 hover:text-blue-600 transition-colors duration-300 font-medium relative group">
+                        Contacto
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                </nav>
+                
+                <!-- Cart and Mobile Menu Button -->
+                <div class="flex items-center gap-4">
+                    <button id="cart-btn" class="relative p-3 rounded-full hover:bg-blue-50 transition-colors duration-300">
+                        <i class="fas fa-shopping-cart text-xl text-gray-600"></i>
+                        <span id="cart-count" 
+                              class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-bold">
+                            0
+                        </span>
+                    </button>
+                    <button id="mobile-menu-btn" class="lg:hidden p-3 rounded-full hover:bg-gray-100 transition-colors duration-300">
+                        <i class="fas fa-bars text-xl text-gray-600"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden lg:hidden py-4 border-t mt-4 animate-slide-up">
+                <div class="flex flex-col gap-4">
+                    <a href="https://comercioonline.github.io/CSR/Inicio" 
+                       class="py-3 px-4 rounded-lg hover:bg-blue-50 text-gray-600 hover:text-blue-600 transition-colors duration-300 font-medium">
+                        <i class="fas fa-home mr-3"></i>Inicio
+                    </a>
+                    <a href="https://comercioonline.github.io/CSR/Piezas%20de%20Auto" 
+                       class="py-3 px-4 rounded-lg hover:bg-blue-50 text-gray-600 hover:text-blue-600 transition-colors duration-300 font-medium">
+                        <i class="fas fa-car mr-3"></i>Piezas de Autos
+                    </a>
+                    <a href="#servicios" 
+                       class="py-3 px-4 rounded-lg hover:bg-blue-50 text-gray-600 hover:text-blue-600 transition-colors duration-300 font-medium">
+                        <i class="fas fa-tools mr-3"></i>Servicios
+                    </a>
+                    <a href="#marcas" 
+                       class="py-3 px-4 rounded-lg hover:bg-blue-50 text-gray-600 hover:text-blue-600 transition-colors duration-300 font-medium">
+                        <i class="fas fa-star mr-3"></i>Marcas
+                    </a>
+                    <a href="https://comercioonline.github.io/CSR/venta%20de%20contenedores" 
+                       class="py-3 px-4 rounded-lg hover:bg-blue-50 text-gray-600 hover:text-blue-600 transition-colors duration-300 font-medium">
+                        <i class="fas fa-box mr-3"></i>Contenedores
+                    </a>
+                    <a href="#contact" 
+                       class="py-3 px-4 rounded-lg hover:bg-blue-50 text-gray-600 hover:text-blue-600 transition-colors duration-300 font-medium">
+                        <i class="fas fa-phone mr-3"></i>Contacto
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section text-white py-24 relative overflow-hidden">
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-4xl mx-auto text-center animate-slide-up">
+                <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+                    Repuestos Automotrices de 
+                    <span class="bg-gradient-to-r from-yellow-300 to-orange-400 bg-clip-text text-transparent">
+                        Alta Calidad
+                    </span>
+                </h1>
+                <p class="text-xl md:text-2xl mb-10 text-blue-100 leading-relaxed">
+                    Venta profesional e instalación de piezas originales y compatibles para todas las marcas
+                </p>
+                <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                    <button onclick="scrollToSection('categorias')" 
+                            class="btn-primary px-10 py-4 text-lg font-semibold shadow-lg">
+                        <i class="fas fa-tools mr-3"></i>Ver Repuestos
+                    </button>
+                    <button onclick="scrollToSection('servicios')" 
+                            class="btn-secondary px-10 py-4 text-lg font-semibold">
+                        <i class="fas fa-wrench mr-3"></i>Nuestros Servicios
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="text-center p-8 rounded-xl bg-gradient-to-br from-blue-50 to-white border border-blue-100">
+                    <div class="text-4xl font-bold text-blue-600 mb-3">+1000</div>
+                    <h3 class="text-xl font-semibold mb-2">Piezas Disponibles</h3>
+                    <p class="text-gray-600">Amplio catálogo de repuestos para todas las marcas</p>
+                </div>
+                <div class="text-center p-8 rounded-xl bg-gradient-to-br from-green-50 to-white border border-green-100">
+                    <div class="text-4xl font-bold text-green-600 mb-3">2 Años</div>
+                    <h3 class="text-xl font-semibold mb-2">Garantía Extendida</h3>
+                    <p class="text-gray-600">En todas nuestras piezas con instalación profesional</p>
+                </div>
+                <div class="text-center p-8 rounded-xl bg-gradient-to-br from-orange-50 to-white border border-orange-100">
+                    <div class="text-4xl font-bold text-orange-600 mb-3">24-48h</div>
+                    <h3 class="text-xl font-semibold mb-2">Entrega Garantizada</h3>
+                    <p class="text-gray-600">Servicio rápido para toda La Habana y Cuba</p>
+                </div>
+                <div class="text-center p-8 rounded-xl bg-gradient-to-br from-purple-50 to-white border border-purple-100">
+                    <div class="text-4xl font-bold text-purple-600 mb-3">+15</div>
+                    <h3 class="text-xl font-semibold mb-2">Años de Experiencia</h3>
+                    <p class="text-gray-600">Especialistas en repuestos automotrices</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categorías de Piezas Section -->
+    <section id="categorias" class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="section-title text-4xl font-bold text-gray-900">
+                    Nuestros Productos
+                </h2>
+                <p class="text-gray-600 text-lg max-w-2xl mx-auto mt-4">
+                    Repuestos originales y compatibles de la más alta calidad para todas las marcas y modelos
+                </p>
+            </div>
+            
+            <!-- Category Filters -->
+            <div class="flex flex-wrap gap-3 justify-center mb-12">
+                <button onclick="filterProducts('all')" 
+                        class="px-6 py-2 rounded-full border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white transition-all duration-300 font-medium">
+                    Todas las Categorías
+                </button>
+                <button onclick="filterProducts('motor')" 
+                        class="px-6 py-2 rounded-full border border-blue-200 text-gray-700 hover:border-blue-600 hover:text-blue-600 transition-all duration-300 font-medium">
+                    <i class="fas fa-cogs mr-2"></i>Motor
+                </button>
+                <button onclick="filterProducts('transmision')" 
+                        class="px-6 py-2 rounded-full border border-blue-200 text-gray-700 hover:border-blue-600 hover:text-blue-600 transition-all duration-300 font-medium">
+                    <i class="fas fa-cog mr-2"></i>Transmisión
+                </button>
+                <button onclick="filterProducts('suspension')" 
+                        class="px-6 py-2 rounded-full border border-blue-200 text-gray-700 hover:border-blue-600 hover:text-blue-600 transition-all duration-300 font-medium">
+                    <i class="fas fa-car-side mr-2"></i>Suspensión
+                </button>
+                <button onclick="filterProducts('frenos')" 
+                        class="px-6 py-2 rounded-full border border-blue-200 text-gray-700 hover:border-blue-600 hover:text-blue-600 transition-all duration-300 font-medium">
+                    <i class="fas fa-tachometer-alt mr-2"></i>Frenos
+                </button>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="car-parts-container">
+                <!-- Productos se cargarán aquí -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicios Section -->
+    <section id="servicios" class="py-20 bg-gradient-to-b from-gray-50 to-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="section-title text-4xl font-bold text-gray-900">
+                    Servicios Profesionales
+                </h2>
+                <p class="text-gray-600 text-lg max-w-2xl mx-auto mt-4">
+                    Ofrecemos soluciones integrales para el mantenimiento y reparación de tu vehículo
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="feature-card animate-slide-up">
+                    <div class="text-blue-600 text-3xl mb-4">
+                        <i class="fas fa-wrench"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Instalación Profesional</h3>
+                    <p class="text-gray-600 mb-4">Servicio de instalación de piezas por técnicos certificados y especializados.</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center gap-2 text-gray-700">
+                            <i class="fas fa-check-circle text-green-500"></i>
+                            Instalación de motor
+                        </li>
+                        <li class="flex items-center gap-2 text-gray-700">
+                            <i class="fas fa-check-circle text-green-500"></i>
+                            Sistema de frenos
+                        </li>
+                        <li class="flex items-center gap-2 text-gray-700">
+                            <i class="fas fa-check-circle text-green-500"></i>
+                            Suspensión y dirección
+                        </li>
+                        <li class="flex items-center gap-2 text-gray-700">
+                            <i class="fas fa-check-circle text-green-500"></i>
+                            Transmisión y caja
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="feature-card animate-slide-up">
+                    <div class="text-blue-600 text-3xl mb-4">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Diagnóstico y Reparación</h3>
+                    <p class="text-gray-600 mb-4">Servicio técnico especializado con equipos de diagnóstico avanzado.</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center gap-2 text-gray-700">
+                            <i class="fas fa-check-circle text-green-500"></i>
+                            Diagnóstico computarizado
+                        </li>
+                        <li class="flex items-center gap-2 text-gray-700">
+                            <i class="fas fa-check-circle text-green-500"></i>
+                            Reparación de sistemas
+                        </li>
+                        <li class="flex items-center gap-2 text-gray-700">
+                            <i class="fas fa-check-circle text-green-500"></i>
+                            Mantenimiento preventivo
+                        </li>
+                        <li class="flex items-center gap-2 text-gray-700">
+                            <i class="fas fa-check-circle text-green-500"></i>
+                            Revisión técnica completa
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="feature-card animate-slide-up">
+                    <div class="text-blue-600 text-3xl mb-4">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Asesoría Técnica</h3>
+                    <p class="text-gray-600 mb-4">Asesoría especializada para seleccionar las piezas correctas para tu vehículo.</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center gap-2 text-gray-700">
+                            <i class="fas fa-check-circle text-green-500"></i>
+                            Selección de piezas
+                        </li>
+                        <li class="flex items-center gap-2 text-gray-700">
+                            <i class="fas fa-check-circle text-green-500"></i>
+                            Compatibilidad de modelos
+                        </li>
+                        <li class="flex items-center gap-2 text-gray-700">
+                            <i class="fas fa-check-circle text-green-500"></i>
+                            Recomendaciones técnicas
+                        </li>
+                        <li class="flex items-center gap-2 text-gray-700">
+                            <i class="fas fa-check-circle text-green-500"></i>
+                            Soporte post-venta
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Marcas Section -->
+    <section id="marcas" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="section-title text-4xl font-bold text-gray-900">
+                    Marcas que Representamos
+                </h2>
+                <p class="text-gray-600 text-lg max-w-2xl mx-auto mt-4">
+                    Contamos con repuestos originales y compatibles para las principales marcas del mercado
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="brand-card text-center hover:animate-pulse">
+                    <div class="inline-flex items-center justify-center w-20 h-20 bg-blue-50 rounded-full mb-4">
+                        <i class="fas fa-car text-4xl text-blue-600"></i>
+                    </div>
+                    <h4 class="font-bold text-xl mb-2">Lada</h4>
+                    <p class="text-gray-600 text-sm">Repuestos originales y compatibles</p>
+                </div>
+                
+                <div class="brand-card text-center hover:animate-pulse">
+                    <div class="inline-flex items-center justify-center w-20 h-20 bg-red-50 rounded-full mb-4">
+                        <i class="fas fa-car text-4xl text-red-600"></i>
+                    </div>
+                    <h4 class="font-bold text-xl mb-2">Toyota</h4>
+                    <p class="text-gray-600 text-sm">Piezas originales y de alta calidad</p>
+                </div>
+                
+                <div class="brand-card text-center hover:animate-pulse">
+                    <div class="inline-flex items-center justify-center w-20 h-20 bg-gray-50 rounded-full mb-4">
+                        <i class="fas fa-car text-4xl text-gray-600"></i>
+                    </div>
+                    <h4 class="font-bold text-xl mb-2">Nissan</h4>
+                    <p class="text-gray-600 text-sm">Repuestos compatibles certificados</p>
+                </div>
+                
+                <div class="brand-card text-center hover:animate-pulse">
+                    <div class="inline-flex items-center justify-center w-20 h-20 bg-blue-50 rounded-full mb-4">
+                        <i class="fas fa-car text-4xl text-blue-700"></i>
+                    </div>
+                    <h4 class="font-bold text-xl mb-2">Chevrolet</h4>
+                    <p class="text-gray-600 text-sm">Piezas GM originales y compatibles</p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <p class="text-gray-600 mb-6">¿No encuentras tu marca? Contáctanos para consultar disponibilidad</p>
+                <button onclick="scrollToSection('contact')" class="btn-primary px-8 py-3">
+                    <i class="fas fa-phone mr-2"></i>Consultar Disponibilidad
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Proceso de Compra Section -->
+    <section class="py-20 bg-gradient-to-r from-blue-50 to-blue-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="section-title text-4xl font-bold text-gray-900">
+                    Proceso de Compra y Servicio
+                </h2>
+                <p class="text-gray-600 text-lg max-w-2xl mx-auto mt-4">
+                    Un proceso sencillo y transparente desde la consulta hasta la instalación
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-5 gap-4">
+                <div class="process-step text-center">
+                    <div class="bg-blue-600 text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3 relative z-10">
+                        <span class="font-bold">1</span>
+                    </div>
+                    <h4 class="font-semibold mb-2 text-lg">Consulta</h4>
+                    <p class="text-sm text-gray-600">Contacta con nuestros expertos para asesorarte</p>
+                </div>
+                
+                <div class="process-step text-center">
+                    <div class="bg-blue-600 text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3 relative z-10">
+                        <span class="font-bold">2</span>
+                    </div>
+                    <h4 class="font-semibold mb-2 text-lg">Diagnóstico</h4>
+                    <p class="text-sm text-gray-600">Identificamos exactamente lo que necesita tu vehículo</p>
+                </div>
+                
+                <div class="process-step text-center">
+                    <div class="bg-blue-600 text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3 relative z-10">
+                        <span class="font-bold">3</span>
+                    </div>
+                    <h4 class="font-semibold mb-2 text-lg">Selección</h4>
+                    <p class="text-sm text-gray-600">Elegimos las piezas adecuadas para tu modelo</p>
+                </div>
+                
+                <div class="process-step text-center">
+                    <div class="bg-blue-600 text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3 relative z-10">
+                        <span class="font-bold">4</span>
+                    </div>
+                    <h4 class="font-semibold mb-2 text-lg">Cotización</h4>
+                    <p class="text-sm text-gray-600">Recibes un presupuesto transparente sin sorpresas</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="bg-green-600 text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3 relative z-10">
+                        <span class="font-bold">5</span>
+                    </div>
+                    <h4 class="font-semibold mb-2 text-lg">Instalación</h4>
+                    <p class="text-sm text-gray-600">Servicio técnico profesional con garantía</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="section-title text-4xl font-bold text-gray-900">
+                    Contáctanos
+                </h2>
+                <p class="text-gray-600 text-lg max-w-2xl mx-auto mt-4">
+                    Estamos aquí para resolver cualquier duda sobre repuestos y servicios para tu vehículo
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+                <!-- Contact Info -->
+                <div class="space-y-8">
+                    <div class="bg-gradient-to-br from-blue-50 to-white p-8 rounded-2xl border border-blue-100">
+                        <h3 class="text-2xl font-bold mb-6 flex items-center gap-3">
+                            <i class="fas fa-address-card text-blue-600"></i>
+                            Información de Contacto
+                        </h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start gap-4">
+                                <div class="flex-shrink-0 w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-phone text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900">Teléfonos Principales</h4>
+                                    <div class="mt-2 space-y-2">
+                                        <p class="text-gray-600">(E.a.m. De Jaegher): <span class="font-medium">+53 53729090</span></p>
+                                        <p class="text-gray-600">(Lic. Raciel Rodríguez Temprana): <span class="font-medium">+53 52493787</span></p>
+                                        <p class="text-gray-600">(Ing. Luis Carlos Triana Alonso): <span class="font-medium">+53 50669462</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start gap-4">
+                                <div class="flex-shrink-0 w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-envelope text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900">Correos Electrónicos</h4>
+                                    <div class="mt-2 space-y-1">
+                                        <p class="text-gray-600">csrdam@hotmail.com</p>
+                                        <p class="text-gray-600">csrhabana@gmail.com</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start gap-4">
+                                <div class="flex-shrink-0 w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-map-marker-alt text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900">Ubicación</h4>
+                                    <p class="text-gray-600 mt-2">Habana, Cuba</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start gap-4">
+                                <div class="flex-shrink-0 w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-clock text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900">Horarios de Atención</h4>
+                                    <div class="mt-2 space-y-1">
+                                        <p class="text-gray-600">Lunes a Viernes: 9:00 AM - 6:00 PM</p>
+                                        <p class="text-gray-600">Taller: 8:00 AM - 5:00 PM</p>
+                                        <p class="text-gray-600 font-medium">Atención 24/7 para emergencias</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- WhatsApp Quick Button -->
+                    <div class="bg-gradient-to-br from-green-50 to-white p-8 rounded-2xl border border-green-100">
+                        <div class="flex items-center gap-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                                <i class="fab fa-whatsapp text-green-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-2">Contacto Rápido por WhatsApp</h4>
+                                <p class="text-gray-600 mb-4">¿Necesitas asesoría o cotización? Escríbenos directamente</p>
+                                <a href="https://wa.me/+5353729090" target="_blank" 
+                                   class="inline-flex items-center gap-2 bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors duration-300">
+                                    <i class="fab fa-whatsapp"></i>
+                                    Enviar Mensaje
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="bg-gradient-to-br from-gray-50 to-white p-8 rounded-2xl border border-gray-200">
+                    <h3 class="text-2xl font-bold mb-6 flex items-center gap-3">
+                        <i class="fas fa-comments text-blue-600"></i>
+                        Envíanos un Mensaje
+                    </h3>
+                    
+                    <form id="contact-form" onsubmit="sendContactMessage(event)" class="space-y-6">
+                        <div>
+                            <label for="contact-name" class="block text-gray-700 font-medium mb-2">
+                                Nombre Completo *
+                            </label>
+                            <input type="text" id="contact-name" name="name" 
+                                   class="form-input" 
+                                   placeholder="Tu nombre completo" 
+                                   required>
+                        </div>
+                        
+                        <div>
+                            <label for="contact-phone" class="block text-gray-700 font-medium mb-2">
+                                Teléfono *
+                            </label>
+                            <input type="text" id="contact-phone" name="phone" 
+                                   class="form-input" 
+                                   placeholder="Número de contacto" 
+                                   required>
+                        </div>
+                        
+                        <div>
+                            <label for="contact-purpose" class="block text-gray-700 font-medium mb-2">
+                                ¿En qué podemos ayudarte? *
+                            </label>
+                            <select id="contact-purpose" name="purpose" 
+                                    class="form-input" 
+                                    required>
+                                <option value="">Selecciona una opción</option>
+                                <option value="venta">Venta de Piezas</option>
+                                <option value="instalacion">Solicitud de Instalación</option>
+                                <option value="diagnostico">Solicitud de Diagnóstico</option>
+                                <option value="cotizacion">Solicitar Cotización</option>
+                                <option value="emergencia">Emergencia / Ayuda Urgente</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="contact-message" class="block text-gray-700 font-medium mb-2">
+                                Mensaje *
+                            </label>
+                            <textarea id="contact-message" name="message" 
+                                      rows="5" 
+                                      class="form-input" 
+                                      placeholder="Describe el problema, piezas que necesitas, modelo de vehículo..."
+                                      required></textarea>
+                        </div>
+                        
+                        <button type="submit" 
+                                class="w-full btn-primary py-4 text-lg font-semibold">
+                            <i class="fas fa-paper-plane mr-2"></i>
+                            Enviar Mensaje
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                <!-- Company Info -->
+                <div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <img src="imagenes de Inicio/Logo2.jpg" alt="CSR Logo" 
+                             class="h-12 w-12 rounded-full object-cover">
+                        <div>
+                            <h3 class="text-xl font-bold">CSR s.r.l</h3>
+                            <p class="text-gray-400 text-sm">Repuestos Automotrices Profesionales</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 mb-6 leading-relaxed">
+                        Especialistas en venta e instalación de repuestos automotrices de calidad. 
+                        Más de 15 años brindando soluciones confiables para tu vehículo.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-pink-600 transition-colors duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://wa.me/+5353729090" target="_blank" 
+                           class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-green-600 transition-colors duration-300">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Servicios -->
+                <div>
+                    <h4 class="text-xl font-bold mb-6">Nuestros Servicios</h4>
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="#servicios" 
+                               class="text-gray-400 hover:text-white transition-colors duration-300 flex items-center gap-2">
+                                <i class="fas fa-chevron-right text-xs"></i>
+                                Venta de Repuestos
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#servicios" 
+                               class="text-gray-400 hover:text-white transition-colors duration-300 flex items-center gap-2">
+                                <i class="fas fa-chevron-right text-xs"></i>
+                                Instalación Profesional
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#servicios" 
+                               class="text-gray-400 hover:text-white transition-colors duration-300 flex items-center gap-2">
+                                <i class="fas fa-chevron-right text-xs"></i>
+                                Diagnóstico Técnico
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#servicios" 
+                               class="text-gray-400 hover:text-white transition-colors duration-300 flex items-center gap-2">
+                                <i class="fas fa-chevron-right text-xs"></i>
+                                Mantenimiento Preventivo
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#servicios" 
+                               class="text-gray-400 hover:text-white transition-colors duration-300 flex items-center gap-2">
+                                <i class="fas fa-chevron-right text-xs"></i>
+                                Reparación de Motor
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-xl font-bold mb-6">Enlaces Rápidos</h4>
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="https://comercioonline.github.io/CSR/Inicio" 
+                               class="text-gray-400 hover:text-white transition-colors duration-300 flex items-center gap-2">
+                                <i class="fas fa-chevron-right text-xs"></i>
+                                Inicio
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#categorias" 
+                               class="text-gray-400 hover:text-white transition-colors duration-300 flex items-center gap-2">
+                                <i class="fas fa-chevron-right text-xs"></i>
+                                Repuestos
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#servicios" 
+                               class="text-gray-400 hover:text-white transition-colors duration-300 flex items-center gap-2">
+                                <i class="fas fa-chevron-right text-xs"></i>
+                                Servicios
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#marcas" 
+                               class="text-gray-400 hover:text-white transition-colors duration-300 flex items-center gap-2">
+                                <i class="fas fa-chevron-right text-xs"></i>
+                                Marcas
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://comercioonline.github.io/CSR/venta%20de%20contenedores" 
+                               class="text-gray-400 hover:text-white transition-colors duration-300 flex items-center gap-2">
+                                <i class="fas fa-chevron-right text-xs"></i>
+                                Contenedores
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Business Hours -->
+                <div>
+                    <h4 class="text-xl font-bold mb-6">Horarios de Atención</h4>
+                    <div class="bg-gray-800 p-4 rounded-lg space-y-3 mb-4">
+                        <div class="flex justify-between">
+                            <span class="text-gray-400">Ventas</span>
+                            <span>9:00 AM - 6:00 PM</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-400">Taller</span>
+                            <span>8:00 AM - 5:00 PM</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-400">Sábados</span>
+                            <span>9:00 AM - 1:00 PM</span>
+                        </div>
+                    </div>
+                    <div class="p-3 bg-blue-900/30 border border-blue-800 rounded-lg flex items-center gap-3">
+                        <i class="fas fa-phone-alt text-blue-400"></i>
+                        <span class="text-sm">Atención 24/7 para emergencias vehiculares</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Copyright -->
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center">
+                <p class="text-gray-500">
+                    &copy; IMPERIUM Todos los derechos reservados.
+                </p>
+                <div class="mt-4 flex flex-wrap justify-center gap-6 text-sm text-gray-500">
+                    <a href="#" class="hover:text-white transition-colors duration-300">
+                        Términos y Condiciones
+                    </a>
+                    <a href="#" class="hover:text-white transition-colors duration-300">
+                        Política de Privacidad
+                    </a>
+                    <a href="#" class="hover:text-white transition-colors duration-300">
+                        Aviso Legal
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Sidebar -->
+    <div id="cart-sidebar" class="cart-sidebar">
+        <div class="h-full flex flex-col">
+            <!-- Cart Header -->
+            <div class="p-6 border-b">
+                <div class="flex items-center justify-between">
+                    <h3 class="text-2xl font-bold text-gray-900">
+                        <i class="fas fa-shopping-cart mr-3"></i>
+                        Tu Carrito de Repuestos
+                    </h3>
+                    <button onclick="closeCart()" 
+                            class="w-10 h-10 rounded-full hover:bg-gray-100 flex items-center justify-center transition-colors duration-300">
+                        <i class="fas fa-times text-xl text-gray-500"></i>
+                    </button>
+                </div>
+                <p class="text-gray-600 text-sm mt-2">Revisa y gestiona los repuestos seleccionados</p>
+            </div>
+            
+            <!-- Cart Items -->
+            <div class="flex-1 overflow-y-auto p-6" id="cart-items">
+                <!-- Cart items will be loaded here -->
+            </div>
+            
+            <!-- Cart Footer -->
+            <div class="border-t p-6 bg-gray-50">
+                <div class="space-y-4">
+                    <div class="flex justify-between items-center">
+                        <span class="text-lg font-semibold">Subtotal:</span>
+                        <span class="text-xl font-bold text-blue-600" id="cart-subtotal">$0</span>
+                    </div>
+                    <div class="flex justify-between items-center text-sm text-gray-600">
+                        <span>Envío:</span>
+                        <span>Gratis en La Habana</span>
+                    </div>
+                    <div class="flex justify-between items-center text-lg font-bold">
+                        <span>Total:</span>
+                        <span class="text-2xl" id="cart-total">$0</span>
+                    </div>
+                    
+                    <button onclick="showWhatsAppForm()" 
+                            class="w-full btn-primary py-4 text-lg font-semibold mt-6">
+                        <i class="fab fa-whatsapp mr-3"></i>
+                        Solicitar Cotización
+                    </button>
+                    
+                    <button onclick="closeCart()" 
+                            class="w-full btn-secondary py-4 text-lg font-semibold">
+                        Seguir Comprando
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Cart Overlay -->
+    <div id="cart-overlay" 
+         class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden"
+         onclick="closeCart()"></div>
+
+    <!-- Product Detail Modal -->
+    <div id="detail-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button onclick="closeDetailModal()" 
+                    class="absolute top-4 right-4 w-10 h-10 rounded-full hover:bg-gray-100 flex items-center justify-center transition-colors duration-300">
+                <i class="fas fa-times text-xl text-gray-500"></i>
+            </button>
+            <div id="detail-container" class="animate-fade-in">
+                <!-- Product details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- WhatsApp Form Modal -->
+    <div id="whatsapp-form-modal" class="modal-overlay">
+        <div class="modal-content max-w-2xl">
+            <button onclick="closeWhatsAppForm()" 
+                    class="absolute top-4 right-4 w-10 h-10 rounded-full hover:bg-gray-100 flex items-center justify-center transition-colors duration-300">
+                <i class="fas fa-times text-xl text-gray-500"></i>
+            </button>
+            
+            <h2 class="text-3xl font-bold mb-2 text-center">
+                <i class="fab fa-whatsapp text-green-500 mr-3"></i>
+                Solicitar Cotización por WhatsApp
+            </h2>
+            <p class="text-gray-600 text-center mb-8">Completa el formulario para recibir tu cotización personalizada</p>
+            
+            <form id="whatsapp-form" onsubmit="sendWhatsAppMessage(event)" class="space-y-6">
+                <div class="bg-gray-50 p-6 rounded-xl">
+                    <h3 class="text-lg font-semibold mb-4 flex items-center gap-2">
+                        <i class="fas fa-shopping-cart"></i>
+                        Resumen de repuestos seleccionados
+                    </h3>
+                    <div id="cart-summary" class="space-y-3">
+                        <!-- Cart summary will be loaded here -->
+                    </div>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="nombre" class="block text-gray-700 font-medium mb-2">
+                            Nombre Completo *
+                        </label>
+                        <input type="text" id="nombre" name="nombre" 
+                               class="form-input" 
+                               placeholder="Ej: Juan Pérez" 
+                               required>
+                    </div>
+                    
+                    <div>
+                        <label for="telefono" class="block text-gray-700 font-medium mb-2">
+                            Teléfono *
+                        </label>
+                        <input type="text" id="telefono" name="telefono" 
+                               class="form-input" 
+                               placeholder="Número de contacto" 
+                               required>
+                    </div>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div>
+                        <label for="marca" class="block text-gray-700 font-medium mb-2">
+                            Marca del Vehículo *
+                        </label>
+                        <select id="marca" name="marca" 
+                                class="form-input" 
+                                required>
+                            <option value="">Selecciona marca</option>
+                            <option value="lada">Lada</option>
+                            <option value="toyota">Toyota</option>
+                            <option value="nissan">Nissan</option>
+                            <option value="chevrolet">Chevrolet</option>
+                            <option value="otra">Otra</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label for="modelo" class="block text-gray-700 font-medium mb-2">
+                            Modelo *
+                        </label>
+                        <input type="text" id="modelo" name="modelo" 
+                               class="form-input" 
+                               placeholder="Ej: Corolla" 
+                               required>
+                    </div>
+                    
+                    <div>
+                        <label for="año" class="block text-gray-700 font-medium mb-2">
+                            Año *
+                        </label>
+                        <input type="text" id="año" name="año" 
+                               class="form-input" 
+                               placeholder="Ej: 2018" 
+                               required>
+                    </div>
+                </div>
+                
+                <div>
+                    <label for="tipo_servicio" class="block text-gray-700 font-medium mb-2">
+                        Tipo de Servicio Solicitado *
+                    </label>
+                    <select id="tipo_servicio" name="tipo_servicio" 
+                            class="form-input" 
+                            required>
+                        <option value="">Selecciona servicio</option>
+                        <option value="venta">Venta de Piezas</option>
+                        <option value="instalacion">Venta + Instalación</option>
+                        <option value="diagnostico">Diagnóstico Técnico</option>
+                        <option value="mantenimiento">Mantenimiento</option>
+                        <option value="personalizado">Servicio Personalizado</option>
+                    </select>
+                </div>
+                
+                <div>
+                    <label for="mensaje" class="block text-gray-700 font-medium mb-2">
+                        Descripción del Problema / Necesidad
+                    </label>
+                    <textarea id="mensaje" name="mensaje" 
+                              rows="4" 
+                              class="form-input" 
+                              placeholder="Describe el problema del vehículo, síntomas, o necesidades específicas..."></textarea>
+                </div>
+                
+                <div class="flex gap-4">
+                    <button type="submit" 
+                            class="flex-1 btn-primary py-4 text-lg font-semibold">
+                        <i class="fab fa-whatsapp mr-3"></i>
+                        Enviar Cotización
+                    </button>
+                    <button type="button" 
+                            onclick="closeWhatsAppForm()" 
+                            class="flex-1 btn-secondary py-4 text-lg font-semibold">
+                        Cancelar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Notification Container -->
+    <div id="notification-container" class="fixed top-4 right-4 z-50 space-y-3"></div>
+
+    <script>
+        // Datos de productos
+        const carParts = [
+            { 
+                id: 1, 
+                name: "Motor Completo Lada 2107", 
+                price: 25000, 
+                category: "motor", 
+                image: "Imagenes de Piezas de Carro/Motor de lada1 2107.jpg", 
+                stock: 15,
+                description: "Motor completo para Lada 2107 reconstruido con piezas nuevas, incluye bomba de agua, alternador y compresor de aire. Garantía de 1 año.",
+                specifications: [
+                    "Cilindros: 4",
+                    "Cilindrada: 1.6L", 
+                    "Potencia: 75 HP",
+                    "Tipo: Gasolina",
+                    "Material: Hierro fundido"
+                ],
+                features: [
+                    "Garantía 1 año",
+                    "Pistones nuevos",
+                    "Anillos de compresión nuevos",
+                    "Bielas reforzadas",
+                    "Montaje plug & play"
+                ],
+                compatibleModels: ["Lada 2107", "Lada 2105", "Lada 2104", "Lada 110"],
+                applications: ["Reemplazo completo", "Reconstrucción", "Tuning"]
+            },
+            { 
+                id: 2, 
+                name: "Radiador de Lada", 
+                price: 45000, 
+                category: "motor", 
+                image: "Imagenes de Piezas de Carro/Radiador de lada.jpg", 
+                stock: 25,
+                description: "Radiador de alta eficiencia para motores Lada, diseñado para mantener la temperatura óptima del motor en climas cálidos o recorridos prolongados.",
+                specifications: [
+                    "Material: Aluminio con tanques plásticos",
+                    "Dimensiones: 56 x 45 cm",
+                    "Entrada/Salida: 32 mm",
+                    "Capacidad: 4.2 litros",
+                    "Eficiencia: 95%"
+                ],
+                features: [
+                    "Disipación de calor mejorada",
+                    "Diseño anticorrosión",
+                    "Instalación directa sin modificaciones",
+                    "Compatible con anticongelantes modernos",
+                    "Garantía 6 meses"
+                ],
+                compatibleModels: ["Lada 2101", "Lada 2105", "Lada 2107", "Lada 110"],
+                applications: ["Reemplazo de radiador", "Mantenimiento preventivo", "Actualización de sistema de enfriamiento"]
+            },
+            { 
+                id: 3, 
+                name: "Filtro de Aire Premium", 
+                price: 85000, 
+                category: "motor", 
+                image: "Imagenes de Piezas de Carro/Filtro de Aire.jpg", 
+                stock: 20,
+                description: "Filtro de aire de alto flujo para una mejor combustión y rendimiento del motor, diseñado para vehículos Toyota y similares.",
+                specifications: [
+                    "Material: Papel filtrante multicapa",
+                    "Diámetro exterior: 200 mm",
+                    "Altura: 65 mm",
+                    "Eficiencia de filtrado: 99%",
+                    "Capacidad de aire: 250 m³/h"
+                ],
+                features: [
+                    "Mayor flujo de aire",
+                    "Retiene partículas finas hasta 5 micrones",
+                    "Instalación rápida sin herramientas",
+                    "Durabilidad de hasta 20,000 km",
+                    "Mejora el rendimiento del motor"
+                ],
+                compatibleModels: ["Toyota Corolla", "Toyota Hilux", "Toyota Camry", "Toyota Yaris"],
+                applications: ["Reemplazo de filtro de aire", "Mantenimiento preventivo", "Optimización de consumo de combustible", "Mayor potencia"]
+            },
+            { 
+                id: 4, 
+                name: "Amortiguadores Deportivos", 
+                price: 120000, 
+                category: "suspension", 
+                image: "Imagenes de Piezas de Carro/amortiguadores.jpg", 
+                stock: 10,
+                description: "Juego de amortiguadores hidráulicos de alto desempeño para un manejo estable y seguro en todo tipo de terreno.",
+                specifications: [
+                    "Tipo: Hidráulico a gas",
+                    "Recorrido: 180 mm",
+                    "Compatibilidad: Eje delantero",
+                    "Material: Acero reforzado",
+                    "Presión de gas: 20 bar"
+                ],
+                features: [
+                    "Absorción de impactos superior",
+                    "Mayor confort en carretera",
+                    "Protección contra fugas",
+                    "Diseño anticorrosión",
+                    "Garantía 1 año"
+                ],
+                compatibleModels: ["Nissan Sentra", "Toyota Corolla", "Honda Civic", "Mitsubishi Lancer"],
+                applications: ["Reemplazo de suspensión", "Mejora de estabilidad", "Reducción de vibraciones", "Conducción deportiva"]
+            },
+            { 
+                id: 5, 
+                name: "Caja de Velocidad 5ta", 
+                price: 35000, 
+                category: "transmision", 
+                image: "Imagenes de Piezas de Carro/caja de velocidad de Lada.jpg", 
+                stock: 30,
+                description: "Caja de cambios original de 5 velocidades para vehículos Lada, ideal para restauraciones o reparaciones completas.",
+                specifications: [
+                    "Velocidades: 5 hacia adelante + reversa",
+                    "Material: Aleación de aluminio",
+                    "Sistema: Manual",
+                    "Peso: 38 kg",
+                    "Relación: 1:1 en 5ta"
+                ],
+                features: [
+                    "Engranajes reforzados",
+                    "Sincronizadores de alta precisión",
+                    "Montaje plug & play",
+                    "Lubricación optimizada",
+                    "Reducción de ruido"
+                ],
+                compatibleModels: ["Lada 2107", "Lada 2105", "Lada Niva", "Lada Samara"],
+                applications: ["Reparación de transmisión", "Reemplazo por desgaste", "Restauración de vehículos clásicos", "Mejora de cambios"]
+            },
+            { 
+                id: 6, 
+                name: "Eje Trasero con Diferencial", 
+                price: 55000, 
+                category: "transmision", 
+                image: "Imagenes de Piezas de Carro/Trasero completo con diferencial.jpg", 
+                stock: 18,
+                description: "Eje trasero completo con diferencial para vehículos de tracción trasera, listo para instalación con engranajes calibrados.",
+                specifications: [
+                    "Relación de diferencial: 3.90",
+                    "Material: Acero templado",
+                    "Incluye: Semiejes, rodamientos y sellos",
+                    "Peso: 85 kg",
+                    "Capacidad de carga: 1500 kg"
+                ],
+                features: [
+                    "Montaje completo sin modificaciones",
+                    "Alta resistencia a cargas pesadas",
+                    "Lubricación sellada de fábrica",
+                    "Reducción de ruido en la transmisión",
+                    "Garantía 6 meses"
+                ],
+                compatibleModels: ["Chevrolet Silverado", "Ford F-150", "Dodge Ram", "Toyota Tundra"],
+                applications: ["Reemplazo de eje trasero", "Conversión de diferencial", "Proyectos de alto torque", "Off-road"]
+            }
+        ];
+
+        // Variables globales
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        let currentFilter = null;
+
+        // Inicialización
+        document.addEventListener('DOMContentLoaded', () => {
+            initApp();
+        });
+
+        // Función de inicialización
+        function initApp() {
+            renderProducts(carParts, 'car-parts-container');
+            updateCartCount();
+            setupEventListeners();
+            checkCartOnLoad();
+        }
+
+        // Configurar event listeners
+        function setupEventListeners() {
+            // Mobile menu
+            document.getElementById('mobile-menu-btn').addEventListener('click', toggleMobileMenu);
+            
+            // Cart button
+            document.getElementById('cart-btn').addEventListener('click', openCart);
+            
+            // Close cart on overlay click
+            document.getElementById('cart-overlay').addEventListener('click', closeCart);
+            
+            // Close modals on ESC key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    closeAllModals();
+                }
+            });
+            
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId !== '#') {
+                        const targetElement = document.querySelector(targetId);
+                        if (targetElement) {
+                            targetElement.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                        }
+                    }
+                });
+            });
+        }
+
+        // Renderizar productos
+        function renderProducts(products, containerId) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = '';
+            
+            const filteredProducts = currentFilter && currentFilter !== 'all' ? 
+                products.filter(p => p.category === currentFilter) : 
+                products;
+            
+            if (filteredProducts.length === 0) {
+                container.innerHTML = `
+                    <div class="col-span-3 text-center py-12">
+                        <i class="fas fa-search text-4xl text-gray-300 mb-4"></i>
+                        <h3 class="text-xl font-semibold text-gray-600 mb-2">No se encontraron repuestos</h3>
+                        <p class="text-gray-500">Intenta con otra categoría o contacta para consultar disponibilidad</p>
+                        <button onclick="scrollToSection('contact')" class="btn-primary mt-4">
+                            <i class="fas fa-phone mr-2"></i>
+                            Consultar Disponibilidad
+                        </button>
+                    </div>
+                `;
+                return;
+            }
+            
+            filteredProducts.forEach(product => {
+                const productCard = createProductCard(product);
+                container.appendChild(productCard);
+            });
+        }
+
+        // Crear tarjeta de producto
+        function createProductCard(product) {
+            const card = document.createElement('div');
+            card.className = 'product-card animate-slide-up';
+            
+            // Determinar colores según categoría
+            const badgeColor = 'bg-blue-500';
+            const badgeText = getCategoryText(product.category);
+            const stockColor = product.stock > 10 ? 'bg-green-500' : product.stock > 0 ? 'bg-yellow-500' : 'bg-red-500';
+            
+            card.innerHTML = `
+                <div class="product-image-container">
+                    <img src="${product.image}" 
+                         alt="${product.name}" 
+                         class="product-image"
+                         onerror="this.src='https://via.placeholder.com/400x300?text=Imagen+no+disponible'">
+                    
+                    <!-- Badge de categoría -->
+                    <span class="product-badge ${badgeColor} text-white">
+                        ${badgeText}
+                    </span>
+                    
+                    <!-- Badge de stock -->
+                    <span class="product-badge ${stockColor} text-white" style="top: 50px;">
+                        ${product.stock > 0 ? `${product.stock} disponibles` : 'Agotado'}
+                    </span>
+                    
+                    <!-- Precio -->
+                    <div class="price-tag">
+                        $${product.price.toLocaleString()}
+                    </div>
+                </div>
+                
+                <div class="p-6 flex-1 flex flex-col">
+                    <div class="mb-4 flex-1">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">${product.name}</h3>
+                        <p class="text-gray-600 text-sm line-clamp-2">${product.description}</p>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        ${product.applications.slice(0, 3).map(app => 
+                            `<span class="compatibility-tag">${app}</span>`
+                        ).join('')}
+                    </div>
+                    
+                    <div class="flex justify-between items-center">
+                        <button onclick="showProductDetail(${product.id})" 
+                                class="flex items-center gap-2 text-blue-600 hover:text-blue-800 font-medium transition-colors duration-300">
+                            <i class="fas fa-info-circle"></i>
+                            Detalles
+                        </button>
+                        
+                        <button onclick="addToCart(${product.id})" 
+                                class="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                                ${product.stock === 0 ? 'disabled' : ''}>
+                            <i class="fas fa-cart-plus"></i>
+                            Cotizar
+                        </button>
+                    </div>
+                </div>
+            `;
+            
+            return card;
+        }
+
+        // Obtener texto de categoría
+        function getCategoryText(category) {
+            const categories = {
+                'motor': 'Motor',
+                'transmision': 'Transmisión',
+                'suspension': 'Suspensión',
+                'frenos': 'Frenos',
+                'embrague': 'Embrague',
+                'escape': 'Escape'
+            };
+            return categories[category] || 'Repuesto';
+        }
+
+        // Filtrar productos
+        function filterProducts(category) {
+            currentFilter = category;
+            renderProducts(carParts, 'car-parts-container');
+            
+            // Actualizar botones activos
+            document.querySelectorAll('#categorias .flex-wrap button').forEach(btn => {
+                btn.classList.remove('bg-blue-600', 'text-white');
+                btn.classList.add('border', 'border-blue-200', 'text-gray-700');
+            });
+            
+            const activeBtn = event?.target;
+            if (activeBtn) {
+                activeBtn.classList.remove('border', 'border-blue-200', 'text-gray-700');
+                activeBtn.classList.add('bg-blue-600', 'text-white');
+            }
+        }
+
+        // Mostrar detalles del producto
+        function showProductDetail(productId) {
+            const product = carParts.find(p => p.id === productId);
+            
+            if (!product) return;
+            
+            const detailContainer = document.getElementById('detail-container');
+            const badgeColor = 'bg-blue-500';
+            const badgeText = getCategoryText(product.category);
+            const stockColor = product.stock > 10 ? 'text-green-600' : product.stock > 0 ? 'text-yellow-600' : 'text-red-600';
+            
+            let specificationsHTML = '';
+            let featuresHTML = '';
+            let compatibleModelsHTML = '';
+            let applicationsHTML = '';
+            
+            // Generar HTML para especificaciones
+            specificationsHTML = `
+                <div class="mb-8">
+                    <h4 class="font-semibold text-lg mb-4 flex items-center gap-2 text-blue-600">
+                        <i class="fas fa-list-alt"></i>
+                        Especificaciones Técnicas
+                    </h4>
+                    <ul class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                        ${product.specifications.map(spec => `
+                            <li class="flex items-center gap-2 text-gray-700">
+                                <i class="fas fa-check text-blue-500 text-sm"></i>
+                                ${spec}
+                            </li>
+                        `).join('')}
+                    </ul>
+                </div>
+            `;
+            
+            // Generar HTML para características
+            featuresHTML = `
+                <div class="mb-8">
+                    <h4 class="font-semibold text-lg mb-4 flex items-center gap-2 text-blue-600">
+                        <i class="fas fa-star"></i>
+                        Características
+                    </h4>
+                    <ul class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                        ${product.features.map(feature => `
+                            <li class="flex items-center gap-2 text-gray-700">
+                                <i class="fas fa-check-circle text-green-500 text-sm"></i>
+                                ${feature}
+                            </li>
+                        `).join('')}
+                    </ul>
+                </div>
+            `;
+            
+            // Generar HTML para modelos compatibles
+            compatibleModelsHTML = `
+                <div class="mb-8">
+                    <h4 class="font-semibold text-lg mb-4 flex items-center gap-2 text-blue-600">
+                        <i class="fas fa-car"></i>
+                        Modelos Compatibles
+                    </h4>
+                    <div class="flex flex-wrap gap-2">
+                        ${product.compatibleModels.map(model => `
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">
+                                ${model}
+                            </span>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+            
+            // Generar HTML para aplicaciones
+            applicationsHTML = `
+                <div class="mb-8">
+                    <h4 class="font-semibold text-lg mb-4 flex items-center gap-2 text-blue-600">
+                        <i class="fas fa-wrench"></i>
+                        Aplicaciones
+                    </h4>
+                    <div class="flex flex-wrap gap-2">
+                        ${product.applications.map(app => `
+                            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">
+                                ${app}
+                            </span>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+            
+            detailContainer.innerHTML = `
+                <div class="grid lg:grid-cols-2 gap-8">
+                    <!-- Imagen del producto -->
+                    <div>
+                        <div class="relative rounded-xl overflow-hidden mb-6">
+                            <img src="${product.image}" 
+                                 alt="${product.name}" 
+                                 class="w-full h-96 object-cover"
+                                 onerror="this.src='https://via.placeholder.com/600x400?text=Imagen+no+disponible'">
+                            
+                            <!-- Badges -->
+                            <div class="absolute top-4 left-4 flex flex-col gap-2">
+                                <span class="${badgeColor} text-white px-3 py-1 rounded-full text-sm font-semibold">
+                                    ${badgeText}
+                                </span>
+                                <span class="${stockColor} bg-white px-3 py-1 rounded-full text-sm font-semibold">
+                                    ${product.stock > 0 ? `${product.stock} disponibles` : 'Agotado'}
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gradient-to-br from-blue-50 to-white p-6 rounded-xl border border-blue-100">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-gray-600 text-sm">Precio unitario</p>
+                                    <p class="text-3xl font-bold text-blue-600">$${product.price.toLocaleString()}</p>
+                                </div>
+                                <div class="text-right">
+                                    <p class="text-gray-600 text-sm">Entrega</p>
+                                    <p class="font-semibold">24-48 horas</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Información del producto -->
+                    <div>
+                        <h2 class="text-3xl font-bold text-gray-900 mb-4">${product.name}</h2>
+                        <p class="text-gray-700 mb-6 leading-relaxed">${product.description}</p>
+                        
+                        ${specificationsHTML}
+                        ${featuresHTML}
+                        ${compatibleModelsHTML}
+                        ${applicationsHTML}
+                        
+                        <!-- Botones de acción -->
+                        <div class="flex gap-4 mt-8">
+                            <button onclick="addToCartFromDetail(${product.id})" 
+                                    class="flex-1 btn-primary py-4 text-lg font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
+                                    ${product.stock === 0 ? 'disabled' : ''}>
+                                <i class="fas fa-cart-plus mr-3"></i>
+                                Añadir a Cotización
+                            </button>
+                            <button onclick="closeDetailModal()" 
+                                    class="flex-1 btn-secondary py-4 text-lg font-semibold">
+                                <i class="fas fa-times mr-3"></i>
+                                Cerrar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            openModal('detail-modal');
+        }
+
+        // Añadir al carrito
+        function addToCart(productId) {
+            const product = carParts.find(p => p.id === productId);
+            
+            if (!product || product.stock === 0) {
+                showNotification('Producto no disponible', 'error');
+                return;
+            }
+            
+            const existingItem = cart.find(item => item.id === productId);
+            
+            if (existingItem) {
+                if (existingItem.quantity < product.stock) {
+                    existingItem.quantity++;
+                } else {
+                    showNotification('Stock insuficiente', 'error');
+                    return;
+                }
+            } else {
+                cart.push({ 
+                    ...product, 
+                    quantity: 1,
+                    addedAt: new Date().toISOString()
+                });
+            }
+            
+            saveCart();
+            updateCartCount();
+            showNotification('Producto añadido a la cotización', 'success');
+            
+            // Animar el botón del carrito
+            animateCartButton();
+        }
+
+        // Añadir al carrito desde el detalle
+        function addToCartFromDetail(productId) {
+            closeDetailModal();
+            addToCart(productId);
+        }
+
+        // Guardar carrito en localStorage
+        function saveCart() {
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+
+        // Actualizar contador del carrito
+        function updateCartCount() {
+            const count = cart.reduce((total, item) => total + item.quantity, 0);
+            const cartCount = document.getElementById('cart-count');
+            cartCount.textContent = count;
+            
+            // Animar si hay cambios
+            if (count > 0) {
+                cartCount.classList.add('animate-pulse');
+                setTimeout(() => cartCount.classList.remove('animate-pulse'), 300);
+            }
+        }
+
+        // Animar botón del carrito
+        function animateCartButton() {
+            const cartBtn = document.getElementById('cart-btn');
+            cartBtn.classList.add('scale-110');
+            setTimeout(() => cartBtn.classList.remove('scale-110'), 300);
+        }
+
+        // Abrir carrito
+        function openCart() {
+            document.getElementById('cart-sidebar').classList.add('active');
+            document.getElementById('cart-overlay').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+            renderCartItems();
+        }
+
+        // Cerrar carrito
+        function closeCart() {
+            document.getElementById('cart-sidebar').classList.remove('active');
+            setTimeout(() => {
+                document.getElementById('cart-overlay').classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }, 300);
+        }
+
+        // Renderizar items del carrito
+        function renderCartItems() {
+            const cartItemsContainer = document.getElementById('cart-items');
+            const cartSubtotal = document.getElementById('cart-subtotal');
+            const cartTotal = document.getElementById('cart-total');
+            
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = `
+                    <div class="text-center py-12">
+                        <i class="fas fa-shopping-cart text-4xl text-gray-300 mb-4"></i>
+                        <h3 class="text-xl font-semibold text-gray-600 mb-2">Tu carrito está vacío</h3>
+                        <p class="text-gray-500 mb-6">Añade repuestos para solicitar una cotización</p>
+                        <button onclick="closeCart()" class="btn-primary">
+                            <i class="fas fa-store mr-2"></i>
+                            Ver Repuestos
+                        </button>
+                    </div>
+                `;
+                cartSubtotal.textContent = '$0';
+                cartTotal.textContent = '$0';
+                return;
+            }
+            
+            cartItemsContainer.innerHTML = '';
+            let subtotal = 0;
+            
+            cart.forEach((item, index) => {
+                const itemTotal = item.price * item.quantity;
+                subtotal += itemTotal;
+                
+                const cartItem = document.createElement('div');
+                cartItem.className = 'flex items-center gap-4 p-4 bg-white rounded-lg border border-gray-200 mb-4 animate-slide-in';
+                cartItem.innerHTML = `
+                    <img src="${item.image}" 
+                         alt="${item.name}" 
+                         class="w-20 h-20 object-cover rounded-lg"
+                         onerror="this.src='https://via.placeholder.com/100x100?text=Imagen'">
+                    
+                    <div class="flex-1 min-w-0">
+                        <div class="flex items-center gap-2 mb-1">
+                            <h4 class="font-semibold text-gray-900 truncate">${item.name}</h4>
+                            <span class="px-2 py-0.5 text-xs font-medium bg-blue-100 text-blue-600 rounded-full">
+                                ${getCategoryText(item.category)}
+                            </span>
+                        </div>
+                        <p class="text-gray-600 text-sm">$${item.price.toLocaleString()} c/u</p>
+                        <div class="flex items-center gap-2 mt-2">
+                            <button onclick="updateCartItem(${index}, -1)" 
+                                    class="w-8 h-8 flex items-center justify-center bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors duration-300">
+                                <i class="fas fa-minus text-xs"></i>
+                            </button>
+                            <span class="w-12 text-center font-medium">${item.quantity}</span>
+                            <button onclick="updateCartItem(${index}, 1)" 
+                                    class="w-8 h-8 flex items-center justify-center bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors duration-300">
+                                <i class="fas fa-plus text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="text-right">
+                        <p class="font-semibold text-gray-900">$${itemTotal.toLocaleString()}</p>
+                        <button onclick="removeCartItem(${index})" 
+                                class="text-red-500 hover:text-red-700 mt-2 transition-colors duration-300">
+                            <i class="fas fa-trash text-sm"></i>
+                        </button>
+                    </div>
+                `;
+                cartItemsContainer.appendChild(cartItem);
+            });
+            
+            cartSubtotal.textContent = `$${subtotal.toLocaleString()}`;
+            cartTotal.textContent = `$${subtotal.toLocaleString()}`;
+        }
+
+        // Actualizar item del carrito
+        function updateCartItem(index, change) {
+            const item = cart[index];
+            const product = carParts.find(p => p.id === item.id);
+            
+            if (!product) return;
+            
+            const newQuantity = item.quantity + change;
+            
+            if (newQuantity < 1) {
+                removeCartItem(index);
+                return;
+            }
+            
+            if (newQuantity > product.stock) {
+                showNotification('Stock insuficiente', 'error');
+                return;
+            }
+            
+            item.quantity = newQuantity;
+            saveCart();
+            updateCartCount();
+            renderCartItems();
+            showNotification('Carrito actualizado', 'success');
+        }
+
+        // Eliminar item del carrito
+        function removeCartItem(index) {
+            const item = cart[index];
+            cart.splice(index, 1);
+            saveCart();
+            updateCartCount();
+            renderCartItems();
+            showNotification(`${item.name} eliminado del carrito`, 'info');
+        }
+
+        // Vaciar carrito
+        function clearCart() {
+            cart = [];
+            saveCart();
+            updateCartCount();
+            renderCartItems();
+            showNotification('Carrito vaciado', 'info');
+        }
+
+        // Mostrar formulario de WhatsApp
+        function showWhatsAppForm() {
+            if (cart.length === 0) {
+                showNotification('Tu carrito está vacío', 'error');
+                return;
+            }
+            
+            // Generar resumen del carrito
+            let cartSummaryHTML = '';
+            let total = 0;
+            
+            cart.forEach((item, index) => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                cartSummaryHTML += `
+                    <div class="flex justify-between items-center py-2 border-b border-gray-200">
+                        <div>
+                            <p class="font-medium">${item.name}</p>
+                            <p class="text-sm text-gray-600">${item.quantity} x $${item.price.toLocaleString()}</p>
+                        </div>
+                        <span class="font-semibold">$${itemTotal.toLocaleString()}</span>
+                    </div>
+                `;
+            });
+            
+            cartSummaryHTML += `
+                <div class="flex justify-between items-center py-3 font-bold text-lg">
+                    <span>Total estimado:</span>
+                    <span class="text-blue-600">$${total.toLocaleString()}</span>
+                </div>
+            `;
+            
+            document.getElementById('cart-summary').innerHTML = cartSummaryHTML;
+            closeCart();
+            openModal('whatsapp-form-modal');
+        }
+
+        // Enviar mensaje por WhatsApp
+        function sendWhatsAppMessage(event) {
+            event.preventDefault();
+            
+            // Obtener datos del formulario
+            const nombre = document.getElementById('nombre').value;
+            const telefono = document.getElementById('telefono').value;
+            const marca = document.getElementById('marca').value;
+            const modelo = document.getElementById('modelo').value;
+            const año = document.getElementById('año').value;
+            const tipo_servicio = document.getElementById('tipo_servicio').value;
+            const mensaje = document.getElementById('mensaje').value;
+            
+            // Generar mensaje para WhatsApp
+            let whatsappMessage = `*SOLICITUD DE COTIZACIÓN - CSR s.r.l*\n\n`;
+            whatsappMessage += `*Cliente:* ${nombre}\n`;
+            whatsappMessage += `*Teléfono:* ${telefono}\n`;
+            whatsappMessage += `*Vehículo:* ${marca} ${modelo} (${año})\n`;
+            whatsappMessage += `*Servicio solicitado:* ${tipo_servicio}\n\n`;
+            whatsappMessage += `*REPUESTOS SOLICITADOS:*\n\n`;
+            
+            let total = 0;
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                whatsappMessage += `• ${item.name}\n`;
+                whatsappMessage += `  Cantidad: ${item.quantity}\n`;
+                whatsappMessage += `  Precio unitario: $${item.price.toLocaleString()}\n`;
+                whatsappMessage += `  Subtotal: $${itemTotal.toLocaleString()}\n\n`;
+            });
+            
+            whatsappMessage += `*TOTAL ESTIMADO: $${total.toLocaleString()}*\n\n`;
+            
+            if (mensaje) {
+                whatsappMessage += `*INFORMACIÓN ADICIONAL:*\n${mensaje}\n\n`;
+            }
+            
+            whatsappMessage += `---\n`;
+            whatsappMessage += `*Fecha:* ${new Date().toLocaleDateString('es-ES', {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            })}\n`;
+            whatsappMessage += `*ID de solicitud:* ${Date.now()}\n\n`;
+            whatsappMessage += `Por favor, confirmen disponibilidad y envíen cotización final con detalles de instalación si aplica.`;
+            
+            // Codificar el mensaje para URL
+            const encodedMessage = encodeURIComponent(whatsappMessage);
+            
+            // Número de WhatsApp
+            const phoneNumber = '+5353729090';
+            
+            // Abrir WhatsApp
+            window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
+            
+            // Cerrar el formulario
+            closeWhatsAppForm();
+            
+            // Actualizar stock y limpiar carrito
+            updateProductStock();
+            clearCart();
+            
+            // Mostrar confirmación
+            showNotification('Solicitud enviada correctamente', 'success');
+        }
+
+        // Enviar mensaje de contacto
+        function sendContactMessage(event) {
+            event.preventDefault();
+            
+            const form = event.target;
+            const nombre = form.name.value;
+            const telefono = form.phone.value;
+            const proposito = form.purpose.value;
+            const mensaje = form.message.value;
+            
+            // Mapear propósito a texto legible
+            const purposeMap = {
+                'venta': 'Venta de Piezas',
+                'instalacion': 'Solicitud de Instalación',
+                'diagnostico': 'Solicitud de Diagnóstico',
+                'cotizacion': 'Solicitar Cotización',
+                'emergencia': 'Emergencia / Ayuda Urgente'
+            };
+            
+            // Generar mensaje para WhatsApp
+            let whatsappMessage = `*CONSULTA DE CONTACTO - CSR s.r.l*\n\n`;
+            whatsappMessage += `*Nombre:* ${nombre}\n`;
+            whatsappMessage += `*Teléfono:* ${telefono}\n`;
+            whatsappMessage += `*Motivo:* ${purposeMap[proposito] || proposito}\n\n`;
+            whatsappMessage += `*MENSAJE:*\n${mensaje}\n\n`;
+            whatsappMessage += `---\n`;
+            whatsappMessage += `*Fecha:* ${new Date().toLocaleDateString()}\n`;
+            whatsappMessage += `*Hora:* ${new Date().toLocaleTimeString()}`;
+            
+            // Codificar el mensaje
+            const encodedMessage = encodeURIComponent(whatsappMessage);
+            
+            // Número de WhatsApp
+            const phoneNumber = '+5353729090';
+            
+            // Abrir WhatsApp
+            window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
+            
+            // Resetear formulario
+            form.reset();
+            
+            // Mostrar confirmación
+            showNotification('Redirigiendo a WhatsApp...', 'success');
+        }
+
+        // Actualizar stock de productos
+        function updateProductStock() {
+            cart.forEach(item => {
+                const product = carParts.find(p => p.id === item.id);
+                if (product) {
+                    product.stock = Math.max(0, product.stock - item.quantity);
+                }
+            });
+            
+            // Actualizar la vista de productos
+            renderProducts(carParts, 'car-parts-container');
+        }
+
+        // Abrir modal
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Cerrar modal
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Cerrar modal de detalles
+        function closeDetailModal() {
+            closeModal('detail-modal');
+        }
+
+        // Cerrar formulario de WhatsApp
+        function closeWhatsAppForm() {
+            closeModal('whatsapp-form-modal');
+        }
+
+        // Cerrar todos los modales
+        function closeAllModals() {
+            closeCart();
+            closeDetailModal();
+            closeWhatsAppForm();
+        }
+
+        // Mostrar notificación
+        function showNotification(message, type = 'info') {
+            const container = document.getElementById('notification-container');
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            
+            // Iconos por tipo
+            const icons = {
+                success: 'fas fa-check-circle',
+                error: 'fas fa-exclamation-circle',
+                info: 'fas fa-info-circle'
+            };
+            
+            notification.innerHTML = `
+                <i class="${icons[type] || icons.info}"></i>
+                <span>${message}</span>
+            `;
+            
+            container.appendChild(notification);
+            
+            // Remover después de 5 segundos
+            setTimeout(() => {
+                notification.style.opacity = '0';
+                notification.style.transform = 'translateX(100%)';
+                setTimeout(() => notification.remove(), 300);
+            }, 5000);
+        }
+
+        // Toggle menu móvil
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('mobile-menu-btn').querySelector('i');
+            
+            menu.classList.toggle('hidden');
+            
+            if (menu.classList.contains('hidden')) {
+                icon.className = 'fas fa-bars text-xl text-gray-600';
+            } else {
+                icon.className = 'fas fa-times text-xl text-gray-600';
+            }
+        }
+
+        // Scroll suave a sección
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Verificar carrito al cargar
+        function checkCartOnLoad() {
+            if (cart.length > 0) {
+                // Verificar stock de productos en el carrito
+                cart = cart.filter(item => {
+                    const product = carParts.find(p => p.id === item.id);
+                    return product && product.stock >= item.quantity;
+                });
+                saveCart();
+                updateCartCount();
+            }
+        }
+
+        // Cerrar menú al hacer clic fuera
+        document.addEventListener('click', (e) => {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuBtn = document.getElementById('mobile-menu-btn');
+            
+            if (!mobileMenu.classList.contains('hidden') && 
+                !mobileMenu.contains(e.target) && 
+                !menuBtn.contains(e.target)) {
+                toggleMobileMenu();
+            }
+        });
+    </script>
+</body>
+</html>

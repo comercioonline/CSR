@@ -1,0 +1,1709 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSR s.r.l. - Soluciones Integrales en Refrigeración</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1a2980;
+            --secondary-color: #26d0ce;
+            --accent-color: #ff7e5f;
+            --dark-color: #121f3d;
+            --light-color: #f8fafc;
+            --success-color: #10b981;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.7;
+            padding-top: 80px;
+            overflow-x: hidden;
+            background-color: #ffffff;
+        }
+        
+        h1, h2, h3, h4, h5, .navbar-brand {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+        
+        /* Animaciones personalizadas */
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        @keyframes slideInLeft {
+            from { transform: translateX(-100px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        @keyframes slideInRight {
+            from { transform: translateX(100px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        @keyframes fadeInUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        /* Header mejorado */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            padding: 15px 0;
+            transition: var(--transition);
+        }
+        
+        .navbar.scrolled {
+            padding: 10px 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand {
+            color: var(--primary-color) !important;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        
+        .navbar-brand img {
+            height: 60px;
+            margin-right: 15px;
+            filter: drop-shadow(0 3px 5px rgba(26, 41, 128, 0.2));
+            transition: var(--transition);
+        }
+        
+        .navbar-brand:hover img {
+            transform: rotate(5deg) scale(1.05);
+        }
+        
+        .navbar-nav .nav-link {
+            color: var(--dark-color) !important;
+            font-weight: 500;
+            margin: 0 5px;
+            padding: 8px 15px !important;
+            border-radius: 25px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .navbar-nav .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            transition: var(--transition);
+            transform: translateX(-50%);
+        }
+        
+        .navbar-nav .nav-link:hover::after,
+        .navbar-nav .nav-link.active::after {
+            width: 80%;
+        }
+        
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+            color: var(--primary-color) !important;
+            background: rgba(26, 41, 128, 0.05);
+        }
+        
+        .navbar-toggler {
+            border: none;
+            padding: 10px;
+        }
+        
+        .navbar-toggler:focus {
+            box-shadow: none;
+        }
+        
+        /* Hero Section mejorada */
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #26d0ce 100%);
+            color: white;
+            padding: 100px 0 80px;
+            position: relative;
+            overflow: hidden;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 50%;
+            animation: float 20s infinite ease-in-out;
+        }
+        
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            animation: float 15s infinite ease-in-out reverse;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .company-badge {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 8px 25px;
+            border-radius: 30px;
+            margin-bottom: 25px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            animation: fadeInUp 0.8s ease-out 0.6s both;
+        }
+        
+        .company-info {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-top: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: fadeInUp 0.8s ease-out 0.8s both;
+        }
+        
+        .company-info h3 {
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .company-info h3 i {
+            margin-right: 15px;
+            color: #ffd166;
+        }
+        
+        .company-highlight {
+            font-weight: 600;
+            color: #ffd166;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-hero {
+            background: white;
+            color: var(--primary-color);
+            border: none;
+            padding: 15px 40px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            animation: fadeInUp 0.8s ease-out 1s both;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .btn-hero:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Service Cards mejoradas */
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            border-radius: 2px;
+        }
+        
+        .section-title p {
+            color: var(--text-light);
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            z-index: 1;
+        }
+        
+        .service-header {
+            padding: 40px 30px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-header::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100px;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.1);
+            transform: rotate(30deg);
+        }
+        
+        .service-icon {
+            width: 90px;
+            height: 90px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 40px;
+            transition: var(--transition);
+        }
+        
+        .service-card:hover .service-icon {
+            transform: scale(1.1) rotate(10deg);
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        .service-body {
+            padding: 40px 30px 30px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .service-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .service-description {
+            margin-bottom: 30px;
+            color: var(--text-light);
+        }
+        
+        .service-features {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 auto 0;
+        }
+        
+        .service-features li {
+            padding: 12px 0;
+            border-bottom: 1px solid #eef2f7;
+            display: flex;
+            align-items: center;
+            transition: var(--transition);
+        }
+        
+        .service-features li:hover {
+            padding-left: 10px;
+            background: rgba(38, 208, 206, 0.05);
+        }
+        
+        .service-features li:last-child {
+            border-bottom: none;
+        }
+        
+        .service-features i {
+            color: var(--success-color);
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .service-gallery {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .gallery-item {
+            flex: 1;
+            height: 130px;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .service-footer {
+            padding: 25px 30px;
+            background: var(--light-color);
+            text-align: center;
+            border-top: 1px solid #eef2f7;
+        }
+        
+        .btn-service {
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border: none;
+            padding: 12px 35px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .btn-service:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(26, 41, 128, 0.2);
+            color: white;
+        }
+        
+        .btn-download {
+            background: var(--success-color);
+            color: white;
+            border: none;
+            padding: 12px 35px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .btn-download:hover {
+            background: #0da271;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(16, 185, 129, 0.2);
+        }
+        
+        /* About Section mejorada */
+        .about-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f8fafc 0%, #eef2f7 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="%231a2980" opacity="0.05"><polygon points="0,0 100,0 100,100"/></svg>');
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-text {
+            flex: 1;
+            animation: slideInLeft 1s ease-out;
+        }
+        
+        .about-image {
+            flex: 1;
+            animation: slideInRight 1s ease-out;
+        }
+        
+        .about-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+        
+        .about-image img:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+        }
+        
+        .about-highlight {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+            margin-top: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about-highlight::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 30px 30px;
+            animation: float 60s linear infinite;
+        }
+        
+        .about-highlight h4 {
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+        }
+        
+        .about-highlight i {
+            margin-right: 15px;
+            color: #ffd166;
+        }
+        
+        .about-highlight ul {
+            list-style: none;
+            padding: 0;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .about-highlight li {
+            padding: 10px 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        /* Stats Section mejorada */
+        .stats-section {
+            padding: 100px 0;
+            background: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80') center/cover fixed;
+            position: relative;
+        }
+        
+        .stats-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(26, 41, 128, 0.9), rgba(38, 208, 206, 0.9));
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 30px 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .stat-number {
+            font-size: 4rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 10px;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .stat-label {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.3rem;
+            font-weight: 500;
+        }
+        
+        /* Contact Section mejorada */
+        .contact-section {
+            padding: 100px 0;
+            background: var(--light-color);
+        }
+        
+        .contact-card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: var(--transition);
+            height: 100%;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-card-header {
+            padding: 30px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+        }
+        
+        .contact-card-body {
+            padding: 40px;
+        }
+        
+        .contact-info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+        
+        .contact-info-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(26, 41, 128, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            color: var(--primary-color);
+            font-size: 1.3rem;
+        }
+        
+        .btn-whatsapp {
+            background: linear-gradient(90deg, #25D366, #128C7E);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            margin-top: 20px;
+        }
+        
+        .btn-whatsapp:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+            color: white;
+        }
+        
+        /* Footer mejorado */
+        footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 80px 0 30px;
+            position: relative;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+        }
+        
+        footer h3 {
+            color: white;
+            font-weight: 700;
+            margin-bottom: 25px;
+            font-size: 1.4rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        footer h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--secondary-color);
+        }
+        
+        footer ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        footer ul li {
+            margin-bottom: 12px;
+        }
+        
+        footer ul li a {
+            color: #9ca3af;
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        footer ul li a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icon {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .social-icon:hover {
+            background: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+        
+        .hours-box {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 15px;
+        }
+        
+        .hours-box div {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        
+        .emergency-badge {
+            background: linear-gradient(90deg, var(--accent-color), #ff9a76);
+            padding: 12px 20px;
+            border-radius: 30px;
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #9ca3af;
+        }
+        
+        /* Download Modal mejorado */
+        .download-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(5px);
+        }
+        
+        .download-content {
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+            animation: fadeInUp 0.5s ease-out;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        
+        .download-progress {
+            width: 100%;
+            height: 12px;
+            background: #eef2f7;
+            border-radius: 6px;
+            margin: 30px 0;
+            overflow: hidden;
+        }
+        
+        .download-progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            width: 0%;
+            transition: width 0.5s ease;
+            border-radius: 6px;
+        }
+        
+        .download-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--text-light);
+            transition: var(--transition);
+        }
+        
+        .download-close:hover {
+            color: var(--primary-color);
+            transform: rotate(90deg);
+        }
+        
+        /* Scroll to top button */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(26, 41, 128, 0.3);
+        }
+        
+        .scroll-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .scroll-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(26, 41, 128, 0.4);
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 2.8rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-text, .about-image {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 80px 0 60px;
+                min-height: auto;
+            }
+            
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+            
+            .stat-number {
+                font-size: 3rem;
+            }
+            
+            .service-gallery {
+                flex-wrap: wrap;
+            }
+            
+            .gallery-item {
+                flex: 0 0 calc(50% - 8px);
+                height: 110px;
+            }
+            
+            .navbar-brand img {
+                height: 50px;
+                margin-right: 10px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .company-info {
+                padding: 25px;
+            }
+            
+            .service-header, .service-body, .service-footer {
+                padding: 25px 20px;
+            }
+            
+            .contact-card-body {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Scroll to top button -->
+    <a href="#inicio" class="scroll-top" id="scrollTop">
+        <i class="fas fa-chevron-up"></i>
+    </a>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="navbar">
+        <div class="container">
+            <a class="navbar-brand" href="#inicio">
+                <img src="https://z-cdn-media.chatglm.cn/files/eacc73b2-2122-4c19-9553-dd6b06d2be00_Logo2.jpg?auth_key=1790430396-abc36b9bd8c349ef9d9a7dc13691e34d-0-a4a7e44781f0d1447a417d2e80143d68" alt="Logo CSR">
+                CSR s.r.l.
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://comercioonline.github.io/CSR/Inicio">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="https://comercioonline.github.io/CSR/Piezas%20de%20Auto">Piezas de Auto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://comercioonline.github.io/CSR/venta%20de%20contenedores">Contenedores</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://comercioonline.github.io/CSR/informacion">Información</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://comercioonline.github.io/CSR/nosotros%20actualizado">Nosotros</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero-section">
+        <div class="container">
+            <div class="hero-content text-center">
+                <span class="company-badge">
+                    <i class="fas fa-award me-2"></i> MIPYME Certificada
+                </span>
+                <h1 class="hero-title">CSR s.r.l.</h1>
+                <p class="hero-subtitle">Para Hacerlo Todo Más Fácil</p>
+                
+                <div class="company-info">
+                    <h3><i class="fas fa-building me-2"></i> Nuestra Empresa</h3>
+                    <p>
+                        Somos una <span class="company-highlight">MIPYME especializada</span> en ofrecer servicios de 
+                        <span class="company-highlight">venta, alquiler, reparación y mantenimiento</span> a cámaras frías, 
+                        contenedores refrigeradas y de carga seca.
+                    </p>
+                    <p>
+                        <span class="company-highlight">Ofrecemos la mejor solución</span> para todos los problemas de 
+                        refrigeración en cuanto a congelación y conservación de alimentos.
+                    </p>
+                    <p>
+                        Con <span class="company-highlight">más de 18 años de experiencia</span> en el mercado nacional y un 
+                        equipo de especialistas que ofrece asistencia técnica todo el año las 24 horas del día, 
+                        de forma rápida y eficiente.
+                    </p>
+                    <p>
+                        <span class="company-highlight">Brindamos un servicio de alta calidad</span>, con partes y piezas 
+                        originales del mercado internacional.
+                    </p>
+                </div>
+                
+                <button class="btn btn-hero mt-4" onclick="scrollToSection('servicios')">
+                    Ver Nuestros Servicios <i class="fas fa-arrow-right ms-2"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicios" class="py-5" style="padding-top: 100px; padding-bottom: 100px;">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Nuestros Servicios</h2>
+                <p>Soluciones completas para tus necesidades de transporte, refrigeración y reparación</p>
+            </div>
+            
+            <div class="row g-4">
+                <!-- Venta de Contenedores -->
+                <div class="col-lg-4 fade-in">
+                    <div class="service-card">
+                        <div class="service-header">
+                            <div class="service-icon">
+                                <i class="fas fa-shipping-fast"></i>
+                            </div>
+                            <h3 class="mb-0">Venta de Contenedores</h3>
+                        </div>
+                        <div class="service-body">
+                            <h4 class="service-title">Contenedores de Calidad</h4>
+                            <p class="service-description">
+                                Ofrecemos una amplia variedad de contenedores nuevos y usados para satisfacer todas tus necesidades de transporte y almacenamiento.
+                            </p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check-circle"></i> Contenedores refrigerados (reefer)</li>
+                                <li><i class="fas fa-check-circle"></i> Contenedores de carga seca</li>
+                                <li><i class="fas fa-check-circle"></i> Contenedores abiertos (flat rack)</li>
+                                <li><i class="fas fa-check-circle"></i> Contenedores tanque</li>
+                                <li><i class="fas fa-check-circle"></i> Capacidades: 20', 40', 45'</li>
+                            </ul>
+                            <div class="service-gallery">
+                                <div class="gallery-item">
+                                    <img src="Imagenes de Contenedores/Contenedor Refrigerador.jpg" alt="Contenedor refrigerado">
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="Imagenes de Contenedores/Contenedor de 40ftt.jpg" alt="Contenedor seco">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="service-footer">
+                            <button class="btn btn-download" onclick="downloadCatalog('contenedores')">
+                                <i class="fas fa-download me-2"></i> Descargar Catálogo
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reparación y Mantenimiento -->
+                <div class="col-lg-4 fade-in">
+                    <div class="service-card">
+                        <div class="service-header">
+                            <div class="service-icon">
+                                <i class="fas fa-tools"></i>
+                            </div>
+                            <h3 class="mb-0">Reparación y Mantenimiento</h3>
+                        </div>
+                        <div class="service-body">
+                            <h4 class="service-title">Servicio Técnico Especializado</h4>
+                            <p class="service-description">
+                                Equipo técnico altamente capacitado para reparación y mantenimiento preventivo de contenedores y equipos de refrigeración.
+                            </p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check-circle"></i> Diagnóstico y reparación de unidades frigoríficas</li>
+                                <li><i class="fas fa-check-circle"></i> Mantenimiento preventivo y correctivo</li>
+                                <li><i class="fas fa-check-circle"></i> Cambio de compresores y componentes</li>
+                                <li><i class="fas fa-check-circle"></i> Servicio 24/7 para emergencias</li>
+                                <li><i class="fas fa-check-circle"></i> Certificación de equipos</li>
+                            </ul>
+                            <div class="service-gallery">
+                                <div class="gallery-item">
+                                    <img src="Imagenes de Nosotros/mantenimiento y reparacion.png" alt="Reparación de contenedor">
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="Imagenes de Nosotros/screenshot-4-container-repair-and-services-4-iizep.avif" alt="Mantenimiento técnico">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="service-footer">
+                            <button class="btn btn-service" onclick="scrollToSection('contacto')">
+                                <i class="fas fa-calendar-check me-2"></i> Solicitar Servicio
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Venta de Piezas de Autos -->
+                <div class="col-lg-4 fade-in">
+                    <div class="service-card">
+                        <div class="service-header">
+                            <div class="service-icon">
+                                <i class="fas fa-cogs"></i>
+                            </div>
+                            <h3 class="mb-0">Venta de Piezas de Autos</h3>
+                        </div>
+                        <div class="service-body">
+                            <h4 class="service-title">Componentes de Refrigeración</h4>
+                            <p class="service-description">
+                                Amplio inventario de piezas y componentes de refrigeración para automóviles y vehículos comerciales.
+                            </p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check-circle"></i> Filtros de Aire</li>
+                                <li><i class="fas fa-check-circle"></i> Radiador</li>
+                                <li><i class="fas fa-check-circle"></i> Motor de Lada 2107</li>
+                                <li><i class="fas fa-check-circle"></i> Piezas para todas las marcas</li>
+                            </ul>
+                            <div class="service-gallery">
+                                <div class="gallery-item">
+                                    <img src="Imagenes de Nosotros/motor de lada.jpg" alt="Compresores">
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="Imagenes de Nosotros/Radiador de lada.webp" alt="Componentes">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="service-footer">
+                            <button class="btn btn-download" onclick="downloadCatalog('piezas')">
+                                <i class="fas fa-download me-2"></i> Descargar Catálogo
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="nosotros" class="about-section">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 class="fw-bold mb-4">Por Qué Elegirnos</h2>
+                    <p class="mb-4">
+                        Con más de 18 años de experiencia en el mercado nacional, hemos consolidado nuestra posición como líderes en soluciones de refrigeración industrial.
+                    </p>
+                    <p class="mb-4">
+                        Nuestro equipo de especialistas está disponible las 24 horas del día, los 365 días del año, para garantizar que tus operaciones nunca se detengan.
+                    </p>
+                    <p class="mb-4">
+                        Utilizamos partes y piezas originales del mercado internacional, asegurando la máxima calidad y durabilidad en todos nuestros servicios.
+                    </p>
+                    
+                    <div class="about-highlight">
+                        <h4><i class="fas fa-star me-2"></i> Nuestros Compromisos</h4>
+                        <ul>
+                            <li><i class="fas fa-check-circle me-2"></i> Asistencia técnica rápida y eficiente</li>
+                            <li><i class="fas fa-check-circle me-2"></i> Soluciones personalizadas para cada cliente</li>
+                            <li><i class="fas fa-check-circle me-2"></i> Mantenimiento preventivo para evitar fallas</li>
+                            <li><i class="fas fa-check-circle me-2"></i> Soporte continuo post-venta</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="Imagenes de Nosotros/Imagen de WhatsApp 2025-09-19 a las 08.13.18_4766f49b.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-6">
+                    <div class="stat-item fade-in">
+                        <div class="stat-number" data-target="18">0</div>
+                        <div class="stat-label">Años de Experiencia</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-item fade-in">
+                        <div class="stat-number" data-target="500">0</div>
+                        <div class="stat-label">Contenedores Vendidos</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-item fade-in">
+                        <div class="stat-number" data-target="1000">0</div>
+                        <div class="stat-label">Piezas en Inventario</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-item fade-in">
+                        <div class="stat-number" data-target="95">0</div>
+                        <div class="stat-label">% Clientes Satisfechos</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="contact-section">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Contáctanos</h2>
+                <p>Nuestro equipo de especialistas está listo para asesorarte y ofrecerte la mejor solución</p>
+            </div>
+            
+            <div class="row g-5">
+                <div class="col-lg-6">
+                    <div class="contact-card">
+                        <div class="contact-card-header">
+                            <h3 class="mb-0">Información de Contacto</h3>
+                        </div>
+                        <div class="contact-card-body">
+                            <div class="contact-info-item">
+                                <div class="contact-info-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div>
+                                    <h5>Ubicación</h5>
+                                    <p class="text-muted mb-0">Calle Principal 123, La Habana, Cuba</p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-info-item">
+                                <div class="contact-info-icon">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div>
+                                    <h5>Teléfonos</h5>
+                                    <p class="text-muted mb-1">(E.a.m. De Jaegher) +52 998 4136581</p>
+                                    <p class="text-muted mb-1">(Lic. Raciel Rodríguez Temprana) +53 5 2493787</p>
+                                    <p class="text-muted mb-0">(Ing. Luis Carlos Triana Alonso) +53 50669462</p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-info-item">
+                                <div class="contact-info-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div>
+                                    <h5>Horario de Atención</h5>
+                                    <p class="text-muted mb-0">Lunes a Viernes: 8:00 AM - 6:00 PM</p>
+                                    <p class="text-muted mb-0">Sábados: 9:00 AM - 1:00 PM</p>
+                                    <p class="text-muted mb-0">Servicio de emergencia 24/7</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="contact-card">
+                        <div class="contact-card-header">
+                            <h3 class="mb-0">Solicita Información</h3>
+                        </div>
+                        <div class="contact-card-body">
+                            <form id="contactForm">
+                                <div class="mb-4">
+                                    <label for="name" class="form-label">Nombre Completo *</label>
+                                    <input type="text" class="form-control" id="name" placeholder="Ingresa tu nombre" required>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="subject" class="form-label">Asunto *</label>
+                                    <input type="text" class="form-control" id="subject" placeholder="¿Cómo podemos ayudarte?" required>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="service" class="form-label">Servicio de Interés</label>
+                                    <select class="form-select" id="service">
+                                        <option value="">Selecciona un servicio</option>
+                                        <option value="contenedores">Venta de Contenedores</option>
+                                        <option value="reparacion">Reparación y Mantenimiento</option>
+                                        <option value="piezas">Venta de Piezas de Autos</option>
+                                        <option value="alquiler">Alquiler de Equipos</option>
+                                        <option value="otro">Otro</option>
+                                    </select>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="message" class="form-label">Mensaje</label>
+                                    <textarea class="form-control" id="message" rows="4" placeholder="Describe tu necesidad o consulta"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-whatsapp">
+                                    <i class="fab fa-whatsapp me-2"></i> Enviar Mensaje por WhatsApp
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <!-- Información de la empresa -->
+                <div class="col-lg-4 col-md-6 mb-5">
+                    <h3>CSR s.r.l</h3>
+                    <p class="text-light mb-4">Para Hacerlo Todo Más Fácil</p>
+                    <p class="text-muted mb-4">MIPYME especializada en servicios de refrigeración, venta de contenedores y piezas automotrices con más de 18 años de experiencia.</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://wa.me/+529984136581" target="_blank" class="social-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Servicios -->
+                <div class="col-lg-2 col-md-6 mb-5">
+                    <h3>Servicios</h3>
+                    <ul>
+                        <li><a href="#servicios"><i class="fas fa-chevron-right me-2"></i> Venta de Contenedores</a></li>
+                        <li><a href="#servicios"><i class="fas fa-chevron-right me-2"></i> Reparación y Mantenimiento</a></li>
+                        <li><a href="#servicios"><i class="fas fa-chevron-right me-2"></i> Piezas Automotrices</a></li>
+                        <li><a href="#servicios"><i class="fas fa-chevron-right me-2"></i> Alquiler de Equipos</a></li>
+                        <li><a href="#servicios"><i class="fas fa-chevron-right me-2"></i> Asistencia Técnica 24/7</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Enlaces rápidos -->
+                <div class="col-lg-2 col-md-6 mb-5">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul>
+                        <li><a href="https://comercioonline.github.io/CSR/Inicio"><i class="fas fa-chevron-right me-2"></i> Inicio</a></li>
+                        <li><a href="#servicios"><i class="fas fa-chevron-right me-2"></i> Servicios</a></li>
+                        <li><a href="#nosotros"><i class="fas fa-chevron-right me-2"></i> Nosotros</a></li>
+                        <li><a href="#contacto"><i class="fas fa-chevron-right me-2"></i> Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Horarios de atención -->
+                <div class="col-lg-4 col-md-6 mb-5">
+                    <h3>Horarios de Atención</h3>
+                    <div class="hours-box">
+                        <div>
+                            <span>Ventas</span>
+                            <span>9:00 AM - 6:00 PM</span>
+                        </div>
+                        <div>
+                            <span>Taller</span>
+                            <span>8:00 AM - 5:00 PM</span>
+                        </div>
+                        <div>
+                            <span>Sábados</span>
+                            <span>9:00 AM - 1:00 PM</span>
+                        </div>
+                    </div>
+                    <div class="emergency-badge">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>Atención 24/7 para emergencias</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; IMPERIUM Todos los derechos reservados.</p>
+                <div class="mt-3">
+                    <a href="#" class="text-muted text-decoration-none me-3">Términos y Condiciones</a>
+                    <a href="#" class="text-muted text-decoration-none me-3">Política de Privacidad</a>
+                    <a href="#" class="text-muted text-decoration-none">Aviso Legal</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Download Modal -->
+    <div class="download-modal" id="downloadModal">
+        <div class="download-content">
+            <button class="download-close" onclick="closeDownloadModal()">&times;</button>
+            <div class="mb-4">
+                <i class="fas fa-file-pdf" style="font-size: 4rem; color: #dc3545;"></i>
+            </div>
+            <h4 class="mb-3" id="downloadFileName">Catálogo de Contenedores</h4>
+            <p class="text-muted mb-4">La descarga comenzará en unos segundos</p>
+            <div class="download-progress">
+                <div class="download-progress-bar" id="downloadProgressBar"></div>
+            </div>
+            <p class="download-status mt-3 mb-4" id="downloadStatus">Preparando descarga...</p>
+            <button class="btn btn-secondary" onclick="closeDownloadModal()">Cancelar Descarga</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Configuración de catálogos disponibles
+        const catalogs = {
+            contenedores: {
+                name: 'Catálogo de Contenedores CSR s.r.l.',
+                url: 'https://example.com/catalogo-contenedores.pdf',
+                filename: 'catalogo-contenedores-csr.pdf'
+            },
+            piezas: {
+                name: 'Catálogo de Piezas CSR s.r.l.',
+                url: 'https://example.com/catalogo-piezas.pdf',
+                filename: 'catalogo-piezas-csr.pdf'
+            }
+        };
+
+        // Smooth scroll function
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                const offset = 80;
+                const elementPosition = element.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - offset;
+                
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }
+        
+        // Animate numbers on scroll
+        const observerOptions = {
+            threshold: 0.5
+        };
+        
+        const numberObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const target = entry.target;
+                    const finalValue = parseInt(target.getAttribute('data-target'));
+                    let currentValue = 0;
+                    const increment = finalValue / 50;
+                    
+                    const updateNumber = () => {
+                        currentValue += increment;
+                        if (currentValue < finalValue) {
+                            target.textContent = Math.floor(currentValue);
+                            requestAnimationFrame(updateNumber);
+                        } else {
+                            target.textContent = finalValue;
+                        }
+                    };
+                    
+                    updateNumber();
+                    numberObserver.unobserve(target);
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.stat-number').forEach(stat => {
+            numberObserver.observe(stat);
+        });
+        
+        // Fade in animation
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        fadeElements.forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            fadeObserver.observe(el);
+        });
+        
+        // Handle contact form submission for WhatsApp
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = {
+                name: document.getElementById('name').value,
+                subject: document.getElementById('subject').value,
+                service: document.getElementById('service').value,
+                message: document.getElementById('message').value
+            };
+            
+            // Validate form
+            if (!formData.name || !formData.subject) {
+                showNotification('Por favor, complete los campos obligatorios (Nombre y Asunto)', 'error');
+                return;
+            }
+            
+            // Format message for WhatsApp
+            let message = `*Solicitud de Información - CSR s.r.l.*%0A%0A`;
+            message += `*Nombre:* ${formData.name}%0A`;
+            message += `*Asunto:* ${formData.subject}%0A`;
+            message += `*Servicio de Interés:* ${formData.service || 'No especificado'}%0A%0A`;
+            message += `*Mensaje:*%0A${formData.message || 'No proporcionado'}`;
+            
+            // Open WhatsApp
+            const whatsappUrl = `https://wa.me/529984136581?text=${message}`;
+            window.open(whatsappUrl, '_blank');
+            
+            // Reset form
+            this.reset();
+            
+            // Show success message
+            showNotification('¡Su mensaje ha sido enviado a WhatsApp! Nos pondremos en contacto con usted pronto.', 'success');
+        });
+        
+        // Show notification
+        function showNotification(message, type) {
+            // Remove existing notifications
+            const existingNotification = document.querySelector('.notification');
+            if (existingNotification) {
+                existingNotification.remove();
+            }
+            
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.className = `notification alert alert-${type === 'error' ? 'danger' : 'success'} alert-dismissible fade show`;
+            notification.style.position = 'fixed';
+            notification.style.top = '100px';
+            notification.style.right = '20px';
+            notification.style.zIndex = '9999';
+            notification.style.minWidth = '300px';
+            notification.style.boxShadow = '0 5px 15px rgba(0,0,0,0.2)';
+            
+            notification.innerHTML = `
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            // Auto remove after 5 seconds
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.remove();
+                }
+            }, 5000);
+        }
+        
+        // Add active class to navbar links on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            const scrollTop = document.getElementById('scrollTop');
+            
+            // Toggle navbar background on scroll
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+            
+            // Show/hide scroll to top button
+            if (window.scrollY > 500) {
+                scrollTop.classList.add('active');
+            } else {
+                scrollTop.classList.remove('active');
+            }
+            
+            // Highlight active nav link
+            const sections = document.querySelectorAll('section[id]');
+            const scrollY = window.pageYOffset;
+            
+            sections.forEach(current => {
+                const sectionHeight = current.offsetHeight;
+                const sectionTop = current.offsetTop - 100;
+                const sectionId = current.getAttribute('id');
+                
+                if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                    document.querySelector('.navbar-nav .nav-link[href="#' + sectionId + '"]')?.classList.add('active');
+                } else {
+                    document.querySelector('.navbar-nav .nav-link[href="#' + sectionId + '"]')?.classList.remove('active');
+                }
+            });
+        });
+        
+        // Download catalog function
+        function downloadCatalog(type) {
+            const catalog = catalogs[type];
+            if (!catalog) {
+                showNotification('Error: catálogo no encontrado', 'error');
+                return;
+            }
+            
+            // Show download modal
+            const modal = document.getElementById('downloadModal');
+            modal.style.display = 'flex';
+            
+            // Update file name
+            document.getElementById('downloadFileName').textContent = catalog.name;
+            
+            // Start download simulation
+            simulateDownload(catalog);
+        }
+        
+        // Simulate download process
+        function simulateDownload(catalog) {
+            const progressBar = document.getElementById('downloadProgressBar');
+            const statusText = document.getElementById('downloadStatus');
+            
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += Math.random() * 15;
+                if (progress > 100) progress = 100;
+                
+                progressBar.style.width = progress + '%';
+                
+                if (progress < 30) {
+                    statusText.textContent = 'Conectando al servidor...';
+                } else if (progress < 60) {
+                    statusText.textContent = 'Descargando archivo...';
+                } else if (progress < 90) {
+                    statusText.textContent = 'Finalizando descarga...';
+                } else {
+                    statusText.textContent = '¡Descarga completada!';
+                }
+                
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    
+                    // Start actual download
+                    setTimeout(() => {
+                        // Create a blob with dummy PDF content
+                        const blob = new Blob(['Contenido del catálogo de ' + catalog.name], { type: 'application/pdf' });
+                        const url = window.URL.createObjectURL(blob);
+                        const a = document.createElement('a');
+                        a.href = url;
+                        a.download = catalog.filename;
+                        document.body.appendChild(a);
+                        a.click();
+                        document.body.removeChild(a);
+                        window.URL.revokeObjectURL(url);
+                        
+                        // Close modal
+                        closeDownloadModal();
+                        
+                        // Show success message
+                        showNotification('¡' + catalog.name + ' descargado exitosamente!', 'success');
+                    }, 800);
+                }
+            }, 200);
+        }
+        
+        // Close download modal
+        function closeDownloadModal() {
+            const modal = document.getElementById('downloadModal');
+            modal.style.display = 'none';
+            
+            // Reset progress bar
+            document.getElementById('downloadProgressBar').style.width = '0%';
+            document.getElementById('downloadStatus').textContent = 'Preparando descarga...';
+        }
+        
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('downloadModal');
+            if (event.target == modal) {
+                closeDownloadModal();
+            }
+        }
+        
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Trigger initial animations
+            setTimeout(() => {
+                document.querySelector('.hero-content').style.opacity = '1';
+            }, 100);
+            
+            // Prevent default for anchor links with #
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const href = this.getAttribute('href');
+                    if (href !== '#') {
+                        const targetId = href.substring(1);
+                        scrollToSection(targetId);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

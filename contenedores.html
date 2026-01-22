@@ -1,0 +1,2480 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSR s.r.l - Venta y Alquiler Profesional de Contenedores</title>
+    <meta name="description" content="CSR s.r.l - Especialistas en venta, alquiler y reparación de contenedores. Soluciones logísticas profesionales para empresas e industrias.">
+    <meta name="keywords" content="contenedores, venta contenedores, alquiler contenedores, CSR, contenedores refrigerados, logística, almacenamiento">
+    <meta name="author" content="CSR s.r.l">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="CSR s.r.l - Soluciones Profesionales de Contenedores">
+    <meta property="og:description" content="Venta, alquiler y reparación de contenedores de calidad para empresas e industrias">
+    <meta property="og:image" content="imagenes de Inicio/Logo2.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="imagenes de Inicio/Logo2.jpg">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #1d4ed8;
+            --secondary-color: #059669;
+            --accent-color: #f59e0b;
+            --container-color: #2563eb;
+        }
+        
+        /* Animaciones mejoradas */
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes slideUp {
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        .animate-slide-in {
+            animation: slideIn 0.4s ease-out;
+        }
+        
+        .animate-slide-up {
+            animation: slideUp 0.4s ease-out;
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 0.3s ease-out;
+        }
+        
+        /* Estilos para modales */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            backdrop-filter: blur(4px);
+        }
+        
+        .modal-content {
+            background-color: white;
+            margin: 2rem auto;
+            padding: 2rem;
+            width: 90%;
+            max-width: 1000px;
+            border-radius: 16px;
+            position: relative;
+            animation: slideUp 0.3s ease-out;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        /* Estilos para cartas de producto */
+        .product-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+            border-color: var(--container-color);
+        }
+        
+        .product-image-container {
+            height: 280px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        
+        .product-card:hover .product-image {
+            transform: scale(1.08);
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            z-index: 10;
+            backdrop-filter: blur(4px);
+        }
+        
+        .price-tag {
+            position: absolute;
+            bottom: 12px;
+            right: 12px;
+            background: linear-gradient(135deg, var(--container-color), #3b82f6);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 8px 0 8px 0;
+            font-weight: 700;
+            font-size: 1.1rem;
+            z-index: 10;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+        
+        /* Estilos para botones */
+        .btn-primary {
+            background: linear-gradient(135deg, var(--container-color), #3b82f6);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: var(--container-color);
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid var(--container-color);
+            cursor: pointer;
+        }
+        
+        .btn-secondary:hover {
+            background: var(--container-color);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Estilos para inputs y formularios */
+        .form-input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e5e7eb;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: var(--container-color);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+        }
+        
+        /* Estilos para la barra de navegación */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        /* Estilos para el carrito */
+        .cart-sidebar {
+            position: fixed;
+            top: 0;
+            right: 0;
+            height: 100%;
+            width: 100%;
+            max-width: 420px;
+            background: white;
+            box-shadow: -10px 0 30px rgba(0, 0, 0, 0.15);
+            transform: translateX(100%);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1100;
+        }
+        
+        .cart-sidebar.active {
+            transform: translateX(0);
+        }
+        
+        /* Estilos para secciones */
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(to right, var(--container-color), var(--accent-color));
+            border-radius: 2px;
+        }
+        
+        /* Estilos para tarjetas de características */
+        .feature-card {
+            transition: all 0.3s ease;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 2rem;
+            background: white;
+            height: 100%;
+        }
+        
+        .feature-card:hover {
+            border-color: var(--container-color);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.1);
+            transform: translateY(-5px);
+        }
+        
+        /* Estilos para badges de uso */
+        .use-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            margin: 2px;
+            transition: all 0.2s ease;
+        }
+        
+        .use-tag:hover {
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            color: white;
+            transform: translateY(-1px);
+        }
+        
+        /* Estilos responsivos */
+        @media (max-width: 768px) {
+            .modal-content {
+                margin: 1rem auto;
+                padding: 1.5rem;
+                width: 95%;
+                max-height: 95vh;
+            }
+            
+            .product-image-container {
+                height: 240px;
+            }
+            
+            .cart-sidebar {
+                max-width: 100%;
+            }
+        }
+        
+        /* Estilos para notificaciones */
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 16px 24px;
+            border-radius: 10px;
+            color: white;
+            font-weight: 500;
+            z-index: 2000;
+            animation: slideIn 0.3s ease-out;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .notification.success {
+            background: linear-gradient(135deg, #10b981, #059669);
+        }
+        
+        .notification.error {
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+        }
+        
+        .notification.info {
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+        }
+        
+        /* Estilos para scrollbar personalizada */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 5px;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(to bottom, var(--container-color), #3b82f6);
+            border-radius: 5px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(to bottom, #1d4ed8, #2563eb);
+        }
+        
+        /* Estilos para el loader */
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid var(--container-color);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Estilos para el hero section */
+        .hero-section {
+            background: linear-gradient(135deg, var(--container-color), #1e40af);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+        }
+        
+        /* Estilos para especificaciones */
+        .spec-card {
+            background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+            border-radius: 10px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .spec-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            border-color: var(--container-color);
+        }
+        
+        /* Estilos para pasos del proceso */
+        .process-step {
+            position: relative;
+        }
+        
+        .process-step::after {
+            content: '';
+            position: absolute;
+            top: 24px;
+            right: -50%;
+            width: 100%;
+            height: 2px;
+            background: #e5e7eb;
+            z-index: 1;
+        }
+        
+        .process-step:last-child::after {
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            .process-step::after {
+                display: none;
+            }
+        }
+        
+        /* Estilos para iconos de características */
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-icon.blue {
+            background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+            color: var(--container-color);
+        }
+        
+        .feature-icon.green {
+            background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+            color: #059669;
+        }
+        
+        .feature-icon.orange {
+            background: linear-gradient(135deg, #fed7aa, #fdba74);
+            color: #f97316;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Header -->
+    <header class="navbar sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <div class="flex items-center gap-3">
+                    <img src="imagenes de Inicio/Logo2.jpg" alt="Logo CSR" 
+                         class="h-12 w-12 rounded-full object-cover border-2 border-blue-100 shadow-sm">
+                    <div>
+                        <h1 class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
+                            CSR s.r.l
+                        </h1>
+                        <p class="text-xs text-gray-500">Soluciones profesionales en contenedores</p>
+                    </div>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <nav class="hidden lg:flex items-center gap-8">
+                    <a href="https://comercioonline.github.io/CSR/Inicio" 
+                       class="text-gray-600 hover:text-blue-600 transition-colors duration-300 font-medium relative group">
+                        Inicio
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="https://comercioonline.github.io/CSR/Piezas%20de%20Auto" 
+                       class="text-gray-600 hover:text-blue-600 transition-colors duration-300 font-medium relative group">
+                        Piezas de Autos
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="https://comercioonline.github.io/CSR/venta%20de%20contenedores" 
+                       class="text-gray-600 hover:text-blue-600 transition-colors duration-300 font-medium relative group">
+                        Contenedores
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#servicios" 
+                       class="text-gray-600 hover:text-blue-600 transition-colors duration-300 font-medium relative group">
+                        Servicios
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#especificaciones" 
+                       class="text-gray-600 hover:text-blue-600 transition-colors duration-300 font-medium relative group">
+                        Especificaciones
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#contact" 
+                       class="text-gray-600 hover:text-blue-600 transition-colors duration-300 font-medium relative group">
+                        Contacto
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                </nav>
+                
+                <!-- Cart and Mobile Menu Button -->
+                <div class="flex items-center gap-4">
+                    <button id="cart-btn" class="relative p-3 rounded-full hover:bg-blue-50 transition-colors duration-300">
+                        <i class="fas fa-shopping-cart text-xl text-gray-600"></i>
+                        <span id="cart-count" 
+                              class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-bold">
+                            0
+                        </span>
+                    </button>
+                    <button id="mobile-menu-btn" class="lg:hidden p-3 rounded-full hover:bg-gray-100 transition-colors duration-300">
+                        <i class="fas fa-bars text-xl text-gray-600"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden lg:hidden py-4 border-t mt-4 animate-slide-up">
+                <div class="flex flex-col gap-4">
+                    <a href="" 
+                       class="py-3 px-4 rounded-lg hover:bg-blue-50 text-gray-600 hover:text-blue-600 transition-colors duration-300 font-medium">
+                        <i class="fas fa-home mr-3"></i>Inicio
+                    </a>
+                    <a href="" 
+                       class="py-3 px-4 rounded-lg hover:bg-blue-50 text-gray-600 hover:text-blue-600 transition-colors duration-300 font-medium">
+                        <i class="fas fa-car mr-3"></i>Piezas de Carro
+                    </a>
+                    <a href="" 
+                       class="py-3 px-4 rounded-lg hover:bg-blue-50 text-gray-600 hover:text-blue-600 transition-colors duration-300 font-medium">
+                        <i class="fas fa-box mr-3"></i>Contenedores
+                    </a>
+                    <a href="#servicios" 
+                       class="py-3 px-4 rounded-lg hover:bg-blue-50 text-gray-600 hover:text-blue-600 transition-colors duration-300 font-medium">
+                        <i class="fas fa-tools mr-3"></i>Servicios
+                    </a>
+                    <a href="#especificaciones" 
+                       class="py-3 px-4 rounded-lg hover:bg-blue-50 text-gray-600 hover:text-blue-600 transition-colors duration-300 font-medium">
+                        <i class="fas fa-ruler-combined mr-3"></i>Especificaciones
+                    </a>
+                    <a href="#contact" 
+                       class="py-3 px-4 rounded-lg hover:bg-blue-50 text-gray-600 hover:text-blue-600 transition-colors duration-300 font-medium">
+                        <i class="fas fa-phone mr-3"></i>Contacto
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section text-white py-24 relative overflow-hidden">
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-4xl mx-auto text-center animate-slide-up">
+                <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+                    Soluciones de 
+                    <span class="bg-gradient-to-r from-yellow-300 to-orange-400 bg-clip-text text-transparent">
+                        Contenedores Profesionales
+                    </span>
+                </h1>
+                <p class="text-xl md:text-2xl mb-10 text-blue-100 leading-relaxed">
+                    Venta, alquiler y reparación de contenedores para empresas, industrias y proyectos especiales
+                </p>
+                <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                    <button onclick="scrollToSection('tipos')" 
+                            class="btn-primary px-10 py-4 text-lg font-semibold shadow-lg">
+                        <i class="fas fa-boxes mr-3"></i>Ver Contenedores
+                    </button>
+                    <button onclick="scrollToSection('servicios')" 
+                            class="btn-secondary px-10 py-4 text-lg font-semibold">
+                        <i class="fas fa-tools mr-3"></i>Nuestros Servicios
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="text-center p-8 rounded-xl bg-gradient-to-br from-blue-50 to-white border border-blue-100">
+                    <div class="text-4xl font-bold text-blue-600 mb-3">+500</div>
+                    <h3 class="text-xl font-semibold mb-2">Contenedores Disponibles</h3>
+                    <p class="text-gray-600">Amplio inventario para venta y alquiler</p>
+                </div>
+                <div class="text-center p-8 rounded-xl bg-gradient-to-br from-green-50 to-white border border-green-100">
+                    <div class="text-4xl font-bold text-green-600 mb-3">5 Años</div>
+                    <h3 class="text-xl font-semibold mb-2">Garantía Extendida</h3>
+                    <p class="text-gray-600">En contenedores nuevos con certificación ISO</p>
+                </div>
+                <div class="text-center p-8 rounded-xl bg-gradient-to-br from-orange-50 to-white border border-orange-100">
+                    <div class="text-4xl font-bold text-orange-600 mb-3">24-72h</div>
+                    <h3 class="text-xl font-semibold mb-2">Entrega Nacional</h3>
+                    <p class="text-gray-600">Servicio de transporte profesional</p>
+                </div>
+                <div class="text-center p-8 rounded-xl bg-gradient-to-br from-purple-50 to-white border border-purple-100">
+                    <div class="text-4xl font-bold text-purple-600 mb-3">+15</div>
+                    <h3 class="text-xl font-semibold mb-2">Años de Experiencia</h3>
+                    <p class="text-gray-600">Especialistas en soluciones logísticas</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tipos de Contenedores Section -->
+    <section id="tipos" class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="section-title text-4xl font-bold text-gray-900">
+                    Nuestros Contenedores
+                </h2>
+                <p class="text-gray-600 text-lg max-w-2xl mx-auto mt-4">
+                    Contenedores de alta calidad certificados según normas internacionales ISO
+                </p>
+            </div>
+            
+            <!-- Category Filters -->
+            <div class="flex flex-wrap gap-3 justify-center mb-12">
+                <button onclick="filterContainers('all')" 
+                        class="px-6 py-2 rounded-full border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white transition-all duration-300 font-medium">
+                    Todos los Contenedores
+                </button>
+                <button onclick="filterContainers('estandar')" 
+                        class="px-6 py-2 rounded-full border border-blue-200 text-gray-700 hover:border-blue-600 hover:text-blue-600 transition-all duration-300 font-medium">
+                    <i class="fas fa-box mr-2"></i>Estándar
+                </button>
+                <button onclick="filterContainers('alto')" 
+                        class="px-6 py-2 rounded-full border border-blue-200 text-gray-700 hover:border-blue-600 hover:text-blue-600 transition-all duration-300 font-medium">
+                    <i class="fas fa-arrows-alt-v mr-2"></i>High Cube
+                </button>
+                <button onclick="filterContainers('refrigerado')" 
+                        class="px-6 py-2 rounded-full border border-blue-200 text-gray-700 hover:border-blue-600 hover:text-blue-600 transition-all duration-300 font-medium">
+                    <i class="fas fa-snowflake mr-2"></i>Refrigerado
+                </button>
+                <button onclick="filterContainers('especial')" 
+                        class="px-6 py-2 rounded-full border border-blue-200 text-gray-700 hover:border-blue-600 hover:text-blue-600 transition-all duration-300 font-medium">
+                    <i class="fas fa-star mr-2"></i>Especial
+                </button>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="containers-container">
+                <!-- Contenedores se cargarán aquí -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicios Section -->
+    <section id="servicios" class="py-20 bg-gradient-to-b from-gray-50 to-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="section-title text-4xl font-bold text-gray-900">
+                    Servicios Integrales
+                </h2>
+                <p class="text-gray-600 text-lg max-w-2xl mx-auto mt-4">
+                    Soluciones completas para todas sus necesidades de contenedores y logística
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="feature-card animate-slide-up">
+                    <div class="feature-icon blue">
+                        <i class="fas fa-hand-holding-usd text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Venta de Contenedores</h3>
+                    <p class="text-gray-600 mb-4">Contenedores nuevos y de segunda mano certificados, ideales para uso industrial y comercial.</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center gap-2 text-gray-700">
+                            <i class="fas fa-check-circle text-green-500"></i>
+                            Contenedores estándar 20' y 40'
+                        </li>
+                        <li class="flex items-center gap-2 text-gray-700">
+                            <i class="fas fa-check-circle text-green-500"></i>
+                            Contenedores refrigerados
+                        </li>
+                        <li class="flex items-center gap-2 text-gray-700">
+                            <i class="fas fa-check-circle text-green-500"></i>
+                            Contenedores abiertos y cubiertos
+                        </li>
+                        <li class="flex items-center gap-2 text-gray-700">
+                            <i class="fas fa-check-circle text-green-500"></i>
+                            Personalización según necesidades
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="feature-card animate-slide-up">
+                    <div class="feature-icon green">
+                        <i class="fas fa-sync-alt text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Alquiler de Contenedores</h3>
+                    <p class="text-gray-600 mb-4">Soluciones flexibles de alquiler para proyectos temporales o necesidades estacionales.</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center gap-2 text-gray-700">
+                            <i class="fas fa-check-circle text-green-500"></i>
+                            Contratos a corto y largo plazo
+                        </li>
+                        <li class="flex items-center gap-2 text-gray-700">
+                            <i class="fas fa-check-circle text-green-500"></i>
+                            Mantenimiento incluido
+                        </li>
+                        <li class="flex items-center gap-2 text-gray-700">
+                            <i class="fas fa-check-circle text-green-500"></i>
+                            Entrega y recogida a domicilio
+                        </li>
+                        <li class="flex items-center gap-2 text-gray-700">
+                            <i class="fas fa-check-circle text-green-500"></i>
+                            Asesoría técnica especializada
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="feature-card animate-slide-up">
+                    <div class="feature-icon orange">
+                        <i class="fas fa-tools text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Reparación y Mantenimiento</h3>
+                    <p class="text-gray-600 mb-4">Servicio técnico especializado para garantizar el óptimo funcionamiento de sus contenedores.</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center gap-2 text-gray-700">
+                            <i class="fas fa-check-circle text-green-500"></i>
+                            Reparación estructural
+                        </li>
+                        <li class="flex items-center gap-2 text-gray-700">
+                            <i class="fas fa-check-circle text-green-500"></i>
+                            Mantenimiento preventivo
+                        </li>
+                        <li class="flex items-center gap-2 text-gray-700">
+                            <i class="fas fa-check-circle text-green-500"></i>
+                            Refrigeración y aislamiento
+                        </li>
+                        <li class="flex items-center gap-2 text-gray-700">
+                            <i class="fas fa-check-circle text-green-500"></i>
+                            Inspecciones certificadoras
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Especificaciones Técnicas Section -->
+    <section id="especificaciones" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="section-title text-4xl font-bold text-gray-900">
+                    Especificaciones Técnicas
+                </h2>
+                <p class="text-gray-600 text-lg max-w-2xl mx-auto mt-4">
+                    Contenedores certificados según normas internacionales ISO para máxima seguridad y durabilidad
+                </p>
+            </div>
+            
+            <div class="bg-gradient-to-br from-blue-50 to-white rounded-2xl p-8 border border-blue-100 shadow-lg">
+                <h3 class="text-2xl font-bold mb-6 flex items-center gap-3 text-blue-700">
+                    <i class="fas fa-ruler-combined"></i>
+                    Contenedores Estándar
+                </h3>
+                <div class="grid md:grid-cols-3 gap-6 mb-8">
+                    <div class="spec-card">
+                        <h4 class="font-bold text-lg mb-3 text-blue-700">20' Estándar</h4>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-ruler text-blue-500"></i>
+                                Dimensiones: 6.1m x 2.44m x 2.59m
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-cube text-blue-500"></i>
+                                Capacidad: 33.1 m³
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-weight text-blue-500"></i>
+                                Carga máxima: 28,200 kg
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-certificate text-blue-500"></i>
+                                Certificación: ISO 1496/1
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="spec-card">
+                        <h4 class="font-bold text-lg mb-3 text-blue-700">40' Estándar</h4>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-ruler text-blue-500"></i>
+                                Dimensiones: 12.2m x 2.44m x 2.59m
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-cube text-blue-500"></i>
+                                Capacidad: 67.7 m³
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-weight text-blue-500"></i>
+                                Carga máxima: 28,800 kg
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-certificate text-blue-500"></i>
+                                Certificación: ISO 1496/1
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="spec-card">
+                        <h4 class="font-bold text-lg mb-3 text-blue-700">40' High Cube</h4>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-ruler text-blue-500"></i>
+                                Dimensiones: 12.2m x 2.44m x 2.89m
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-cube text-blue-500"></i>
+                                Capacidad: 76.3 m³
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-weight text-blue-500"></i>
+                                Carga máxima: 28,800 kg
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-certificate text-blue-500"></i>
+                                Certificación: ISO 1496/1
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <h3 class="text-2xl font-bold mb-6 flex items-center gap-3 text-green-700">
+                    <i class="fas fa-snowflake"></i>
+                    Contenedores Refrigerados
+                </h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="spec-card">
+                        <h4 class="font-bold text-lg mb-3 text-green-700">20' Refrigerado</h4>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-thermometer-half text-green-500"></i>
+                                Rango: -30°C a +30°C
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-cog text-green-500"></i>
+                                Motor: Carrier 4400
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-certificate text-green-500"></i>
+                                Certificado: Alimentos
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-bolt text-green-500"></i>
+                                Consumo: 45 kWh/día
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="spec-card">
+                        <h4 class="font-bold text-lg mb-3 text-green-700">40' Refrigerado</h4>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-thermometer-half text-green-500"></i>
+                                Rango: -30°C a +30°C
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-cog text-green-500"></i>
+                                Motor: Carrier 69NT
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-certificate text-green-500"></i>
+                                Certificado: Alimentos
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-bolt text-green-500"></i>
+                                Consumo: 75 kWh/día
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Proceso de Compra Section -->
+    <section class="py-20 bg-gradient-to-r from-blue-50 to-blue-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="section-title text-4xl font-bold text-gray-900">
+                    Proceso de Compra y Alquiler
+                </h2>
+                <p class="text-gray-600 text-lg max-w-2xl mx-auto mt-4">
+                    Un proceso sencillo y transparente desde la consulta hasta la entrega
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-5 gap-4">
+                <div class="process-step text-center">
+                    <div class="bg-blue-600 text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3 relative z-10">
+                        <span class="font-bold">1</span>
+                    </div>
+                    <h4 class="font-semibold mb-2 text-lg">Consulta</h4>
+                    <p class="text-sm text-gray-600">Contacta con nuestros especialistas para evaluar tus necesidades</p>
+                </div>
+                
+                <div class="process-step text-center">
+                    <div class="bg-blue-600 text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3 relative z-10">
+                        <span class="font-bold">2</span>
+                    </div>
+                    <h4 class="font-semibold mb-2 text-lg">Selección</h4>
+                    <p class="text-sm text-gray-600">Elige el contenedor adecuado para tu proyecto o necesidad</p>
+                </div>
+                
+                <div class="process-step text-center">
+                    <div class="bg-blue-600 text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3 relative z-10">
+                        <span class="font-bold">3</span>
+                    </div>
+                    <h4 class="font-semibold mb-2 text-lg">Cotización</h4>
+                    <p class="text-sm text-gray-600">Recibe un presupuesto detallado y transparente</p>
+                </div>
+                
+                <div class="process-step text-center">
+                    <div class="bg-blue-600 text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3 relative z-10">
+                        <span class="font-bold">4</span>
+                    </div>
+                    <h4 class="font-semibold mb-2 text-lg">Confirmación</h4>
+                    <p class="text-sm text-gray-600">Acepta las condiciones y formaliza el contrato</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="bg-green-600 text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3 relative z-10">
+                        <span class="font-bold">5</span>
+                    </div>
+                    <h4 class="font-semibold mb-2 text-lg">Entrega</h4>
+                    <p class="text-sm text-gray-600">Recibe tu contenedor en el lugar y fecha acordados</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="section-title text-4xl font-bold text-gray-900">
+                    Contáctanos
+                </h2>
+                <p class="text-gray-600 text-lg max-w-2xl mx-auto mt-4">
+                    Estamos aquí para resolver cualquier duda sobre soluciones de contenedores para tu empresa
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+                <!-- Contact Info -->
+                <div class="space-y-8">
+                    <div class="bg-gradient-to-br from-blue-50 to-white p-8 rounded-2xl border border-blue-100">
+                        <h3 class="text-2xl font-bold mb-6 flex items-center gap-3">
+                            <i class="fas fa-address-card text-blue-600"></i>
+                            Información de Contacto
+                        </h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start gap-4">
+                                <div class="flex-shrink-0 w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-phone text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900">Teléfonos Principales</h4>
+                                    <div class="mt-2 space-y-2">
+                                        <p class="text-gray-600">(E.a.m. De Jaegher): <span class="font-medium">+53 53729090</span></p>
+                                        <p class="text-gray-600">(Lic. Raciel Rodríguez Temprana): <span class="font-medium">+53 52493787</span></p>
+                                        <p class="text-gray-600">(Ing. Luis Carlos Triana Alonso): <span class="font-medium">+53 50669462</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start gap-4">
+                                <div class="flex-shrink-0 w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-envelope text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900">Correos Electrónicos</h4>
+                                    <div class="mt-2 space-y-1">
+                                        <p class="text-gray-600">csrdam@hotmail.com</p>
+                                        <p class="text-gray-600">csrhabana@gmail.com</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start gap-4">
+                                <div class="flex-shrink-0 w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-map-marker-alt text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900">Ubicación</h4>
+                                    <p class="text-gray-600 mt-2">Habana, Cuba</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start gap-4">
+                                <div class="flex-shrink-0 w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-clock text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900">Horarios de Atención</h4>
+                                    <div class="mt-2 space-y-1">
+                                        <p class="text-gray-600">Lunes a Viernes: 9:00 AM - 6:00 PM</p>
+                                        <p class="text-gray-600">Atención a empresas: 8:00 AM - 5:00 PM</p>
+                                        <p class="text-gray-600 font-medium">Atención 24/7 para emergencias</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- WhatsApp Quick Button -->
+                    <div class="bg-gradient-to-br from-green-50 to-white p-8 rounded-2xl border border-green-100">
+                        <div class="flex items-center gap-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                                <i class="fab fa-whatsapp text-green-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-2">Contacto Rápido por WhatsApp</h4>
+                                <p class="text-gray-600 mb-4">¿Necesitas asesoría o cotización empresarial? Escríbenos directamente</p>
+                                <a href="https://wa.me/+5353729090" target="_blank" 
+                                   class="inline-flex items-center gap-2 bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors duration-300">
+                                    <i class="fab fa-whatsapp"></i>
+                                    Enviar Mensaje
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="bg-gradient-to-br from-gray-50 to-white p-8 rounded-2xl border border-gray-200">
+                    <h3 class="text-2xl font-bold mb-6 flex items-center gap-3">
+                        <i class="fas fa-comments text-blue-600"></i>
+                        Envíanos un Mensaje
+                    </h3>
+                    
+                    <form id="contact-form" onsubmit="sendContactMessage(event)" class="space-y-6">
+                        <div>
+                            <label for="contact-name" class="block text-gray-700 font-medium mb-2">
+                                Nombre Completo *
+                            </label>
+                            <input type="text" id="contact-name" name="name" 
+                                   class="form-input" 
+                                   placeholder="Tu nombre completo" 
+                                   required>
+                        </div>
+                        
+                        <div>
+                            <label for="contact-company" class="block text-gray-700 font-medium mb-2">
+                                Empresa (opcional)
+                            </label>
+                            <input type="text" id="contact-company" name="company" 
+                                   class="form-input" 
+                                   placeholder="Nombre de la empresa">
+                        </div>
+                        
+                        <div>
+                            <label for="contact-phone" class="block text-gray-700 font-medium mb-2">
+                                Teléfono *
+                            </label>
+                            <input type="text" id="contact-phone" name="phone" 
+                                   class="form-input" 
+                                   placeholder="Número de contacto" 
+                                   required>
+                        </div>
+                        
+                        <div>
+                            <label for="contact-purpose" class="block text-gray-700 font-medium mb-2">
+                                ¿En qué podemos ayudarte? *
+                            </label>
+                            <select id="contact-purpose" name="purpose" 
+                                    class="form-input" 
+                                    required>
+                                <option value="">Selecciona una opción</option>
+                                <option value="venta">Venta de Contenedores</option>
+                                <option value="alquiler">Alquiler de Contenedores</option>
+                                <option value="mantenimiento">Servicio de Mantenimiento</option>
+                                <option value="cotizacion">Solicitar Cotización Empresarial</option>
+                                <option value="emergencia">Emergencia / Ayuda Urgente</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="contact-message" class="block text-gray-700 font-medium mb-2">
+                                Mensaje *
+                            </label>
+                            <textarea id="contact-message" name="message" 
+                                      rows="5" 
+                                      class="form-input" 
+                                      placeholder="Describe tus necesidades, tipo de contenedor, plazos de entrega, requisitos especiales..."
+                                      required></textarea>
+                        </div>
+                        
+                        <button type="submit" 
+                                class="w-full btn-primary py-4 text-lg font-semibold">
+                            <i class="fas fa-paper-plane mr-2"></i>
+                            Enviar Mensaje
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                <!-- Company Info -->
+                <div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <img src="imagenes de Inicio/Logo2.jpg" alt="CSR Logo" 
+                             class="h-12 w-12 rounded-full object-cover">
+                        <div>
+                            <h3 class="text-xl font-bold">CSR s.r.l</h3>
+                            <p class="text-gray-400 text-sm">Soluciones Profesionales en Contenedores</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 mb-6 leading-relaxed">
+                        Especialistas en venta, alquiler y reparación de contenedores para empresas e industrias. 
+                        Soluciones logísticas confiables para su negocio.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-pink-600 transition-colors duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://wa.me/+5353729090" target="_blank" 
+                           class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-green-600 transition-colors duration-300">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Servicios -->
+                <div>
+                    <h4 class="text-xl font-bold mb-6">Nuestros Servicios</h4>
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="#servicios" 
+                               class="text-gray-400 hover:text-white transition-colors duration-300 flex items-center gap-2">
+                                <i class="fas fa-chevron-right text-xs"></i>
+                                Venta de Contenedores
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#servicios" 
+                               class="text-gray-400 hover:text-white transition-colors duration-300 flex items-center gap-2">
+                                <i class="fas fa-chevron-right text-xs"></i>
+                                Alquiler de Contenedores
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#servicios" 
+                               class="text-gray-400 hover:text-white transition-colors duration-300 flex items-center gap-2">
+                                <i class="fas fa-chevron-right text-xs"></i>
+                                Reparación y Mantenimiento
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#servicios" 
+                               class="text-gray-400 hover:text-white transition-colors duration-300 flex items-center gap-2">
+                                <i class="fas fa-chevron-right text-xs"></i>
+                                Contenedores Personalizados
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#servicios" 
+                               class="text-gray-400 hover:text-white transition-colors duration-300 flex items-center gap-2">
+                                <i class="fas fa-chevron-right text-xs"></i>
+                                Transporte y Entrega
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-xl font-bold mb-6">Enlaces Rápidos</h4>
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="https://comercioonline.github.io/CSR/Inicio" 
+                               class="text-gray-400 hover:text-white transition-colors duration-300 flex items-center gap-2">
+                                <i class="fas fa-chevron-right text-xs"></i>
+                                Inicio
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#tipos" 
+                               class="text-gray-400 hover:text-white transition-colors duration-300 flex items-center gap-2">
+                                <i class="fas fa-chevron-right text-xs"></i>
+                                Tipos de Contenedores
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#servicios" 
+                               class="text-gray-400 hover:text-white transition-colors duration-300 flex items-center gap-2">
+                                <i class="fas fa-chevron-right text-xs"></i>
+                                Servicios
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#especificaciones" 
+                               class="text-gray-400 hover:text-white transition-colors duration-300 flex items-center gap-2">
+                                <i class="fas fa-chevron-right text-xs"></i>
+                                Especificaciones
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://comercioonline.github.io/CSR/Piezas%20de%20Auto" 
+                               class="text-gray-400 hover:text-white transition-colors duration-300 flex items-center gap-2">
+                                <i class="fas fa-chevron-right text-xs"></i>
+                                Repuestos Automotrices
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Business Hours -->
+                <div>
+                    <h4 class="text-xl font-bold mb-6">Horarios de Atención</h4>
+                    <div class="bg-gray-800 p-4 rounded-lg space-y-3 mb-4">
+                        <div class="flex justify-between">
+                            <span class="text-gray-400">Lunes a Viernes</span>
+                            <span>9:00 AM - 6:00 PM</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-400">Sábados</span>
+                            <span>9:00 AM - 1:00 PM</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-400">Domingos</span>
+                            <span class="text-red-400">Cerrado</span>
+                        </div>
+                    </div>
+                    <div class="p-3 bg-blue-900/30 border border-blue-800 rounded-lg flex items-center gap-3">
+                        <i class="fas fa-phone-alt text-blue-400"></i>
+                        <span class="text-sm">Atención 24/7 para emergencias empresariales</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Copyright -->
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center">
+                <p class="text-gray-500">
+                    &copy; IMPERIUM Todos los derechos reservados.
+                </p>
+                <div class="mt-4 flex flex-wrap justify-center gap-6 text-sm text-gray-500">
+                    <a href="#" class="hover:text-white transition-colors duration-300">
+                        Términos y Condiciones
+                    </a>
+                    <a href="#" class="hover:text-white transition-colors duration-300">
+                        Política de Privacidad
+                    </a>
+                    <a href="#" class="hover:text-white transition-colors duration-300">
+                        Aviso Legal
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Sidebar -->
+    <div id="cart-sidebar" class="cart-sidebar">
+        <div class="h-full flex flex-col">
+            <!-- Cart Header -->
+            <div class="p-6 border-b">
+                <div class="flex items-center justify-between">
+                    <h3 class="text-2xl font-bold text-gray-900">
+                        <i class="fas fa-shopping-cart mr-3"></i>
+                        Tu Solicitud de Contenedores
+                    </h3>
+                    <button onclick="closeCart()" 
+                            class="w-10 h-10 rounded-full hover:bg-gray-100 flex items-center justify-center transition-colors duration-300">
+                        <i class="fas fa-times text-xl text-gray-500"></i>
+                    </button>
+                </div>
+                <p class="text-gray-600 text-sm mt-2">Revisa y gestiona los contenedores seleccionados</p>
+            </div>
+            
+            <!-- Cart Items -->
+            <div class="flex-1 overflow-y-auto p-6" id="cart-items">
+                <!-- Cart items will be loaded here -->
+            </div>
+            
+            <!-- Cart Footer -->
+            <div class="border-t p-6 bg-gray-50">
+                <div class="space-y-4">
+                    <div class="flex justify-between items-center">
+                        <span class="text-lg font-semibold">Subtotal:</span>
+                        <span class="text-xl font-bold text-blue-600" id="cart-subtotal">$0</span>
+                    </div>
+                    <div class="flex justify-between items-center text-sm text-gray-600">
+                        <span>Transporte:</span>
+                        <span>Calculado según destino</span>
+                    </div>
+                    <div class="flex justify-between items-center text-lg font-bold">
+                        <span>Total estimado:</span>
+                        <span class="text-2xl" id="cart-total">$0</span>
+                    </div>
+                    
+                    <button onclick="showWhatsAppForm()" 
+                            class="w-full btn-primary py-4 text-lg font-semibold mt-6">
+                        <i class="fab fa-whatsapp mr-3"></i>
+                        Solicitar Cotización
+                    </button>
+                    
+                    <button onclick="closeCart()" 
+                            class="w-full btn-secondary py-4 text-lg font-semibold">
+                        Seguir Explorando
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Cart Overlay -->
+    <div id="cart-overlay" 
+         class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden"
+         onclick="closeCart()"></div>
+
+    <!-- Product Detail Modal -->
+    <div id="detail-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button onclick="closeDetailModal()" 
+                    class="absolute top-4 right-4 w-10 h-10 rounded-full hover:bg-gray-100 flex items-center justify-center transition-colors duration-300">
+                <i class="fas fa-times text-xl text-gray-500"></i>
+            </button>
+            <div id="detail-container" class="animate-fade-in">
+                <!-- Product details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- WhatsApp Form Modal -->
+    <div id="whatsapp-form-modal" class="modal-overlay">
+        <div class="modal-content max-w-2xl">
+            <button onclick="closeWhatsAppForm()" 
+                    class="absolute top-4 right-4 w-10 h-10 rounded-full hover:bg-gray-100 flex items-center justify-center transition-colors duration-300">
+                <i class="fas fa-times text-xl text-gray-500"></i>
+            </button>
+            
+            <h2 class="text-3xl font-bold mb-2 text-center">
+                <i class="fab fa-whatsapp text-green-500 mr-3"></i>
+                Solicitar Cotización por WhatsApp
+            </h2>
+            <p class="text-gray-600 text-center mb-8">Completa el formulario para recibir tu cotización empresarial</p>
+            
+            <form id="whatsapp-form" onsubmit="sendWhatsAppMessage(event)" class="space-y-6">
+                <div class="bg-gray-50 p-6 rounded-xl">
+                    <h3 class="text-lg font-semibold mb-4 flex items-center gap-2">
+                        <i class="fas fa-boxes"></i>
+                        Resumen de contenedores seleccionados
+                    </h3>
+                    <div id="cart-summary" class="space-y-3">
+                        <!-- Cart summary will be loaded here -->
+                    </div>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="nombre" class="block text-gray-700 font-medium mb-2">
+                            Nombre Completo *
+                        </label>
+                        <input type="text" id="nombre" name="nombre" 
+                               class="form-input" 
+                               placeholder="Ej: Juan Pérez" 
+                               required>
+                    </div>
+                    
+                    <div>
+                        <label for="empresa" class="block text-gray-700 font-medium mb-2">
+                            Empresa (opcional)
+                        </label>
+                        <input type="text" id="empresa" name="empresa" 
+                               class="form-input" 
+                               placeholder="Nombre de la empresa">
+                    </div>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="telefono" class="block text-gray-700 font-medium mb-2">
+                            Teléfono *
+                        </label>
+                        <input type="text" id="telefono" name="telefono" 
+                               class="form-input" 
+                               placeholder="Número de contacto" 
+                               required>
+                    </div>
+                    
+                    <div>
+                        <label for="direccion" class="block text-gray-700 font-medium mb-2">
+                            Dirección de Entrega *
+                        </label>
+                        <input type="text" id="direccion" name="direccion" 
+                               class="form-input" 
+                               placeholder="Dirección completa" 
+                               required>
+                    </div>
+                </div>
+                
+                <div>
+                    <label for="tipo_servicio" class="block text-gray-700 font-medium mb-2">
+                        Tipo de Servicio Solicitado *
+                    </label>
+                    <select id="tipo_servicio" name="tipo_servicio" 
+                            class="form-input" 
+                            required>
+                        <option value="">Selecciona servicio</option>
+                        <option value="venta">Venta de Contenedores</option>
+                        <option value="alquiler_corto">Alquiler a Corto Plazo</option>
+                        <option value="alquiler_largo">Alquiler a Largo Plazo</option>
+                        <option value="mantenimiento">Mantenimiento / Reparación</option>
+                        <option value="personalizado">Solución Personalizada</option>
+                    </select>
+                </div>
+                
+                <div>
+                    <label for="plazo_entrega" class="block text-gray-700 font-medium mb-2">
+                        Plazo de Entrega Requerido
+                    </label>
+                    <select id="plazo_entrega" name="plazo_entrega" 
+                            class="form-input">
+                        <option value="">Sin preferencia</option>
+                        <option value="urgente">Urgente (24-48 horas)</option>
+                        <option value="semana">Esta semana</option>
+                        <option value="15dias">En 15 días</option>
+                        <option value="30dias">En 30 días</option>
+                    </select>
+                </div>
+                
+                <div>
+                    <label for="mensaje" class="block text-gray-700 font-medium mb-2">
+                        Requisitos Especiales / Información Adicional
+                    </label>
+                    <textarea id="mensaje" name="mensaje" 
+                              rows="4" 
+                              class="form-input" 
+                              placeholder="Describe requisitos especiales, uso específico, necesidades de modificación, etc."></textarea>
+                </div>
+                
+                <div class="flex gap-4">
+                    <button type="submit" 
+                            class="flex-1 btn-primary py-4 text-lg font-semibold">
+                        <i class="fab fa-whatsapp mr-3"></i>
+                        Enviar Cotización
+                    </button>
+                    <button type="button" 
+                            onclick="closeWhatsAppForm()" 
+                            class="flex-1 btn-secondary py-4 text-lg font-semibold">
+                        Cancelar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Notification Container -->
+    <div id="notification-container" class="fixed top-4 right-4 z-50 space-y-3"></div>
+
+    <script>
+        // Datos de contenedores
+        const containers = [
+            { 
+                id: 1, 
+                name: "Contenedor 20' Estándar Nuevo", 
+                price: 120000, 
+                category: "estandar", 
+                image: "Imagenes de Contenedores/Contenedor de 20ftt.jpg", 
+                stock: 10,
+                description: "Contenedor estándar de acero corten de alta resistencia, fabricado con materiales premium. Certificado ISO, ideal para transporte marítimo, terrestre y almacenamiento seguro.",
+                specifications: [
+                    "Dimensiones: 6.1m x 2.44m x 2.59m",
+                    "Capacidad: 33.1 m³", 
+                    "Carga máxima: 28,200 kg",
+                    "Peso propio: 2,300 kg",
+                    "Material: Acero corten 1.6mm",
+                    "Certificación: ISO 1496/1"
+                ],
+                features: [
+                    "Pintura exterior anti-corrosión",
+                    "Puertas de acero con triple cierre",
+                    "Sistema de ventilación natural",
+                    "Piso de madera tratada 28mm",
+                    "Aislamiento térmico opcional",
+                    "Garantía 5 años"
+                ],
+                uses: ["Transporte marítimo", "Almacenamiento industrial", "Oficina móvil", "Tienda temporal", "Bodega de seguridad"]
+            },
+            { 
+                id: 2, 
+                name: "Contenedor 40' Estándar Usado Certificado", 
+                price: 85000, 
+                category: "estandar", 
+                image: "Imagenes de Contenedores/Contenedor de 40ftt.jpg", 
+                stock: 15,
+                description: "Contenedor de 40 pies en excelente estado de uso, certificado CSC y listo para servicio. Perfecto para almacenamiento prolongado o transporte nacional.",
+                specifications: [
+                    "Dimensiones: 12.2m x 2.44m x 2.59m",
+                    "Capacidad: 67.7 m³",
+                    "Carga máxima: 28,800 kg",
+                    "Peso propio: 3,800 kg",
+                    "Certificación: CSC y ISO",
+                    "Estado: Excelente (A)"
+                ],
+                features: [
+                    "Sistema de seguridad reforzado",
+                    "Certificado de inspección actualizado",
+                    "Ideal para almacenamiento prolongado",
+                    "Resistente a intemperie",
+                    "Piso en perfectas condiciones",
+                    "Garantía 2 años"
+                ],
+                uses: ["Almacenamiento industrial", "Bodega móvil", "Espacio de trabajo", "Centro de distribución", "Proyectos de construcción"]
+            },
+            { 
+                id: 3, 
+                name: "Contenedor 40' High Cube Nuevo", 
+                price: 145000, 
+                category: "alto", 
+                image: "Imagenes de Contenedores/Contenedor.jpg", 
+                stock: 8,
+                description: "Contenedor High Cube con altura extra (2.89m), fabricado en acero corten. Ideal para cargas voluminosas o productos que requieren más espacio vertical.",
+                specifications: [
+                    "Dimensiones: 12.2m x 2.44m x 2.89m",
+                    "Capacidad: 76.3 m³",
+                    "Carga máxima: 28,800 kg",
+                    "Peso propio: 4,000 kg",
+                    "Material: Acero corten reforzado",
+                    "Certificación: ISO 1496/1"
+                ],
+                features: [
+                    "Altura extra 30cm adicional",
+                    "Puertas de doble hoja reforzadas",
+                    "Sistema de ventilación superior",
+                    "Piso reforzado para cargas pesadas",
+                    "Aislamiento térmico opcional",
+                    "Garantía 5 años"
+                ],
+                uses: ["Cargas voluminosas", "Equipamiento industrial", "Espacio de trabajo amplio", "Almacenamiento especializado", "Taller móvil"]
+            },
+            { 
+                id: 4, 
+                name: "Contenedor 20' Refrigerado Profesional", 
+                price: 250000, 
+                category: "refrigerado", 
+                image: "Imagenes de Contenedores/Contenedor Refrigerador.jpg", 
+                stock: 5,
+                description: "Contenedor refrigerado de última generación con sistema Carrier 4400, certificado para transporte de alimentos y productos farmacéuticos.",
+                specifications: [
+                    "Capacidad útil: 28.5 m³",
+                    "Rango de temperatura: -30°C a +30°C",
+                    "Motor: Carrier 4400 Inverter",
+                    "Certificado: Alimentos y Farmacéutico",
+                    "Consumo energético: 45 kWh/día",
+                    "Aislamiento: Poliuretano 100mm"
+                ],
+                features: [
+                    "Control digital de temperatura",
+                    "Sistema de monitoreo remoto",
+                    "Certificado para transporte de alimentos",
+                    "Aislamiento de poliuretano inyectado",
+                    "Sistema de descongelación automático",
+                    "Garantía 3 años en motor"
+                ],
+                uses: ["Transporte de alimentos", "Productos farmacéuticos", "Floricultura", "Mercado de perecederos", "Laboratorio móvil"]
+            },
+            { 
+                id: 5, 
+                name: "Contenedor 40' Abierto Top (Open Top)", 
+                price: 135000, 
+                category: "especial", 
+                image: "Imagenes de Contenedores/Contenedor Abierto.jpg", 
+                stock: 6,
+                description: "Contenedor con techo retráctil de lona, diseñado específicamente para cargas pesadas o sobredimensionadas que no caben en contenedores estándar.",
+                specifications: [
+                    "Dimensiones: 12.2m x 2.44m x 2.59m",
+                    "Capacidad: 67.7 m³",
+                    "Carga máxima: 28,800 kg",
+                    "Peso propio: 3,900 kg",
+                    "Material: Acero reforzado especial",
+                    "Certificación: ISO 1496/1"
+                ],
+                features: [
+                    "Techo retráctil de lona reforzada",
+                    "Cinturones de amarre reforzados",
+                    "Piso reforzado para 5 ton/m²",
+                    "Sistema de drenaje integrado",
+                    "Resistente a cargas pesadas",
+                    "Garantía 3 años"
+                ],
+                uses: ["Maquinaria pesada", "Equipamiento industrial", "Materiales de construcción", "Cargas sobredimensionadas", "Proyectos especiales"]
+            },
+            { 
+                id: 6, 
+                name: "Contenedor 20' Doble Puerta (Tunnel)", 
+                price: 125000, 
+                category: "especial", 
+                image: "Imagenes de Contenedores/Contenedor Doble puerta.jpg", 
+                stock: 7,
+                description: "Contenedor con puertas en ambos extremos, facilitando el carga y descarga rápida de mercancías en operaciones logísticas intensivas.",
+                specifications: [
+                    "Dimensiones: 6.1m x 2.44m x 2.59m",
+                    "Capacidad: 33.1 m³",
+                    "Carga máxima: 28,200 kg",
+                    "Peso propio: 2,400 kg",
+                    "Material: Acero corten especial",
+                    "Certificación: ISO 1496/1"
+                ],
+                features: [
+                    "Puertas en ambos extremos",
+                    "Sistema de cierre central reforzado",
+                    "Ventilación lateral regulable",
+                    "Piso de madera tratada antideslizante",
+                    "Resistente a corrosión marina",
+                    "Garantía 4 años"
+                ],
+                uses: ["Carga y descarga rápida", "Logística de distribución", "Centros de almacenamiento", "Transporte de mercancías frágiles", "Flujo continuo"]
+            }
+        ];
+
+        // Variables globales
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        let currentFilter = null;
+
+        // Inicialización
+        document.addEventListener('DOMContentLoaded', () => {
+            initApp();
+        });
+
+        // Función de inicialización
+        function initApp() {
+            renderProducts(containers, 'containers-container');
+            updateCartCount();
+            setupEventListeners();
+            checkCartOnLoad();
+        }
+
+        // Configurar event listeners
+        function setupEventListeners() {
+            // Mobile menu
+            document.getElementById('mobile-menu-btn').addEventListener('click', toggleMobileMenu);
+            
+            // Cart button
+            document.getElementById('cart-btn').addEventListener('click', openCart);
+            
+            // Close cart on overlay click
+            document.getElementById('cart-overlay').addEventListener('click', closeCart);
+            
+            // Close modals on ESC key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    closeAllModals();
+                }
+            });
+            
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId !== '#') {
+                        const targetElement = document.querySelector(targetId);
+                        if (targetElement) {
+                            targetElement.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                        }
+                    }
+                });
+            });
+        }
+
+        // Renderizar productos
+        function renderProducts(products, containerId) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = '';
+            
+            const filteredProducts = currentFilter && currentFilter !== 'all' ? 
+                products.filter(p => p.category === currentFilter) : 
+                products;
+            
+            if (filteredProducts.length === 0) {
+                container.innerHTML = `
+                    <div class="col-span-3 text-center py-12">
+                        <i class="fas fa-search text-4xl text-gray-300 mb-4"></i>
+                        <h3 class="text-xl font-semibold text-gray-600 mb-2">No se encontraron contenedores</h3>
+                        <p class="text-gray-500">Intenta con otra categoría o contacta para consultar disponibilidad</p>
+                        <button onclick="scrollToSection('contact')" class="btn-primary mt-4">
+                            <i class="fas fa-phone mr-2"></i>
+                            Consultar Disponibilidad
+                        </button>
+                    </div>
+                `;
+                return;
+            }
+            
+            filteredProducts.forEach(product => {
+                const productCard = createProductCard(product);
+                container.appendChild(productCard);
+            });
+        }
+
+        // Crear tarjeta de producto
+        function createProductCard(product) {
+            const card = document.createElement('div');
+            card.className = 'product-card animate-slide-up';
+            
+            // Determinar colores según categoría
+            let badgeColor, badgeText;
+            switch(product.category) {
+                case 'estandar':
+                    badgeColor = 'bg-blue-500';
+                    badgeText = 'Estándar';
+                    break;
+                case 'alto':
+                    badgeColor = 'bg-purple-500';
+                    badgeText = 'High Cube';
+                    break;
+                case 'refrigerado':
+                    badgeColor = 'bg-green-500';
+                    badgeText = 'Refrigerado';
+                    break;
+                case 'especial':
+                    badgeColor = 'bg-orange-500';
+                    badgeText = 'Especial';
+                    break;
+                default:
+                    badgeColor = 'bg-gray-500';
+                    badgeText = 'Contenedor';
+            }
+            
+            const stockColor = product.stock > 5 ? 'bg-green-500' : product.stock > 0 ? 'bg-yellow-500' : 'bg-red-500';
+            
+            card.innerHTML = `
+                <div class="product-image-container">
+                    <img src="${product.image}" 
+                         alt="${product.name}" 
+                         class="product-image"
+                         onerror="this.src='https://via.placeholder.com/400x300?text=Imagen+no+disponible'">
+                    
+                    <!-- Badge de categoría -->
+                    <span class="product-badge ${badgeColor} text-white">
+                        ${badgeText}
+                    </span>
+                    
+                    <!-- Badge de stock -->
+                    <span class="product-badge ${stockColor} text-white" style="top: 50px;">
+                        ${product.stock > 0 ? `${product.stock} disponibles` : 'Agotado'}
+                    </span>
+                    
+                    <!-- Precio -->
+                    <div class="price-tag">
+                        $${product.price.toLocaleString()}
+                    </div>
+                </div>
+                
+                <div class="p-6 flex-1 flex flex-col">
+                    <div class="mb-4 flex-1">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">${product.name}</h3>
+                        <p class="text-gray-600 text-sm line-clamp-2">${product.description}</p>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        ${product.uses.slice(0, 3).map(use => 
+                            `<span class="use-tag">${use}</span>`
+                        ).join('')}
+                    </div>
+                    
+                    <div class="flex justify-between items-center">
+                        <button onclick="showProductDetail(${product.id})" 
+                                class="flex items-center gap-2 text-blue-600 hover:text-blue-800 font-medium transition-colors duration-300">
+                            <i class="fas fa-info-circle"></i>
+                            Especificaciones
+                        </button>
+                        
+                        <button onclick="addToCart(${product.id})" 
+                                class="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                                ${product.stock === 0 ? 'disabled' : ''}>
+                            <i class="fas fa-cart-plus"></i>
+                            Solicitar
+                        </button>
+                    </div>
+                </div>
+            `;
+            
+            return card;
+        }
+
+        // Filtrar contenedores
+        function filterContainers(category) {
+            currentFilter = category;
+            renderProducts(containers, 'containers-container');
+            
+            // Actualizar botones activos
+            document.querySelectorAll('#tipos .flex-wrap button').forEach(btn => {
+                btn.classList.remove('bg-blue-600', 'text-white');
+                btn.classList.add('border', 'border-blue-200', 'text-gray-700');
+            });
+            
+            const activeBtn = event?.target;
+            if (activeBtn) {
+                activeBtn.classList.remove('border', 'border-blue-200', 'text-gray-700');
+                activeBtn.classList.add('bg-blue-600', 'text-white');
+            }
+        }
+
+        // Mostrar detalles del producto
+        function showProductDetail(productId) {
+            const product = containers.find(p => p.id === productId);
+            
+            if (!product) return;
+            
+            const detailContainer = document.getElementById('detail-container');
+            
+            // Determinar estilos según categoría
+            let badgeColor, badgeText, titleColor;
+            switch(product.category) {
+                case 'estandar':
+                    badgeColor = 'bg-blue-500';
+                    badgeText = 'Contenedor Estándar';
+                    titleColor = 'text-blue-600';
+                    break;
+                case 'alto':
+                    badgeColor = 'bg-purple-500';
+                    badgeText = 'Contenedor High Cube';
+                    titleColor = 'text-purple-600';
+                    break;
+                case 'refrigerado':
+                    badgeColor = 'bg-green-500';
+                    badgeText = 'Contenedor Refrigerado';
+                    titleColor = 'text-green-600';
+                    break;
+                case 'especial':
+                    badgeColor = 'bg-orange-500';
+                    badgeText = 'Contenedor Especial';
+                    titleColor = 'text-orange-600';
+                    break;
+                default:
+                    badgeColor = 'bg-gray-500';
+                    badgeText = 'Contenedor';
+                    titleColor = 'text-gray-600';
+            }
+            
+            const stockColor = product.stock > 5 ? 'text-green-600' : product.stock > 0 ? 'text-yellow-600' : 'text-red-600';
+            
+            let specificationsHTML = '';
+            let featuresHTML = '';
+            let usesHTML = '';
+            
+            // Generar HTML para especificaciones
+            specificationsHTML = `
+                <div class="mb-8">
+                    <h4 class="font-semibold text-lg mb-4 flex items-center gap-2 ${titleColor}">
+                        <i class="fas fa-ruler-combined"></i>
+                        Especificaciones Técnicas
+                    </h4>
+                    <ul class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                        ${product.specifications.map(spec => `
+                            <li class="flex items-center gap-2 text-gray-700">
+                                <i class="fas fa-check text-blue-500 text-sm"></i>
+                                ${spec}
+                            </li>
+                        `).join('')}
+                    </ul>
+                </div>
+            `;
+            
+            // Generar HTML para características
+            featuresHTML = `
+                <div class="mb-8">
+                    <h4 class="font-semibold text-lg mb-4 flex items-center gap-2 ${titleColor}">
+                        <i class="fas fa-star"></i>
+                        Características
+                    </h4>
+                    <ul class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                        ${product.features.map(feature => `
+                            <li class="flex items-center gap-2 text-gray-700">
+                                <i class="fas fa-check-circle text-green-500 text-sm"></i>
+                                ${feature}
+                            </li>
+                        `).join('')}
+                    </ul>
+                </div>
+            `;
+            
+            // Generar HTML para usos
+            usesHTML = `
+                <div class="mb-8">
+                    <h4 class="font-semibold text-lg mb-4 flex items-center gap-2 ${titleColor}">
+                        <i class="fas fa-industry"></i>
+                        Aplicaciones Comunes
+                    </h4>
+                    <div class="flex flex-wrap gap-2">
+                        ${product.uses.map(use => `
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">
+                                ${use}
+                            </span>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+            
+            detailContainer.innerHTML = `
+                <div class="grid lg:grid-cols-2 gap-8">
+                    <!-- Imagen del producto -->
+                    <div>
+                        <div class="relative rounded-xl overflow-hidden mb-6">
+                            <img src="${product.image}" 
+                                 alt="${product.name}" 
+                                 class="w-full h-96 object-cover"
+                                 onerror="this.src='https://via.placeholder.com/600x400?text=Imagen+no+disponible'">
+                            
+                            <!-- Badges -->
+                            <div class="absolute top-4 left-4 flex flex-col gap-2">
+                                <span class="${badgeColor} text-white px-3 py-1 rounded-full text-sm font-semibold">
+                                    ${badgeText}
+                                </span>
+                                <span class="${stockColor} bg-white px-3 py-1 rounded-full text-sm font-semibold">
+                                    ${product.stock > 0 ? `${product.stock} disponibles` : 'Agotado'}
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gradient-to-br from-blue-50 to-white p-6 rounded-xl border border-blue-100">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-gray-600 text-sm">Precio unitario</p>
+                                    <p class="text-3xl font-bold ${titleColor}">$${product.price.toLocaleString()}</p>
+                                </div>
+                                <div class="text-right">
+                                    <p class="text-gray-600 text-sm">Entrega estimada</p>
+                                    <p class="font-semibold">48-72 horas</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Información del producto -->
+                    <div>
+                        <h2 class="text-3xl font-bold text-gray-900 mb-4">${product.name}</h2>
+                        <p class="text-gray-700 mb-6 leading-relaxed">${product.description}</p>
+                        
+                        ${specificationsHTML}
+                        ${featuresHTML}
+                        ${usesHTML}
+                        
+                        <!-- Botones de acción -->
+                        <div class="flex gap-4 mt-8">
+                            <button onclick="addToCartFromDetail(${product.id})" 
+                                    class="flex-1 btn-primary py-4 text-lg font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
+                                    ${product.stock === 0 ? 'disabled' : ''}>
+                                <i class="fas fa-cart-plus mr-3"></i>
+                                Añadir a Cotización
+                            </button>
+                            <button onclick="closeDetailModal()" 
+                                    class="flex-1 btn-secondary py-4 text-lg font-semibold">
+                                <i class="fas fa-times mr-3"></i>
+                                Cerrar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            openModal('detail-modal');
+        }
+
+        // Añadir al carrito
+        function addToCart(productId) {
+            const product = containers.find(p => p.id === productId);
+            
+            if (!product || product.stock === 0) {
+                showNotification('Contenedor no disponible', 'error');
+                return;
+            }
+            
+            const existingItem = cart.find(item => item.id === productId);
+            
+            if (existingItem) {
+                if (existingItem.quantity < product.stock) {
+                    existingItem.quantity++;
+                } else {
+                    showNotification('Stock insuficiente', 'error');
+                    return;
+                }
+            } else {
+                cart.push({ 
+                    ...product, 
+                    quantity: 1,
+                    addedAt: new Date().toISOString()
+                });
+            }
+            
+            saveCart();
+            updateCartCount();
+            showNotification('Contenedor añadido a la cotización', 'success');
+            
+            // Animar el botón del carrito
+            animateCartButton();
+        }
+
+        // Añadir al carrito desde el detalle
+        function addToCartFromDetail(productId) {
+            closeDetailModal();
+            addToCart(productId);
+        }
+
+        // Guardar carrito en localStorage
+        function saveCart() {
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+
+        // Actualizar contador del carrito
+        function updateCartCount() {
+            const count = cart.reduce((total, item) => total + item.quantity, 0);
+            const cartCount = document.getElementById('cart-count');
+            cartCount.textContent = count;
+            
+            // Animar si hay cambios
+            if (count > 0) {
+                cartCount.classList.add('animate-pulse');
+                setTimeout(() => cartCount.classList.remove('animate-pulse'), 300);
+            }
+        }
+
+        // Animar botón del carrito
+        function animateCartButton() {
+            const cartBtn = document.getElementById('cart-btn');
+            cartBtn.classList.add('scale-110');
+            setTimeout(() => cartBtn.classList.remove('scale-110'), 300);
+        }
+
+        // Abrir carrito
+        function openCart() {
+            document.getElementById('cart-sidebar').classList.add('active');
+            document.getElementById('cart-overlay').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+            renderCartItems();
+        }
+
+        // Cerrar carrito
+        function closeCart() {
+            document.getElementById('cart-sidebar').classList.remove('active');
+            setTimeout(() => {
+                document.getElementById('cart-overlay').classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }, 300);
+        }
+
+        // Renderizar items del carrito
+        function renderCartItems() {
+            const cartItemsContainer = document.getElementById('cart-items');
+            const cartSubtotal = document.getElementById('cart-subtotal');
+            const cartTotal = document.getElementById('cart-total');
+            
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = `
+                    <div class="text-center py-12">
+                        <i class="fas fa-shopping-cart text-4xl text-gray-300 mb-4"></i>
+                        <h3 class="text-xl font-semibold text-gray-600 mb-2">Tu carrito está vacío</h3>
+                        <p class="text-gray-500 mb-6">Añade contenedores para solicitar una cotización</p>
+                        <button onclick="closeCart()" class="btn-primary">
+                            <i class="fas fa-boxes mr-2"></i>
+                            Ver Contenedores
+                        </button>
+                    </div>
+                `;
+                cartSubtotal.textContent = '$0';
+                cartTotal.textContent = '$0';
+                return;
+            }
+            
+            cartItemsContainer.innerHTML = '';
+            let subtotal = 0;
+            
+            cart.forEach((item, index) => {
+                const itemTotal = item.price * item.quantity;
+                subtotal += itemTotal;
+                
+                // Determinar categoría para mostrar
+                let categoryText = '';
+                switch(item.category) {
+                    case 'estandar': categoryText = 'Estándar'; break;
+                    case 'alto': categoryText = 'High Cube'; break;
+                    case 'refrigerado': categoryText = 'Refrigerado'; break;
+                    case 'especial': categoryText = 'Especial'; break;
+                    default: categoryText = 'Contenedor';
+                }
+                
+                const cartItem = document.createElement('div');
+                cartItem.className = 'flex items-center gap-4 p-4 bg-white rounded-lg border border-gray-200 mb-4 animate-slide-in';
+                cartItem.innerHTML = `
+                    <img src="${item.image}" 
+                         alt="${item.name}" 
+                         class="w-20 h-20 object-cover rounded-lg"
+                         onerror="this.src='https://via.placeholder.com/100x100?text=Imagen'">
+                    
+                    <div class="flex-1 min-w-0">
+                        <div class="flex items-center gap-2 mb-1">
+                            <h4 class="font-semibold text-gray-900 truncate">${item.name}</h4>
+                            <span class="px-2 py-0.5 text-xs font-medium bg-blue-100 text-blue-600 rounded-full">
+                                ${categoryText}
+                            </span>
+                        </div>
+                        <p class="text-gray-600 text-sm">$${item.price.toLocaleString()} c/u</p>
+                        <div class="flex items-center gap-2 mt-2">
+                            <button onclick="updateCartItem(${index}, -1)" 
+                                    class="w-8 h-8 flex items-center justify-center bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors duration-300">
+                                <i class="fas fa-minus text-xs"></i>
+                            </button>
+                            <span class="w-12 text-center font-medium">${item.quantity}</span>
+                            <button onclick="updateCartItem(${index}, 1)" 
+                                    class="w-8 h-8 flex items-center justify-center bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors duration-300">
+                                <i class="fas fa-plus text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="text-right">
+                        <p class="font-semibold text-gray-900">$${itemTotal.toLocaleString()}</p>
+                        <button onclick="removeCartItem(${index})" 
+                                class="text-red-500 hover:text-red-700 mt-2 transition-colors duration-300">
+                            <i class="fas fa-trash text-sm"></i>
+                        </button>
+                    </div>
+                `;
+                cartItemsContainer.appendChild(cartItem);
+            });
+            
+            cartSubtotal.textContent = `$${subtotal.toLocaleString()}`;
+            cartTotal.textContent = `$${subtotal.toLocaleString()}`;
+        }
+
+        // Actualizar item del carrito
+        function updateCartItem(index, change) {
+            const item = cart[index];
+            const product = containers.find(p => p.id === item.id);
+            
+            if (!product) return;
+            
+            const newQuantity = item.quantity + change;
+            
+            if (newQuantity < 1) {
+                removeCartItem(index);
+                return;
+            }
+            
+            if (newQuantity > product.stock) {
+                showNotification('Stock insuficiente', 'error');
+                return;
+            }
+            
+            item.quantity = newQuantity;
+            saveCart();
+            updateCartCount();
+            renderCartItems();
+            showNotification('Carrito actualizado', 'success');
+        }
+
+        // Eliminar item del carrito
+        function removeCartItem(index) {
+            const item = cart[index];
+            cart.splice(index, 1);
+            saveCart();
+            updateCartCount();
+            renderCartItems();
+            showNotification(`${item.name} eliminado del carrito`, 'info');
+        }
+
+        // Vaciar carrito
+        function clearCart() {
+            cart = [];
+            saveCart();
+            updateCartCount();
+            renderCartItems();
+            showNotification('Carrito vaciado', 'info');
+        }
+
+        // Mostrar formulario de WhatsApp
+        function showWhatsAppForm() {
+            if (cart.length === 0) {
+                showNotification('Tu carrito está vacío', 'error');
+                return;
+            }
+            
+            // Generar resumen del carrito
+            let cartSummaryHTML = '';
+            let total = 0;
+            
+            cart.forEach((item, index) => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                cartSummaryHTML += `
+                    <div class="flex justify-between items-center py-2 border-b border-gray-200">
+                        <div>
+                            <p class="font-medium">${item.name}</p>
+                            <p class="text-sm text-gray-600">${item.quantity} x $${item.price.toLocaleString()}</p>
+                        </div>
+                        <span class="font-semibold">$${itemTotal.toLocaleString()}</span>
+                    </div>
+                `;
+            });
+            
+            cartSummaryHTML += `
+                <div class="flex justify-between items-center py-3 font-bold text-lg">
+                    <span>Total estimado:</span>
+                    <span class="text-blue-600">$${total.toLocaleString()}</span>
+                </div>
+            `;
+            
+            document.getElementById('cart-summary').innerHTML = cartSummaryHTML;
+            closeCart();
+            openModal('whatsapp-form-modal');
+        }
+
+        // Enviar mensaje por WhatsApp
+        function sendWhatsAppMessage(event) {
+            event.preventDefault();
+            
+            // Obtener datos del formulario
+            const nombre = document.getElementById('nombre').value;
+            const empresa = document.getElementById('empresa').value;
+            const telefono = document.getElementById('telefono').value;
+            const direccion = document.getElementById('direccion').value;
+            const tipo_servicio = document.getElementById('tipo_servicio').value;
+            const plazo_entrega = document.getElementById('plazo_entrega').value;
+            const mensaje = document.getElementById('mensaje').value;
+            
+            // Generar mensaje para WhatsApp
+            let whatsappMessage = `*SOLICITUD DE COTIZACIÓN - CONTENEDORES*\n\n`;
+            whatsappMessage += `*Solicitante:* ${nombre}\n`;
+            if (empresa) {
+                whatsappMessage += `*Empresa:* ${empresa}\n`;
+            }
+            whatsappMessage += `*Teléfono:* ${telefono}\n`;
+            whatsappMessage += `*Dirección:* ${direccion}\n`;
+            whatsappMessage += `*Tipo de servicio:* ${tipo_servicio}\n`;
+            if (plazo_entrega) {
+                whatsappMessage += `*Plazo de entrega:* ${plazo_entrega}\n`;
+            }
+            whatsappMessage += `\n*CONTENEDORES SOLICITADOS:*\n\n`;
+            
+            let total = 0;
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                
+                let categoryText = '';
+                switch(item.category) {
+                    case 'estandar': categoryText = 'Estándar'; break;
+                    case 'alto': categoryText = 'High Cube'; break;
+                    case 'refrigerado': categoryText = 'Refrigerado'; break;
+                    case 'especial': categoryText = 'Especial'; break;
+                    default: categoryText = 'Contenedor';
+                }
+                
+                whatsappMessage += `• ${item.name}\n`;
+                whatsappMessage += `  Tipo: ${categoryText}\n`;
+                whatsappMessage += `  Cantidad: ${item.quantity}\n`;
+                whatsappMessage += `  Precio unitario: $${item.price.toLocaleString()}\n`;
+                whatsappMessage += `  Subtotal: $${itemTotal.toLocaleString()}\n\n`;
+            });
+            
+            whatsappMessage += `*TOTAL ESTIMADO: $${total.toLocaleString()}*\n\n`;
+            
+            if (mensaje) {
+                whatsappMessage += `*INFORMACIÓN ADICIONAL:*\n${mensaje}\n\n`;
+            }
+            
+            whatsappMessage += `---\n`;
+            whatsappMessage += `*Fecha:* ${new Date().toLocaleDateString('es-ES', {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            })}\n`;
+            whatsappMessage += `*ID de solicitud:* ${Date.now()}\n\n`;
+            whatsappMessage += `Por favor, confirmen disponibilidad, envíen cotización final con detalles de transporte e incluyan opciones de pago.`;
+            
+            // Codificar el mensaje para URL
+            const encodedMessage = encodeURIComponent(whatsappMessage);
+            
+            // Número de WhatsApp
+            const phoneNumber = '+5353729090';
+            
+            // Abrir WhatsApp
+            window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
+            
+            // Cerrar el formulario
+            closeWhatsAppForm();
+            
+            // Actualizar stock y limpiar carrito
+            updateProductStock();
+            clearCart();
+            
+            // Mostrar confirmación
+            showNotification('Solicitud enviada correctamente', 'success');
+        }
+
+        // Enviar mensaje de contacto
+        function sendContactMessage(event) {
+            event.preventDefault();
+            
+            const form = event.target;
+            const nombre = form.name.value;
+            const empresa = form.company.value;
+            const telefono = form.phone.value;
+            const proposito = form.purpose.value;
+            const mensaje = form.message.value;
+            
+            // Mapear propósito a texto legible
+            const purposeMap = {
+                'venta': 'Venta de Contenedores',
+                'alquiler': 'Alquiler de Contenedores',
+                'mantenimiento': 'Servicio de Mantenimiento',
+                'cotizacion': 'Solicitar Cotización Empresarial',
+                'emergencia': 'Emergencia / Ayuda Urgente'
+            };
+            
+            // Generar mensaje para WhatsApp
+            let whatsappMessage = `*CONSULTA DE CONTACTO - CONTENEDORES*\n\n`;
+            whatsappMessage += `*Nombre:* ${nombre}\n`;
+            if (empresa) {
+                whatsappMessage += `*Empresa:* ${empresa}\n`;
+            }
+            whatsappMessage += `*Teléfono:* ${telefono}\n`;
+            whatsappMessage += `*Motivo:* ${purposeMap[proposito] || proposito}\n\n`;
+            whatsappMessage += `*MENSAJE:*\n${mensaje}\n\n`;
+            whatsappMessage += `---\n`;
+            whatsappMessage += `*Fecha:* ${new Date().toLocaleDateString()}\n`;
+            whatsappMessage += `*Hora:* ${new Date().toLocaleTimeString()}`;
+            
+            // Codificar el mensaje
+            const encodedMessage = encodeURIComponent(whatsappMessage);
+            
+            // Número de WhatsApp
+            const phoneNumber = '+5353729090';
+            
+            // Abrir WhatsApp
+            window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
+            
+            // Resetear formulario
+            form.reset();
+            
+            // Mostrar confirmación
+            showNotification('Redirigiendo a WhatsApp...', 'success');
+        }
+
+        // Actualizar stock de productos
+        function updateProductStock() {
+            cart.forEach(item => {
+                const product = containers.find(p => p.id === item.id);
+                if (product) {
+                    product.stock = Math.max(0, product.stock - item.quantity);
+                }
+            });
+            
+            // Actualizar la vista de productos
+            renderProducts(containers, 'containers-container');
+        }
+
+        // Abrir modal
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Cerrar modal
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Cerrar modal de detalles
+        function closeDetailModal() {
+            closeModal('detail-modal');
+        }
+
+        // Cerrar formulario de WhatsApp
+        function closeWhatsAppForm() {
+            closeModal('whatsapp-form-modal');
+        }
+
+        // Cerrar todos los modales
+        function closeAllModals() {
+            closeCart();
+            closeDetailModal();
+            closeWhatsAppForm();
+        }
+
+        // Mostrar notificación
+        function showNotification(message, type = 'info') {
+            const container = document.getElementById('notification-container');
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            
+            // Iconos por tipo
+            const icons = {
+                success: 'fas fa-check-circle',
+                error: 'fas fa-exclamation-circle',
+                info: 'fas fa-info-circle'
+            };
+            
+            notification.innerHTML = `
+                <i class="${icons[type] || icons.info}"></i>
+                <span>${message}</span>
+            `;
+            
+            container.appendChild(notification);
+            
+            // Remover después de 5 segundos
+            setTimeout(() => {
+                notification.style.opacity = '0';
+                notification.style.transform = 'translateX(100%)';
+                setTimeout(() => notification.remove(), 300);
+            }, 5000);
+        }
+
+        // Toggle menu móvil
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('mobile-menu-btn').querySelector('i');
+            
+            menu.classList.toggle('hidden');
+            
+            if (menu.classList.contains('hidden')) {
+                icon.className = 'fas fa-bars text-xl text-gray-600';
+            } else {
+                icon.className = 'fas fa-times text-xl text-gray-600';
+            }
+        }
+
+        // Scroll suave a sección
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Verificar carrito al cargar
+        function checkCartOnLoad() {
+            if (cart.length > 0) {
+                // Verificar stock de productos en el carrito
+                cart = cart.filter(item => {
+                    const product = containers.find(p => p.id === item.id);
+                    return product && product.stock >= item.quantity;
+                });
+                saveCart();
+                updateCartCount();
+            }
+        }
+
+        // Cerrar menú al hacer clic fuera
+        document.addEventListener('click', (e) => {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuBtn = document.getElementById('mobile-menu-btn');
+            
+            if (!mobileMenu.classList.contains('hidden') && 
+                !mobileMenu.contains(e.target) && 
+                !menuBtn.contains(e.target)) {
+                toggleMobileMenu();
+            }
+        });
+    </script>
+</body>
+</html>
