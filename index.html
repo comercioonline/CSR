@@ -116,15 +116,15 @@
         }
         
         .product-card.motor:hover {
-            border-color: var(--primary-color);
+            border-color: #ef4444;
         }
         
         .product-card.aceite:hover {
-            border-color: var(--oil-color);
+            border-color: #10b981;
         }
         
         .product-card.contenedor:hover {
-            border-color: var(--secondary-color);
+            border-color: #3b82f6;
         }
         
         .product-image-container {
@@ -264,15 +264,15 @@
         }
         
         .section-title.motor::after {
-            background: linear-gradient(to right, var(--primary-color), #3b82f6);
+             background: linear-gradient(to right, #ef4444, #dc2626);
         }
         
         .section-title.aceite::after {
-            background: linear-gradient(to right, var(--oil-color), #ef4444);
+            background: linear-gradient(to right, #10b981, #059669);
         }
         
         .section-title.contenedor::after {
-            background: linear-gradient(to right, var(--secondary-color), #10b981);
+            background: linear-gradient(to right, #3b82f6, #1d4ed8);
         }
         
         /* Estilos responsivos */
@@ -375,6 +375,50 @@
             background-position: center;
             opacity: 0.1;
         }
+
+/* Add to the end of your existing CSS */tente */
+
+/* Colores específicos por categoría */
+.category-oil {
+    color: #10b981;
+    border-color: #10b981;
+}
+
+.category-container {
+    color: #ef4444;
+    border-color: #ef4444;
+}
+
+.category-parts {
+    color: #3b82f6;
+    border-color: #3b82f6;
+}
+
+/* Mejoras para botones de categoría en Hero */
+.hero-btn-oil {
+    background: linear-gradient(135deg, #10b981, #059669);
+}
+
+.hero-btn-parts {
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+}
+
+.hero-btn-container {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+}
+
+/* Efectos hover para botones */
+.hero-btn-oil:hover {
+    background: linear-gradient(135deg, #059669, #047857);
+}
+
+.hero-btn-parts:hover {
+    background: linear-gradient(135deg, #2563eb, #1e40af);
+}
+
+.hero-btn-container:hover {
+    background: linear-gradient(135deg, #dc2626, #b91c1c);
+}
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
@@ -390,7 +434,7 @@
                         <h1 class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
                             CSR s.r.l
                         </h1>
-                        <p class="text-xs text-gray-500">Especialistas en autopartes y contenedores</p>
+                        <p class="text-xs text-gray-500">Especialistas en aceites-lubricantes, autopartes y contenedores</p>
                     </div>
                 </div>
                 
@@ -401,20 +445,20 @@
                         Inicio
                         <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
                     </a>
-                    <a href="https://comercioonline.github.io/CSR/autos" 
-                       class="text-gray-600 hover:text-blue-600 transition-colors duration-300 font-medium relative group">
-                        Piezas de Autos
-                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
-                    </a>
                     <a href="https://comercioonline.github.io/CSR/aceite" 
-                       class="text-gray-600 hover:text-red-600 transition-colors duration-300 font-medium relative group">
+                       class="text-gray-600 hover:text-green-600 transition-colors duration-300 font-medium relative group">
                         Aceites
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-green-600 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="https://comercioonline.github.io/CSR/autos" 
+                       class="text-gray-600 hover:text-red-600 transition-colors duration-300 font-medium relative group">
+                        Piezas de Autos
                         <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover:w-full"></span>
                     </a>
                     <a href="https://comercioonline.github.io/CSR/contenedores" 
-                       class="text-gray-600 hover:text-green-600 transition-colors duration-300 font-medium relative group">
+                       class="text-gray-600 hover:text-blue-600 transition-colors duration-300 font-medium relative group">
                         Contenedores
-                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-green-600 transition-all duration-300 group-hover:w-full"></span>
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
                     </a>
                     <a href="#contact" 
                        class="text-gray-600 hover:text-blue-600 transition-colors duration-300 font-medium relative group">
@@ -455,16 +499,16 @@
                        class="py-3 px-4 rounded-lg hover:bg-blue-50 text-gray-600 hover:text-blue-600 transition-colors duration-300 font-medium">
                         <i class="fas fa-home mr-3"></i>Inicio
                     </a>
-                    <a href="https://comercioonline.github.io/CSR/autos" 
-                       class="py-3 px-4 rounded-lg hover:bg-blue-50 text-gray-600 hover:text-blue-600 transition-colors duration-300 font-medium">
-                        <i class="fas fa-car mr-3"></i>Piezas de Autos
-                    </a>
                     <a href="https://comercioonline.github.io/CSR/aceite" 
-                       class="py-3 px-4 rounded-lg hover:bg-red-50 text-gray-600 hover:text-red-600 transition-colors duration-300 font-medium">
-                        <i class="fas fa-oil-can mr-3"></i>Aceites
-                    </a>
-                    <a href="https://comercioonline.github.io/CSR/contenedores" 
                        class="py-3 px-4 rounded-lg hover:bg-green-50 text-gray-600 hover:text-green-600 transition-colors duration-300 font-medium">
+                        <i class="fas fa-oil-can mr-3"></i>Aceites y Lubrincantes
+                    </a> 
+                    <a href="https://comercioonline.github.io/CSR/autos" 
+                       class="py-3 px-4 rounded-lg hover:bg-red-50 text-gray-600 hover:text-red-600 transition-colors duration-300 font-medium">
+                        <i class="fas fa-car mr-3"></i>Piezas de Autos
+                    </a> 
+                    <a href="https://comercioonline.github.io/CSR/contenedores" 
+                       class="py-3 px-4 rounded-lg hover:bg-blue-50 text-gray-600 hover:text-blue-600 transition-colors duration-300 font-medium">
                         <i class="fas fa-box mr-3"></i>Contenedores
                     </a>
                     <a href="#contact" 
@@ -484,52 +528,55 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero-section text-white py-24 relative overflow-hidden">
-        <div class="container mx-auto px-4 relative z-10">
-            <div class="max-w-4xl mx-auto text-center animate-slide-up">
-                <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-                    Piezas de Autos, 
-                    <span class="bg-gradient-to-r from-red-400 to-red-600 bg-clip-text text-transparent">
-                        Aceites
-                    </span>
-                    y 
-                    <span class="bg-gradient-to-r from-green-400 to-green-600 bg-clip-text text-transparent">
-                        Contenedores
-                    </span>
-                </h1>
-                <p class="text-xl md:text-2xl mb-10 text-blue-100 leading-relaxed">
-                    Soluciones integrales en repuestos automotrices, lubricantes y almacenamiento de calidad
-                </p>
-                <div class="flex flex-col sm:flex-row gap-6 justify-center">
-                    <button onclick="scrollToSection('car-parts')" 
-                            class="btn-primary px-10 py-4 text-lg font-semibold shadow-lg">
-                        <i class="fas fa-car mr-3"></i>Ver Piezas Autos
-                    </button>
-                    <button onclick="scrollToSection('aceites')" 
-                            class="px-10 py-4 text-lg font-semibold bg-gradient-to-r from-red-600 to-red-800 text-white rounded-lg hover:from-red-700 hover:to-red-900 transition-all duration-300 shadow-lg">
-                        <i class="fas fa-oil-can mr-3"></i>Ver Aceites
-                    </button>
-                    <button onclick="scrollToSection('containers')" 
-                            class="btn-secondary px-10 py-4 text-lg font-semibold">
-                        <i class="fas fa-boxes mr-3"></i>Ver Contenedores
-                    </button>
-                </div>
+<!-- Hero Section -->
+<section class="hero-section text-white py-24 relative overflow-hidden">
+    <div class="container mx-auto px-4 relative z-10">
+        <div class="max-w-4xl mx-auto text-center animate-slide-up">
+            <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+                <span class="bg-gradient-to-r from-green-400 to-green-600 bg-clip-text text-transparent">
+                    Aceites/Lubricantes
+                </span>
+                , 
+                <span class="bg-gradient-to-r from-red-400 to-red-600 bg-clip-text text-transparent">
+                    Piezas de Autos
+                </span>
+                y 
+                <span class="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
+                    Contenedores
+                </span>
+            </h1>
+            <p class="text-xl md:text-2xl mb-10 text-blue-100 leading-relaxed">
+                Soluciones integrales en repuestos automotrices, lubricantes y almacenamiento de calidad
+            </p>
+            <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                <button onclick="scrollToSection('aceites')" 
+                        class="px-10 py-4 text-lg font-semibold bg-gradient-to-r from-green-600 to-green-800 text-white rounded-lg hover:from-green-700 hover:to-green-900 transition-all duration-300 shadow-lg">
+                    <i class="fas fa-oil-can mr-3"></i>Ver Aceites
+                </button>
+                <button onclick="scrollToSection('car-parts')" 
+                        class="px-10 py-4 text-lg font-semibold bg-gradient-to-r from-red-600 to-red-800 text-white rounded-lg hover:from-red-700 hover:to-red-900 transition-all duration-300 shadow-lg">
+                    <i class="fas fa-car mr-3"></i>Ver Piezas Autos
+                </button>
+                <button onclick="scrollToSection('containers')" 
+                        class="px-10 py-4 text-lg font-semibold bg-gradient-to-r from-blue-600 to-blue-800 text-white rounded-lg hover:from-blue-700 hover:to-blue-900 transition-all duration-300 shadow-lg">
+                    <i class="fas fa-boxes mr-3"></i>Ver Contenedores
+                </button>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Stats Section -->
     <section class="py-16 bg-white">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="text-center p-8 rounded-xl bg-gradient-to-br from-blue-50 to-white border border-blue-100">
-                    <div class="text-4xl font-bold text-blue-600 mb-3">+500</div>
+                    <div class="text-4xl font-bold text-blue-600 mb-3">+200</div>
                     <h3 class="text-xl font-semibold mb-2">Productos Disponibles</h3>
-                    <p class="text-gray-600">Amplio catálogo de piezas, aceites y contenedores</p>
+                    <p class="text-gray-600">Amplio catálogo de aceites, piezas y contenedores</p>
                 </div>
                 <div class="text-center p-8 rounded-xl bg-gradient-to-br from-red-50 to-white border border-red-100">
-                    <div class="text-4xl font-bold text-red-600 mb-3">+50</div>
+                    <div class="text-4xl font-bold text-red-600 mb-3">+3</div>
                     <h3 class="text-xl font-semibold mb-2">Marcas de Aceites</h3>
                     <p class="text-gray-600">Las mejores marcas de lubricantes para tu vehículo</p>
                 </div>
@@ -542,99 +589,99 @@
         </div>
     </section>
 
-    <!-- Car Parts Section -->
-    <section id="car-parts" class="py-20">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="section-title motor text-4xl font-bold text-gray-900">
-                    Piezas para Automóviles
-                </h2>
-                <p class="text-gray-600 text-lg max-w-2xl mx-auto mt-4">
-                    Encuentra las mejores piezas para tu vehículo con garantía de calidad y compatibilidad
-                </p>
-            </div>
-            
-            <!-- Category Filters -->
-            <div class="flex flex-wrap gap-3 justify-center mb-12">
-                <button onclick="filterProducts('all')" 
-                        class="px-6 py-2 rounded-full border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white transition-all duration-300 font-medium">
-                    Todas las Categorías
-                </button>
-                <button onclick="filterProducts('motor')" 
-                        class="px-6 py-2 rounded-full border border-blue-200 text-gray-700 hover:border-blue-600 hover:text-blue-600 transition-all duration-300 font-medium">
-                    <i class="fas fa-cogs mr-2"></i>Motor
-                </button>
-                <button onclick="filterProducts('suspension')" 
-                        class="px-6 py-2 rounded-full border border-blue-200 text-gray-700 hover:border-blue-600 hover:text-blue-600 transition-all duration-300 font-medium">
-                    <i class="fas fa-car-side mr-2"></i>Suspensión
-                </button>
-                <button onclick="filterProducts('frenos')" 
-                        class="px-6 py-2 rounded-full border border-blue-200 text-gray-700 hover:border-blue-600 hover:text-blue-600 transition-all duration-300 font-medium">
-                    <i class="fas fa-tachometer-alt mr-2"></i>Frenos
-                </button>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="car-parts-container">
-                <!-- Productos se cargarán aquí -->
-            </div>
+ <!-- Aceites Section -->
+<section id="aceites" class="py-20 bg-gradient-to-b from-green-50 to-white">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+            <h2 class="section-title aceite text-4xl font-bold text-gray-900">
+                Aceites y Lubricantes
+            </h2>
+            <p class="text-gray-600 text-lg max-w-2xl mx-auto mt-4">
+                Los mejores lubricantes para el cuidado y mantenimiento de tu motor
+            </p>
         </div>
-    </section>
+        
+        <!-- Category Filters - ACTUALIZADOS CON COLOR VERDE -->
+        <div class="flex flex-wrap gap-3 justify-center mb-12">
+            <button onclick="filterAceites('all')" 
+                    class="px-6 py-2 rounded-full border border-green-600 text-green-600 hover:bg-green-600 hover:text-white transition-all duration-300 font-medium">
+                Todos los Aceites
+            </button>
+            <button onclick="filterAceites('sintetico')" 
+                    class="px-6 py-2 rounded-full border border-green-200 text-gray-700 hover:border-green-600 hover:text-green-600 transition-all duration-300 font-medium">
+                <i class="fas fa-flask mr-2"></i>Sintético
+            </button>
+            <button onclick="filterAceites('semisintetico')" 
+                    class="px-6 py-2 rounded-full border border-green-200 text-gray-700 hover:border-green-600 hover:text-green-600 transition-all duration-300 font-medium">
+                <i class="fas fa-flask mr-2"></i>Semi-sintético
+            </button>
+            <button onclick="filterAceites('mineral')" 
+                    class="px-6 py-2 rounded-full border border-green-200 text-gray-700 hover:border-green-600 hover:text-green-600 transition-all duration-300 font-medium">
+                <i class="fas fa-oil-can mr-2"></i>Mineral
+            </button>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="aceites-container">
+            <!-- Aceites se cargarán aquí -->
+        </div>
+    </div>
+</section>
 
-    <!-- Aceites Section -->
-    <section id="aceites" class="py-20 bg-gradient-to-b from-red-50 to-white">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="section-title aceite text-4xl font-bold text-gray-900">
-                    Aceites y Lubricantes
-                </h2>
-                <p class="text-gray-600 text-lg max-w-2xl mx-auto mt-4">
-                    Los mejores lubricantes para el cuidado y mantenimiento de tu motor
-                </p>
-            </div>
-            
-            <!-- Category Filters -->
-            <div class="flex flex-wrap gap-3 justify-center mb-12">
-                <button onclick="filterAceites('all')" 
-                        class="px-6 py-2 rounded-full border border-red-600 text-red-600 hover:bg-red-600 hover:text-white transition-all duration-300 font-medium">
-                    Todos los Aceites
-                </button>
-                <button onclick="filterAceites('sintetico')" 
-                        class="px-6 py-2 rounded-full border border-red-200 text-gray-700 hover:border-red-600 hover:text-red-600 transition-all duration-300 font-medium">
-                    <i class="fas fa-flask mr-2"></i>Sintético
-                </button>
-                <button onclick="filterAceites('semisintetico')" 
-                        class="px-6 py-2 rounded-full border border-red-200 text-gray-700 hover:border-red-600 hover:text-red-600 transition-all duration-300 font-medium">
-                    <i class="fas fa-flask mr-2"></i>Semi-sintético
-                </button>
-                <button onclick="filterAceites('mineral')" 
-                        class="px-6 py-2 rounded-full border border-red-200 text-gray-700 hover:border-red-600 hover:text-red-600 transition-all duration-300 font-medium">
-                    <i class="fas fa-oil-can mr-2"></i>Mineral
-                </button>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="aceites-container">
-                <!-- Aceites se cargarán aquí -->
-            </div>
+    <!-- Car Parts Section - AHORA EN ROJO -->
+<section id="car-parts" class="py-20 bg-gradient-to-b from-red-50 to-white">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+            <h2 class="section-title motor text-4xl font-bold text-gray-900">
+                Piezas para Automóviles
+            </h2>
+            <p class="text-gray-600 text-lg max-w-2xl mx-auto mt-4">
+                Encuentra las mejores piezas para tu vehículo con garantía de calidad y compatibilidad
+            </p>
         </div>
-    </section>
+        
+        <!-- Category Filters -->
+        <div class="flex flex-wrap gap-3 justify-center mb-12">
+            <button onclick="filterProducts('all')" 
+                    class="px-6 py-2 rounded-full border border-red-600 text-red-600 hover:bg-red-600 hover:text-white transition-all duration-300 font-medium">
+                Todas las Categorías
+            </button>
+            <button onclick="filterProducts('motor')" 
+                    class="px-6 py-2 rounded-full border border-red-200 text-gray-700 hover:border-red-600 hover:text-red-600 transition-all duration-300 font-medium">
+                <i class="fas fa-cogs mr-2"></i>Motor
+            </button>
+            <button onclick="filterProducts('suspension')" 
+                    class="px-6 py-2 rounded-full border border-red-200 text-gray-700 hover:border-red-600 hover:text-red-600 transition-all duration-300 font-medium">
+                <i class="fas fa-car-side mr-2"></i>Suspensión
+            </button>
+            <button onclick="filterProducts('frenos')" 
+                    class="px-6 py-2 rounded-full border border-red-200 text-gray-700 hover:border-red-600 hover:text-red-600 transition-all duration-300 font-medium">
+                <i class="fas fa-tachometer-alt mr-2"></i>Frenos
+            </button>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="car-parts-container">
+            <!-- Productos se cargarán aquí -->
+        </div>
+    </div>
+</section>
 
-    <!-- Containers Section -->
-    <section id="containers" class="py-20 bg-gradient-to-b from-green-50 to-white">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="section-title contenedor text-4xl font-bold text-gray-900">
-                    Contenedores para Almacenamiento
-                </h2>
-                <p class="text-gray-600 text-lg max-w-2xl mx-auto mt-4">
-                    Soluciones de almacenamiento seguras y confiables para todas tus necesidades
-                </p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="containers-container">
-                <!-- Contenedores se cargarán aquí -->
-            </div>
+<!-- Containers section - FULL VERSION IN BLUE -->
+<section id="containers" class="py-20 bg-gradient-to-b from-blue-50 to-white">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+            <h2 class="section-title contenedor text-4xl font-bold text-gray-900">
+                Contenedores para Almacenamiento
+            </h2>
+            <p class="text-gray-600 text-lg max-w-2xl mx-auto mt-4">
+                Soluciones de almacenamiento seguras y confiables para todas tus necesidades
+            </p>
         </div>
-    </section>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="containers-container">
+            <!-- Contenedores se cargarán aquí -->
+        </div>
+    </div>
+</section>
 
     <!-- Features Section -->
     <section class="py-20 bg-gradient-to-r from-blue-600 via-red-600 to-blue-800 text-white">
@@ -703,9 +750,9 @@
                                 <div>
                                     <h4 class="font-semibold text-gray-900">Teléfonos Principales</h4>
                                     <div class="mt-2 space-y-2">
-                                        <p class="text-gray-600">(E.a.m. De Jaegher): <span class="font-medium">+53 53729090</span></p>
-                                        <p class="text-gray-600">(Lic. Raciel Rodríguez Temprana): <span class="font-medium">+53 52493787</span></p>
+                                        <p class="text-gray-600">(Ing. Jorge Arides Estévez): <span class="font-medium">+53 63179374</span></p>
                                         <p class="text-gray-600">(Ing. Luis Carlos Triana Alonso): <span class="font-medium">+53 50669462</span></p>
+                                        <p class="text-gray-600">(Lic. Raciel Rodríguez Temprana): <span class="font-medium">+53 52493787</span></p>
                                     </div>
                                 </div>
                             </div>
@@ -740,7 +787,8 @@
                                 <div>
                                     <h4 class="font-semibold text-gray-900">Horarios de Atención</h4>
                                     <div class="mt-2 space-y-1">
-                                        <p class="text-gray-600">Lunes a Viernes: 9:00 AM - 6:00 PM</p>
+                                        <p class="text-gray-600">Lunes a Viernes: 8:00 AM - 5:00 PM</p>
+                                        <p class="text-gray-600">Sabado: 8:00 AM - 12:00 PM</p>
                                         <p class="text-gray-600">Taller: 8:00 AM - 5:00 PM</p>
                                         <p class="text-gray-600 font-medium">Atención 24/7 para emergencias</p>
                                     </div>
@@ -768,69 +816,84 @@
                     </div>
                 </div>
                 
-                <!-- Contact Form -->
-                <div class="bg-gradient-to-br from-gray-50 to-white p-8 rounded-2xl border border-gray-200">
-                    <h3 class="text-2xl font-bold mb-6 flex items-center gap-3">
-                        <i class="fas fa-comments text-blue-600"></i>
-                        Envíanos un Mensaje
-                    </h3>
-                    
-                    <form id="contact-form" onsubmit="sendContactMessage(event)" class="space-y-6">
-                        <div>
-                            <label for="contact-name" class="block text-gray-700 font-medium mb-2">
-                                Nombre Completo *
-                            </label>
-                            <input type="text" id="contact-name" name="name" 
-                                   class="form-input" 
-                                   placeholder="Tu nombre" 
-                                   required>
-                        </div>
-                        
-                        <div>
-                            <label for="contact-subject" class="block text-gray-700 font-medium mb-2">
-                                Asunto *
-                            </label>
-                            <input type="text" id="contact-subject" name="subject" 
-                                   class="form-input" 
-                                   placeholder="Asunto del mensaje" 
-                                   required>
-                        </div>
-                        
-                        <div>
-                            <label for="contact-purpose" class="block text-gray-700 font-medium mb-2">
-                                ¿En qué podemos ayudarte? *
-                            </label>
-                            <select id="contact-purpose" name="purpose" 
-                                    class="form-input" 
-                                    required>
-                                <option value="">Selecciona una opción</option>
-                                <option value="reservar_piezas">Reservar piezas</option>
-                                <option value="reservar_aceite">Reservar aceite</option>
-                                <option value="reservar_contenedor">Reservar contenedor</option>
-                                <option value="cotizacion">Cotización</option>
-                                <option value="soporte_tecnico">Soporte técnico</option>
-                                <option value="otro">Otro</option>
-                            </select>
-                        </div>
-                        
-                        <div>
-                            <label for="contact-message" class="block text-gray-700 font-medium mb-2">
-                                Mensaje *
-                            </label>
-                            <textarea id="contact-message" name="message" 
-                                      rows="5" 
-                                      class="form-input" 
-                                      placeholder="Describe tu consulta o necesidad..."
-                                      required></textarea>
-                        </div>
-                        
-                        <button type="submit" 
-                                class="w-full btn-primary py-4 text-lg font-semibold">
-                            <i class="fas fa-paper-plane mr-2"></i>
-                            Enviar Mensaje
-                        </button>
-                    </form>
-                </div>
+              <!-- Contact Form -->
+<div class="bg-gradient-to-br from-gray-50 to-white p-8 rounded-2xl border border-gray-200">
+    <h3 class="text-2xl font-bold mb-6 flex items-center gap-3">
+        <i class="fas fa-comments text-blue-600"></i>
+        Envíanos un Mensaje
+    </h3>
+    
+    <form id="contact-form" onsubmit="sendContactMessage(event)" class="space-y-6">
+        <!-- NUEVO CAMPO EMPRESA - AGREGADO ARRIBA DE NOMBRE COMPLETO -->
+        <div>
+            <label for="empresa" class="block text-gray-700 font-medium mb-2">
+                Empresa *
+            </label>
+            <select id="empresa" name="empresa" 
+                    class="form-input" 
+                    required>
+                <option value="">Seleccione su tipo de empresa</option>
+                <option value="Mipyme">Mipyme</option>
+                <option value="TCP">TCP</option>
+                <option value="Particular">Particular</option>
+            </select>
+        </div>
+        
+        <div>
+            <label for="contact-name" class="block text-gray-700 font-medium mb-2">
+                Nombre Completo *
+            </label>
+            <input type="text" id="contact-name" name="name" 
+                   class="form-input" 
+                   placeholder="Tu nombre" 
+                   required>
+        </div>
+        
+        <div>
+            <label for="contact-subject" class="block text-gray-700 font-medium mb-2">
+                Asunto *
+            </label>
+            <input type="text" id="contact-subject" name="subject" 
+                   class="form-input" 
+                   placeholder="Asunto del mensaje" 
+                   required>
+        </div>
+        
+        <div>
+            <label for="contact-purpose" class="block text-gray-700 font-medium mb-2">
+                ¿En qué podemos ayudarte? *
+            </label>
+            <select id="contact-purpose" name="purpose" 
+                    class="form-input" 
+                    required>
+                <option value="">Selecciona una opción</option>
+                <option value="reservar_piezas">Reservar piezas</option>
+                <option value="reservar_aceite">Reservar aceite</option>
+                <option value="reservar_contenedor">Reservar contenedor</option>
+                <option value="cotizacion">Cotización</option>
+                <option value="soporte_tecnico">Soporte técnico</option>
+                <option value="otro">Otro</option>
+            </select>
+        </div>
+        
+        <div>
+            <label for="contact-message" class="block text-gray-700 font-medium mb-2">
+                Mensaje *
+            </label>
+            <textarea id="contact-message" name="message" 
+                      rows="5" 
+                      class="form-input" 
+                      placeholder="Describe tu consulta o necesidad..."
+                      required></textarea>
+        </div>
+        
+        <button type="submit" 
+                class="w-full btn-primary py-4 text-lg font-semibold">
+            <i class="fas fa-paper-plane mr-2"></i>
+            Enviar Mensaje
+        </button>
+    </form>
+</div>
             </div>
         </div>
     </section>
@@ -879,17 +942,17 @@
                             </a>
                         </li>
                         <li>
-                            <a href="https://comercioonline.github.io/CSR/autos" 
-                               class="text-gray-400 hover:text-white transition-colors duration-300 flex items-center gap-2">
-                                <i class="fas fa-chevron-right text-xs"></i>
-                                Piezas de Autos
-                            </a>
-                        </li>
-                        <li>
                             <a href="https://comercioonline.github.io/CSR/aceite" 
                                class="text-gray-400 hover:text-white transition-colors duration-300 flex items-center gap-2">
                                 <i class="fas fa-chevron-right text-xs"></i>
                                 Aceites
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://comercioonline.github.io/CSR/autos" 
+                               class="text-gray-400 hover:text-white transition-colors duration-300 flex items-center gap-2">
+                                <i class="fas fa-chevron-right text-xs"></i>
+                                Piezas de Autos
                             </a>
                         </li>
                         <li>
@@ -930,8 +993,8 @@
                         <li class="flex items-start gap-3">
                             <i class="fas fa-phone-alt text-blue-400 mt-1"></i>
                             <span class="text-gray-400">
-                                +53 5 3729090<br>
-                                <span class="text-sm">(E.a.m. De Jaegher)</span>
+                                +53 63179374<br>
+                                <span class="text-sm">((Ing. Jorge Arides Estévez))</span>
                             </span>
                         </li>
                         <li class="flex items-start gap-3">
@@ -954,11 +1017,11 @@
                     <div class="bg-gray-800 p-4 rounded-lg space-y-3">
                         <div class="flex justify-between">
                             <span class="text-gray-400">Lunes a Viernes</span>
-                            <span>9:00 AM - 6:00 PM</span>
+                            <span>8:00 AM - 5:00 PM</span>
                         </div>
                         <div class="flex justify-between">
                             <span class="text-gray-400">Sábados</span>
-                            <span>9:00 AM - 1:00 PM</span>
+                            <span>8:00 AM - 12:00 PM</span>
                         </div>
                         <div class="flex justify-between">
                             <span class="text-gray-400">Domingos</span>
@@ -1324,32 +1387,30 @@
             });
         }
 
-        // Renderizar productos
-        function renderProducts(products, containerId) {
-            const container = document.getElementById(containerId);
-            container.innerHTML = '';
-            
-            const filteredProducts = currentFilter && currentFilter !== 'all' ? 
-                products.filter(p => p.category === currentFilter) : 
-                products;
-            
-            if (filteredProducts.length === 0) {
-                container.innerHTML = `
-                    <div class="col-span-3 text-center py-12">
-                        <i class="fas fa-search text-4xl text-gray-300 mb-4"></i>
-                        <h3 class="text-xl font-semibold text-gray-600 mb-2">No se encontraron productos</h3>
-                        <p class="text-gray-500">Intenta con otra categoría o vuelve más tarde</p>
-                    </div>
-                `;
-                return;
-            }
-            
-            filteredProducts.forEach(product => {
-                const productCard = createProductCard(product);
-                container.appendChild(productCard);
-            });
-        }
-
+       function renderProducts(products, containerId) {
+       const container = document.getElementById(containerId);
+       container.innerHTML = '';
+    
+       const filteredProducts = currentFilter && currentFilter !== 'all' ? 
+        products.filter(p => p.category === currentFilter) : 
+        products;
+    
+       if (filteredProducts.length === 0) {
+        container.innerHTML = `
+              <div class="col-span-3 text-center py-12">
+                <i class="fas fa-search text-4xl text-gray-300 mb-4"></i>
+                <h3 class="text-xl font-semibold text-gray-600 mb-2">No se encontraron productos</h3>
+                <p class="text-gray-500">Intenta con otra categoría o vuelve más tarde</p>
+            </div>
+        `;
+        return;
+    }
+    
+    filteredProducts.forEach(product => {
+        const productCard = createProductCard(product);
+        container.appendChild(productCard);
+    });
+}
         // Renderizar aceites
         function renderAceites(products, containerId) {
             const container = document.getElementById(containerId);
@@ -1376,188 +1437,186 @@
             });
         }
 
-        // Crear tarjeta de producto
-        function createProductCard(product) {
-            const card = document.createElement('div');
-            card.className = `product-card ${product.category} animate-slide-up`;
+
+function createProductCard(product) {
+    const card = document.createElement('div');
+    card.className = `product-card ${product.category} animate-slide-up`;
+    
+    // Determinar colores según categoría
+    let badgeColor, badgeText, priceGradient;
+    if (product.category === 'motor') {
+        badgeColor = 'bg-red-500';
+        badgeText = 'Motor';
+        priceGradient = 'linear-gradient(135deg, #ef4444, #dc2626)';
+    } else if (product.category === 'contenedores') {
+        badgeColor = 'bg-blue-500';
+        badgeText = 'Contenedor';
+        priceGradient = 'linear-gradient(135deg, #3b82f6, #1d4ed8)';
+    }
+    
+    const stockColor = product.stock > 10 ? 'bg-green-500' : product.stock > 0 ? 'bg-yellow-500' : 'bg-red-500';
+    
+    card.innerHTML = `
+        <div class="product-image-container">
+            <img src="${product.image}" 
+                 alt="${product.name}" 
+                 class="product-image"
+                 onerror="this.src='https://via.placeholder.com/400x300?text=Imagen+no+disponible'">
             
-            // Determinar colores según categoría
-            let badgeColor, badgeText, priceGradient;
-            if (product.category === 'motor') {
-                badgeColor = 'bg-blue-500';
-                badgeText = 'Motor';
-                priceGradient = 'linear-gradient(135deg, #1d4ed8, #3b82f6)';
-            } else if (product.category === 'contenedores') {
-                badgeColor = 'bg-green-500';
-                badgeText = 'Contenedor';
-                priceGradient = 'linear-gradient(135deg, #059669, #10b981)';
-            }
+            <!-- Badge de categoría -->
+            <span class="product-badge ${badgeColor} text-white">
+                ${badgeText}
+            </span>
             
-            const stockColor = product.stock > 10 ? 'bg-green-500' : product.stock > 0 ? 'bg-yellow-500' : 'bg-red-500';
+            <!-- Badge de stock -->
+            <span class="product-badge ${stockColor} text-white" style="top: 50px;">
+                ${product.stock > 0 ? `Stock: ${product.stock}` : 'Agotado'}
+            </span>
             
-            card.innerHTML = `
-                <div class="product-image-container">
-                    <img src="${product.image}" 
-                         alt="${product.name}" 
-                         class="product-image"
-                         onerror="this.src='https://via.placeholder.com/400x300?text=Imagen+no+disponible'">
-                    
-                    <!-- Badge de categoría -->
-                    <span class="product-badge ${badgeColor} text-white">
-                        ${badgeText}
-                    </span>
-                    
-                    <!-- Badge de stock -->
-                    <span class="product-badge ${stockColor} text-white" style="top: 50px;">
-                        ${product.stock > 0 ? `Stock: ${product.stock}` : 'Agotado'}
-                    </span>
-                    
-                    <!-- Precio -->
-                    <div class="price-tag" style="background: ${priceGradient}">
-                        $${product.price.toLocaleString()}
-                    </div>
-                </div>
+            <!-- Precio -->
+            <div class="price-tag" style="background: ${priceGradient}">
+                $${product.price.toLocaleString()}
+            </div>
+        </div>
+        
+        <div class="p-6 flex-1 flex flex-col">
+            <div class="mb-4 flex-1">
+                <h3 class="text-xl font-bold text-gray-900 mb-2">${product.name}</h3>
+                <p class="text-gray-600 text-sm line-clamp-2">${product.description}</p>
+            </div>
+            
+            <div class="flex justify-between items-center">
+                <button onclick="showProductDetail(${product.id})" 
+                        class="flex items-center gap-2 ${product.category === 'motor' ? 'text-red-600 hover:text-red-800' : product.category === 'contenedores' ? 'text-blue-600 hover:text-blue-800' : 'text-green-600 hover:text-green-800'} font-medium transition-colors duration-300">
+                    <i class="fas fa-info-circle"></i>
+                    Detalles
+                </button>
                 
-                <div class="p-6 flex-1 flex flex-col">
-                    <div class="mb-4 flex-1">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">${product.name}</h3>
-                        <p class="text-gray-600 text-sm line-clamp-2">${product.description}</p>
-                    </div>
-                    
-                    <div class="flex justify-between items-center">
-                        <button onclick="showProductDetail(${product.id})" 
-                                class="flex items-center gap-2 ${product.category === 'motor' ? 'text-blue-600 hover:text-blue-800' : 'text-green-600 hover:text-green-800'} font-medium transition-colors duration-300">
-                            <i class="fas fa-info-circle"></i>
-                            Detalles
-                        </button>
-                        
-                        <button onclick="addToCart(${product.id})" 
-                                class="flex items-center gap-2 px-4 py-2 ${product.category === 'motor' ? 'bg-blue-600 hover:bg-blue-700' : 'bg-green-600 hover:bg-green-700'} text-white rounded-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
-                                ${product.stock === 0 ? 'disabled' : ''}>
-                            <i class="fas fa-cart-plus"></i>
-                            Añadir
-                        </button>
-                    </div>
-                </div>
-            `;
+                <button onclick="addToCart(${product.id})" 
+                        class="flex items-center gap-2 px-4 py-2 ${product.category === 'motor' ? 'bg-red-600 hover:bg-red-700' : product.category === 'contenedores' ? 'bg-blue-600 hover:bg-blue-700' : 'bg-green-600 hover:bg-green-700'} text-white rounded-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                        ${product.stock === 0 ? 'disabled' : ''}>
+                    <i class="fas fa-cart-plus"></i>
+                    Añadir
+                </button>
+            </div>
+        </div>
+    `;
+    
+    return card;
+}
+       
+// Create oil card - UPDATED WITH GREEN COLORS
+function createAceiteCard(product) {
+    const card = document.createElement('div');
+    card.className = `product-card aceite animate-slide-up`;
+    
+    // Determinar colores según subcategoría - CAMBIADO A VERDE
+    let badgeColor, badgeText;
+    switch(product.subcategory) {
+        case 'sintetico':
+            badgeColor = 'bg-green-600';
+            badgeText = 'Sintético';
+            break;
+        case 'semisintetico':
+            badgeColor = 'bg-green-500';
+            badgeText = 'Semi-sintético';
+            break;
+        case 'mineral':
+            badgeColor = 'bg-green-400';
+            badgeText = 'Mineral';
+            break;
+        default:
+            badgeColor = 'bg-green-500';
+            badgeText = 'Aceite';
+    }
+    
+    const stockColor = product.stock > 10 ? 'bg-green-500' : product.stock > 0 ? 'bg-yellow-500' : 'bg-red-500';
+    const priceGradient = 'linear-gradient(135deg, #10b981, #059669)'; // CAMBIADO A VERDE
+    
+    card.innerHTML = `
+        <div class="product-image-container">
+            <img src="${product.image}" 
+                 alt="${product.name}" 
+                 class="product-image"
+                 onerror="this.src='https://via.placeholder.com/400x300?text=Imagen+no+disponible'">
             
-            return card;
-        }
+            <!-- Badge de categoría - VERDE -->
+            <span class="product-badge ${badgeColor} text-white">
+                ${badgeText}
+            </span>
+            
+            <!-- Badge de stock -->
+            <span class="product-badge ${stockColor} text-white" style="top: 50px;">
+                ${product.stock > 0 ? `Stock: ${product.stock}` : 'Agotado'}
+            </span>
+            
+            <!-- Precio - VERDE -->
+            <div class="price-tag" style="background: ${priceGradient}">
+                $${product.price.toLocaleString()}
+            </div>
+        </div>
+        
+        <div class="p-6 flex-1 flex flex-col">
+            <div class="mb-4 flex-1">
+                <h3 class="text-xl font-bold text-gray-900 mb-2">${product.name}</h3>
+                <p class="text-gray-600 text-sm line-clamp-2">${product.description}</p>
+            </div>
+            
+            <div class="flex justify-between items-center">
+              <button onclick="showProductDetail(${product.id})" 
+              class="flex items-center gap-2 ${product.category === 'motor' ? 'text-red-600 hover:text-red-800' : product.category === 'contenedores' ? 'text-blue-600 hover:text-blue-800' : 'text-green-600 hover:text-green-800'} font-medium transition-colors duration-300">
+              <i class="fas fa-info-circle"></i>
+               Detalles
+             </button>
+    
+             <button onclick="addToCart(${product.id})" 
+             class="flex items-center gap-2 px-4 py-2 ${product.category === 'motor' ? 'bg-red-600 hover:bg-red-700' : product.category === 'contenedores' ? 'bg-blue-600 hover:bg-blue-700' : 'bg-green-600 hover:bg-green-700'} text-white rounded-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+              ${product.stock === 0 ? 'disabled' : ''}>
+             <i class="fas fa-cart-plus"></i>
+             Añadir
+            </button>
+           </div>
+        </div>
+    `;
+    
+    return card;
+}
 
-        // Crear tarjeta de aceite
-        function createAceiteCard(product) {
-            const card = document.createElement('div');
-            card.className = `product-card aceite animate-slide-up`;
-            
-            // Determinar colores según subcategoría
-            let badgeColor, badgeText;
-            switch(product.subcategory) {
-                case 'sintetico':
-                    badgeColor = 'bg-red-600';
-                    badgeText = 'Sintético';
-                    break;
-                case 'semisintetico':
-                    badgeColor = 'bg-orange-500';
-                    badgeText = 'Semi-sintético';
-                    break;
-                case 'mineral':
-                    badgeColor = 'bg-yellow-600';
-                    badgeText = 'Mineral';
-                    break;
-                default:
-                    badgeColor = 'bg-red-500';
-                    badgeText = 'Aceite';
-            }
-            
-            const stockColor = product.stock > 10 ? 'bg-green-500' : product.stock > 0 ? 'bg-yellow-500' : 'bg-red-500';
-            const priceGradient = 'linear-gradient(135deg, #dc2626, #ef4444)';
-            
-            card.innerHTML = `
-                <div class="product-image-container">
-                    <img src="${product.image}" 
-                         alt="${product.name}" 
-                         class="product-image"
-                         onerror="this.src='https://via.placeholder.com/400x300?text=Imagen+no+disponible'">
-                    
-                    <!-- Badge de categoría -->
-                    <span class="product-badge ${badgeColor} text-white">
-                        ${badgeText}
-                    </span>
-                    
-                    <!-- Badge de stock -->
-                    <span class="product-badge ${stockColor} text-white" style="top: 50px;">
-                        ${product.stock > 0 ? `Stock: ${product.stock}` : 'Agotado'}
-                    </span>
-                    
-                    <!-- Precio -->
-                    <div class="price-tag" style="background: ${priceGradient}">
-                        $${product.price.toLocaleString()}
-                    </div>
-                </div>
-                
-                <div class="p-6 flex-1 flex flex-col">
-                    <div class="mb-4 flex-1">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">${product.name}</h3>
-                        <p class="text-gray-600 text-sm line-clamp-2">${product.description}</p>
-                    </div>
-                    
-                    <div class="flex justify-between items-center">
-                        <button onclick="showProductDetail(${product.id})" 
-                                class="flex items-center gap-2 text-red-600 hover:text-red-800 font-medium transition-colors duration-300">
-                            <i class="fas fa-info-circle"></i>
-                            Detalles
-                        </button>
-                        
-                        <button onclick="addToCart(${product.id})" 
-                                class="flex items-center gap-2 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
-                                ${product.stock === 0 ? 'disabled' : ''}>
-                            <i class="fas fa-cart-plus"></i>
-                            Añadir
-                        </button>
-                    </div>
-                </div>
-            `;
-            
-            return card;
-        }
+function filterProducts(category) {
+    currentFilter = category;
+    renderProducts(carParts, 'car-parts-container');
+    renderProducts(containers, 'containers-container');
+    
+    // Actualizar botones activos - CORREGIDO (todo rojo)
+    document.querySelectorAll('#car-parts .flex-wrap button').forEach(btn => {
+        btn.classList.remove('bg-red-600', 'text-white');
+        btn.classList.add('border', 'border-red-200', 'text-gray-700');
+    });
+    
+    const activeBtn = event?.target;
+    if (activeBtn) {
+        activeBtn.classList.remove('border', 'border-red-200', 'text-gray-700');
+        activeBtn.classList.add('bg-red-600', 'text-white');
+    }
+}        
 
-        // Filtrar productos
-        function filterProducts(category) {
-            currentFilter = category;
-            renderProducts(carParts, 'car-parts-container');
-            renderProducts(containers, 'containers-container');
-            
-            // Actualizar botones activos
-            document.querySelectorAll('#car-parts .flex-wrap button').forEach(btn => {
-                btn.classList.remove('bg-blue-600', 'text-white');
-                btn.classList.add('border', 'border-blue-200', 'text-gray-700');
-            });
-            
-            const activeBtn = event?.target;
-            if (activeBtn) {
-                activeBtn.classList.remove('border', 'border-blue-200', 'text-gray-700');
-                activeBtn.classList.add('bg-blue-600', 'text-white');
-            }
-        }
-
-        // Filtrar aceites
-        function filterAceites(category) {
-            currentAceiteFilter = category;
-            renderAceites(aceites, 'aceites-container');
-            
-            // Actualizar botones activos
-            document.querySelectorAll('#aceites .flex-wrap button').forEach(btn => {
-                btn.classList.remove('bg-red-600', 'text-white');
-                btn.classList.add('border', 'border-red-200', 'text-gray-700');
-            });
-            
-            const activeBtn = event?.target;
-            if (activeBtn) {
-                activeBtn.classList.remove('border', 'border-red-200', 'text-gray-700');
-                activeBtn.classList.add('bg-red-600', 'text-white');
-            }
-        }
-
+// Filter oils - UPDATED FOR GREENA VERDE
+function filterAceites(category) {
+    currentAceiteFilter = category;
+    renderAceites(aceites, 'aceites-container');
+    
+    // Actualizar botones activos - CAMBIADO A VERDE
+    document.querySelectorAll('#aceites .flex-wrap button').forEach(btn => {
+        btn.classList.remove('bg-green-600', 'text-white');
+        btn.classList.add('border', 'border-green-200', 'text-gray-700');
+    });
+    
+    const activeBtn = event?.target;
+    if (activeBtn) {
+        activeBtn.classList.remove('border', 'border-green-200', 'text-gray-700');
+        activeBtn.classList.add('bg-green-600', 'text-white');
+    }
+}
         // Mostrar detalles del producto
         function showProductDetail(productId) {
             const allProducts = [...carParts, ...aceites, ...containers];
@@ -1570,23 +1629,23 @@
             // Determinar estilos según categoría
             let badgeColor, badgeText, primaryColor, buttonColor, titleColor;
             if (product.category === 'motor') {
-                badgeColor = 'bg-blue-500';
-                badgeText = 'Motor';
-                primaryColor = 'blue';
-                buttonColor = 'bg-blue-600 hover:bg-blue-700';
-                titleColor = 'text-blue-600';
+               badgeColor = 'bg-red-500';
+               badgeText = 'Motor';
+               primaryColor = 'red';
+               buttonColor = 'bg-red-600 hover:bg-red-700';
+               titleColor = 'text-red-600';
             } else if (product.category === 'aceite') {
-                badgeColor = 'bg-red-500';
-                badgeText = 'Aceite';
-                primaryColor = 'red';
-                buttonColor = 'bg-red-600 hover:bg-red-700';
-                titleColor = 'text-red-600';
-            } else if (product.category === 'contenedores') {
                 badgeColor = 'bg-green-500';
-                badgeText = 'Contenedor';
+                badgeText = 'Aceite';
                 primaryColor = 'green';
                 buttonColor = 'bg-green-600 hover:bg-green-700';
                 titleColor = 'text-green-600';
+            } else if (product.category === 'contenedores') {
+                badgeColor = 'bg-blue-500';
+                badgeText = 'Contenedor';
+                primaryColor = 'blue';
+                buttonColor = 'bg-blue-600 hover:bg-blue-700';
+                titleColor = 'text-blue-600';
             }
             
             const stockColor = product.stock > 10 ? 'text-green-600' : product.stock > 0 ? 'text-yellow-600' : 'text-red-600';
@@ -2061,7 +2120,53 @@
             showNotification('Pedido enviado correctamente', 'success');
         }
 
-        // Enviar mensaje de contacto
+// Send contact message
+function sendContactMessage(event) {
+    event.preventDefault();
+    
+    const form = event.target;
+    const empresa = form.empresa.value; // NUEVO CAMPO
+    const nombre = form.name.value;
+    const asunto = form.subject.value;
+    const proposito = form.purpose.value;
+    const mensaje = form.message.value;
+    
+    // Mapear propósito a texto legible
+    const purposeMap = {
+        'reservar_piezas': 'Reservar piezas',
+        'reservar_aceite': 'Reservar aceite',
+        'reservar_contenedor': 'Reservar contenedor',
+        'cotizacion': 'Solicitar cotización',
+        'soporte_tecnico': 'Soporte técnico',
+        'otro': 'Otro'
+    };
+    
+    // Generar mensaje para WhatsApp - INCLUYENDO EMPRESA
+    let whatsappMessage = `*CONSULTA DE CONTACTO - CSR s.r.l*\n\n`;
+    whatsappMessage += `*Empresa:* ${empresa}\n`; // NUEVO CAMPO
+    whatsappMessage += `*Nombre:* ${nombre}\n`;
+    whatsappMessage += `*Asunto:* ${asunto}\n`;
+    whatsappMessage += `*Motivo:* ${purposeMap[proposito] || proposito}\n\n`;
+    whatsappMessage += `*MENSAJE:*\n${mensaje}\n\n`;
+    whatsappMessage += `---\n`;
+    whatsappMessage += `*Fecha:* ${new Date().toLocaleDateString()}\n`;
+    whatsappMessage += `*Hora:* ${new Date().toLocaleTimeString()}`;
+    
+    // Codificar el mensaje
+    const encodedMessage = encodeURIComponent(whatsappMessage);
+    
+    // Número de WhatsApp
+    const phoneNumber = '+5353729090';
+    
+    // Abrir WhatsApp
+    window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
+    
+    // Resetear formulario
+    form.reset();
+    
+    // Mostrar confirmación
+    showNotification('Redirigiendo a WhatsApp...', 'success');
+}
         function sendContactMessage(event) {
             event.preventDefault();
             
@@ -2242,5 +2347,4 @@
         });
     </script>
 </body>
-
 </html>
