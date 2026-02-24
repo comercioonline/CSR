@@ -898,6 +898,161 @@
         </div>
     </section>
 
+<!-- Order Tracking Section --> -->
+<section id="seguimiento" class="py-12 bg-gradient-to-r from-blue-50 to-green-50">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-10">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">Seguimiento de Pedidos</h2>
+            <p class="text-gray-600 max-w-2xl mx-auto">
+                Ingresa tu ID de pedido para verificar el estado
+            </p>
+        </div>
+        
+        <div class="max-w-md mx-auto">
+            <div class="bg-white rounded-xl shadow-lg p-6">
+                <div class="mb-6">
+                    <label for="tracking-id" class="block text-gray-700 font-medium mb-2">
+                        ID de Pedido
+                    </label>
+                    <div class="flex gap-2">
+                        <input type="text" 
+                               id="tracking-id" 
+                               class="form-input flex-1" 
+                               placeholder="Ej: CSR-123456-ABCD">
+                        <button onclick="verificarPedido()" 
+                                class="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-300">
+                            Verificar
+                        </button>
+                    </div>
+                </div>
+                
+                <div id="tracking-result" class="hidden">
+                    <!-- Resultado del seguimiento aparecerá aquí -->
+                </div>
+                
+                <div class="text-center mt-6">
+                    <p class="text-sm text-gray-500">
+                        ¿Problemas con tu pedido? 
+                        <a href="https://wa.me/+5353729090" target="_blank" 
+                           class="text-blue-600 hover:text-blue-800 font-medium">
+                            Contáctanos por WhatsApp
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Script para seguimiento -->
+<script>
+function verificarPedido() {
+    const pedidoId = document.getElementById('tracking-id').value.trim().toUpperCase();
+    const resultadoDiv = document.getElementById('tracking-result');
+    
+    if (!pedidoId) {
+        resultadoDiv.innerHTML = `
+            <div class="bg-red-50 border border-red-200 p-4 rounded-lg">
+                <p class="text-red-700">Por favor, ingresa un ID de pedido</p>
+            </div>
+        `;
+        resultadoDiv.classList.remove('hidden');
+        return;
+    }
+    
+    // Buscar en pedidos locales
+    const pedidos = sistemaPagosCSR.cargarPedidos();
+    const pedido = pedidos.find(p => p.id === pedidoId);
+    
+    if (!pedido) {
+        resultadoDiv.innerHTML = `
+            <div class="bg-yellow-50 border border-yellow-200 p-4 rounded-lg">
+                <h4 class="font-bold text-yellow-800 mb-2">Pedido no encontrado</h4>
+                <p class="text-yellow-700">El ID ${pedidoId} no existe en nuestros registros.</p>
+                <p class="text-sm text-yellow-600 mt-2">Contacta a soporte para verificar.</p>
+            </div>
+        `;
+    } else {
+        // Mostrar estado del pedido
+        const estadoInfo = {
+            'pendiente': { color: 'yellow', icon: '⏳', texto: 'Pendiente de pago' },
+            'confirmado': { color: 'blue', icon: '✅', texto: 'Confirmado' },
+            'pagado': { color: 'green', icon: '💰', texto: 'Pagado' },
+            'enviado': { color: 'purple', icon: '🚚', texto: 'En camino' },
+            'entregado': { color: 'green', icon: '🎉', texto: 'Entregado' },
+            'cancelado': { color: 'red', icon: '❌', texto: 'Cancelado' }
+        };
+        
+        const info = estadoInfo[pedido.estado] || { color: 'gray', icon: '❓', texto: 'Desconocido' };
+        
+        resultadoDiv.innerHTML = `
+            <div class="bg-white border border-gray-200 rounded-lg p-6">
+                <div class="flex items-center justify-between mb-6">
+                    <div>
+                        <h4 class="font-bold text-gray-900 text-xl">Pedido: ${pedido.id}</h4>
+                        <p class="text-gray-600">${new Date(pedido.fecha).toLocaleDateString()}</p>
+                    </div>
+                    <div class="text-right">
+                        <span class="inline-block px-3 py-1 bg-${info.color}-100 text-${info.color}-800 rounded-full text-sm font-semibold">
+                            ${info.icon} ${info.texto}
+                        </span>
+                        <p class="text-lg font-bold text-gray-900 mt-2">$${pedido.total.toLocaleString()} USD</p>
+                    </div>
+                </div>
+                
+                <div class="space-y-4">
+                    <div>
+                        <h5 class="font-semibold text-gray-700 mb-2">📦 Productos</h5>
+                        <ul class="space-y-2">
+                            ${pedido.items.map(item => `
+                                <li class="flex justify-between">
+                                    <span>${item.nombre} x${item.cantidad}</span>
+                                    <span>$${item.subtotal.toLocaleString()}</span>
+                                </li>
+                            `).join('')}
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h5 class="font-semibold text-gray-700 mb-2">👤 Cliente</h5>
+                        <p>${pedido.cliente.nombre}</p>
+                        <p class="text-sm text-gray-600">${pedido.cliente.direccion}</p>
+                    </div>
+                    
+                    ${pedido.historial && pedido.historial.length > 0 ? `
+                    <div>
+                        <h5 class="font-semibold text-gray-700 mb-2">📝 Historial</h5>
+                        <div class="space-y-2">
+                            ${pedido.historial.slice(-3).reverse().map(evento => `
+                                <div class="flex items-start gap-2 text-sm">
+                                    <i class="fas fa-circle text-${info.color}-500 text-xs mt-1"></i>
+                                    <div>
+                                        <span class="font-medium">${evento.accion}</span>
+                                        <p class="text-gray-500">${new Date(evento.fecha).toLocaleString()}</p>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                    ` : ''}
+                </div>
+                
+                <div class="mt-6 pt-6 border-t border-gray-200">
+                    <a href="https://wa.me/+5353729090?text=Consulta sobre pedido ${pedido.id}" 
+                       target="_blank"
+                       class="inline-flex items-center gap-2 bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors duration-300">
+                        <i class="fab fa-whatsapp"></i>
+                        Contactar sobre este pedido
+                    </a>
+                </div>
+            </div>
+        `;
+    }
+    
+    resultadoDiv.classList.remove('hidden');
+    resultadoDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+</script>
     <!-- Footer -->
     <footer class="bg-gray-900 text-white pt-16 pb-8">
         <div class="container mx-auto px-4">
@@ -1141,73 +1296,117 @@
             </h2>
             <p class="text-gray-600 text-center mb-8">Completa el formulario para enviar tu pedido</p>
             
-            <form id="whatsapp-form" onsubmit="sendWhatsAppMessage(event)" class="space-y-6">
-                <div class="bg-gray-50 p-6 rounded-xl">
-                    <h3 class="text-lg font-semibold mb-4 flex items-center gap-2">
-                        <i class="fas fa-shopping-cart"></i>
-                        Resumen de tu pedido
-                    </h3>
-                    <div id="cart-summary" class="space-y-3">
-                        <!-- Cart summary will be loaded here -->
-                    </div>
-                </div>
-                
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div>
-                        <label for="nombre" class="block text-gray-700 font-medium mb-2">
-                            Nombre Completo *
-                        </label>
-                        <input type="text" id="nombre" name="nombre" 
-                               class="form-input" 
-                               placeholder="Ej: Juan Pérez" 
-                               required>
-                    </div>
-                    
-                    <div>
-                        <label for="carnet" class="block text-gray-700 font-medium mb-2">
-                            Carnet de Identidad *
-                        </label>
-                        <input type="text" id="carnet" name="carnet" 
-                               class="form-input" 
-                               placeholder="Número de identificación" 
-                               required>
-                    </div>
-                </div>
-                
-                <div>
-                    <label for="direccion" class="block text-gray-700 font-medium mb-2">
-                        Dirección de Entrega *
-                    </label>
-                    <textarea id="direccion" name="direccion" 
-                              rows="2" 
-                              class="form-input" 
-                              placeholder="Dirección completa para la entrega" 
-                              required></textarea>
-                </div>
-                
-                <div>
-                    <label for="mensaje" class="block text-gray-700 font-medium mb-2">
-                        Mensaje Adicional
-                    </label>
-                    <textarea id="mensaje" name="mensaje" 
-                              rows="3" 
-                              class="form-input" 
-                              placeholder="Instrucciones especiales, comentarios o preguntas..."></textarea>
-                </div>
-                
-                <div class="flex gap-4">
-                    <button type="submit" 
-                            class="flex-1 btn-primary py-4 text-lg font-semibold">
-                        <i class="fab fa-whatsapp mr-3"></i>
-                        Enviar por WhatsApp
-                    </button>
-                    <button type="button" 
-                            onclick="closeWhatsAppForm()" 
-                            class="flex-1 btn-secondary py-4 text-lg font-semibold">
-                        Cancelar
-                    </button>
-                </div>
-            </form>
+            <!-- Reemplaza tu formulario actual con este -->
+<form id="whatsapp-form" onsubmit="procesarPagoWhatsApp(event)" class="space-y-6">
+    <div class="bg-gray-50 p-6 rounded-xl">
+        <h3 class="text-lg font-semibold mb-4 flex items-center gap-2">
+            <i class="fas fa-shopping-cart"></i>
+            Resumen de tu pedido
+        </h3>
+        <div id="cart-summary" class="space-y-3">
+            <!-- Cart summary will be loaded here -->
+        </div>
+    </div>
+    
+    <div class="grid md:grid-cols-2 gap-6">
+        <div>
+            <label for="nombre" class="block text-gray-700 font-medium mb-2">
+                Nombre Completo *
+            </label>
+            <input type="text" id="nombre" name="nombre" 
+                   class="form-input" 
+                   placeholder="Ej: Juan Pérez" 
+                   required>
+        </div>
+        
+        <div>
+            <label for="carnet" class="block text-gray-700 font-medium mb-2">
+                Carnet de Identidad *
+            </label>
+            <input type="text" id="carnet" name="carnet" 
+                   class="form-input" 
+                   placeholder="Número de identificación" 
+                   required>
+        </div>
+    </div>
+    
+    <div class="grid md:grid-cols-2 gap-6">
+        <div>
+            <label for="telefono" class="block text-gray-700 font-medium mb-2">
+                Teléfono de Contacto *
+            </label>
+            <input type="tel" id="telefono" name="telefono" 
+                   class="form-input" 
+                   placeholder="Ej: +53 5XXXXXXX" 
+                   required>
+        </div>
+        
+        <div>
+            <label for="metodo-pago" class="block text-gray-700 font-medium mb-2">
+                Método de Pago Preferido *
+            </label>
+            <select id="metodo-pago" name="metodo-pago" 
+                    class="form-input" 
+                    required>
+                <option value="">Seleccione método de pago</option>
+                <option value="transfermovil">Transfermóvil</option>
+                <option value="efectivo">Efectivo USD</option>
+                <option value="cup">Pago en CUP</option>
+                <option value="tarjeta">Tarjeta en Oficina</option>
+                <option value="pendiente">Decidir después</option>
+            </select>
+        </div>
+    </div>
+    
+    <div>
+        <label for="direccion" class="block text-gray-700 font-medium mb-2">
+            Dirección de Entrega Completa *
+        </label>
+        <textarea id="direccion" name="direccion" 
+                  rows="2" 
+                  class="form-input" 
+                  placeholder="Calle, número, entre calles, municipio, provincia..." 
+                  required></textarea>
+        <p class="text-sm text-gray-500 mt-1">Incluye puntos de referencia si es posible</p>
+    </div>
+    
+    <div>
+        <label for="mensaje" class="block text-gray-700 font-medium mb-2">
+            Instrucciones Especiales
+        </label>
+        <textarea id="mensaje" name="mensaje" 
+                  rows="3" 
+                  class="form-input" 
+                  placeholder="Horario preferido de entrega, acceso al edificio, etc..."></textarea>
+    </div>
+    
+    <div class="bg-blue-50 border border-blue-200 p-4 rounded-lg">
+        <h4 class="font-semibold text-blue-800 mb-2 flex items-center gap-2">
+            <i class="fas fa-info-circle"></i>
+            Información Importante
+        </h4>
+        <ul class="text-sm text-blue-700 space-y-1">
+            <li>• Recibirás confirmación por WhatsApp en 1-2 horas</li>
+            <li>• Guarda el ID de pedido como comprobante</li>
+            <li>• Tiempo de entrega: 24-48 horas en La Habana</li>
+            <li>• Para otras provincias: 3-5 días hábiles</li>
+        </ul>
+    </div>
+    
+    <div class="flex gap-4">
+        <button type="submit" 
+                class="flex-1 btn-primary py-4 text-lg font-semibold">
+            <i class="fab fa-whatsapp mr-3"></i>
+            Generar Pedido y Enviar por WhatsApp
+        </button>
+        
+        <button type="button" 
+                onclick="closeWhatsAppForm()" 
+                class="flex-1 btn-secondary py-4 text-lg font-semibold">
+            Cancelar
+        </button>
+    </div>
+</form>
         </div>
     </div>
 
@@ -1215,12 +1414,136 @@
     <div id="notification-container" class="fixed top-4 right-4 z-50 space-y-3"></div>
 
     <script>
+
+        // ====================
+// SISTEMA DE PAGOS CSR
+// ====================
+
+const sistemaPagosCSR = {
+    // Configuración
+    config: {
+        whatsappNumber: '+5353729090', // Tu número principal
+        whatsappBackup: '+535069462',  // Número de respaldo
+        empresa: 'CSR s.r.l',
+        cuentaTransfermovil: 'TU_NUMERO_AQUI', // Número de teléfono para Transfermóvil
+        tasaCUP: 250, // Tasa de cambio USD a CUP (ajustable)
+    },
+    
+    // Estados de pago
+    estados: {
+        PENDIENTE: 'pendiente',
+        CONFIRMADO: 'confirmado',
+        PAGADO: 'pagado',
+        ENVIADO: 'enviado',
+        ENTREGADO: 'entregado',
+        CANCELADO: 'cancelado'
+    },
+    
+    // Métodos de pago disponibles en Cuba
+    metodosPago: [
+        {
+            id: 'transfermovil',
+            nombre: 'Transfermóvil',
+            icono: 'fas fa-mobile-alt',
+            color: 'bg-green-100 text-green-800',
+            instrucciones: 'Realice transferencia al número: ',
+            datos: 'Número: TU_NUMERO_AQUI'
+        },
+        {
+            id: 'efectivo',
+            nombre: 'Efectivo USD',
+            icono: 'fas fa-money-bill-wave',
+            color: 'bg-blue-100 text-blue-800',
+            instrucciones: 'Pague en efectivo al recibir el producto',
+            datos: 'Moneda: USD'
+        },
+        {
+            id: 'cup',
+            nombre: 'Pago en CUP',
+            icono: 'fas fa-money-bill',
+            color: 'bg-yellow-100 text-yellow-800',
+            instrucciones: 'Pague en CUP equivalente al cambio del día',
+            datos: 'Tasa: 250 CUP por 1 USD'
+        },
+        {
+            id: 'tarjeta',
+            nombre: 'Tarjeta en Oficina',
+            icono: 'fas fa-credit-card',
+            color: 'bg-purple-100 text-purple-800',
+            instrucciones: 'Pague con tarjeta en nuestra oficina',
+            datos: 'Dirección: Habana, Cuba'
+        }
+    ],
+    
+    // Array para almacenar pedidos
+    pedidos: [],
+    
+    // Inicializar sistema
+    init: function() {
+        this.cargarPedidos();
+        this.actualizarTasaCambio();
+        console.log('✅ Sistema de pagos CSR inicializado');
+    },
+    
+    // Cargar pedidos desde localStorage
+    cargarPedidos: function() {
+        const pedidosGuardados = localStorage.getItem('csr_pedidos');
+        this.pedidos = pedidosGuardados ? JSON.parse(pedidosGuardados) : [];
+        console.log(`📦 Pedidos cargados: ${this.pedidos.length}`);
+        return this.pedidos;
+    },
+    
+    // Guardar pedidos
+    guardarPedidos: function() {
+        localStorage.setItem('csr_pedidos', JSON.stringify(this.pedidos));
+        console.log(`💾 Pedidos guardados: ${this.pedidos.length}`);
+    },
+    
+    // Actualizar tasa de cambio
+    actualizarTasaCambio: function() {
+        const hoy = new Date().toDateString();
+        const ultimaActualizacion = localStorage.getItem('csr_tasa_actualizacion');
+        
+        if (ultimaActualizacion !== hoy) {
+            localStorage.setItem('csr_tasa_actualizacion', hoy);
+            console.log('📈 Tasa de cambio actualizada para hoy');
+        }
+    },
+    
+    // Buscar pedido por ID
+    buscarPedido: function(pedidoId) {
+        return this.pedidos.find(p => p.id === pedidoId);
+    },
+    
+    // Actualizar estado de pedido
+    actualizarEstadoPedido: function(pedidoId, nuevoEstado, accion) {
+        const pedido = this.buscarPedido(pedidoId);
+        if (pedido) {
+            pedido.estado = nuevoEstado;
+            pedido.historial.push({
+                fecha: new Date().toISOString(),
+                accion: accion || `Estado actualizado a ${nuevoEstado}`,
+                estado: nuevoEstado
+            });
+            this.guardarPedidos();
+            return true;
+        }
+        return false;
+    }
+};
+
+// Inicializar el sistema cuando cargue la página
+document.addEventListener('DOMContentLoaded', () => {
+    sistemaPagosCSR.init();
+});
+         
+
         // Datos de productos
         const carParts = [
             { 
                 id: 1, 
                 name: "Motor de Lada 2107", 
-                price: 4500, 
+                price: 4550, 
                 category: "motor", 
                 image: "Imagenes de Piezas de Carro/Motor de lada1 2107.jpg", 
                 stock: 50,
@@ -1231,7 +1554,7 @@
             { 
                 id: 2, 
                 name: "Radiador de Lada", 
-                price: 850, 
+                price: 110, 
                 category: "motor", 
                 image: "Imagenes de Piezas de Carro/Radiador de lada.jpg", 
                 stock: 10,
@@ -1242,7 +1565,7 @@
             { 
                 id: 3, 
                 name: "Filtro de Aire", 
-                price: 120, 
+                price: 0, 
                 category: "motor", 
                 image: "Imagenes de Piezas de Carro/Filtro de Aire.jpg", 
                 stock: 20,
@@ -1256,40 +1579,40 @@
         const aceites = [
             { 
                 id: 4, 
-                name: "Aceite Motor Sintético 5W-30", 
-                price: 850, 
+                name: "Gaspromneft Super Multi 15W 40 CI-4 205L", 
+                price: 980, 
                 category: "aceite", 
                 subcategory: "sintetico",
                 image: "https://images.unsplash.com/photo-1621265113764-3470c6d8d5f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", 
-                stock: 25,
-                description: "Aceite sintético de alta calidad 5W-30 para motores modernos. Ofrece máxima protección contra el desgaste, mejora el rendimiento del combustible y prolonga la vida útil del motor. Ideal para temperaturas extremas.",
-                specifications: ["Viscosidad: 5W-30", "Tipo: Sintético", "API: SN Plus", "Volumen: 5L"],
+                stock: 20,
+                description: "Aceite multigrado para motores de gasolina y diésel de automóviles y furgonetas",
+                specifications: ["Viscosidad: 5W-30", "Tipo: Sintético", "API: SN Plus", "Volumen: 205L"],
                 features: ["Protección avanzada contra el desgaste", "Mejora la eficiencia de combustible", "Excelente limpieza del motor", "Protección en temperaturas extremas"],
                 compatibleModels: ["Toyota", "Honda", "Ford", "Chevrolet", "Motores modernos"]
             },
             { 
                 id: 5, 
-                name: "Aceite Semi-Sintético 10W-40", 
-                price: 650, 
+                name: "Gazpromneft HD-60 5L", 
+                price: 20.50, 
                 category: "aceite", 
                 subcategory: "semisintetico",
                 image: "https://images.unsplash.com/photo-1563720223486-7a66c5d873e5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", 
-                stock: 40,
+                stock: 159,
                 description: "Aceite semi-sintético 10W-40 de excelente relación calidad-precio. Proporciona protección confiable para motores de gasolina y diésel. Ideal para vehículos de uso diario y condiciones normales de conducción.",
-                specifications: ["Viscosidad: 10W-40", "Tipo: Semi-sintético", "API: SN", "Volumen: 4L"],
+                specifications: ["Viscosidad: 10W-40", "Tipo: Semi-sintético", "API: SN", "Volumen: 5L"],
                 features: ["Protección equilibrada", "Buena limpieza del motor", "Rendimiento confiable", "Ideal para uso diario"],
                 compatibleModels: ["Lada", "Fiat", "Renault", "VW", "Motores convencionales"]
             },
             { 
                 id: 6, 
-                name: "Aceite Mineral 15W-50", 
-                price: 450, 
+                name: "Brake Fluid G- Energy Expert DOT 4 1L", 
+                price: 7.50, 
                 category: "aceite", 
                 subcategory: "mineral",
                 image: "https://images.unsplash.com/photo-1621525143744-45dea9c47e8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", 
-                stock: 35,
+                stock: 600,
                 description: "Aceite mineral 15W-50 para motores más antiguos o de alto kilometraje. Proporciona lubricación efectiva y protección básica a un precio accesible. Ideal para mantenimiento regular.",
-                specifications: ["Viscosidad: 15W-50", "Tipo: Mineral", "API: SL", "Volumen: 4L"],
+                specifications: ["Viscosidad: 15W-50", "Tipo: Mineral", "API: SL", "Volumen: 1L"],
                 features: ["Lubricación efectiva", "Precio accesible", "Ideal para motores viejos", "Protección básica confiable"],
                 compatibleModels: ["Motores antiguos", "Vehículos de alto kilometraje", "Uso industrial", "Maquinaria agrícola"]
             },
@@ -1343,13 +1666,16 @@
 
         // Función de inicialización
         function initApp() {
-            renderProducts(carParts, 'car-parts-container');
-            renderAceites(aceites, 'aceites-container');
-            renderProducts(containers, 'containers-container');
-            updateCartCount();
-            setupEventListeners();
-            checkCartOnLoad();
-        }
+    renderProducts(carParts, 'car-parts-container');
+    renderAceites(aceites, 'aceites-container');
+    renderProducts(containers, 'containers-container');
+    updateCartCount();
+    setupEventListeners();
+    checkCartOnLoad();
+    
+    // Inicializar sistema de pagos
+    sistemaPagosCSR.init();
+}
 
         // Configurar event listeners
         function setupEventListeners() {
@@ -2048,77 +2374,543 @@ function filterAceites(category) {
             openModal('whatsapp-form-modal');
         }
 
-        // Enviar mensaje por WhatsApp
-        function sendWhatsAppMessage(event) {
-            event.preventDefault();
-            
-            // Obtener datos del formulario
-            const nombre = document.getElementById('nombre').value;
-            const direccion = document.getElementById('direccion').value;
-            const carnet = document.getElementById('carnet').value;
-            const mensaje = document.getElementById('mensaje').value;
-            
-            // Generar mensaje para WhatsApp
-            let whatsappMessage = `*NUEVO PEDIDO - CSR s.r.l*\n\n`;
-            whatsappMessage += `*Cliente:* ${nombre}\n`;
-            whatsappMessage += `*CI:* ${carnet}\n`;
-            whatsappMessage += `*Dirección:* ${direccion}\n\n`;
-            whatsappMessage += `*DETALLES DEL PEDIDO:*\n\n`;
-            
-            let total = 0;
-            cart.forEach(item => {
-                const itemTotal = item.price * item.quantity;
-                total += itemTotal;
-                
-                // Determinar categoría para mostrar
-                let category = '';
-                if (item.category === 'aceite') category = 'Aceite';
-                else if (item.category === 'contenedores') category = 'Contenedor';
-                else category = 'Pieza';
-                
-                whatsappMessage += `• ${item.name}\n`;
-                whatsappMessage += `  Tipo: ${category}\n`;
-                whatsappMessage += `  Cantidad: ${item.quantity}\n`;
-                whatsappMessage += `  Precio: $${item.price.toLocaleString()} c/u\n`;
-                whatsappMessage += `  Subtotal: $${itemTotal.toLocaleString()}\n\n`;
-            });
-            
-            whatsappMessage += `*TOTAL: $${total.toLocaleString()}*\n\n`;
-            
-            if (mensaje) {
-                whatsappMessage += `*NOTAS ADICIONALES:*\n${mensaje}\n\n`;
+
+
+// ===========================
+// FUNCIONES AUXILIARES
+// ===========================
+
+// =============================
+// SISTEMA COMPLETO WHATSAPP API - VERSIÓN CORREGIDA
+// =============================
+
+async function procesarPagoWhatsApp(event) {
+    event.preventDefault();
+    
+    if (cart.length === 0) {
+        showNotification('Tu carrito está vacío', 'error');
+        return;
+    }
+    
+    // 1. Obtener datos del formulario
+    const formData = {
+        nombre: document.getElementById('nombre').value.trim(),
+        carnet: document.getElementById('carnet').value.trim(),
+        direccion: document.getElementById('direccion').value.trim(),
+        telefono: document.getElementById('telefono')?.value?.trim() || 'No proporcionado',
+        mensaje: document.getElementById('mensaje').value.trim(),
+        metodoPago: document.getElementById('metodo-pago')?.value || 'pendiente'
+    };
+    
+    // 2. Validar datos
+    if (!formData.nombre || !formData.carnet || !formData.direccion) {
+        showNotification('Complete todos los campos requeridos', 'error');
+        return;
+    }
+    
+    // 3. Crear pedido en el sistema
+    const pedido = crearPedidoSistema(formData);
+    
+    // 4. Generar mensaje estructurado para WhatsApp
+    const mensajeWhatsApp = generarMensajeWhatsApp(pedido);
+    
+    // 5. Mostrar modal de confirmación antes de enviar
+    mostrarConfirmacionPago(pedido, mensajeWhatsApp);
+}
+
+// ===========================
+// FUNCIONES AUXILIARES - VERSIÓN CORREGIDA
+// ===========================
+
+function crearPedidoSistema(datosCliente) {
+    const pedidoId = `CSR-${Date.now()}-${Math.random().toString(36).substr(2, 4).toUpperCase()}`;
+    
+    // Calcular total
+    let subtotal = 0;
+    const itemsDetallados = cart.map(item => {
+        const itemTotal = item.price * item.quantity;
+        subtotal += itemTotal;
+        
+        return {
+            nombre: item.name,
+            categoria: item.category === 'aceite' ? 'Aceite' : 
+                      item.category === 'contenedores' ? 'Contenedor' : 'Pieza',
+            cantidad: item.quantity,
+            precioUnitario: item.price,
+            subtotal: itemTotal,
+            stockId: item.id
+        };
+    });
+    
+    const envio = calcularEnvio(datosCliente.direccion);
+    const total = subtotal + envio;
+    
+    // Crear objeto pedido
+    const pedido = {
+        id: pedidoId,
+        fecha: new Date().toISOString(),
+        cliente: datosCliente,
+        items: itemsDetallados,
+        subtotal: subtotal,
+        envio: envio,
+        total: total,
+        estado: sistemaPagosCSR.estados.PENDIENTE,
+        metodoPago: datosCliente.metodoPago,
+        confirmado: false,
+        comprobante: null,
+        historial: [
+            {
+                fecha: new Date().toISOString(),
+                accion: 'Pedido creado',
+                estado: sistemaPagosCSR.estados.PENDIENTE
             }
-            
-            whatsappMessage += `---\n`;
-            whatsappMessage += `*Fecha:* ${new Date().toLocaleDateString('es-ES', {
-                weekday: 'long',
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric',
-                hour: '2-digit',
-                minute: '2-digit'
-            })}\n`;
-            whatsappMessage += `*ID de pedido:* ${Date.now()}`;
-            
-            // Codificar el mensaje para URL
-            const encodedMessage = encodeURIComponent(whatsappMessage);
-            
-            // Número de WhatsApp (actualizado)
-            const phoneNumber = '+5353729090';
-            
-            // Abrir WhatsApp
-            window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
-            
-            // Cerrar el formulario
-            closeWhatsAppForm();
-            
-            // Actualizar stock y limpiar carrito
-            updateProductStock();
-            clearCart();
-            
-            // Mostrar confirmación
-            showNotification('Pedido enviado correctamente', 'success');
+        ]
+    };
+    
+    // Guardar en sistema
+    sistemaPagosCSR.pedidos.push(pedido);
+    sistemaPagosCSR.guardarPedidos();
+    
+    console.log('✅ Pedido creado:', pedidoId);
+    return pedido;
+}
+
+function calcularEnvio(direccion) {
+    if (!direccion) return 25;
+    
+    // Lógica básica de envío
+    const direccionLower = direccion.toLowerCase();
+    if (direccionLower.includes('habana') || 
+        direccionLower.includes('la habana') || 
+        direccionLower.includes('havana')) {
+        return 10; // USD para La Habana
+    }
+    return 25; // USD para otras provincias
+}
+
+function generarMensajeWhatsApp(pedido) {
+    let mensaje = `🛒 *NUEVO PEDIDO - ${sistemaPagosCSR.config.empresa}* 🛒\n\n`;
+    
+    // Encabezado
+    mensaje += `📋 *INFORMACIÓN DEL PEDIDO*\n`;
+    mensaje += `━━━━━━━━━━━━━━━━━━━━━━━━\n`;
+    mensaje += `🆔 *ID Pedido:* ${pedido.id}\n`;
+    mensaje += `📅 *Fecha:* ${new Date(pedido.fecha).toLocaleDateString('es-ES', {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+    })}\n\n`;
+    
+    // Información del cliente
+    mensaje += `👤 *INFORMACIÓN DEL CLIENTE*\n`;
+    mensaje += `━━━━━━━━━━━━━━━━━━━━━━━━\n`;
+    mensaje += `• *Nombre:* ${pedido.cliente.nombre}\n`;
+    mensaje += `• *CI:* ${pedido.cliente.carnet}\n`;
+    mensaje += `• *Teléfono:* ${pedido.cliente.telefono}\n`;
+    mensaje += `• *Dirección:* ${pedido.cliente.direccion}\n\n`;
+    
+    // Detalles del pedido
+    mensaje += `📦 *DETALLES DEL PEDIDO*\n`;
+    mensaje += `━━━━━━━━━━━━━━━━━━━━━━━━\n`;
+    
+    pedido.items.forEach((item, index) => {
+        mensaje += `${index + 1}. *${item.nombre}*\n`;
+        mensaje += `   └ Tipo: ${item.categoria}\n`;
+        mensaje += `   └ Cantidad: ${item.cantidad}\n`;
+        mensaje += `   └ Precio: $${item.precioUnitario.toLocaleString()} USD\n`;
+        mensaje += `   └ Subtotal: $${item.subtotal.toLocaleString()} USD\n\n`;
+    });
+    
+    // Resumen financiero
+    mensaje += `💰 *RESUMEN DE PAGO*\n`;
+    mensaje += `━━━━━━━━━━━━━━━━━━━━━━━━\n`;
+    mensaje += `• Subtotal: $${pedido.subtotal.toLocaleString()} USD\n`;
+    mensaje += `• Envío: $${pedido.envio.toLocaleString()} USD\n`;
+    mensaje += `• *TOTAL: $${pedido.total.toLocaleString()} USD*\n\n`;
+    
+    // Métodos de pago disponibles
+    mensaje += `💳 *MÉTODOS DE PAGO DISPONIBLES*\n`;
+    mensaje += `━━━━━━━━━━━━━━━━━━━━━━━━\n`;
+    
+    sistemaPagosCSR.metodosPago.forEach((metodo, index) => {
+        mensaje += `${index + 1}. *${metodo.nombre}*\n`;
+        mensaje += `   └ ${metodo.instrucciones}\n`;
+        mensaje += `   └ ${metodo.datos}\n\n`;
+    });
+    
+    // Instrucciones importantes
+    mensaje += `📋 *INSTRUCCIONES IMPORTANTES*\n`;
+    mensaje += `━━━━━━━━━━━━━━━━━━━━━━━━\n`;
+    mensaje += `1. *Guarde este mensaje* como comprobante\n`;
+    mensaje += `2. *Seleccione su método de pago*\n`;
+    mensaje += `3. *Espere confirmación* por WhatsApp\n`;
+    mensaje += `4. *Tiempo de entrega:* 24-48 horas\n\n`;
+    
+    // Notas adicionales
+    if (pedido.cliente.mensaje) {
+        mensaje += `📝 *NOTAS ADICIONALES DEL CLIENTE*\n`;
+        mensaje += `━━━━━━━━━━━━━━━━━━━━━━━━\n`;
+        mensaje += `${pedido.cliente.mensaje}\n\n`;
+    }
+    
+    // Pie de página
+    mensaje += `━━━━━━━━━━━━━━━━━━━━━━━━\n`;
+    mensaje += `✅ *${sistemaPagosCSR.config.empresa}*\n`;
+    mensaje += `📍 Habana, Cuba\n`;
+    mensaje += `📞 ${sistemaPagosCSR.config.whatsappNumber} | ${sistemaPagosCSR.config.whatsappBackup}\n`;
+    mensaje += `✉️ csrdam@hotmail.com | csrhabana@gmail.com\n`;
+    mensaje += `⏰ Lunes a Viernes: 8:00 AM - 5:00 PM\n`;
+    
+    return mensaje;
+}
+
+function mostrarConfirmacionPago(pedido, mensajeWhatsApp) {
+    // Crear modal de confirmación
+    const modalHTML = `
+        <div id="confirmacion-modal" class="modal-overlay" style="display: block; z-index: 2000;">
+            <div class="modal-content max-w-2xl animate-fade-in">
+                <div class="text-center mb-6">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-check text-green-600 text-2xl"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gray-900">¡Pedido Creado Exitosamente!</h2>
+                    <p class="text-gray-600 mt-2">ID: ${pedido.id}</p>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-xl mb-6">
+                    <h3 class="font-bold text-lg mb-4">📋 Resumen del Pedido</h3>
+                    <div class="space-y-3">
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Cliente:</span>
+                            <span class="font-semibold">${pedido.cliente.nombre}</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Total:</span>
+                            <span class="font-bold text-blue-600">$${pedido.total.toLocaleString()} USD</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Estado:</span>
+                            <span class="font-semibold text-yellow-600">Pendiente de pago</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="font-bold text-lg mb-3">📱 Enviar por WhatsApp</h3>
+                    <p class="text-gray-600 mb-4">Se abrirá WhatsApp con el pedido prellenado. Solo debes enviarlo.</p>
+                    
+                    <div class="flex gap-3">
+                        <button onclick="enviarPorWhatsApp('${sistemaPagosCSR.config.whatsappNumber}', \`${mensajeWhatsApp.replace(/`/g, '\\`')}\`)" 
+                                class="flex-1 bg-green-600 text-white py-3 px-4 rounded-lg font-semibold hover:bg-green-700 transition-colors duration-300 flex items-center justify-center gap-2">
+                            <i class="fab fa-whatsapp"></i>
+                            WhatsApp Principal
+                        </button>
+                        
+                        <button onclick="enviarPorWhatsApp('${sistemaPagosCSR.config.whatsappBackup}', \`${mensajeWhatsApp.replace(/`/g, '\\`')}\`)" 
+                                class="flex-1 bg-blue-600 text-white py-3 px-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-300 flex items-center justify-center gap-2">
+                            <i class="fab fa-whatsapp"></i>
+                            WhatsApp Secundario
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="text-center text-sm text-gray-500">
+                    <p>Guarda el ID de pedido: <span class="font-mono font-bold">${pedido.id}</span></p>
+                    <p class="mt-2">Te contactaremos para confirmar el pago y coordinar la entrega.</p>
+                </div>
+                
+                <div class="flex gap-3 mt-6">
+                    <button onclick="descargarComprobante(${JSON.stringify(pedido).replace(/`/g, '\\`')})" 
+                            class="flex-1 bg-gray-100 text-gray-800 py-3 px-4 rounded-lg font-semibold hover:bg-gray-200 transition-colors duration-300 flex items-center justify-center gap-2">
+                        <i class="fas fa-download"></i>
+                        Descargar Comprobante
+                    </button>
+                    
+                    <button onclick="cerrarConfirmacion()" 
+                            class="flex-1 bg-gray-800 text-white py-3 px-4 rounded-lg font-semibold hover:bg-gray-900 transition-colors duration-300">
+                        Cerrar
+                    </button>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    // Agregar modal al body
+    document.body.insertAdjacentHTML('beforeend', modalHTML);
+}
+
+// ===========================
+// FUNCIONES DE UTILIDAD - VERSIÓN CORREGIDA
+// ===========================
+
+function enviarPorWhatsApp(numero, mensaje) {
+    const encodedMessage = encodeURIComponent(mensaje);
+    window.open(`https://wa.me/${numero}?text=${encodedMessage}`, '_blank');
+    
+    // Actualizar estado del pedido
+    const pedidoId = mensaje.match(/ID Pedido:\s*(CSR-\S+)/)?.[1];
+    if (pedidoId) {
+        const pedido = sistemaPagosCSR.pedidos.find(p => p.id === pedidoId);
+        if (pedido) {
+            pedido.historial.push({
+                fecha: new Date().toISOString(),
+                accion: 'Enviado por WhatsApp',
+                estado: pedido.estado
+            });
+            sistemaPagosCSR.guardarPedidos();
         }
+    }
+    
+    // Cerrar modal después de 2 segundos
+    setTimeout(() => {
+        cerrarConfirmacion();
+        showNotification('Pedido enviado por WhatsApp', 'success');
+        
+        // Limpiar carrito
+        clearCart();
+        closeWhatsAppForm();
+    }, 2000);
+}
+
+function descargarComprobante(pedidoObj) {
+    const pedido = typeof pedidoObj === 'string' ? JSON.parse(pedidoObj) : pedidoObj;
+    
+    const contenido = `
+        COMPROBANTE DE PEDIDO - CSR s.r.l
+        =================================
+        
+        ID Pedido: ${pedido.id}
+        Fecha: ${new Date(pedido.fecha).toLocaleString()}
+        
+        INFORMACIÓN DEL CLIENTE
+        -----------------------
+        Nombre: ${pedido.cliente.nombre}
+        CI: ${pedido.cliente.carnet}
+        Teléfono: ${pedido.cliente.telefono}
+        Dirección: ${pedido.cliente.direccion}
+        
+        DETALLES DEL PEDIDO
+        -------------------
+        ${pedido.items.map((item, i) => `
+        ${i+1}. ${item.nombre}
+            Cantidad: ${item.cantidad}
+            Precio: $${item.precioUnitario} USD
+            Subtotal: $${item.subtotal} USD
+        `).join('')}
+        
+        RESUMEN DE PAGO
+        ---------------
+        Subtotal: $${pedido.subtotal} USD
+        Envío: $${pedido.envio} USD
+        TOTAL: $${pedido.total} USD
+        
+        Estado: ${pedido.estado}
+        Método de Pago: ${pedido.metodoPago}
+        
+        ----------------------------------
+        CSR s.r.l - Habana, Cuba
+        Tel: +53 63179374 | +53 50669462
+        Email: csrdam@hotmail.com
+        Fecha de impresión: ${new Date().toLocaleString()}
+    `;
+    
+    const blob = new Blob([contenido], { type: 'text/plain' });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `Comprobante-${pedido.id}.txt`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    window.URL.revokeObjectURL(url);
+    
+    showNotification('Comprobante descargado', 'success');
+}
+
+function cerrarConfirmacion() {
+    const modal = document.getElementById('confirmacion-modal');
+    if (modal) {
+        modal.remove();
+    }
+}
+
+
+function calcularEnvio(direccion) {
+    // Lógica básica de envío (puedes personalizar)
+    if (direccion.toLowerCase().includes('habana')) {
+        return 10; // USD para La Habana
+    }
+    return 25; // USD para otras provincias
+}
+
+
+function mostrarConfirmacionPago(pedido, mensajeWhatsApp) {
+    // Crear modal de confirmación
+    const modalHTML = `
+        <div id="confirmacion-modal" class="modal-overlay" style="display: block;">
+            <div class="modal-content max-w-2xl">
+                <div class="text-center mb-6">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-check text-green-600 text-2xl"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gray-900">¡Pedido Creado Exitosamente!</h2>
+                    <p class="text-gray-600 mt-2">ID: ${pedido.id}</p>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-xl mb-6">
+                    <h3 class="font-bold text-lg mb-4">📋 Resumen del Pedido</h3>
+                    <div class="space-y-3">
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Cliente:</span>
+                            <span class="font-semibold">${pedido.cliente.nombre}</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Total:</span>
+                            <span class="font-bold text-blue-600">$${pedido.total.toLocaleString()} USD</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Estado:</span>
+                            <span class="font-semibold text-yellow-600">Pendiente de pago</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="font-bold text-lg mb-3">📱 Enviar por WhatsApp</h3>
+                    <p class="text-gray-600 mb-4">Se abrirá WhatsApp con el pedido prellenado. Solo debes enviarlo.</p>
+                    
+                    <div class="flex gap-3">
+                        <button onclick="enviarPorWhatsApp('${sistemaPagosCSR.config.whatsappNumber}', \`${mensajeWhatsApp.replace(/`/g, '\\`')}\`)" 
+                                class="flex-1 bg-green-600 text-white py-3 px-4 rounded-lg font-semibold hover:bg-green-700 transition-colors duration-300 flex items-center justify-center gap-2">
+                            <i class="fab fa-whatsapp"></i>
+                            WhatsApp Principal
+                        </button>
+                        
+                        <button onclick="enviarPorWhatsApp('${sistemaPagosCSR.config.whatsappBackup}', \`${mensajeWhatsApp.replace(/`/g, '\\`')}\`)" 
+                                class="flex-1 bg-blue-600 text-white py-3 px-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-300 flex items-center justify-center gap-2">
+                            <i class="fab fa-whatsapp"></i>
+                            WhatsApp Secundario
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="text-center text-sm text-gray-500">
+                    <p>Guarda el ID de pedido: <span class="font-mono font-bold">${pedido.id}</span></p>
+                    <p class="mt-2">Te contactaremos para confirmar el pago y coordinar la entrega.</p>
+                </div>
+                
+                <div class="flex gap-3 mt-6">
+                    <button onclick="descargarComprobante(${JSON.stringify(pedido).replace(/`/g, '\\`')})" 
+                            class="flex-1 bg-gray-100 text-gray-800 py-3 px-4 rounded-lg font-semibold hover:bg-gray-200 transition-colors duration-300 flex items-center justify-center gap-2">
+                        <i class="fas fa-download"></i>
+                        Descargar Comprobante
+                    </button>
+                    
+                    <button onclick="cerrarConfirmacion()" 
+                            class="flex-1 bg-gray-800 text-white py-3 px-4 rounded-lg font-semibold hover:bg-gray-900 transition-colors duration-300">
+                        Cerrar
+                    </button>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    // Agregar modal al body
+    document.body.insertAdjacentHTML('beforeend', modalHTML);
+}
+
+// ===========================
+// FUNCIONES DE UTILIDAD
+// ===========================
+
+function enviarPorWhatsApp(numero, mensaje) {
+    const encodedMessage = encodeURIComponent(mensaje);
+    window.open(`https://wa.me/${numero}?text=${encodedMessage}`, '_blank');
+    
+    // Actualizar estado del pedido
+    const pedidoId = mensaje.match(/ID Pedido:\s*(CSR-\S+)/)?.[1];
+    if (pedidoId) {
+        const pedido = sistemaPagosCSR.pedidos.find(p => p.id === pedidoId);
+        if (pedido) {
+            pedido.historial.push({
+                fecha: new Date().toISOString(),
+                accion: 'Enviado por WhatsApp',
+                estado: pedido.estado
+            });
+            sistemaPagosCSR.guardarPedidos();
+        }
+    }
+    
+    // Cerrar modal después de 2 segundos
+    setTimeout(() => {
+        cerrarConfirmacion();
+        showNotification('Pedido enviado por WhatsApp', 'success');
+        
+        // Limpiar carrito
+        clearCart();
+    }, 2000);
+}
+
+function descargarComprobante(pedido) {
+    const contenido = `
+        COMPROBANTE DE PEDIDO - CSR s.r.l
+        =================================
+        
+        ID Pedido: ${pedido.id}
+        Fecha: ${new Date(pedido.fecha).toLocaleString()}
+        
+        INFORMACIÓN DEL CLIENTE
+        -----------------------
+        Nombre: ${pedido.cliente.nombre}
+        CI: ${pedido.cliente.carnet}
+        Teléfono: ${pedido.cliente.telefono}
+        Dirección: ${pedido.cliente.direccion}
+        
+        DETALLES DEL PEDIDO
+        -------------------
+        ${pedido.items.map((item, i) => `
+        ${i+1}. ${item.nombre}
+            Cantidad: ${item.cantidad}
+            Precio: $${item.precioUnitario} USD
+            Subtotal: $${item.subtotal} USD
+        `).join('')}
+        
+        RESUMEN DE PAGO
+        ---------------
+        Subtotal: $${pedido.subtotal} USD
+        Envío: $${pedido.envio} USD
+        TOTAL: $${pedido.total} USD
+        
+        Estado: ${pedido.estado}
+        Método de Pago: ${pedido.metodoPago}
+        
+        ----------------------------------
+        CSR s.r.l - Habana, Cuba
+        Tel: +53 63179374 | +53 50669462
+        Email: csrdam@hotmail.com
+        Fecha de impresión: ${new Date().toLocaleString()}
+    `;
+    
+    const blob = new Blob([contenido], { type: 'text/plain' });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `Comprobante-${pedido.id}.txt`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    window.URL.revokeObjectURL(url);
+}
+
+function cerrarConfirmacion() {
+    const modal = document.getElementById('confirmacion-modal');
+    if (modal) {
+        modal.remove();
+    }
+}
 
 // Send contact message
 function sendContactMessage(event) {
@@ -2345,6 +3137,76 @@ function sendContactMessage(event) {
                 toggleMobileMenu();
             }
         });
+
+// Initialize system when page loadsa cargue
+document.addEventListener('DOMContentLoaded', () => {
+    initApp();
+    sistemaPagosCSR.init();
+});
+
+// Función para actualizar el resumen del carrito en el formulario
+function actualizarResumenCarrito() {
+    const summaryDiv = document.getElementById('cart-summary');
+    if (!summaryDiv) return;
+    
+    let html = '';
+    let subtotal = 0;
+    
+    cart.forEach(item => {
+        const itemTotal = item.price * item.quantity;
+        subtotal += itemTotal;
+        
+        html += `
+            <div class="flex justify-between items-center py-2 border-b border-gray-200">
+                <div>
+                    <p class="font-medium">${item.name}</p>
+                    <p class="text-sm text-gray-600">${item.category === 'aceite' ? 'Aceite' : 
+                      item.category === 'contenedores' ? 'Contenedor' : 'Pieza'} • ${item.quantity} unidades</p>
+                </div>
+                <div class="text-right">
+                    <p class="font-semibold">$${itemTotal.toLocaleString()}</p>
+                    <p class="text-sm text-gray-600">$${item.price.toLocaleString()} c/u</p>
+                </div>
+            </div>
+        `;
+    });
+    
+    const envio = calcularEnvio(document.getElementById('direccion')?.value || '');
+    const total = subtotal + envio;
+    
+    html += `
+        <div class="space-y-2 pt-4">
+            <div class="flex justify-between">
+                <span class="text-gray-600">Subtotal:</span>
+                <span class="font-semibold">$${subtotal.toLocaleString()}</span>
+            </div>
+            <div class="flex justify-between">
+                <span class="text-gray-600">Envío estimado:</span>
+                <span class="font-semibold">$${envio.toLocaleString()}</span>
+            </div>
+            <div class="flex justify-between border-t pt-2">
+                <span class="font-bold text-lg">Total estimado:</span>
+                <span class="font-bold text-blue-600 text-lg">$${total.toLocaleString()} USD</span>
+            </div>
+        </div>
+    `;
+    
+    summaryDiv.innerHTML = html;
+}
+
+// Actualizar resumen cuando cambia la dirección
+document.addEventListener('input', function(e) {
+    if (e.target.id === 'direccion') {
+        actualizarResumenCarrito();
+    }
+});
+
+// Actualizar cuando se abre el formulario
+const originalShowWhatsAppForm = showWhatsAppForm;
+showWhatsAppForm = function() {
+    originalShowWhatsAppForm();
+    setTimeout(actualizarResumenCarrito, 100);
+};
     </script>
 </body>
 </html>
