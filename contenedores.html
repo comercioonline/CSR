@@ -598,12 +598,12 @@
         </div>
     </section>
 
-<!-- Degree Information Section --> -->
-<section id="grados-info" class="py-16 bg-gradient-to-b from-white to-gray-50">
+<!-- Class Information Section --> -->
+<section id="clases-info" class="py-16 bg-gradient-to-b from-white to-gray-50">
     <div class="container mx-auto px-4">
         <div class="text-center mb-12">
             <h2 class="section-title text-4xl font-bold text-gray-900">
-                Sistema de Calificación de Grados
+                Sistema de Calificación de Clases
             </h2>
             <p class="text-gray-600 text-lg max-w-2xl mx-auto mt-4">
                 Clasificamos nuestros contenedores según su estado para que elijas el que mejor se adapte a tus necesidades y presupuesto
@@ -611,12 +611,12 @@
         </div>
         
         <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            <!-- Grado A -->
+            <!-- Clase A -->
             <div class="bg-white rounded-2xl p-8 border-2 border-green-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
                 <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
                     <span class="text-3xl font-bold text-green-600">A</span>
                 </div>
-                <h3 class="text-2xl font-bold text-center text-green-700 mb-4">Grado A</h3>
+                <h3 class="text-2xl font-bold text-center text-green-700 mb-4">Clase A</h3>
                 <div class="text-center mb-4">
                     <span class="inline-block bg-green-100 text-green-800 px-4 py-1 rounded-full text-sm font-semibold">
                         Excelente Estado
@@ -645,12 +645,12 @@
                 </ul>
             </div>
             
-            <!-- Grado B -->
+            <!-- Clase B -->
             <div class="bg-white rounded-2xl p-8 border-2 border-yellow-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
                 <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-6">
                     <span class="text-3xl font-bold text-yellow-600">B</span>
                 </div>
-                <h3 class="text-2xl font-bold text-center text-yellow-700 mb-4">Grado B</h3>
+                <h3 class="text-2xl font-bold text-center text-yellow-700 mb-4">Clase B</h3>
                 <div class="text-center mb-4">
                     <span class="inline-block bg-yellow-100 text-yellow-800 px-4 py-1 rounded-full text-sm font-semibold">
                         Buen Estado
@@ -679,12 +679,12 @@
                 </ul>
             </div>
             
-            <!-- Grado C -->
+            <!-- Clase C -->
             <div class="bg-white rounded-2xl p-8 border-2 border-orange-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
                 <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-6">
                     <span class="text-3xl font-bold text-orange-600">C</span>
                 </div>
-                <h3 class="text-2xl font-bold text-center text-orange-700 mb-4">Grado C</h3>
+                <h3 class="text-2xl font-bold text-center text-orange-700 mb-4">Clase C</h3>
                 <div class="text-center mb-4">
                     <span class="inline-block bg-orange-100 text-orange-800 px-4 py-1 rounded-full text-sm font-semibold">
                         Estado Funcional
@@ -717,7 +717,7 @@
         <div class="mt-12 text-center">
             <p class="text-gray-500 text-sm">
                 <i class="fas fa-info-circle mr-2"></i>
-                Todos nuestros contenedores, independientemente del grado, cumplen con las normas de seguridad estructural y están certificados para uso industrial.
+                Todos nuestros contenedores, independientemente de la clase, cumplen con las normas de seguridad estructural y están certificados para uso industrial.
             </p>
         </div>
     </div>
@@ -782,20 +782,20 @@
         <i class="fas fa-star mr-2"></i>Especial
     </button>
     
-    <!-- NUEVOS BOTONES DE FILTRO POR GRADO -->
+    <!-- BOTONES DE FILTRO POR CLASE -->
     <div class="w-full flex flex-wrap gap-3 justify-center mt-4">
         <span class="text-gray-500 text-sm flex items-center mr-2">Filtrar por calidad:</span>
-        <button onclick="filterByGrade('A')" 
+        <button onclick="filterByClass('A')" 
                 class="px-4 py-2 rounded-full border border-green-200 text-green-700 hover:bg-green-600 hover:text-white transition-all duration-300 font-medium text-sm">
-            <i class="fas fa-star mr-1"></i>Grado A
+            <i class="fas fa-star mr-1"></i>Clase A
         </button>
-        <button onclick="filterByGrade('B')" 
+        <button onclick="filterByClass('B')" 
                 class="px-4 py-2 rounded-full border border-yellow-200 text-yellow-700 hover:bg-yellow-500 hover:text-white transition-all duration-300 font-medium text-sm">
-            <i class="fas fa-star mr-1"></i>Grado B
+            <i class="fas fa-star mr-1"></i>Clase B
         </button>
-        <button onclick="filterByGrade('C')" 
+        <button onclick="filterByClass('C')" 
                 class="px-4 py-2 rounded-full border border-orange-200 text-orange-700 hover:bg-orange-500 hover:text-white transition-all duration-300 font-medium text-sm">
-            <i class="fas fa-star mr-1"></i>Grado C
+            <i class="fas fa-star mr-1"></i>Clase C
         </button>
     </div>
 </div>
@@ -892,7 +892,11 @@
                         </li>
                         <li class="flex items-center gap-2 text-gray-700">
                             <i class="fas fa-check-circle text-green-500"></i>
-                            Inspecciones certificadoras
+                            Inspecciones certificadoras (P.T.I.)
+                        </li>
+                        <li class="flex items-center gap-2 text-gray-700">
+                            <i class="fas fa-check-circle text-green-500"></i>
+                            Modificaciones en Punto de Ventas, Oficina entre otros.
                         </li>
                     </ul>
                 </div>
@@ -1237,7 +1241,6 @@
     
     <form id="contact-form" onsubmit="sendContactMessage(event)" class="space-y-6">
 
-<!-- NEW COMPANY FIELD HERE --> 
         <div>
             <label for="contact-empresa-tipo" class="block text-gray-700 font-medium mb-2">
                 Tipo de Empresa *
@@ -1699,7 +1702,7 @@
                 price: 2950, 
                 category: "carga seca", 
                 image: "Imagenes de Contenedores/Contenedor de 20ftt.jpg", 
-                grade: "A",
+                classType: "A",
                 stock: 10,
                 description: "Contenedor de acero corten de alta resistencia, fabricado con materiales premium. Certificado ISO, ideal para transporte marítimo, terrestre y almacenamiento seguro.",
                 specifications: [
@@ -1726,7 +1729,7 @@
                 price: 2600, 
                 category: "carga seca", 
                 image: "Imagenes de Contenedores/Contenedor de 20ftt.jpg", 
-                grade: "A",
+                classType: "A",
                 stock: 10,
                 description: "Contenedor de acero corten de alta resistencia, fabricado con materiales premium. Certificado ISO, ideal para transporte marítimo, terrestre y almacenamiento seguro.",
                 specifications: [
@@ -1754,7 +1757,7 @@
                 price: 2100, 
                 category: "carga seca", 
                 image: "Imagenes de Contenedores/Contenedor de 20ftt.jpg", 
-                grade: "B",
+                classType: "B",
                 stock: 10,
                 description: "Contenedor de acero corten de alta resistencia, fabricado con materiales premium. Certificado ISO, ideal para transporte marítimo, terrestre y almacenamiento seguro.",
                 specifications: [
@@ -1782,7 +1785,7 @@
                 price: 2300, 
                 category: "carga seca", 
                 image: "Imagenes de Contenedores/Contenedor de 20ftt.jpg", 
-                grade: "B",
+                classType: "B",
                 stock: 10,
                 description: "Contenedor de acero corten de alta resistencia, fabricado con materiales premium. Certificado ISO, ideal para transporte marítimo, terrestre y almacenamiento seguro.",
                 specifications: [
@@ -1810,7 +1813,7 @@
                 price: 1900, 
                 category: "carga seca", 
                 image: "Imagenes de Contenedores/Contenedor de 20ftt.jpg", 
-                grade: "C",
+                classType: "C",
                 stock: 10,
                 description: "Contenedor de acero corten de alta resistencia, fabricado con materiales premium. Certificado ISO, ideal para transporte marítimo, terrestre y almacenamiento seguro.",
                 specifications: [
@@ -1838,7 +1841,7 @@
                 price: 3200, 
                 category: "Carga Seca", 
                 image: "Imagenes de Contenedores/Contenedor.jpg", 
-                grade: "A",
+                classType: "A",
                 stock: 15,
                 description: "Contenedor High Cube con altura extra (2.89m), fabricado en acero corten. Ideal para cargas voluminosas o productos que requieren más espacio vertical.",
                 specifications: [
@@ -1866,7 +1869,7 @@
                 price: 2400, 
                 category: "Carga Seca", 
                 image: "Imagenes de Contenedores/Contenedor.jpg", 
-                grade: "B",
+                classType: "B",
                 stock: 15,
                 description: "Contenedor High Cube con altura extra (2.89m), fabricado en acero corten. Ideal para cargas voluminosas o productos que requieren más espacio vertical.",
                 specifications: [
@@ -1894,7 +1897,7 @@
                 price: 2200, 
                 category: "Carga Seca", 
                 image: "Imagenes de Contenedores/Contenedor.jpg", 
-                grade: "C",
+                classType: "C",
                 stock: 15,
                 description: "Contenedor de 40 pies en excelente estado de uso, certificado CSC y listo para servicio. Perfecto para almacenamiento prolongado o transporte nacional.",
                 description: "Contenedor High Cube con altura extra (2.89m), fabricado en acero corten. Ideal para cargas voluminosas o productos que requieren más espacio vertical.",
@@ -1923,7 +1926,7 @@
                 price: 2350, 
                 category: "Carga Seca", 
                 image: "Imagenes de Contenedores/Contenedor.jpg", 
-                grade: "C",
+                classType: "C",
                 stock: 15,
                 description: "Contenedor High Cube con altura extra (2.89m), fabricado en acero corten. Ideal para cargas voluminosas o productos que requieren más espacio vertical.",
                 specifications: [
@@ -1947,11 +1950,11 @@
 
             { 
                 id: 10, 
-                name: "Contenedor 20' Refrigerado Profesional", 
+                name: "Contenedor 20' Refrigerado Thermo King", 
                 price: 10000, 
                 category: "refrigerado", 
                 image: "Imagenes de Contenedores/Contenedor Refrigerador.jpg", 
-                grade: "B",
+                classType: "B",
                 stock: 5,
                 description: "Contenedor refrigerado de última generación con sistema Carrier 4400, certificado para transporte de alimentos y productos farmacéuticos.",
                 specifications: [
@@ -1975,11 +1978,11 @@
 
             { 
                 id: 11, 
-                name: "Contenedor 20' Refrigerado Profesional", 
+                name: "Contenedor 20' Refrigerado Thermo King", 
                 price: 11000, 
                 category: "refrigerado", 
                 image: "Imagenes de Contenedores/Contenedor Refrigerador.jpg", 
-                grade: "B",
+                classType: "B",
                 stock: 5,
                 description: "Contenedor refrigerado de última generación con sistema Carrier 4400, certificado para transporte de alimentos y productos farmacéuticos.",
                 specifications: [
@@ -2003,11 +2006,11 @@
 
             { 
                 id: 12, 
-                name: "Contenedor 20' Refrigerado Profesional", 
+                name: "Contenedor 20' Refrigerado Thermo King", 
                 price: 9000, 
                 category: "refrigerado", 
                 image: "Imagenes de Contenedores/Contenedor Refrigerador.jpg", 
-                grade: "C",
+                classType: "C",
                 stock: 5,
                 description: "Contenedor refrigerado de última generación con sistema Carrier 4400, certificado para transporte de alimentos y productos farmacéuticos.",
                 specifications: [
@@ -2031,11 +2034,11 @@
 
             { 
                 id: 13, 
-                name: "Contenedor 20' Refrigerado Profesional", 
+                name: "Contenedor 20' Refrigerado Thermo King", 
                 price: 9500, 
                 category: "refrigerado", 
                 image: "Imagenes de Contenedores/Contenedor Refrigerador.jpg", 
-                grade: "C",
+                classType: "C",
                 stock: 5,
                 description: "Contenedor refrigerado de última generación con sistema Carrier 4400, certificado para transporte de alimentos y productos farmacéuticos.",
                 specifications: [
@@ -2063,7 +2066,7 @@
     price: 13000, 
     category: "refrigerados", 
     image: "Imagenes de Contenedores/Contenedor 40ft HC Refrigerado.jpg", 
-    grade: "B",
+    classType: "B",
     stock: 3,
     description: "Contenedor de 40 pies High Cube con sistema de refrigeración integral de última generación. Fabricado con paredes aislantes de alta densidad y piso de aluminio en T para un flujo de aire óptimo. Ideal para mantener la cadena de frío en productos perecederos o sensibles a la temperatura.",
     specifications: [
@@ -2092,7 +2095,7 @@
     price: 13500, 
     category: "refrigerados", 
     image: "Imagenes de Contenedores/Contenedor 40ft HC Refrigerado.jpg", 
-    grade: "B",
+    classType: "B",
     stock: 3,
     description: "Contenedor de 40 pies High Cube con sistema de refrigeración integral de última generación. Fabricado con paredes aislantes de alta densidad y piso de aluminio en T para un flujo de aire óptimo. Ideal para mantener la cadena de frío en productos perecederos o sensibles a la temperatura.",
     specifications: [
@@ -2120,7 +2123,7 @@
     price: 11000, 
     category: "refrigerados", 
     image: "Imagenes de Contenedores/Contenedor 40ft HC Refrigerado.jpg", 
-    grade: "C",
+    classType: "C",
     stock: 3,
     description: "Contenedor de 40 pies High Cube con sistema de refrigeración integral de última generación. Fabricado con paredes aislantes de alta densidad y piso de aluminio en T para un flujo de aire óptimo. Ideal para mantener la cadena de frío en productos perecederos o sensibles a la temperatura.",
     specifications: [
@@ -2143,12 +2146,12 @@
 },
 
 { 
-    id: 16, 
+    id: 17, 
     name: "Contenedor 40' High Cube Refrigerado", 
     price: 12000, 
     category: "refrigerados", 
     image: "Imagenes de Contenedores/Contenedor 40ft HC Refrigerado.jpg", 
-    grade: "C",
+    classType: "C",
     stock: 3,
     description: "Contenedor de 40 pies High Cube con sistema de refrigeración integral de última generación. Fabricado con paredes aislantes de alta densidad y piso de aluminio en T para un flujo de aire óptimo. Ideal para mantener la cadena de frío en productos perecederos o sensibles a la temperatura.",
     specifications: [
@@ -2171,7 +2174,7 @@
 },
 
             { 
-                id: 17, 
+                id: 18, 
                 name: "Contenedor 40' Abierto Top (Open Top)", 
                 category: "especial", 
                 image: "Imagenes de Contenedores/Contenedor Abierto.jpg", 
@@ -2195,8 +2198,9 @@
                 ],
                 uses: ["Maquinaria pesada", "Equipamiento industrial", "Materiales de construcción", "Cargas sobredimensionadas", "Proyectos especiales"]
             },
+
             { 
-                id: 18, 
+                id: 19, 
                 name: "Camara Fría",  
                 category: "especial", 
                 image: "Imagenes de Contenedores/Contenedor Doble puerta.jpg", 
@@ -2221,12 +2225,12 @@
                 uses: ["Carga y descarga rápida", "Logística de distribución", "Centros de almacenamiento", "Transporte de mercancías frágiles", "Flujo continuo"]
             },
 
-            { 
-    id: 18, 
+ { 
+    id: 20, 
     name: "Contenedor Tanque ISO 24,000L", 
     category: "tanque", 
     image: "https://z-cdn-media.chatglm.cn/files/cba0e856-a3a2-4d3a-b9f1-ae2e57b032f9.jpeg?auth_key=1872122527-1b233a59fd5d4b07bf3c0acc2a7fb2b4-0-12df7154bd31e1c4bad0985a7f5526d9", 
-    grade: "A",
+    classType: "A",
     stock: 2,
     description: "Contenedor tanque isotanque certificado ISO, diseñado para el transporte seguro de combustibles líquidos como diésel y gasolina. Presenta una estructura de acero con marco resistente y un depósito interior de alta capacidad, ideal para almacenamiento a largo plazo o distribución logística.",
     specifications: [
@@ -2246,14 +2250,14 @@
         "Aislamiento térmico opcional (según modelo)"
     ],
     uses: ["Transporte de diésel y gasolina", "Almacenamiento de combustible en obra", "Distribución de petróleo", "Transporte de químicos líquidos no peligrosos", "Reserva de agua industrial"]
-},
-
+}
 
         ];
 
         // Variables globales
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
         let currentFilter = null;
+        let currentClassFilter = null;
 
         // Inicialización
         document.addEventListener('DOMContentLoaded', () => {
@@ -2309,9 +2313,17 @@
             const container = document.getElementById(containerId);
             container.innerHTML = '';
             
-            const filteredProducts = currentFilter && currentFilter !== 'all' ? 
-                products.filter(p => p.category === currentFilter) : 
-                products;
+            let filteredProducts = products;
+            
+            // Aplicar filtro de categoría si existe
+            if (currentFilter && currentFilter !== 'all') {
+                filteredProducts = filteredProducts.filter(p => p.category === currentFilter);
+            }
+            
+            // Aplicar filtro de clase si existe
+            if (currentClassFilter) {
+                filteredProducts = filteredProducts.filter(p => p.classType === currentClassFilter);
+            }
             
             if (filteredProducts.length === 0) {
                 container.innerHTML = `
@@ -2319,9 +2331,9 @@
                         <i class="fas fa-search text-4xl text-gray-300 mb-4"></i>
                         <h3 class="text-xl font-semibold text-gray-600 mb-2">No se encontraron contenedores</h3>
                         <p class="text-gray-500">Intenta con otra categoría o contacta para consultar disponibilidad</p>
-                        <button onclick="scrollToSection('contact')" class="btn-primary mt-4">
-                            <i class="fas fa-phone mr-2"></i>
-                            Consultar Disponibilidad
+                        <button onclick="resetFilters()" class="btn-primary mt-4">
+                            <i class="fas fa-undo mr-2"></i>
+                            Limpiar Filtros
                         </button>
                     </div>
                 `;
@@ -2331,6 +2343,28 @@
             filteredProducts.forEach(product => {
                 const productCard = createProductCard(product);
                 container.appendChild(productCard);
+            });
+        }
+        
+        function resetFilters() {
+            currentFilter = null;
+            currentClassFilter = null;
+            renderProducts(containers, 'containers-container');
+            
+            // Resetear estilos de botones de clase
+            document.querySelectorAll('#tipos .flex-wrap button').forEach(btn => {
+                // Si es un botón de clase (contiene la palabra Clase o está en el div inferior)
+                if(btn.innerText.includes('Clase')) {
+                    btn.classList.remove('bg-green-600', 'bg-yellow-500', 'bg-orange-500', 'text-white');
+                    // Restaurar colores originales según texto
+                    if(btn.innerText.includes('A')) {
+                         btn.classList.add('border', 'border-green-200', 'text-green-700');
+                    } else if(btn.innerText.includes('B')) {
+                         btn.classList.add('border', 'border-yellow-200', 'text-yellow-700');
+                    } else if(btn.innerText.includes('C')) {
+                         btn.classList.add('border', 'border-orange-200', 'text-orange-700');
+                    }
+                }
             });
         }
 
@@ -2350,6 +2384,7 @@
             badgeText = 'High Cube';
             break;
         case 'refrigerado':
+        case 'refrigerados':
             badgeColor = 'bg-green-500';
             badgeText = 'Refrigerado';
             break;
@@ -2357,33 +2392,37 @@
             badgeColor = 'bg-orange-500';
             badgeText = 'Especial';
             break;
+        case 'tanque':
+            badgeColor = 'bg-gray-700';
+            badgeText = 'Tanque';
+            break;
         default:
             badgeColor = 'bg-gray-500';
             badgeText = 'Contenedor';
     }
     
-    // Determinar colores según GRADO (NUEVO)
+    // Determinar colores según CLASE
     let gradeColor, gradeText, gradeLabel;
-    switch(product.grade) {
+    switch(product.classType) {
         case 'A':
             gradeColor = 'bg-green-500';
             gradeText = 'text-green-600';
-            gradeLabel = 'Grado A - Excelente';
+            gradeLabel = 'Clase A - Excelente';
             break;
         case 'B':
             gradeColor = 'bg-yellow-500';
             gradeText = 'text-yellow-600';
-            gradeLabel = 'Grado B - Buen Estado';
+            gradeLabel = 'Clase B - Buen Estado';
             break;
         case 'C':
             gradeColor = 'bg-orange-500';
             gradeText = 'text-orange-600';
-            gradeLabel = 'Grado C - Funcional';
+            gradeLabel = 'Clase C - Funcional';
             break;
         default:
             gradeColor = 'bg-gray-500';
             gradeText = 'text-gray-600';
-            gradeLabel = 'Sin Grado';
+            gradeLabel = 'Sin Clase';
     }
     
     const stockColor = product.stock > 5 ? 'bg-green-500' : product.stock > 0 ? 'bg-yellow-500' : 'bg-red-500';
@@ -2400,9 +2439,9 @@
                 ${badgeText}
             </span>
             
-            <!-- Badge de GRADO (NUEVO) -->
+            <!-- Badge de CLASE -->
             <span class="product-badge ${gradeColor} text-white" style="top: 50px; left: 12px; right: auto;">
-                <i class="fas fa-star mr-1"></i>Grado ${product.grade}
+                <i class="fas fa-star mr-1"></i>Clase ${product.classType}
             </span>
             
             <!-- Badge de stock -->
@@ -2421,7 +2460,7 @@
                 <div class="flex items-center gap-2 mb-2">
                     <h3 class="text-xl font-bold text-gray-900">${product.name}</h3>
                 </div>
-                <!-- Indicador de Grado (NUEVO) -->
+                <!-- Indicador de Clase -->
                 <div class="flex items-center gap-2 mb-2">
                     <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${gradeColor.replace('bg-', 'bg-opacity-20 text-').replace('500', '700')} ${gradeColor.replace('bg-', 'bg-')} bg-opacity-20">
                         <i class="fas fa-award mr-1 ${gradeText}"></i>
@@ -2460,16 +2499,21 @@
         // Filtrar contenedores
         function filterContainers(category) {
             currentFilter = category;
+            // Al filtrar por categoría, reseteamos el filtro de clase para evitar confusión, o podríamos mantenerlo.
+            // Para mejor UX, reseteamos el filtro de clase al cambiar de categoría
+            currentClassFilter = null; 
+            
             renderProducts(containers, 'containers-container');
             
-            // Actualizar botones activos
-            document.querySelectorAll('#tipos .flex-wrap button').forEach(btn => {
+            // Actualizar botones activos de categoría
+            const filterButtons = document.querySelectorAll('#tipos > div:first-child button');
+            filterButtons.forEach(btn => {
                 btn.classList.remove('bg-blue-600', 'text-white');
                 btn.classList.add('border', 'border-blue-200', 'text-gray-700');
             });
             
             const activeBtn = event?.target;
-            if (activeBtn) {
+            if (activeBtn && !activeBtn.innerText.includes('Clase')) {
                 activeBtn.classList.remove('border', 'border-blue-200', 'text-gray-700');
                 activeBtn.classList.add('bg-blue-600', 'text-white');
             }
@@ -2496,6 +2540,7 @@
             titleColor = 'text-purple-600';
             break;
         case 'refrigerado':
+        case 'refrigerados':
             badgeColor = 'bg-green-500';
             badgeText = 'Refrigerado';
             titleColor = 'text-green-600';
@@ -2511,31 +2556,31 @@
             titleColor = 'text-gray-600';
     }
     
-    // Determinar estilos según GRADO
+    // Determinar estilos según CLASE
     let gradeColor, gradeBg, gradeLabel, gradeDescription;
-    switch(product.grade) {
+    switch(product.classType) {
         case 'A':
             gradeColor = 'text-green-600';
             gradeBg = 'bg-green-100';
-            gradeLabel = 'Grado A';
+            gradeLabel = 'Clase A';
             gradeDescription = 'Perfectas condiciones - Sin daños';
             break;
         case 'B':
             gradeColor = 'text-yellow-600';
             gradeBg = 'bg-yellow-100';
-            gradeLabel = 'Grado B';
+            gradeLabel = 'Clase B';
             gradeDescription = 'Buen estado - Pequeños detalles cosméticos';
             break;
         case 'C':
             gradeColor = 'text-orange-600';
             gradeBg = 'bg-orange-100';
-            gradeLabel = 'Grado C';
+            gradeLabel = 'Clase C';
             gradeDescription = 'Funcional - Detalles significativos pero operativo';
             break;
         default:
             gradeColor = 'text-gray-600';
             gradeBg = 'bg-gray-100';
-            gradeLabel = 'Sin Grado';
+            gradeLabel = 'Sin Clase';
             gradeDescription = 'No especificado';
     }
     
@@ -2609,7 +2654,7 @@
                         <span class="${badgeColor} text-white px-3 py-1 rounded-full text-sm font-semibold">
                             ${badgeText}
                         </span>
-                        <!-- Badge de Grado -->
+                        <!-- Badge de Clase -->
                         <span class="${gradeBg} ${gradeColor} px-3 py-1 rounded-full text-sm font-semibold flex items-center gap-1">
                             <i class="fas fa-award"></i>
                             ${gradeLabel}
@@ -2638,7 +2683,7 @@
             <div>
                 <h2 class="text-3xl font-bold text-gray-900 mb-2">${product.name}</h2>
                 
-                <!-- Info de Grado destacada -->
+                <!-- Info de Clase destacada -->
                 <div class="mb-4 p-4 ${gradeBg} rounded-lg border-l-4 ${gradeColor.replace('text-', 'border-')}">
                     <div class="flex items-center gap-2 mb-1">
                         <i class="fas fa-info-circle ${gradeColor}"></i>
@@ -2789,7 +2834,8 @@
                 switch(item.category) {
                     case 'carga seca': categoryText = 'Carga Seca'; break;
                     case 'alto': categoryText = 'High Cube'; break;
-                    case 'refrigerado': categoryText = 'Refrigerado'; break;
+                    case 'refrigerado': 
+                    case 'refrigerados': categoryText = 'Refrigerado'; break;
                     case 'especial': categoryText = 'Especial'; break;
                     default: categoryText = 'Contenedor';
                 }
@@ -2956,13 +3002,15 @@
                 switch(item.category) {
                     case 'carga seca': categoryText = 'Carga Seca'; break;
                     case 'alto': categoryText = 'High Cube'; break;
-                    case 'refrigerado': categoryText = 'Refrigerado'; break;
+                    case 'refrigerado':
+                    case 'refrigerados': categoryText = 'Refrigerado'; break;
                     case 'especial': categoryText = 'Especial'; break;
                     default: categoryText = 'Contenedor';
                 }
                 
                 whatsappMessage += `• ${item.name}\n`;
                 whatsappMessage += `  Tipo: ${categoryText}\n`;
+                whatsappMessage += `  Clase: ${item.classType || 'N/A'}\n`; // Mostrar clase
                 whatsappMessage += `  Cantidad: ${item.quantity}\n`;
                 whatsappMessage += `  Precio unitario: $${item.price.toLocaleString()}\n`;
                 whatsappMessage += `  Subtotal: $${itemTotal.toLocaleString()}\n\n`;
@@ -3160,28 +3208,26 @@
             }
         }
 
-// Variable for grade filterde grado
-let currentGradeFilter = null;
-
-// Filtrar por grado (NUEVA FUNCIÓN)
-function filterByGrade(grade) {
-    currentGradeFilter = grade;
-    currentFilter = null; // Resetear filtro de categoría
+// Filtrar por clase
+function filterByClass(classType) {
+    currentClassFilter = classType;
+    // Resetear filtro de categoría al filtrar por clase para ver todos los productos de esa clase
+    currentFilter = null;
     
     const container = document.getElementById('containers-container');
     container.innerHTML = '';
     
-    const filteredProducts = containers.filter(p => p.grade === grade);
+    const filteredProducts = containers.filter(p => p.classType === classType);
     
     if (filteredProducts.length === 0) {
         container.innerHTML = `
             <div class="col-span-3 text-center py-12">
                 <i class="fas fa-search text-4xl text-gray-300 mb-4"></i>
-                <h3 class="text-xl font-semibold text-gray-600 mb-2">No se encontraron contenedores Grado ${grade}</h3>
+                <h3 class="text-xl font-semibold text-gray-600 mb-2">No se encontraron contenedores Clase ${classType}</h3>
                 <p class="text-gray-500 mb-4">Contacta para consultar disponibilidad futura</p>
-                <button onclick="resetGradeFilter()" class="btn-primary">
+                <button onclick="resetFilters()" class="btn-primary">
                     <i class="fas fa-undo mr-2"></i>
-                    Ver todos los grados
+                    Ver todos las clases
                 </button>
             </div>
         `;
@@ -3193,14 +3239,22 @@ function filterByGrade(grade) {
         container.appendChild(productCard);
     });
     
-    // Actualizar botones activos
-    document.querySelectorAll('#tipos .flex-wrap button').forEach(btn => {
+    // Actualizar botones activos de clase
+    const classFilterButtons = document.querySelectorAll('#tipos > div:nth-child(2) button');
+    classFilterButtons.forEach(btn => {
+        // Resetear todos los botones de clase
         btn.classList.remove('bg-green-600', 'bg-yellow-500', 'bg-orange-500', 'text-white');
-        btn.classList.add('border', 'border-blue-200', 'text-gray-700');
+        if(btn.innerText.includes('A')) {
+             btn.classList.add('border', 'border-green-200', 'text-green-700');
+        } else if(btn.innerText.includes('B')) {
+             btn.classList.add('border', 'border-yellow-200', 'text-yellow-700');
+        } else if(btn.innerText.includes('C')) {
+             btn.classList.add('border', 'border-orange-200', 'text-orange-700');
+        }
     });
     
     // Resaltar botón activo
-    const gradeColors = {
+    const classColors = {
         'A': 'bg-green-600',
         'B': 'bg-yellow-500', 
         'C': 'bg-orange-500'
@@ -3209,22 +3263,17 @@ function filterByGrade(grade) {
     const activeBtn = event?.target;
     if (activeBtn) {
         activeBtn.classList.remove('border', 'border-green-200', 'border-yellow-200', 'border-orange-200', 'text-green-700', 'text-yellow-700', 'text-orange-700');
-        activeBtn.classList.add(gradeColors[grade], 'text-white');
+        activeBtn.classList.add(classColors[classType], 'text-white');
     }
     
-    showNotification(`Mostrando contenedores Grado ${grade}`, 'info');
-}
-
-// Resetear filtro de grado
-function resetGradeFilter() {
-    currentGradeFilter = null;
-    renderProducts(containers, 'containers-container');
-    
-    // Resetear botones
-    document.querySelectorAll('#tipos .flex-wrap button').forEach(btn => {
-        btn.classList.remove('bg-green-600', 'bg-yellow-500', 'bg-orange-500', 'text-white');
+    // Resetear botones de categoría visualmente
+    const catButtons = document.querySelectorAll('#tipos > div:first-child button');
+    catButtons.forEach(btn => {
+        btn.classList.remove('bg-blue-600', 'text-white');
         btn.classList.add('border', 'border-blue-200', 'text-gray-700');
     });
+    
+    showNotification(`Mostrando contenedores Clase ${classType}`, 'info');
 }
 
         // Cerrar menú al hacer clic fuera
