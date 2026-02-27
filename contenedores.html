@@ -453,7 +453,59 @@
             background: linear-gradient(135deg, #fed7aa, #fdba74);
             color: #f97316;
         }
+
+        /* NUEVOS ESTILOS: Menú de inicio más grande y azul */
+        .mobile-menu-item {
+            font-size: 1.25rem;
+            padding: 1.25rem;
+            background: linear-gradient(135deg, #eff6ff, #dbeafe);
+            border-left: 4px solid #3b82f6;
+            margin-bottom: 0.75rem;
+            border-radius: 0.75rem;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-item:hover {
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            color: white !important;
+            transform: translateX(10px);
+        }
+
+        .mobile-menu-item i {
+            font-size: 1.5rem;
+            color: #2563eb;
+        }
+
+        .mobile-menu-item:hover i {
+            color: white;
+        }
+
+        .desktop-nav-link {
+            font-size: 1.1rem;
+            padding: 0.75rem 1.25rem;
+            background: linear-gradient(135deg, #eff6ff, #dbeafe);
+            border-radius: 0.5rem;
+            border: 2px solid #3b82f6;
+            transition: all 0.3s ease;
+        }
+
+        .desktop-nav-link:hover {
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            color: white !important;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+        }
+
+        .desktop-nav-link .nav-icon {
+            color: #2563eb;
+            font-size: 1.2rem;
+        }
+
+        .desktop-nav-link:hover .nav-icon {
+            color: white;
+        }
     </style>
+<base target="_blank">
 </head>
 <body class="bg-gray-50 text-gray-800">
     <!-- Header -->
@@ -472,98 +524,102 @@
                     </div>
                 </div>
                 
-                <!-- Desktop Navigation -->
-                <nav class="hidden lg:flex items-center gap-8">
+                <!-- Desktop Navigation - AHORA MÁS GRANDE Y AZUL -->
+                <nav class="hidden lg:flex items-center gap-4">
                     <a href="https://comercioonline.github.io/CSR/" 
-                       class="text-gray-600 hover:text-blue-600 transition-colors duration-300 font-medium relative group">
-                        Inicio
-                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                       class="desktop-nav-link text-blue-700 font-semibold flex items-center gap-2 group">
+                        <i class="fas fa-home nav-icon"></i>
+                        <span>Inicio</span>
                     </a>
                     <a href="https://comercioonline.github.io/CSR/aceite" 
-                    class="text-gray-600 hover:text-blue-600 transition-colors duration-300 font-medium relative group">
-                     Aceites y Lubricantes
-                     <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                       class="desktop-nav-link text-blue-700 font-semibold flex items-center gap-2 group">
+                        <i class="fas fa-oil-can nav-icon"></i>
+                        <span>Aceites</span>
                     </a>
                     <a href="https://comercioonline.github.io/CSR/autos" 
-                       class="text-gray-600 hover:text-blue-600 transition-colors duration-300 font-medium relative group">
-                        Piezas de Autos
-                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                       class="desktop-nav-link text-blue-700 font-semibold flex items-center gap-2 group">
+                        <i class="fas fa-car nav-icon"></i>
+                        <span>Piezas de Autos</span>
                     </a>
                     <a href="https://comercioonline.github.io/CSR/contenedores" 
-                       class="text-gray-600 hover:text-blue-600 transition-colors duration-300 font-medium relative group">
-                        Contenedores
-                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
-                    </a>
-                    <a href="#contact" 
-                       class="text-gray-600 hover:text-blue-600 transition-colors duration-300 font-medium relative group">
-                        Contacto
-                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                       class="desktop-nav-link text-blue-700 font-semibold flex items-center gap-2 group">
+                        <i class="fas fa-box nav-icon"></i>
+                        <span>Contenedores</span>
                     </a>
                     <a href="https://comercioonline.github.io/CSR/informacion" 
-                       class="text-gray-600 hover:text-blue-600 transition-colors duration-300 font-medium relative group">
-                        Información
-                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                       class="desktop-nav-link text-blue-700 font-semibold flex items-center gap-2 group">
+                        <i class="fas fa-info-circle nav-icon"></i>
+                        <span>Información</span>
                     </a>
                     <a href="https://comercioonline.github.io/CSR/nosotros" 
-                       class="text-gray-600 hover:text-blue-600 transition-colors duration-300 font-medium relative group">
-                        Nosotros
-                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                       class="desktop-nav-link text-blue-700 font-semibold flex items-center gap-2 group">
+                        <i class="fas fa-users nav-icon"></i>
+                        <span>Nosotros</span>
                     </a>
                 </nav>
                 
                 <!-- Cart and Mobile Menu Button -->
                 <div class="flex items-center gap-4">
                     <button id="cart-btn" class="relative p-3 rounded-full hover:bg-blue-50 transition-colors duration-300">
-                        <i class="fas fa-shopping-cart text-xl text-gray-600"></i>
+                        <i class="fas fa-shopping-cart text-xl text-blue-600"></i>
                         <span id="cart-count" 
                               class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-bold">
                             0
                         </span>
                     </button>
                     <button id="mobile-menu-btn" class="lg:hidden p-3 rounded-full hover:bg-gray-100 transition-colors duration-300">
-                        <i class="fas fa-bars text-xl text-gray-600"></i>
+                        <i class="fas fa-bars text-xl text-blue-600"></i>
                     </button>
                 </div>
             </div>
             
-            <!-- Mobile Menu -->
-            <div id="mobile-menu" class="hidden lg:hidden py-4 border-t mt-4 animate-slide-up">
-                <div class="flex flex-col gap-4">
+            <!-- Mobile Menu - AHORA MÁS GRANDE Y AZUL -->
+            <div id="mobile-menu" class="hidden lg:hidden py-6 border-t mt-4 animate-slide-up bg-blue-50 rounded-xl">
+                <div class="flex flex-col gap-4 px-4">
                     <a href="https://comercioonline.github.io/CSR/" 
-                       class="py-3 px-4 rounded-lg hover:bg-blue-50 text-gray-600 hover:text-blue-600 transition-colors duration-300 font-medium">
-                        <i class="fas fa-home mr-3"></i>Inicio
+                       class="mobile-menu-item text-blue-800 font-bold flex items-center gap-4">
+                        <i class="fas fa-home"></i>
+                        <span>Inicio</span>
                     </a>
                     <a href="https://comercioonline.github.io/CSR/aceite" 
-                       class="py-3 px-4 rounded-lg hover:bg-blue-50 text-gray-600 hover:text-blue-600 transition-colors duration-300 font-medium">
-                        <i class="fas fa-oil-can mr-3"></i>Aceites y Lubricantes
+                       class="mobile-menu-item text-blue-800 font-bold flex items-center gap-4">
+                        <i class="fas fa-oil-can"></i>
+                        <span>Aceites y Lubricantes</span>
                     </a> 
                     <a href="https://comercioonline.github.io/CSR/autos" 
-                       class="py-3 px-4 rounded-lg hover:bg-blue-50 text-gray-600 hover:text-blue-600 transition-colors duration-300 font-medium">
-                        <i class="fas fa-car mr-3"></i>Piezas de Autos
+                       class="mobile-menu-item text-blue-800 font-bold flex items-center gap-4">
+                        <i class="fas fa-car"></i>
+                        <span>Piezas de Autos</span>
                     </a>  
                     <a href="https://comercioonline.github.io/CSR/contenedores" 
-                       class="py-3 px-4 rounded-lg hover:bg-blue-50 text-gray-600 hover:text-blue-600 transition-colors duration-300 font-medium">
-                        <i class="fas fa-box mr-3"></i>Contenedores
+                       class="mobile-menu-item text-blue-800 font-bold flex items-center gap-4">
+                        <i class="fas fa-box"></i>
+                        <span>Contenedores</span>
                     </a>
                     <a href="#servicios" 
-                       class="py-3 px-4 rounded-lg hover:bg-blue-50 text-gray-600 hover:text-blue-600 transition-colors duration-300 font-medium">
-                        <i class="fas fa-tools mr-3"></i>Servicios
+                       class="mobile-menu-item text-blue-800 font-bold flex items-center gap-4">
+                        <i class="fas fa-tools"></i>
+                        <span>Servicios</span>
                     </a>
                     <a href="#especificaciones" 
-                       class="py-3 px-4 rounded-lg hover:bg-blue-50 text-gray-600 hover:text-blue-600 transition-colors duration-300 font-medium">
-                        <i class="fas fa-ruler-combined mr-3"></i>Especificaciones
+                       class="mobile-menu-item text-blue-800 font-bold flex items-center gap-4">
+                        <i class="fas fa-ruler-combined"></i>
+                        <span>Especificaciones</span>
                     </a>
                     <a href="#contact" 
-                       class="py-3 px-4 rounded-lg hover:bg-blue-50 text-gray-600 hover:text-blue-600 transition-colors duration-300 font-medium">
-                        <i class="fas fa-phone mr-3"></i>Contacto
+                       class="mobile-menu-item text-blue-800 font-bold flex items-center gap-4">
+                        <i class="fas fa-phone"></i>
+                        <span>Contacto</span>
                     </a>
                     <a href="https://comercioonline.github.io/CSR/informacion" 
-                      class="py-3 px-4 rounded-lg hover:bg-blue-50 text-gray-600 hover:text-blue-600 transition-colors duration-300 font-medium">
-                        <i class="fas fa-info-circle mr-3"></i>Información
+                       class="mobile-menu-item text-blue-800 font-bold flex items-center gap-4">
+                        <i class="fas fa-info-circle"></i>
+                        <span>Información</span>
                     </a>
                     <a href="https://comercioonline.github.io/CSR/nosotros" 
-                       class="py-3 px-4 rounded-lg hover:bg-blue-50 text-gray-600 hover:text-blue-600 transition-colors duration-300 font-medium">
-                        <i class="fas fa-users mr-3"></i>Nosotros
+                       class="mobile-menu-item text-blue-800 font-bold flex items-center gap-4">
+                        <i class="fas fa-users"></i>
+                        <span>Nosotros</span>
                     </a>
                 </div>
             </div>
@@ -597,7 +653,7 @@
         </div>
     </section>
 
-<!-- Class Information Section --> -->
+<!-- Class Information Section -->
 <section id="clases-info" class="py-16 bg-gradient-to-b from-white to-gray-50">
     <div class="container mx-auto px-4">
         <div class="text-center mb-12">
@@ -2180,7 +2236,6 @@
                 price: 0,
                 category: "especial", 
                 image: "Imagenes de Contenedores/Contenedor Doble puerta.jpg", 
-                classType: "A",
                 stock: 7,
                 description: "Contenedor con puertas en ambos extremos, facilitando el carga y descarga rápida de mercancías en operaciones logísticas intensivas.",
                 specifications: [
@@ -2709,10 +2764,12 @@
                         Cerrar
                     </button>
                 </div>
-            `;
-            
-            openModal('detail-modal');
-        }
+            </div>
+        </div>
+    `;
+    
+    openModal('detail-modal');
+}
 
         // Añadir al carrito
         function addToCart(productId) {
@@ -3178,9 +3235,9 @@
             menu.classList.toggle('hidden');
             
             if (menu.classList.contains('hidden')) {
-                icon.className = 'fas fa-bars text-xl text-gray-600';
+                icon.className = 'fas fa-bars text-xl text-blue-600';
             } else {
-                icon.className = 'fas fa-times text-xl text-gray-600';
+                icon.className = 'fas fa-times text-xl text-blue-600';
             }
         }
 
@@ -3287,4 +3344,3 @@ function filterByClass(classType) {
     </script>
 </body>
 </html>
-
