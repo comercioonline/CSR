@@ -465,6 +465,60 @@
             box-shadow: 0 4px 12px rgba(217, 119, 6, 0.4);
             border: 1px solid #fbbf24;
         }
+
+        /* NUEVOS ESTILOS: Menú de inicio con tema ORO NEGRO */
+        .mobile-menu-item {
+            font-size: 1.25rem;
+            padding: 1.25rem;
+            background: linear-gradient(135deg, #1f2937, #111827);
+            border-left: 4px solid #d97706; /* Ámbar 600 */
+            margin-bottom: 0.75rem;
+            border-radius: 0.75rem;
+            transition: all 0.3s ease;
+            border: 1px solid #4b5563;
+        }
+
+        .mobile-menu-item:hover {
+            background: linear-gradient(135deg, #d97706, #b45309);
+            color: white !important;
+            transform: translateX(10px);
+            border-left-color: #fbbf24;
+            border-color: #fbbf24;
+        }
+
+        .mobile-menu-item i {
+            font-size: 1.5rem;
+            color: #d97706;
+        }
+
+        .mobile-menu-item:hover i {
+            color: white;
+        }
+
+        .desktop-nav-link {
+            font-size: 1.1rem;
+            padding: 0.75rem 1.25rem;
+            background: linear-gradient(135deg, #1f2937, #111827);
+            border-radius: 0.5rem;
+            border: 2px solid #d97706;
+            transition: all 0.3s ease;
+        }
+
+        .desktop-nav-link:hover {
+            background: linear-gradient(135deg, #d97706, #b45309);
+            color: white !important;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(217, 119, 6, 0.5);
+        }
+
+        .desktop-nav-link .nav-icon {
+            color: #d97706;
+            font-size: 1.2rem;
+        }
+
+        .desktop-nav-link:hover .nav-icon {
+            color: white;
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
@@ -484,90 +538,87 @@
                     </div>
                 </div>
                 
-                <!-- Desktop Navigation -->
-                <nav class="hidden lg:flex items-center gap-8">
+                <!-- Desktop Navigation - ORO NEGRO -->
+                <nav class="hidden lg:flex items-center gap-4">
                     <a href="https://comercioonline.github.io/CSR/" 
-                       class="text-gray-600 hover:text-amber-600 transition-colors duration-300 font-medium relative group">
-                        Inicio
-                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-amber-600 transition-all duration-300 group-hover:w-full"></span>
+                       class="desktop-nav-link text-amber-600 font-semibold flex items-center gap-2 group">
+                        <i class="fas fa-home nav-icon"></i>
+                        <span>Inicio</span>
                     </a>
                     <a href="https://comercioonline.github.io/CSR/aceite" 
-                       class="text-gray-600 hover:text-amber-600 transition-colors duration-300 font-medium relative group">
-                        Aceites y Lubricantes
-                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-amber-600 transition-all duration-300 group-hover:w-full"></span>
+                       class="desktop-nav-link text-amber-600 font-semibold flex items-center gap-2 group">
+                        <i class="fas fa-oil-can nav-icon"></i>
+                        <span>Aceites</span>
                     </a>
                     <a href="https://comercioonline.github.io/CSR/autos" 
-                       class="text-gray-600 hover:text-amber-600 transition-colors duration-300 font-medium relative group">
-                        Piezas de Autos
-                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-amber-600 transition-all duration-300 group-hover:w-full"></span>
+                       class="desktop-nav-link text-amber-600 font-semibold flex items-center gap-2 group">
+                        <i class="fas fa-car nav-icon"></i>
+                        <span>Piezas de Autos</span>
                     </a>
                     <a href="https://comercioonline.github.io/CSR/contenedores" 
-                       class="text-gray-600 hover:text-amber-600 transition-colors duration-300 font-medium relative group">
-                        Contenedores
-                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-amber-600 transition-all duration-300 group-hover:w-full"></span>
-                    </a>
-                    <a href="#contact" 
-                       class="text-gray-600 hover:text-amber-600 transition-colors duration-300 font-medium relative group">
-                        Contacto
-                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-amber-600 transition-all duration-300 group-hover:w-full"></span>
+                       class="desktop-nav-link text-amber-600 font-semibold flex items-center gap-2 group">
+                        <i class="fas fa-box nav-icon"></i>
+                        <span>Contenedores</span>
                     </a>
                     <a href="https://comercioonline.github.io/CSR/informacion" 
-                       class="text-gray-600 hover:text-amber-600 transition-colors duration-300 font-medium relative group">
-                        Información
-                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-amber-600 transition-all duration-300 group-hover:w-full"></span>
+                       class="desktop-nav-link text-amber-600 font-semibold flex items-center gap-2 group">
+                        <i class="fas fa-info-circle nav-icon"></i>
+                        <span>Información</span>
                     </a>
                     <a href="https://comercioonline.github.io/CSR/nosotros" 
-                       class="text-gray-600 hover:text-amber-600 transition-colors duration-300 font-medium relative group">
-                        Nosotros
-                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-amber-600 transition-all duration-300 group-hover:w-full"></span>
+                       class="desktop-nav-link text-amber-600 font-semibold flex items-center gap-2 group">
+                        <i class="fas fa-users nav-icon"></i>
+                        <span>Nosotros</span>
                     </a>
                 </nav>
                 
                 <!-- Cart and Mobile Menu Button -->
                 <div class="flex items-center gap-4">
-                    <button id="cart-btn" class="relative p-3 rounded-full hover:bg-amber-50 transition-colors duration-300">
-                        <i class="fas fa-shopping-cart text-xl text-gray-600"></i>
+                    <button id="cart-btn" class="relative p-3 rounded-full hover:bg-amber-100 transition-colors duration-300">
+                        <i class="fas fa-shopping-cart text-xl text-amber-600"></i>
                         <span id="cart-count" 
-                              class="absolute -top-1 -right-1 bg-amber-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-bold">
+                              class="absolute -top-1 -right-1 bg-amber-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-bold">
                             0
                         </span>
                     </button>
                     <button id="mobile-menu-btn" class="lg:hidden p-3 rounded-full hover:bg-gray-100 transition-colors duration-300">
-                        <i class="fas fa-bars text-xl text-gray-600"></i>
+                        <i class="fas fa-bars text-xl text-amber-600"></i>
                     </button>
                 </div>
             </div>
             
-            <!-- Mobile Menu -->
-            <div id="mobile-menu" class="hidden lg:hidden py-4 border-t mt-4 animate-slide-up">
-                <div class="flex flex-col gap-4">
+            <!-- Mobile Menu - AHORA CON ESTILO ORO NEGRO -->
+            <div id="mobile-menu" class="hidden lg:hidden py-6 border-t mt-4 animate-slide-up bg-gradient-to-b from-gray-900 to-gray-800 rounded-xl border border-amber-800">
+                <div class="flex flex-col gap-4 px-4">
                     <a href="https://comercioonline.github.io/CSR/" 
-                       class="py-3 px-4 rounded-lg hover:bg-amber-50 text-gray-600 hover:text-amber-600 transition-colors duration-300 font-medium">
-                        <i class="fas fa-home mr-3"></i>Inicio
+                       class="mobile-menu-item text-amber-400 font-bold flex items-center gap-4">
+                        <i class="fas fa-home"></i>
+                        <span>Inicio</span>
                     </a>
                     <a href="https://comercioonline.github.io/CSR/aceite" 
-                       class="py-3 px-4 rounded-lg hover:bg-amber-50 text-gray-600 hover:text-amber-600 transition-colors duration-300 font-medium">
-                        <i class="fas fa-oil-can mr-3"></i>Aceites y Lubricantes
+                       class="mobile-menu-item text-amber-400 font-bold flex items-center gap-4">
+                        <i class="fas fa-oil-can"></i>
+                        <span>Aceites</span>
                     </a> 
                     <a href="https://comercioonline.github.io/CSR/autos" 
-                       class="py-3 px-4 rounded-lg hover:bg-amber-50 text-gray-600 hover:text-amber-600 transition-colors duration-300 font-medium">
-                        <i class="fas fa-car mr-3"></i>Piezas de Autos
-                    </a>    
+                       class="mobile-menu-item text-amber-400 font-bold flex items-center gap-4">
+                        <i class="fas fa-car"></i>
+                        <span>Piezas de Autos</span>
+                    </a>  
                     <a href="https://comercioonline.github.io/CSR/contenedores" 
-                       class="py-3 px-4 rounded-lg hover:bg-amber-50 text-gray-600 hover:text-amber-600 transition-colors duration-300 font-medium">
-                        <i class="fas fa-box mr-3"></i>Contenedores
-                    </a>
-                    <a href="#contact" 
-                       class="py-3 px-4 rounded-lg hover:bg-amber-50 text-gray-600 hover:text-amber-600 transition-colors duration-300 font-medium">
-                        <i class="fas fa-phone mr-3"></i>Contacto
+                       class="mobile-menu-item text-amber-400 font-bold flex items-center gap-4">
+                        <i class="fas fa-box"></i>
+                        <span>Contenedores</span>
                     </a>
                     <a href="https://comercioonline.github.io/CSR/informacion" 
-                      class="py-3 px-4 rounded-lg hover:bg-amber-50 text-gray-600 hover:text-amber-600 transition-colors duration-300 font-medium">
-                        <i class="fas fa-info-circle mr-3"></i>Información
+                       class="mobile-menu-item text-amber-400 font-bold flex items-center gap-4">
+                        <i class="fas fa-info-circle"></i>
+                        <span>Información</span>
                     </a>
                     <a href="https://comercioonline.github.io/CSR/nosotros" 
-                       class="py-3 px-4 rounded-lg hover:bg-amber-50 text-gray-600 hover:text-amber-600 transition-colors duration-300 font-medium">
-                        <i class="fas fa-users mr-3"></i>Nosotros
+                       class="mobile-menu-item text-amber-400 font-bold flex items-center gap-4">
+                        <i class="fas fa-users"></i>
+                        <span>Nosotros</span>
                     </a>
                 </div>
             </div>
@@ -587,271 +638,48 @@
                 <p class="text-xl md:text-2xl mb-10 text-amber-100 leading-relaxed">
                     Protege y optimiza el rendimiento de tu motor con los mejores lubricantes del mercado
                 </p>
-                <div class="flex flex-col sm:flex-row gap-6 justify-center">
-                    <button onclick="scrollToSection('productos')" 
-                            class="btn-primary px-10 py-4 text-lg font-semibold shadow-lg border border-amber-400/30">
-                        <i class="fas fa-oil-can mr-3"></i>Ver Aceites
-                    </button>
-                    <button onclick="scrollToSection('gazpromneft')" 
-                            class="btn-secondary px-10 py-4 text-lg font-semibold !bg-transparent !text-white !border-white hover:!bg-white hover:!text-gray-900">
-                        <i class="fas fa-gas-pump mr-3"></i>Ver Gazpromneft
-                    </button>
-                </div>
             </div>
         </div>
     </section>
 
-    <!-- Gazpromneft Section - TEMA ORO NEGRO -->
-    <section id="gazpromneft" class="gazprom-section py-20 relative">
-        <div class="container mx-auto px-4 relative z-10">
+     <!-- Productos Section -->
+    <section id="productos" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
             <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold mb-4 text-amber-400">
-                    <i class="fas fa-gas-pump mr-3"></i>
-                    Línea Completa Gazpromneft
+                <h2 class="section-title text-4xl font-bold text-gray-900">
+                    Nuestros Productos
                 </h2>
-                <p class="text-amber-100/80 text-lg max-w-2xl mx-auto">
-                    Aceites y lubricantes de alta calidad para todas las necesidades
+                <p class="text-gray-600 text-lg max-w-2xl mx-auto mt-4">
+                    Selección premium de aceites y lubricantes para cada necesidad
                 </p>
             </div>
-
-            <!-- Contact Info Card -->
-            <div class="max-w-4xl mx-auto mb-16 p-8 bg-gray-800/80 backdrop-blur-md rounded-2xl shadow-2xl border border-amber-500/30">
-                <div class="flex flex-col md:flex-row items-center gap-8">
-                    <div class="flex-1">
-                        <h3 class="text-2xl font-bold text-white mb-4">CSR Lubricantes</h3>
-                        <div class="space-y-4 text-gray-300">
-                            <div class="flex items-start gap-3">
-                                <i class="fas fa-map-marker-alt text-amber-500 mt-1"></i>
-                                <div>
-                                    <p class="font-medium text-white">Dirección:</p>
-                                    <p>Calle 50 No.1509 entre Avenida 15 y avenida 17.</p>
-                                    <p>Playa, La Habana</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <i class="fas fa-phone text-amber-500 mt-1"></i>
-                                <div>
-                                    <p class="font-medium text-white">Teléfonos:</p>
-                                    <p>52504002</p>
-                                    <p>63179374</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <i class="fas fa-envelope text-amber-500 mt-1"></i>
-                                <div>
-                                    <p class="font-medium text-white">Email:</p>
-                                    <p>csrhabana@gmail.com</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flex-1">
-                        <h3 class="text-2xl font-bold text-white mb-4">Formatos Disponibles</h3>
-                        <div class="flex flex-wrap gap-4 justify-center">
-                            <span class="format-badge">1L</span>
-                            <span class="format-badge">5L</span>
-                            <span class="format-badge">20L</span>
-                            <span class="format-badge">205L</span>
-                        </div>
-                        <p class="text-gray-400 text-center mt-6">
-                            <i class="fas fa-shipping-fast mr-2 text-amber-500"></i>
-                            Entrega rápida y segura en toda La Habana
-                        </p>
-                    </div>
-                </div>
+            
+            <!-- Category Filters -->
+            <div class="flex flex-wrap gap-3 justify-center mb-12">
+                <button onclick="filterProducts('all')" 
+                        class="px-6 py-2 rounded-full border border-amber-600 text-amber-600 hover:bg-amber-600 hover:text-white transition-all duration-300 font-medium shadow-sm">
+                    Todos los Aceites
+                </button>
+                <button onclick="filterProducts('sintetico')" 
+                        class="px-6 py-2 rounded-full border border-amber-200 text-gray-700 hover:border-amber-600 hover:text-amber-600 transition-all duration-300 font-medium">
+                    <i class="fas fa-flask mr-2"></i>Sintético
+                </button>
+                <button onclick="filterProducts('semisintetico')" 
+                        class="px-6 py-2 rounded-full border border-amber-200 text-gray-700 hover:border-amber-600 hover:text-amber-600 transition-all duration-300 font-medium">
+                    <i class="fas fa-flask mr-2"></i>Semi-Sintético
+                </button>
+                <button onclick="filterProducts('mineral')" 
+                        class="px-6 py-2 rounded-full border border-amber-200 text-gray-700 hover:border-amber-600 hover:text-amber-600 transition-all duration-300 font-medium">
+                    <i class="fas fa-oil-can mr-2"></i>Mineral
+                </button>
             </div>
-
-            <!-- ACEITES DE MOTOR -->
-            <div class="grid md:grid-cols-3 gap-8 mb-16">
-                <!-- LIGEROS -->
-                <div class="gazprom-card p-6 rounded-2xl">
-                    <div class="flex items-center gap-3 mb-6">
-                        <div class="w-12 h-12 bg-amber-600 rounded-full flex items-center justify-center shadow-lg shadow-amber-600/50">
-                            <i class="fas fa-car text-white text-xl"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white">ACEITES DE MOTOR</h3>
-                    </div>
-                    
-                    <div class="mb-8">
-                        <h4 class="text-xl font-semibold mb-4 text-amber-400">LIGEROS</h4>
-                        <ul class="space-y-3">
-                            <li class="flex items-center justify-between text-gray-300">
-                                <span>Gazpromneft Premium N5W-30</span>
-                            </li>
-                            <li class="flex items-center justify-between text-gray-300">
-                                <span>Gazpromneft Premium N10W-40</span>
-                            </li>
-                            <li class="flex items-center justify-between text-gray-300">
-                                <span>Gazpromneft Premium L20W-50</span>
-                            </li>
-                        </ul>
-                        <div class="mt-4 p-3 bg-amber-900/30 rounded-lg border border-amber-700/50">
-                            <p class="text-amber-200 text-sm"><strong>API:</strong> SN, SP</p>
-                        </div>
-                    </div>
-
-                    <!-- PESADOS -->
-                    <div>
-                        <h4 class="text-xl font-semibold mb-4 text-amber-400">PESADOS</h4>
-                        <ul class="space-y-3">
-                            <li class="flex items-center justify-between text-gray-300">
-                                <span>Gazpromneft Diesel Ultra 10W-40</span>
-                            </li>
-                            <div class="ml-4 p-2 bg-amber-900/30 rounded border border-amber-700/50">
-                                <p class="text-amber-200 text-sm"><strong>API:</strong> CI-4</p>
-                            </div>
-                            <li class="flex items-center justify-between text-gray-300">
-                                <span>Gazpromneft Diesel Sahara 20W-50</span>
-                            </li>
-                            <div class="ml-4 p-2 bg-amber-900/30 rounded border border-amber-700/50">
-                                <p class="text-amber-200 text-sm"><strong>API:</strong> CH-4</p>
-                            </div>
-                            <li class="flex items-center justify-between text-gray-300">
-                                <span>Gazpromneft HD-60</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- MOTOS Y EQUIPOS -->
-                <div class="gazprom-card p-6 rounded-2xl">
-                    <div class="flex items-center gap-3 mb-6">
-                        <div class="w-12 h-12 bg-amber-700 rounded-full flex items-center justify-center shadow-lg shadow-amber-700/50">
-                            <i class="fas fa-motorcycle text-white text-xl"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white">MOTOS Y EQUIPOS</h3>
-                    </div>
-                    
-                    <div>
-                        <h4 class="text-xl font-semibold mb-4 text-amber-400">
-                            MOTOS, EQUIPOS DE JARDIN Y PLANTAS ELECTRICAS
-                        </h4>
-                        <ul class="space-y-4">
-                            <li class="flex items-center justify-between text-gray-300">
-                                <span>Gazpromneft Moto 2T</span>
-                                <span class="px-3 py-1 bg-amber-500/20 text-amber-300 rounded-full text-sm border border-amber-500/50">
-                                    JASOFB
-                                </span>
-                            </li>
-                            <li class="flex items-center justify-between text-gray-300">
-                                <span>Gazpromneft 4T 10W-40</span>
-                                <span class="px-3 py-1 bg-amber-500/20 text-amber-300 rounded-full text-sm border border-amber-500/50">
-                                    JASOMB
-                                </span>
-                            </li>
-                            <li class="flex items-center justify-between text-gray-300">
-                                <span>Gazpromneft 4T 20W-50</span>
-                                <span class="px-3 py-1 bg-amber-500/20 text-amber-300 rounded-full text-sm border border-amber-500/50">
-                                    JASOMB
-                                </span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- ACEITES DE TRANSMISIÓN -->
-                <div class="gazprom-card p-6 rounded-2xl">
-                    <div class="flex items-center gap-3 mb-6">
-                        <div class="w-12 h-12 bg-yellow-600 rounded-full flex items-center justify-center shadow-lg shadow-yellow-600/50">
-                            <i class="fas fa-cogs text-white text-xl"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white">TRANSMISIÓN</h3>
-                    </div>
-                    
-                    <div class="mb-8">
-                        <h4 class="text-xl font-semibold mb-4 text-amber-400">MECÁNICAS</h4>
-                        <ul class="space-y-3">
-                            <li class="flex items-center justify-between text-gray-300">
-                                <span>Gazpromneft GL-4 / GL-5 75W-90</span>
-                            </li>
-                            <li class="flex items-center justify-between text-gray-300">
-                                <span>Gazpromneft GL-5 80W-90</span>
-                            </li>
-                            <li class="flex items-center justify-between text-gray-300">
-                                <span>Gazpromneft GL-5 / GL-5 85W-140</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div>
-                        <h4 class="text-xl font-semibold mb-4 text-amber-400">AUTOMÁTICAS</h4>
-                        <ul class="space-y-3">
-                            <li class="flex items-center justify-between text-gray-300">
-                                <span>Gazpromneft ATF DX-III Standard</span>
-                            </li>
-                            <li class="flex items-center justify-between text-gray-300">
-                                <span>Gazpromneft ATF DX-VI</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- FLUIDOS ESPECIALES -->
-            <div class="grid md:grid-cols-2 gap-8">
-                <!-- LÍQUIDO DE FRENOS -->
-                <div class="gazprom-card p-6 rounded-2xl">
-                    <div class="flex items-center gap-3 mb-6">
-                        <div class="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center shadow-lg shadow-red-600/50">
-                            <i class="fas fa-tachometer-alt text-white text-xl"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white">LÍQUIDO DE FRENOS</h3>
-                    </div>
-                    <div class="text-center">
-                        <div class="inline-block p-4 bg-red-500/20 rounded-xl border border-red-500/50">
-                            <p class="text-3xl font-bold text-white">G-ENERGY</p>
-                            <p class="text-xl text-red-200">DOT-4</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ANTICONGELANTE -->
-                <div class="gazprom-card p-6 rounded-2xl">
-                    <div class="flex items-center gap-3 mb-6">
-                        <div class="w-12 h-12 bg-cyan-500 rounded-full flex items-center justify-center shadow-lg shadow-cyan-500/50">
-                            <i class="fas fa-snowflake text-white text-xl"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white">ANTICONGELANTE</h3>
-                    </div>
-                    <div class="text-center">
-                        <div class="inline-block p-4 bg-cyan-500/20 rounded-xl border border-cyan-500/50">
-                            <p class="text-3xl font-bold text-white">SF12+40</p>
-                            <p class="text-lg text-cyan-200 mt-2">
-                                <i class="fas fa-shield-alt mr-2"></i>
-                                PROTECCIÓN TOTAL en el frío y el calor
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Compatibilidad -->
-            <div class="mt-12 bg-amber-900/20 p-6 rounded-2xl border border-amber-600/30">
-                <h4 class="text-xl font-semibold text-center mb-4 text-amber-300">
-                    <i class="fas fa-check-circle mr-2"></i>
-                    Compatibilidad Certificada
-                </h4>
-                <div class="flex flex-wrap justify-center gap-4 text-sm">
-                    <span class="bg-black/40 text-amber-200 px-4 py-2 rounded-full border border-amber-700/50">Allison C-4</span>
-                    <span class="bg-black/40 text-amber-200 px-4 py-2 rounded-full border border-amber-700/50">Caterpillar TO-2</span>
-                    <span class="bg-black/40 text-amber-200 px-4 py-2 rounded-full border border-amber-700/50">Ford MERCON</span>
-                    <span class="bg-black/40 text-amber-200 px-4 py-2 rounded-full border border-amber-700/50">General Motors DEXRON IIIG</span>
-                    <span class="bg-black/40 text-amber-200 px-4 py-2 rounded-full border border-amber-700/50">General Motors DEXRON IIIH</span>
-                </div>
-            </div>
-
-            <!-- Slogan -->
-            <div class="mt-16 text-center">
-                <h3 class="text-3xl font-bold mb-4 text-white">
-                    <i class="fas fa-handshake mr-3 text-amber-500"></i>
-                    Un aliado para toda la vida
-                </h3>
-                <p class="text-xl text-amber-400 font-light">
-                    ENGINE OIL <strong class="text-white font-bold">GAZPROMNEFT</strong>
-                </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="aceites-container">
+                <!-- Productos se cargarán aquí -->
             </div>
         </div>
     </section>
+
 
     <!-- Stats Section -->
     <section class="py-16 bg-gradient-to-b from-amber-50 to-white">
@@ -909,7 +737,7 @@
                             <i class="fas fa-check text-amber-500"></i>
                             Protección térmica superior
                         </li>
-                        <li class="fas fa-check text-amber-500"></i>
+                        <li><i class="fas fa-check text-amber-500"></i>
                             Mejor eficiencia de combustible
                         </li>
                     </ul>
@@ -930,7 +758,7 @@
                             <i class="fas fa-check text-amber-500"></i>
                             Ideal para uso mixto
                         </li>
-                        <li class="fas fa-check text-amber-500"></i>
+                        <li><i class="fas fa-check text-amber-500"></i>
                             Excelente relación calidad-precio
                         </li>
                     </ul>
@@ -951,7 +779,7 @@
                             <i class="fas fa-check text-amber-500"></i>
                             Precio accesible
                         </li>
-                        <li class="fas fa-check text-amber-500"></i>
+                        <li><i class="fas fa-check text-amber-500"></i>
                             Ideal para motores viejos
                         </li>
                     </ul>
@@ -960,43 +788,7 @@
         </div>
     </section>
 
-    <!-- Productos Section -->
-    <section id="productos" class="py-20 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="section-title text-4xl font-bold text-gray-900">
-                    Nuestros Productos
-                </h2>
-                <p class="text-gray-600 text-lg max-w-2xl mx-auto mt-4">
-                    Selección premium de aceites y lubricantes para cada necesidad
-                </p>
-            </div>
-            
-            <!-- Category Filters -->
-            <div class="flex flex-wrap gap-3 justify-center mb-12">
-                <button onclick="filterProducts('all')" 
-                        class="px-6 py-2 rounded-full border border-amber-600 text-amber-600 hover:bg-amber-600 hover:text-white transition-all duration-300 font-medium shadow-sm">
-                    Todos los Aceites
-                </button>
-                <button onclick="filterProducts('sintetico')" 
-                        class="px-6 py-2 rounded-full border border-amber-200 text-gray-700 hover:border-amber-600 hover:text-amber-600 transition-all duration-300 font-medium">
-                    <i class="fas fa-flask mr-2"></i>Sintético
-                </button>
-                <button onclick="filterProducts('semisintetico')" 
-                        class="px-6 py-2 rounded-full border border-amber-200 text-gray-700 hover:border-amber-600 hover:text-amber-600 transition-all duration-300 font-medium">
-                    <i class="fas fa-flask mr-2"></i>Semi-Sintético
-                </button>
-                <button onclick="filterProducts('mineral')" 
-                        class="px-6 py-2 rounded-full border border-amber-200 text-gray-700 hover:border-amber-600 hover:text-amber-600 transition-all duration-300 font-medium">
-                    <i class="fas fa-oil-can mr-2"></i>Mineral
-                </button>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="aceites-container">
-                <!-- Productos se cargarán aquí -->
-            </div>
-        </div>
-    </section>
+   
 
     <!-- Asesoramiento Section -->
     <section id="asesoramiento" class="py-20 bg-gradient-to-b from-amber-50 to-white">
@@ -1274,9 +1066,6 @@
                                placeholder="Número de contacto" 
                                required>
                     </div>
-                    
-                    <!-- NUEVO CAMPO EMPRESA -->
-                    
                     
                     <!-- CAMPO MARCA Y MODELO NO OBLIGATORIO -->
                     <div>
@@ -2669,9 +2458,9 @@
             menu.classList.toggle('hidden');
             
             if (menu.classList.contains('hidden')) {
-                icon.className = 'fas fa-bars text-xl text-gray-600';
+                icon.className = 'fas fa-bars text-xl text-amber-600';
             } else {
-                icon.className = 'fas fa-times text-xl text-gray-600';
+                icon.className = 'fas fa-times text-xl text-amber-600';
             }
         }
 
