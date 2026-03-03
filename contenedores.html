@@ -58,6 +58,15 @@
             }
         }
         
+        @keyframes pulse-glow {
+            0%, 100% {
+                box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4);
+            }
+            50% {
+                box-shadow: 0 0 0 10px rgba(37, 99, 235, 0);
+            }
+        }
+        
         .animate-slide-in {
             animation: slideIn 0.4s ease-out;
         }
@@ -211,7 +220,7 @@
         
         /* Estilos para la barra de navegación */
         .navbar {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(10px);
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
         }
@@ -504,6 +513,128 @@
         .desktop-nav-link:hover .nav-icon {
             color: white;
         }
+
+        /* NUEVOS ESTILOS: Logo profesional */
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.5rem;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .logo-container:hover {
+            background: rgba(37, 99, 235, 0.05);
+        }
+
+        .logo-icon-wrapper {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo-icon-wrapper::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            transform: rotate(45deg);
+            transition: all 0.5s;
+        }
+
+        .logo-container:hover .logo-icon-wrapper::before {
+            left: 100%;
+        }
+
+        .logo-text-wrapper {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-main-text {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #1e40af, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        .logo-sub-text {
+            font-size: 0.7rem;
+            color: #64748b;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .logo-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.125rem 0.5rem;
+            background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+            color: #1d4ed8;
+            font-size: 0.65rem;
+            font-weight: 700;
+            border-radius: 4px;
+            margin-left: 0.5rem;
+            border: 1px solid #93c5fd;
+        }
+
+        /* Animación del logo al cargar */
+        @keyframes logo-entrance {
+            0% {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo-container {
+            animation: logo-entrance 0.6s ease-out;
+        }
+
+        /* Efecto hover en el icono del logo */
+        .logo-icon-wrapper {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .logo-container:hover .logo-icon-wrapper {
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+        }
+
+        /* Responsive del logo */
+        @media (max-width: 640px) {
+            .logo-icon-wrapper {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .logo-main-text {
+                font-size: 1.25rem;
+            }
+            
+            .logo-sub-text {
+                font-size: 0.6rem;
+            }
+        }
     </style>
 <base target="_blank">
 </head>
@@ -512,17 +643,28 @@
     <header class="navbar sticky top-0 z-50">
         <div class="container mx-auto px-4">
             <div class="flex items-center justify-between h-20">
-                <!-- Logo -->
-                <div class="flex items-center gap-3">
-                    <img src="imagenes de Inicio/Logo2.jpg" alt="Logo CSR" 
-                         class="h-12 w-12 rounded-full object-cover border-2 border-blue-100 shadow-sm">
-                    <div>
-                        <h1 class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
-                            CSR s.r.l
-                        </h1>
-                        <p class="text-xs text-gray-500">Soluciones profesionales en contenedores</p>
+                <!-- Logo Profesional Mejorado -->
+                <a href="https://comercioonline.github.io/CSR/" class="logo-container group">
+                    <div class="logo-icon-wrapper">
+                        <!-- Icono SVG de contenedor profesional -->
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-white">
+                            <rect x="2" y="6" width="20" height="12" rx="2" stroke="currentColor" stroke-width="2" fill="rgba(255,255,255,0.1)"/>
+                            <path d="M6 6V18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M10 6V18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M14 6V18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M18 6V18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M2 10H22" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+                            <path d="M2 14H22" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+                        </svg>
                     </div>
-                </div>
+                    <div class="logo-text-wrapper">
+                        <div class="flex items-center">
+                            <span class="logo-main-text">CSR</span>
+                            <span class="logo-badge">s.r.l</span>
+                        </div>
+                        <span class="logo-sub-text">Soluciones Logísticas</span>
+                    </div>
+                </a>
                 
                 <!-- Desktop Navigation - AHORA MÁS GRANDE Y AZUL -->
                 <nav class="hidden lg:flex items-center gap-4">
@@ -1367,8 +1509,18 @@
                 <!-- Company Info -->
                 <div>
                     <div class="flex items-center gap-3 mb-6">
-                        <img src="imagenes de Inicio/Logo2.jpg" alt="CSR Logo" 
-                             class="h-12 w-12 rounded-full object-cover">
+                        <!-- Logo SVG en el footer -->
+                        <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-700 rounded-xl flex items-center justify-center shadow-lg">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-white">
+                                <rect x="2" y="6" width="20" height="12" rx="2" stroke="currentColor" stroke-width="2" fill="rgba(255,255,255,0.1)"/>
+                                <path d="M6 6V18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M10 6V18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M14 6V18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M18 6V18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M2 10H22" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+                                <path d="M2 14H22" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+                            </svg>
+                        </div>
                         <div>
                             <h3 class="text-xl font-bold">CSR s.r.l</h3>
                             <p class="text-gray-400 text-sm">Soluciones Profesionales en Contenedores</p>
@@ -2982,6 +3134,17 @@
             cart.forEach((item, index) => {
                 const itemTotal = item.price * item.quantity;
                 total += itemTotal;
+                
+                let categoryText = '';
+                switch(item.category) {
+                    case 'carga seca': categoryText = 'Carga Seca'; break;
+                    case 'alto': categoryText = 'High Cube'; break;
+                    case 'refrigerado':
+                    case 'refrigerados': categoryText = 'Refrigerado'; break;
+                    case 'especial': categoryText = 'Especial'; break;
+                    default: categoryText = 'Contenedor';
+                }
+                
                 cartSummaryHTML += `
                     <div class="flex justify-between items-center py-2 border-b border-gray-200">
                         <div>
