@@ -1591,205 +1591,249 @@
     <script>
         // Datos de productos (aceites y lubricantes)
         const aceites = [
-            { 
-                id: 1, 
-                name: "Gaspromneft Super Multi 15W 40 CI-4 205L", 
-                price: 980, 
-                category: "sintetico", 
-                image: "Imagenes de Aceites/Gaspromneft Super Multi 15W 40 CI-4 205L.jpg", 
-                stock: 20,
-                description: "Aceite sintético de última generación 5W-30 para motores modernos de gasolina y diesel. Ofrece máxima protección contra el desgaste, mejora el rendimiento del combustible y prolonga la vida útil del motor.",
-                specifications: [
-                    "Viscosidad: 5W-30",
-                    "Tipo: Sintético Completo", 
-                    "API: SN Plus / SP",
-                    "ACEA: A5/B5, C2",
-                    "Volumen: 205 litros"
-                ],
-                features: [
-                    "Protección avanzada contra el desgaste",
-                    "Mejora la eficiencia de combustible hasta 2%",
-                    "Excelente limpieza del motor",
-                    "Protección en temperaturas extremas (-30°C a +40°C)",
-                    "Compatibilidad con sistemas start-stop"
-                ],
-                compatibleModels: ["Toyota", "Honda", "Ford", "Chevrolet", "Motores modernos"],
-                applications: ["Motores de gasolina", "Motores diesel modernos", "Vehículos con turbo", "Sistemas start-stop"]
-            },
-            { 
-                id: 2, 
-                name: "Gazpromneft HD-60 5L", 
-                price: 20.50, 
-                category: "semisintetico", 
-                image: "Imagenes de Aceites/Gazpromneft HD-60 5L.jpg", 
-                stock: 159,
-                description: "Aceite semi-sintético 10W-40 de excelente relación calidad-precio. Proporciona protección confiable para motores de gasolina y diésel en condiciones normales de conducción.",
-                specifications: [
-                    "Viscosidad: 10W-40",
-                    "Tipo: Semi-Sintético",
-                    "API: SN",
-                    "ACEA: A3/B4",
-                    "Volumen: 5 litros"
-                ],
-                features: [
-                    "Protección equilibrada del motor",
-                    "Buena limpieza de depósitos",
-                    "Rendimiento confiable en todo tipo de clima",
-                    "Ideal para uso diario y mixto",
-                    "Reducción del consumo de aceite"
-                ],
-                compatibleModels: ["Lada", "Fiat", "Renault", "VW", "Motores convencionales"],
-                applications: ["Uso diario", "Condiciones normales", "Motores de alto kilometraje", "Climas templados"]
-            },
-            { 
-                id: 3, 
-                name: "Brake Fluid G- Energy Expert DOT 4 1L", 
-                price: 7.50, 
-                category: "mineral", 
-                image: "Imagenes de Aceites/Brake Fluid G- Energy Expert DOT 4 1L.png", 
-                stock: 600,
-                description: "Aceite mineral 15W-50 para motores más antiguos o de alto kilometraje. Proporciona lubricación efectiva y protección básica a un precio accesible.",
-                specifications: [
-                    "Viscosidad: 15W-50",
-                    "Tipo: Mineral",
-                    "API: SL",
-                    "Volumen: 1 litros",
-                    "Punto de inflamación: 220°C"
-                ],
-                features: [
-                    "Lubricación efectiva para motores viejos",
-                    "Precio muy accesible",
-                    "Protección básica confiable",
-                    "Reducción de fugas en motores gastados",
-                    "Ideal para mantenimiento regular"
-                ],
-                compatibleModels: ["Motores antiguos", "Vehículos de alto kilometraje", "Maquinaria agrícola", "Uso industrial"],
-                applications: ["Motores clásicos", "Vehículos de trabajo", "Alto kilometraje", "Climas cálidos"]
-            },
-            { 
-                id: 4, 
-                name: "Gazpromneft GL-4 80W 90 1 L Premium 1L", 
-                price: 5.15, 
-                category: "sintetico", 
-                image: "Imagenes de Aceites/Gazpromneft GL-4 80W 90 1 L Premium 1L.jpg", 
-                stock: 288,
-                description: "Aceite específico para motores diesel de trabajo pesado. Formulado para soportar altas cargas y temperaturas, ideal para camiones y vehículos comerciales.",
-                specifications: [
-                    "Viscosidad: 15W-40",
-                    "Tipo: Sintético Mejorado",
-                    "API: CK-4",
-                    "ACEA: E9",
-                    "Volumen: 1 litros"
-                ],
-                features: [
-                    "Protección superior contra el desgaste",
-                    "Control avanzado de hollín",
-                    "Estabilidad térmica excepcional",
-                    "Protección contra la corrosión",
-                    "Intervalos de cambio extendidos"
-                ],
-                compatibleModels: ["Camiones diesel", "Vehículos comerciales", "Maquinaria pesada", "Generadores"],
-                applications: ["Trabajo pesado", "Altas cargas", "Condiciones extremas", "Larga duración"]
-            },
-            { 
-                id: 5, 
-                name: "Gazpromneft Antifreezer SF12+40 1L", 
-                price: 5.60, 
-                category: "semisintetico", 
-                image: "Imagenes de Aceites/Gazpromneft Antifreezer SF12+40 1L.jpg", 
-                stock: 324,
-                description: "Aceite para transmisiones manuales y diferenciales de alto rendimiento. Proporciona protección superior para engranajes bajo condiciones de carga extrema.",
-                specifications: [
-                    "Viscosidad: 75W-90",
-                    "Tipo: Semi-Sintético GL-5",
-                    "API: GL-5",
-                    "Volumen: 1 litro",
-                    "Contiene aditivos EP"
-                ],
-                features: [
-                    "Protección extrema presión (EP)",
-                    "Reducción del ruido en engranajes",
-                    "Estabilidad a altas temperaturas",
-                    "Protección contra la oxidación",
-                    "Compatibilidad con metales amarillos"
-                ],
-                compatibleModels: ["Transmisiones manuales", "Diferenciales", "Cajas de transferencia", "Engranajes hipoides"],
-                applications: ["Transmisiones manuales", "Diferenciales", "Uso off-road", "Alto rendimiento"]
-            },
-            { 
+           { 
+    id: 1, 
+    name: "Gaspromneft Super Multi 15W 40 CI-4 205L", 
+    price: 980, 
+    category: "mineral", 
+    image: "Imagenes de Aceites/Gaspromneft Super Multi 15W 40 CI-4 205L.jpg", 
+    stock: 20,
+    description: "Aceite mineral de alto rendimiento para motores diesel de 4 tiempos. Formulado con tecnología aditivada que proporciona una excelente protección contra el desgaste, control de depósitos y estabilidad a la oxidación, ideal para flotas de transporte y maquinaria pesada que opera en condiciones severas.",
+    specifications: [
+        "Viscosidad: 15W-40",
+        "Tipo: Mineral", 
+        "API: CI-4 / CH-4",
+        "ACEA: E7",
+        "Volumen: 205 litros"
+    ],
+    features: [
+        "Alta estabilidad a la oxidación y cizallamiento",
+        "Control superior de depósitos de alta temperatura",
+        "Protección excepcional contra el desgaste del motor",
+        "Compatibilidad con sistemas de postratamiento EGR",
+        "Mantiene la viscosidad en condiciones extremas de trabajo"
+    ],
+    compatibleModels: ["Volvo", "Scania", "MAN", "Mercedes-Benz", "Cummins", "Caterpillar"],
+    applications: ["Motores diesel turboalimentados", "Vehículos de carga pesada", "Maquinaria agrícola y de construcción", "Flotas de transporte comercial"]
+},
+            {
+    id: 2,
+    name: "Gazpromneft HD-60 5L",
+    price: 20.50,
+    category: "mineral", 
+    image: "Imagenes de Aceites/Gazpromneft HD-60 5L.jpg",
+    stock: 159,
+    description: "Aceite mineral monogrado de alta calidad, diseñado específicamente para motores diésel de gran cilindrada, maquinaria agrícola, industrial y comercial que opere en condiciones de alta temperatura. Su fórmula avanzada proporciona una excelente protección contra el desgaste, la corrosión y la formación de depósitos [citation:2].",
+    specifications: [
+        "Viscosidad: SAE 60",
+        "Tipo: Mineral",
+        "API: CC",
+        "Volumen: 5 litros",
+        "Temperatura de inflamación: 263°C",
+        "Temperatura de fluidez: -13°C",
+        "Índice de viscosidad: 95"
+    ],
+    features: [
+        "Alta estabilidad térmica para trabajar en climas cálidos",
+        "Excelente poder detergente y dispersante para mantener el motor limpio",
+        "Fuerte película lubricante que reduce el desgaste en condiciones de alta exigencia",
+        "Protección superior contra la corrosión de las partes metálicas",
+        "Alcalinidad (TBN 7.4) para neutralizar ácidos en combustibles diésel"
+    ],
+    compatibleModels: [
+        "Motores diésel comerciales",
+        "Tractores y maquinaria agrícola",
+        "Generadores diésel estacionarios",
+        "Vehículos de construcción"
+    ],
+    applications: [
+        "Motores que especifiquen lubricantes monogrado API CC",
+        "Operación en climas tropicales y cálidos",
+        "Uso en verano en regiones templadas",
+        "Maquinaria industrial y pesada"
+    ]
+},
+            {
+id: 3,
+name: "Brake Fluid G-Energy Expert DOT 4 1L",
+price: 7.50,
+category: "mineral",
+image: "Imagenes de Aceites/Brake Fluid G-Energy Expert DOT 4 1L.png",
+stock: 600,
+description: "Líquido de frenos de alto rendimiento para sistemas de frenos hidráulicos y embrague convencionales. Formulado con una combinación compleja de poliglicoles, éteres de poliglicol y ésteres boratos de éter de glicol, mezclados con inhibidores diseñados para prevenir la corrosión, oxidación y controlar las características de hinchamiento de los sellos.",
+specifications: [
+"Especificaciones: FMVSS 116 DOT 3, DOT 4; ISO 4925; SAE J1703; SAE J1704",
+"Temperatura de operación: -50°C a +50°C",
+"Volumen: 1 litro",
+"Punto de ebullición máximo: 260°C",
+"Aprobaciones: AVTOVAZ, KAMAZ, GAZ, PAZ, UAZ"
+],
+features: [
+"Alto punto de ebullición que promueve menor formación de vapor y mayor rendimiento de frenado que DOT 3",
+"Tecnología avanzada de inhibidores que protege contra la corrosión en componentes de hierro fundido, acero, aluminio, latón, cobre, zinc y estaño",
+"Hinchamiento mínimo de componentes de goma que reduce las fugas al mínimo",
+"Estabilidad térmica y a la oxidación que previene la degradación del fluido",
+"Compatible con otras marcas de fluidos DOT 4/DOT 3"
+],
+compatibleModels: ["Sistemas de frenos de disco, tambor y antibloqueo", "Vehículos de pasajeros", "Transporte comercial por carretera", "Vehículos todoterreno", "Tractores agrícolas", "Motocicletas"],
+applications: ["Sistemas que requieren rendimiento DOT 3 o DOT 4", "Vehículos modernos y antiguos", "Maquinaria pesada", "Uso en climas extremos (-50°C a +50°C)"]
+},
+            {
+    id: 4,
+    name: "Gazpromneft GL-4 80W 90 1 L Premium 1L",
+    price: 5.15,
+    category: "mineral",
+    image: "Imagenes de Aceites/Gazpromneft GL-4 80W 90 1 L Premium 1L.jpg",
+    stock: 288,
+    description: "Aceite de transmisión desarrollado para su uso en sistemas que requieren lubricantes con especificación GL-4. Formulado con una base mineral y un paquete de aditivos que garantizan una excelente protección de los engranajes y sincronizadores contra el desgaste, la corrosión y la formación de espuma, incluso en condiciones de operación severas y con variaciones de temperatura. Es apto para cajas de cambios manuales de turismos, vehículos comerciales y todoterreno.",
+    specifications: [
+        "Viscosidad: 80W-90",
+        "Tipo: Mineral [citation:3][citation:4][citation:7]",
+        "API: GL-4 [citation:2][citation:5]",
+        "ACEA: Información no disponible en los resultados de búsqueda",
+        "Volumen: 1 litro [citation:1][citation:3]"
+    ],
+    features: [
+        "Protección superior de engranajes y sincronizadores contra el desgaste y la corrosión [citation:2][citation:10].",
+        "Alta estabilidad térmica y antioxidante que prolonga la vida útil del lubricante [citation:8][citation:10].",
+        "Facilita el cambio de marchas suave, especialmente en climas fríos, gracias a su buen comportamiento a bajas temperaturas [citation:5][citation:8][citation:10].",
+        "Compatibilidad con los materiales de sellado utilizados en las transmisiones modernas [citation:8][citation:10].",
+        "Previene la formación de espuma y depositos dañinos en los componentes internos de la caja de cambios [citation:5][citation:10]."
+    ],
+    compatibleModels: [
+        "Vehículos con manuales de transmisión que requieran lubricantes API GL-4",
+        "Cajas de cambios manuales de turismos y vehículos comerciales [citation:2][citation:5]",
+        "Vehículos todoterreno y SUVs [citation:2][citation:5]",
+        "Algunos modelos de las marcas del grupo Stellantis (anteriormente GM, Opel, etc.), Volkswagen, Ford, y fabricantes asiáticos que especifiquen GL-4 [citation:2][citation:5][citation:8]"
+    ],
+    applications: [
+        "Lubricación de cajas de cambios manuales (MCPP) [citation:3][citation:5]",
+        "Cajas de transferencia (transfer cases) en vehículos 4x4 [citation:4][citation:9]",
+        "Adecuado para su uso en ejes y transmisiones que requieran un lubricante con especificación GL-4 (evitar su uso en diferenciales con hipoide que requieran GL-5) [citation:5]",
+        "Sistemas de transmisión de vehículos de pasajeros y vehículos comerciales ligeros [citation:2][citation:5]"
+    ]
+},
+            {
+    id: 5,
+    name: "Gazpromneft Antifreezer SF12+40 1L",
+    price: 5.60,
+    category: "refrigerante",
+    image: "Imagenes de Aceites/Gazpromneft Antifreezer SF12+40 1L.jpg",
+    stock: 324,
+    description: "Anticongelante orgánico de última generación (tecnología OAT) listo para usar. Formulado con etilenglicol y un paquete de aditivos libres de silicatos y fosfatos, proporciona una protección superior contra la corrosión, la cavitación y la formación de depósitos para una larga vida útil del motor. Comúnmente clasificado como G12+.",
+    specifications: [
+        "Tecnología: Carboxilada (OAT - G12+)",
+        "Composición base: Etilenglicol",
+        "Color: Rojo [citation:2]",
+        "Volumen: 1 litro",
+        "Temperatura de cristalización (50% diluido): -37 °C [citation:2]",
+        "Temperatura de ebullición (50% diluido): +108 °C [citation:2]",
+        "Densidad a 20°C: 1.114 g/cm³ [citation:2]",
+        "pH (50% diluido): 8.5 [citation:2]"
+    ],
+    features: [
+        "Protección de alta duración (hasta 5 años o 250,000 km) [citation:3]",
+        "Tecnología libre de silicatos, fosfatos, aminas y nitritos [citation:1][citation:2]",
+        "Previene eficazmente la corrosión en metales (aluminio, cobre, acero) [citation:1][citation:2]",
+        "Excelente protección contra la cavitación y la formación de depósitos [citation:2][citation:3]",
+        "Estabilidad térmica superior en un amplio rango de temperaturas [citation:1][citation:3]",
+        "Compatible con juntas y mangueras (no las deteriora) [citation:3]"
+    ],
+    compatibleModels: ["Motores de gasolina y diésel", "Motores con culata de aluminio", "Sistemas de refrigeración con radiadores de cobre o aluminio", "Vehículos que requieran especificación VW TL 774-F (G12+)"],
+    applications: ["Sistemas de refrigeración de autos ligeros", "Motores de combustión interna (gasolina y diésel)", "Vehículos comerciales", "Maquinaria agrícola e industrial", "Uso en regiones con climas extremos (frío/calor)"]
+},
+                        { 
                 id: 6, 
                 name: "Gazpromneft Grease L Moly EP 2 CL 400ml", 
                 price: 8.20, 
                 category: "sintetico", 
                 image: "Imagenes de Aceites/Gazpromneft Grease L Moly EP 2 CL 400ml.jpeg", 
                 stock: 477,
-                description: "Aceite sintético 0W-20 de última generación para los motores más modernos y eficientes. Diseñado para maximizar el ahorro de combustible y la protección del motor.",
+                description: "Grasa lubricante multiusos de alta calidad, formulada con una base de aceites minerales de alta viscosidad y espesante de jabón de litio. Enriquecida con aditivos de presión extrema (EP) y disulfuro de molibdeno para una protección superior contra el desgaste, la corrosión y cargas de impacto en condiciones de operación severas [citation:2][citation:4].",
                 specifications: [
-                    "Viscosidad: 0W-20",
-                    "Tipo: Full Synthetic",
-                    "API: SP",
-                    "ACEA: C5",
-                    "Volumen: 400ml"
-                ],
+                    "Tipo de base: Mineral [citation:2]",
+                    "Viscosidad del aceite base (a 40°C): 150 mm²/s [citation:2]",
+                    "Clasificación NLGI: 2 [citation:1][citation:2]",
+                    "Especificación: DIN 51502 KPF 2 K-30 [citation:2][citation:4]",
+                    "Temperatura de aplicación: -30°C a +120°C (pico hasta +150°C) [citation:1][citation:3][citation:5]",
+                    "Punto de goteo: >190°C [citation:1][citation:2]",
+                    "Color: Gris oscuro [citation:1][citation:2]",
+                    "Volumen: 400ml [citation:5]"
+        ],
                 features: [
-                    "Máxima eficiencia de combustible",
-                    "Protección contra LSPI",
-                    "Compatibilidad con sistemas híbridos",
-                    "Baja viscosidad para menor fricción",
-                    "Protección de catalizadores"
+                    "Soporta cargas extremas y golpes gracias a los aditivos EP y al disulfuro de molibdeno [citation:1][citation:2]",
+                    "Excelente protección contra el desgaste, la fricción y el gripado [citation:2][citation:3]",
+                    "Alta resistencia al agua, previene la corrosión y el óxido [citation:1][citation:3]",
+                    "Amplio rango de temperaturas de trabajo, de -30°C a +120°C [citation:1][citation:5]",
+                    "Buena bombeabilidad a bajas temperaturas [citation:1][citation:3]"
                 ],
-                compatibleModels: ["Toyota Hybrid", "Honda Earth Dreams", "Ford EcoBoost", "Motores modernos de bajo consumo"],
-                applications: ["Vehículos híbridos", "Motores de alta eficiencia", "Sistemas turbo modernos", "Máximo ahorro de combustible"]
+                compatibleModels: ["Vehículos de pasajeros", "Camiones", "Tractores", "Excavadoras", "Bulldozers", "Cargadoras", "Maquinaria de construcción y minería", "Equipos industriales como trituradoras y cribas vibratorias [citation:1][citation:4]"],
+                applications: ["Lubricación de chasis y rodamientos en maquinaria pesada", "Articulaciones y pasadores sometidos a alta carga", "Sistemas de suspensión y dirección", "Equipos de construcción, minería y agricultura [citation:1][citation:3]"]
             },
-            { 
+            {
                 id: 7, 
                 name: "Gazpromneft Grease L Moly EP 2 18L", 
                 price: 160, 
-                category: "sintetico", 
+                category: "grasa", 
                 image: "Imagenes de Aceites/Gazpromneft Grease L Moly EP 2 18L.png", 
                 stock: 10,
-                description: "Aceite sintético 0W-20 de última generación para los motores más modernos y eficientes. Diseñado para maximizar el ahorro de combustible y la protección del motor.",
+                description: "Gazpromneft Grease L Moly EP 2 es una grasa lubricante multifuncional de alta calidad, formulada con jabón de litio y aditivos extremadamente presion (EP) [citation:1][citation:4]. Contiene disulfuro de molibdeno (Moly), un sólido lubricante que proporciona una protección excepcional contra el desgaste y el agarrotamiento, incluso en condiciones de extrema presión y en entornos contaminados [citation:2][citation:4]. Ideal para la lubricación de maquinaria industrial y vehículos que operan en las condiciones más exigentes.",
                 specifications: [
-                    "Viscosidad: 0W-20",
-                    "Tipo: Full Synthetic",
-                    "API: SP",
-                    "ACEA: C5",
-                    "Volumen: 18 litros"
+                    "Tipo de grasa: Multifuncional con jabón de litio [citation:1][citation:3]",
+                    "Clasificación NLGI: 2 [citation:1][citation:2][citation:3]",
+                    "Especificación DIN: 51502 KPF 2 K -30 [citation:1][citation:3][citation:6]",
+                    "Aditivos: Extreme Pressure (EP) y disulfuro de molibdeno (Moly) [citation:1][citation:2]",
+                    "Volumen: 18 litros / 18 kg [citation:1][citation:4][citation:5]"
                 ],
                 features: [
-                    "Máxima eficiencia de combustible",
-                    "Protección contra LSPI",
-                    "Compatibilidad con sistemas híbridos",
-                    "Baja viscosidad para menor fricción",
-                    "Protección de catalizadores"
+                    "Soporta cargas extremas y impactos pesados gracias a los aditivos EP y al disulfuro de molibdeno [citation:2][citation:4]",
+                    "Amplio rango de temperaturas de trabajo: de -30°C a +120°C (picos de hasta +150°C) [citation:2][citation:4][citation:6]",
+                    "Excelente resistencia al agua, protegiendo contra la corrosión y el óxido [citation:2][citation:4][citation:6]",
+                    "Buena bombeabilidad a bajas temperaturas [citation:2]",
+                    "Alta resistencia a la oxidación, prolongando la vida útil de los componentes [citation:3][citation:5]"
                 ],
-                compatibleModels: ["Toyota Hybrid", "Honda Earth Dreams", "Ford EcoBoost", "Motores modernos de bajo consumo"],
-                applications: ["Vehículos híbridos", "Motores de alta eficiencia", "Sistemas turbo modernos", "Máximo ahorro de combustible"]
+                compatibleModels: ["Sistemas de lubricación centralizados", "Rodamientos y cojinetes", "Chasis y pasadores", "Articulaciones y juntas", "Guias y deslizamientos"],
+                applications: ["Maquinaria de construcción (excavadoras, bulldozers, cargadoras) [citation:1][citation:2]", "Equipos mineros [citation:3]", "Maquinaria agrícola (tractores) [citation:1][citation:2]", "Vehículos pesados (camiones) [citation:3]", "Equipos industriales (trituradoras, cribas vibratorias) [citation:1][citation:2]"]
             },
-            { 
-                id: 8, 
-                name: "Gazpromneft Moto 2T 1L", 
-                price: 10, 
-                category: "sintetico", 
-                image: "Imagenes de Aceites/Gazpromneft Moto 2T 1L.jpg", 
-                stock: 50,
-                description: "Aceite sintético de alto rendimiento para motos de dos tiempos. Proporciona una lubricación excepcional y reduce la emisión de humos.",
-                specifications: [
-                    "Viscosidad: Especial 2T",
-                    "Tipo: Sintético",
-                    "API: TC",
-                    "JASO: FB",
-                    "Volumen: 1 litro"
-                ],
-                features: [
-                    "Alta protección contra el desgaste",
-                    "Minimización de humos",
-                    "Limpieza deescape",
-                    "Mezcla estable con combustible"
-                ],
-                compatibleModels: ["Motos 2T", "Scooters", "Motos de cross", "Vehículos recreativos"],
-                applications: ["Alto rendimiento", "Competición", "Uso diario"]
-            }
+            {
+    id: 8,
+    name: "Gazpromneft Moto 2T 1L",
+    price: 10,
+    category: "mineral",
+    image: "Imagenes de Aceites/Gazpromneft Moto 2T 1L.jpg",
+    stock: 50,
+    description: "Aceite mineral de alta calidad para motores de dos tiempos. Formulado con aditivos de baja ceniza para proteger contra el desgaste, reducir los depósitos en la cámara de combustión y minimizar el humo en el escape. Ideal para una amplia gama de vehículos de motor y maquinaria de jardinería.",
+    specifications: [
+        "Viscosidad: SAE 30 (equivalente 2T) [citation:1]",
+        "Tipo: Mineral [citation:2][citation:5][citation:8]",
+        "API: Desconocida (equivalente a TC)",
+        "JASO: FB [citation:2][citation:3][citation:4]",
+        "ISO: L-EGB [citation:2][citation:3][citation:7]",
+        "Volumen: 1 litro"
+    ],
+    features: [
+        "Protege contra el desgaste y evita el gripado del pistón [citation:1][citation:4]",
+        "Minimiza la formación de depósitos y mantiene la limpieza del motor [citation:1][citation:7]",
+        "Alta solubilidad y mezcla estable con el combustible [citation:1][citation:5]",
+        "Reduce la emisión de humos (baja humareda) [citation:5][citation:7]"
+    ],
+    compatibleModels: [
+        "Motos",
+        "Scooters / Mopeds [citation:5][citation:6]",
+        "Motos de cross / enduro",
+        "Ciclomotores",
+        "Motonieves [citation:4][citation:5]",
+        "Vehículos recreativos"
+    ],
+    applications: [
+        "Motores 2T de gasolina con refrigeración por aire [citation:3][citation:4]",
+        "Vehículos de motor (transporte) [citation:5][citation:6]",
+        "Maquinaria de jardinería (cortacéspedes, cultivadores) [citation:2][citation:4]",
+        "Herramientas motorizadas (motosierras, desbrozadoras) [citation:4][citation:5]",
+        "Motores fuera borda [citation:4][citation:8]",
+        "Motobloques [citation:4][citation:10]"
+    ]
+}
         ];
 
         // Variables globales
