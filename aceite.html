@@ -12,10 +12,10 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="CSR s.r.l - Aceites y Lubricantes Automotrices">
     <meta property="og:description" content="Aceites y lubricantes de alta calidad para el cuidado y mantenimiento de tu motor">
-    <meta property="og:image" content="imagenes de Inicio/Logo2.jpg">
+    <meta property="og:image" content="https://z-cdn-media.chatglm.cn/files/99351cb1-7686-4e4f-b7cc-f7d853766756.jpeg?auth_key=1872911882-b8fa5b42fc55412baa9ee2e839567271-0-e724c68f4659faf69047cdb492914ccf">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="imagenes de Inicio/Logo2.jpg">
+    <link rel="icon" type="image/x-icon" href="https://z-cdn-media.chatglm.cn/files/99351cb1-7686-4e4f-b7cc-f7d853766756.jpeg?auth_key=1872911882-b8fa5b42fc55412baa9ee2e839567271-0-e724c68f4659faf69047cdb492914ccf">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -351,12 +351,32 @@
             background: linear-gradient(to bottom, #b45309, #78350f);
         }
         
-        /* Estilos para el hero section - ORO NEGRO */
+        /* Estilos para el hero section - ORO NEGRO ACTUALIZADO CON FONDO DE LOGO */
         .hero-section {
-            /* Gradido de Negro a Ámbar oscuro */
-            background: linear-gradient(135deg, #111827 0%, #374151 50%, #b45309 100%);
+            /* Color de fondo base por si la imagen tarda en cargar */
+            background-color: #111827;
+            /* Imagen del Logo en el fondo + Gradiente original del tema */
+            background-image: url('https://z-cdn-media.chatglm.cn/files/99351cb1-7686-4e4f-b7cc-f7d853766756.jpeg?auth_key=1872911882-b8fa5b42fc55412baa9ee2e839567271-0-e724c68f4659faf69047cdb492914ccf'),
+                              linear-gradient(135deg, #111827 0%, #374151 50%, #b45309 100%);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain; /* Muestra el logo completo */
             position: relative;
             overflow: hidden;
+        }
+        
+        /* Superposición (Overlay) para asegurar legibilidad del texto sobre el logo */
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            /* Gradiente negro oscuro para oscurecer el logo y resaltar el texto (Tema ORO NEGRO) */
+            background: linear-gradient(135deg, rgba(17, 24, 39, 0.9), rgba(17, 24, 39, 0.85));
+            z-index: 2; /* Por encima del fondo, por debajo del texto */
+            pointer-events: none;
         }
         
         .hero-section::before {
@@ -370,6 +390,7 @@
             background-size: cover;
             background-position: center;
             opacity: 0.4;
+            z-index: 3; /* Decoración sutil encima del oscurecimiento */
         }
         
         /* Estilos para tipos de aceite */
@@ -519,24 +540,142 @@
         .desktop-nav-link:hover .nav-icon {
             color: white;
         }
+
+        /* NUEVOS ESTILOS: Logo profesional ACTUALIZADO (Adaptado a tema ORO) */
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.5rem;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .logo-container:hover {
+            background: rgba(217, 119, 6, 0.05);
+        }
+
+        .logo-icon-wrapper {
+            /* Aumentado el tamaño significativamente */
+            width: 100px; 
+            height: 100px;
+            background: transparent;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        .logo-text-wrapper {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-main-text {
+            font-size: 1.5rem;
+            font-weight: 800;
+            /* Adaptado para tema ORO/NEGRO */
+            background: linear-gradient(135deg, #b45309, #fbbf24);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        .logo-sub-text {
+            font-size: 0.7rem;
+            color: #64748b;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .logo-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.125rem 0.5rem;
+            background: linear-gradient(135deg, #fde68a, #fcd34d);
+            color: #78350f;
+            font-size: 0.65rem;
+            font-weight: 700;
+            border-radius: 4px;
+            margin-left: 0.5rem;
+            border: 1px solid #fbbf24;
+        }
+
+        /* Animación del logo al cargar */
+        @keyframes logo-entrance {
+            0% {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo-container {
+            animation: logo-entrance 0.6s ease-out;
+        }
+
+        /* Efecto hover en el icono del logo */
+        .logo-icon-wrapper {
+            transition: transform 0.3s ease;
+        }
+
+        .logo-container:hover .logo-icon-wrapper {
+            transform: scale(1.05);
+        }
+
+        /* Responsive del logo */
+        @media (max-width: 640px) {
+            .logo-icon-wrapper {
+                width: 70px;
+                height: 70px;
+            }
+            
+            .logo-main-text {
+                font-size: 1.25rem;
+            }
+            
+            .logo-sub-text {
+                font-size: 0.6rem;
+            }
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
     <!-- Header -->
     <header class="navbar sticky top-0 z-50">
         <div class="container mx-auto px-4">
-            <div class="flex items-center justify-between h-20">
-                <!-- Logo -->
-                <div class="flex items-center gap-3">
-                    <img src="imagenes de Inicio/Logo2.jpg" alt="Logo CSR" 
-                         class="h-12 w-12 rounded-full object-cover border-2 border-amber-100 shadow-sm">
-                    <div>
-                        <h1 class="text-2xl font-bold bg-gradient-to-r from-amber-700 to-yellow-600 bg-clip-text text-transparent">
-                            CSR s.r.l
-                        </h1>
-                        <p class="text-xs text-gray-500">Especialistas en aceites y lubricantes</p>
+            <div class="flex items-center justify-between h-24 md:h-28">
+                <!-- Logo Profesional Mejorado (Sustituido) -->
+                <a href="https://comercioonline.github.io/CSR/aceite" class="logo-container group">
+                    <div class="logo-icon-wrapper">
+                        <!-- IMAGEN DEL LOGO INSERTADA AQUÍ -->
+                        <img src="https://z-cdn-media.chatglm.cn/files/99351cb1-7686-4e4f-b7cc-f7d853766756.jpeg?auth_key=1872911882-b8fa5b42fc55412baa9ee2e839567271-0-e724c68f4659faf69047cdb492914ccf" 
+                             alt="Logo CSR s.r.l" 
+                             class="logo-img">
                     </div>
-                </div>
+                    <div class="logo-text-wrapper">
+                        <div class="flex items-center">
+                            <span class="logo-main-text">CSR</span>
+                            <span class="logo-badge">s.r.l</span>
+                        </div>
+                        <span class="logo-sub-text">Aceites y Lubricantes</span>
+                    </div>
+                </a>
                 
                 <!-- Desktop Navigation - ORO NEGRO -->
                 <nav class="hidden lg:flex items-center gap-4">
@@ -560,11 +699,6 @@
                         <i class="fas fa-box nav-icon"></i>
                         <span>Contenedores</span>
                     </a>
-                    <a href="https://comercioonline.github.io/CSR/informacion" 
-                       class="desktop-nav-link text-amber-600 font-semibold flex items-center gap-2 group">
-                        <i class="fas fa-info-circle nav-icon"></i>
-                        <span>Información</span>
-                    </a>
                     <a href="https://comercioonline.github.io/CSR/nosotros" 
                        class="desktop-nav-link text-amber-600 font-semibold flex items-center gap-2 group">
                         <i class="fas fa-users nav-icon"></i>
@@ -587,7 +721,7 @@
                 </div>
             </div>
             
-            <!-- Mobile Menu - AHORA CON ESTILO ORO NEGRO -->
+            <!-- Mobile Menu - CON ESTILO ORO NEGRO -->
             <div id="mobile-menu" class="hidden lg:hidden py-6 border-t mt-4 animate-slide-up bg-gradient-to-b from-gray-900 to-gray-800 rounded-xl border border-amber-800">
                 <div class="flex flex-col gap-4 px-4">
                     <a href="https://comercioonline.github.io/CSR/" 
@@ -609,11 +743,6 @@
                        class="mobile-menu-item text-amber-400 font-bold flex items-center gap-4">
                         <i class="fas fa-box"></i>
                         <span>Contenedores</span>
-                    </a>
-                    <a href="https://comercioonline.github.io/CSR/informacion" 
-                       class="mobile-menu-item text-amber-400 font-bold flex items-center gap-4">
-                        <i class="fas fa-info-circle"></i>
-                        <span>Información</span>
                     </a>
                     <a href="https://comercioonline.github.io/CSR/nosotros" 
                        class="mobile-menu-item text-amber-400 font-bold flex items-center gap-4">
@@ -1123,8 +1252,12 @@
                 <!-- Company Info -->
                 <div>
                     <div class="flex items-center gap-3 mb-6">
-                        <img src="imagenes de Inicio/Logo2.jpg" alt="CSR Logo" 
-                             class="h-12 w-12 rounded-full object-cover border-2 border-amber-600">
+                         <!-- Logo Imagen en el footer -->
+                         <div class="w-16 h-16 bg-transparent flex items-center justify-center">
+                            <img src="https://z-cdn-media.chatglm.cn/files/99351cb1-7686-4e4f-b7cc-f7d853766756.jpeg?auth_key=1872911882-b8fa5b42fc55412baa9ee2e839567271-0-e724c68f4659faf69047cdb492914ccf" 
+                                 alt="Logo CSR" 
+                                 class="w-full h-full object-contain">
+                        </div>
                         <div>
                             <h3 class="text-xl font-bold">CSR s.r.l</h3>
                             <p class="text-gray-400 text-sm">Aceites y Lubricantes Especializados</p>
