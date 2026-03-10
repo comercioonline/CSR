@@ -3,10 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSR s.r.l. - Soluciones Integrales en Refrigeración</title>
+    <title>CSR s.r.l. - Soluciones Integrales en Refrigeración y Automotriz</title>
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary-color: #1a2980;
@@ -19,124 +24,215 @@
             --text-light: #6b7280;
             --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             --transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            --glass-bg: rgba(255, 255, 255, 0.85);
+            --glass-border: rgba(255, 255, 255, 0.3);
         }
-        
+
         body {
             font-family: 'Open Sans', sans-serif;
             color: var(--text-dark);
             line-height: 1.7;
-            padding-top: 80px;
+            /* Ajustado para que el nuevo navbar no tape contenido */
+            padding-top: 90px; 
             overflow-x: hidden;
             background-color: #ffffff;
         }
-        
+
         h1, h2, h3, h4, h5, .navbar-brand {
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
         }
-        
-        /* Animaciones personalizadas */
-        @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(180deg); }
-        }
-        
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-        
-        @keyframes slideInLeft {
-            from { transform: translateX(-100px); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
-        
-        @keyframes slideInRight {
-            from { transform: translateX(100px); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
-        
-        @keyframes fadeInUp {
-            from { transform: translateY(50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-        
-        /* Header mejorado */
+
+        /* -----------------------------------------------------------
+           NAVBAR MODERNO (NUEVO DISEÑO)
+        ----------------------------------------------------------- */
         .navbar {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
             padding: 15px 0;
             transition: var(--transition);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.5);
         }
-        
+
+        /* Estado al hacer scroll */
         .navbar.scrolled {
             padding: 10px 0;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
         }
-        
+
         .navbar-brand {
             color: var(--primary-color) !important;
-            font-size: 1.8rem;
+            font-size: 1.6rem;
+            font-weight: 800;
             display: flex;
             align-items: center;
-            position: relative;
-        }
-        
-        .navbar-brand img {
-            height: 60px;
-            margin-right: 15px;
-            filter: drop-shadow(0 3px 5px rgba(26, 41, 128, 0.2));
+            letter-spacing: -0.5px;
             transition: var(--transition);
         }
-        
-        .navbar-brand:hover img {
-            transform: rotate(5deg) scale(1.05);
+
+        .navbar-brand:hover {
+            transform: scale(1.02);
         }
-        
-        .navbar-nav .nav-link {
+
+        .navbar-brand img {
+            height: 55px; /* Ligeramente más grande y definido */
+            margin-right: 12px;
+            filter: drop-shadow(0 4px 6px rgba(26, 41, 128, 0.15));
+            object-fit: contain;
+        }
+
+        /* Estilos de los enlaces */
+        .navbar-nav {
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-link {
             color: var(--dark-color) !important;
-            font-weight: 500;
+            font-weight: 600;
+            font-size: 0.95rem;
             margin: 0 5px;
-            padding: 8px 15px !important;
-            border-radius: 25px;
+            padding: 10px 18px !important;
+            border-radius: 50px; /* Bordes completamente redondeados */
             transition: var(--transition);
             position: relative;
             overflow: hidden;
+            font-family: 'Inter', sans-serif;
         }
-        
-        .navbar-nav .nav-link::after {
+
+        /* Línea animada inferior */
+        .nav-link::after {
             content: '';
             position: absolute;
-            bottom: 0;
+            bottom: 5px;
             left: 50%;
             width: 0;
             height: 2px;
             background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
             transition: var(--transition);
             transform: translateX(-50%);
+            opacity: 0.8;
         }
-        
-        .navbar-nav .nav-link:hover::after,
-        .navbar-nav .nav-link.active::after {
-            width: 80%;
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 60%;
         }
-        
-        .navbar-nav .nav-link:hover,
-        .navbar-nav .nav-link.active {
+
+        .nav-link:hover,
+        .nav-link.active {
             color: var(--primary-color) !important;
-            background: rgba(26, 41, 128, 0.05);
+            background: rgba(26, 41, 128, 0.04);
         }
-        
+
+        /* Botón de Contacto en el Navbar (CTA) */
+        .btn-nav-cta {
+            background: linear-gradient(135deg, var(--primary-color), #2a3f9e);
+            color: white !important;
+            padding: 10px 25px !important;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 15px rgba(26, 41, 128, 0.2);
+            transition: var(--transition);
+            border: 1px solid transparent;
+            margin-left: 10px;
+        }
+
+        .btn-nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(26, 41, 128, 0.3);
+            background: linear-gradient(135deg, var(--secondary-color), #1a2980);
+            color: white !important;
+        }
+
+        .btn-nav-cta::after {
+            display: none; /* Quitar línea subrayada del botón */
+        }
+
+        /* Botón Toggler (Hamburguesa) */
         .navbar-toggler {
             border: none;
-            padding: 10px;
+            padding: 8px;
+            border-radius: 8px;
+            transition: var(--transition);
         }
-        
+
         .navbar-toggler:focus {
             box-shadow: none;
+            outline: none;
         }
+
+        .navbar-toggler-icon {
+            width: 1.5em;
+            height: 1.5em;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(26, 41, 128, 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2.5' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+            transition: var(--transition);
+        }
+
+        .navbar-toggler:hover {
+            background: rgba(26, 41, 128, 0.05);
+            transform: rotate(90deg);
+        }
+
+        /* Ajustes Mobile */
+        @media (max-width: 991px) {
+            .navbar-collapse {
+                background: white;
+                padding: 20px;
+                border-radius: 0 0 20px 20px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+                margin-top: 15px;
+                border-top: 1px solid #eee;
+            }
+            
+            .nav-link {
+                display: block;
+                width: 100%;
+                text-align: center;
+                margin: 5px 0;
+            }
+
+            .btn-nav-cta {
+                display: inline-block;
+                margin-top: 15px;
+                width: auto;
+            }
+        }
+
+        /* -----------------------------------------------------------
+           ESTILOS GENERALES DE LA PÁGINA (Mantenidos de tu original)
+        ----------------------------------------------------------- */
         
+        /* Animaciones personalizadas */
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes slideInLeft {
+            from { transform: translateX(-100px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes slideInRight {
+            from { transform: translateX(100px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
         /* Hero Section mejorada */
         .hero-section {
             background: linear-gradient(135deg, var(--primary-color) 0%, #26d0ce 100%);
@@ -147,8 +243,10 @@
             min-height: 85vh;
             display: flex;
             align-items: center;
+            margin-top: -90px; /* Compensar el padding del body para que el hero llegue al tope */
+            padding-top: 160px;
         }
-        
+
         .hero-section::before {
             content: '';
             position: absolute;
@@ -160,7 +258,7 @@
             border-radius: 50%;
             animation: float 20s infinite ease-in-out;
         }
-        
+
         .hero-section::after {
             content: '';
             position: absolute;
@@ -172,13 +270,13 @@
             border-radius: 50%;
             animation: float 15s infinite ease-in-out reverse;
         }
-        
+
         .hero-content {
             position: relative;
             z-index: 2;
             animation: fadeInUp 1s ease-out;
         }
-        
+
         .company-badge {
             display: inline-flex;
             align-items: center;
@@ -190,7 +288,7 @@
             border: 1px solid rgba(255, 255, 255, 0.2);
             animation: fadeInUp 0.8s ease-out 0.2s both;
         }
-        
+
         .hero-title {
             font-size: 3.5rem;
             font-weight: 800;
@@ -198,14 +296,14 @@
             text-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
             animation: fadeInUp 0.8s ease-out 0.4s both;
         }
-        
+
         .hero-subtitle {
             font-size: 1.5rem;
             margin-bottom: 40px;
             opacity: 0.9;
             animation: fadeInUp 0.8s ease-out 0.6s both;
         }
-        
+
         .company-info {
             background: rgba(255, 255, 255, 0.12);
             backdrop-filter: blur(15px);
@@ -215,25 +313,25 @@
             border: 1px solid rgba(255, 255, 255, 0.2);
             animation: fadeInUp 0.8s ease-out 0.8s both;
         }
-        
+
         .company-info h3 {
             margin-bottom: 25px;
             font-size: 1.8rem;
             display: flex;
             align-items: center;
         }
-        
+
         .company-info h3 i {
             margin-right: 15px;
             color: #ffd166;
         }
-        
+
         .company-highlight {
             font-weight: 600;
             color: #ffd166;
             text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
-        
+
         .btn-hero {
             background: white;
             color: var(--primary-color);
@@ -248,26 +346,26 @@
             align-items: center;
             gap: 10px;
         }
-        
+
         .btn-hero:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
         }
-        
+
         /* Service Cards mejoradas */
         .section-title {
             text-align: center;
             margin-bottom: 60px;
             position: relative;
         }
-        
+
         .section-title h2 {
             font-size: 2.8rem;
             margin-bottom: 15px;
             color: var(--dark-color);
             display: inline-block;
         }
-        
+
         .section-title h2::after {
             content: '';
             position: absolute;
@@ -279,14 +377,14 @@
             background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
             border-radius: 2px;
         }
-        
+
         .section-title p {
             color: var(--text-light);
             font-size: 1.2rem;
             max-width: 700px;
             margin: 0 auto;
         }
-        
+
         .service-card {
             background: white;
             border-radius: 20px;
@@ -299,12 +397,12 @@
             position: relative;
             border: 1px solid rgba(0, 0, 0, 0.05);
         }
-        
+
         .service-card:hover {
             transform: translateY(-15px);
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
         }
-        
+
         .service-card::before {
             content: '';
             position: absolute;
@@ -315,7 +413,7 @@
             background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
             z-index: 1;
         }
-        
+
         .service-header {
             padding: 40px 30px;
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
@@ -324,7 +422,7 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .service-header::after {
             content: '';
             position: absolute;
@@ -335,7 +433,7 @@
             background: rgba(255, 255, 255, 0.1);
             transform: rotate(30deg);
         }
-        
+
         .service-icon {
             width: 90px;
             height: 90px;
@@ -348,37 +446,37 @@
             font-size: 40px;
             transition: var(--transition);
         }
-        
+
         .service-card:hover .service-icon {
             transform: scale(1.1) rotate(10deg);
             background: rgba(255, 255, 255, 0.3);
         }
-        
+
         .service-body {
             padding: 40px 30px 30px;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
         }
-        
+
         .service-title {
             font-size: 1.8rem;
             font-weight: 700;
             margin-bottom: 20px;
             color: var(--primary-color);
         }
-        
+
         .service-description {
             margin-bottom: 30px;
             color: var(--text-light);
         }
-        
+
         .service-features {
             list-style: none;
             padding: 0;
             margin: 0 0 auto 0;
         }
-        
+
         .service-features li {
             padding: 12px 0;
             border-bottom: 1px solid #eef2f7;
@@ -386,28 +484,28 @@
             align-items: center;
             transition: var(--transition);
         }
-        
+
         .service-features li:hover {
             padding-left: 10px;
             background: rgba(38, 208, 206, 0.05);
         }
-        
+
         .service-features li:last-child {
             border-bottom: none;
         }
-        
+
         .service-features i {
             color: var(--success-color);
             margin-right: 15px;
             font-size: 1.2rem;
         }
-        
+
         .service-gallery {
             display: flex;
             gap: 15px;
             margin-top: 30px;
         }
-        
+
         .gallery-item {
             flex: 1;
             height: 130px;
@@ -415,25 +513,25 @@
             overflow: hidden;
             position: relative;
         }
-        
+
         .gallery-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: var(--transition);
         }
-        
+
         .gallery-item:hover img {
             transform: scale(1.1);
         }
-        
+
         .service-footer {
             padding: 25px 30px;
             background: var(--light-color);
             text-align: center;
             border-top: 1px solid #eef2f7;
         }
-        
+
         .btn-service {
             background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
             color: white;
@@ -446,13 +544,13 @@
             align-items: center;
             gap: 10px;
         }
-        
+
         .btn-service:hover {
             transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(26, 41, 128, 0.2);
             color: white;
         }
-        
+
         .btn-download {
             background: var(--success-color);
             color: white;
@@ -465,13 +563,13 @@
             align-items: center;
             gap: 10px;
         }
-        
+
         .btn-download:hover {
             background: #0da271;
             transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(16, 185, 129, 0.2);
         }
-        
+
         /* About Section mejorada */
         .about-section {
             padding: 100px 0;
@@ -479,7 +577,7 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .about-section::before {
             content: '';
             position: absolute;
@@ -489,35 +587,35 @@
             height: 300px;
             background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="%231a2980" opacity="0.05"><polygon points="0,0 100,0 100,100"/></svg>');
         }
-        
+
         .about-content {
             display: flex;
             align-items: center;
             gap: 50px;
         }
-        
+
         .about-text {
             flex: 1;
             animation: slideInLeft 1s ease-out;
         }
-        
+
         .about-image {
             flex: 1;
             animation: slideInRight 1s ease-out;
         }
-        
+
         .about-image img {
             width: 100%;
             border-radius: 20px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
             transition: var(--transition);
         }
-        
+
         .about-image img:hover {
             transform: translateY(-10px);
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
         }
-        
+
         .about-highlight {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
@@ -527,7 +625,7 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .about-highlight::before {
             content: '';
             position: absolute;
@@ -539,7 +637,7 @@
             background-size: 30px 30px;
             animation: float 60s linear infinite;
         }
-        
+
         .about-highlight h4 {
             margin-bottom: 20px;
             font-size: 1.5rem;
@@ -548,32 +646,32 @@
             display: flex;
             align-items: center;
         }
-        
+
         .about-highlight i {
             margin-right: 15px;
             color: #ffd166;
         }
-        
+
         .about-highlight ul {
             list-style: none;
             padding: 0;
             position: relative;
             z-index: 1;
         }
-        
+
         .about-highlight li {
             padding: 10px 0;
             display: flex;
             align-items: center;
         }
-        
+
         /* Stats Section mejorada */
         .stats-section {
             padding: 100px 0;
             background: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80') center/cover fixed;
             position: relative;
         }
-        
+
         .stats-section::before {
             content: '';
             position: absolute;
@@ -583,14 +681,14 @@
             height: 100%;
             background: linear-gradient(135deg, rgba(26, 41, 128, 0.9), rgba(38, 208, 206, 0.9));
         }
-        
+
         .stat-item {
             text-align: center;
             padding: 30px 20px;
             position: relative;
             z-index: 1;
         }
-        
+
         .stat-number {
             font-size: 4rem;
             font-weight: 800;
@@ -598,19 +696,89 @@
             margin-bottom: 10px;
             text-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
-        
+
         .stat-label {
             color: rgba(255, 255, 255, 0.9);
             font-size: 1.3rem;
             font-weight: 500;
         }
-        
+
+        /* FAQ Styles */
+        .faq-accordion .accordion-item {
+            border: none;
+            margin-bottom: 1rem;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+
+        .faq-accordion .accordion-item:hover {
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .faq-accordion .accordion-button {
+            background: white;
+            color: var(--dark-color);
+            font-weight: 600;
+            padding: 1.5rem;
+            border: none;
+            box-shadow: none;
+        }
+
+        .faq-accordion .accordion-button:not(.collapsed) {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .faq-accordion .accordion-button:not(.collapsed)::after {
+            filter: brightness(0) invert(1);
+        }
+
+        .faq-accordion .accordion-body {
+            padding: 1.5rem;
+            background: var(--light-color);
+            color: var(--dark-color);
+            line-height: 1.8;
+        }
+
+        /* Payment Methods */
+        .payment-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            height: 100%;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .payment-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .payment-icon-large {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+            height: 80px;
+            width: 80px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(26, 41, 128, 0.1);
+            border-radius: 50%;
+        }
+
         /* Contact Section mejorada */
         .contact-section {
             padding: 100px 0;
             background: var(--light-color);
         }
-        
+
         .contact-card {
             background: white;
             border-radius: 20px;
@@ -619,28 +787,28 @@
             transition: var(--transition);
             height: 100%;
         }
-        
+
         .contact-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
         }
-        
+
         .contact-card-header {
             padding: 30px;
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
         }
-        
+
         .contact-card-body {
             padding: 40px;
         }
-        
+
         .contact-info-item {
             display: flex;
             align-items: flex-start;
             margin-bottom: 25px;
         }
-        
+
         .contact-info-icon {
             width: 50px;
             height: 50px;
@@ -653,7 +821,7 @@
             color: var(--primary-color);
             font-size: 1.3rem;
         }
-        
+
         .btn-whatsapp {
             background: linear-gradient(90deg, #25D366, #128C7E);
             color: white;
@@ -669,13 +837,103 @@
             width: 100%;
             margin-top: 20px;
         }
-        
+
         .btn-whatsapp:hover {
             transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
             color: white;
         }
-        
+
+        /* Contact Form */
+        .contact-form-card {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            height: 100%;
+        }
+
+        .contact-form-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+        }
+
+        .form-control, .form-select {
+            padding: 1rem;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus, .form-select:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.25rem rgba(26, 41, 128, 0.25);
+            transform: translateY(-2px);
+        }
+
+        .form-label {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--dark-color);
+        }
+
+        .btn-submit {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(26, 41, 128, 0.3);
+            color: white;
+        }
+
+        .loading-spinner {
+            display: none;
+            width: 1.5rem;
+            height: 1.5rem;
+            border-width: 2px;
+        }
+
+        .alert-message {
+            display: none;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-top: 1rem;
+            animation: fadeInUp 0.3s ease-out;
+        }
+
+        .alert-success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .alert-error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
         /* Footer mejorado */
         footer {
             background: var(--dark-color);
@@ -683,7 +941,7 @@
             padding: 80px 0 30px;
             position: relative;
         }
-        
+
         footer::before {
             content: '';
             position: absolute;
@@ -693,7 +951,7 @@
             height: 5px;
             background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
         }
-        
+
         footer h3 {
             color: white;
             font-weight: 700;
@@ -702,7 +960,7 @@
             position: relative;
             display: inline-block;
         }
-        
+
         footer h3::after {
             content: '';
             position: absolute;
@@ -712,16 +970,16 @@
             height: 3px;
             background: var(--secondary-color);
         }
-        
+
         footer ul {
             list-style: none;
             padding: 0;
         }
-        
+
         footer ul li {
             margin-bottom: 12px;
         }
-        
+
         footer ul li a {
             color: #9ca3af;
             text-decoration: none;
@@ -730,18 +988,18 @@
             align-items: center;
             gap: 10px;
         }
-        
+
         footer ul li a:hover {
             color: white;
             padding-left: 5px;
         }
-        
+
         .social-icons {
             display: flex;
             gap: 15px;
             margin-top: 20px;
         }
-        
+
         .social-icon {
             width: 45px;
             height: 45px;
@@ -754,25 +1012,25 @@
             text-decoration: none;
             transition: var(--transition);
         }
-        
+
         .social-icon:hover {
             background: var(--secondary-color);
             transform: translateY(-5px);
         }
-        
+
         .hours-box {
             background: rgba(255, 255, 255, 0.05);
             padding: 25px;
             border-radius: 15px;
             margin-top: 15px;
         }
-        
+
         .hours-box div {
             display: flex;
             justify-content: space-between;
             margin-bottom: 10px;
         }
-        
+
         .emergency-badge {
             background: linear-gradient(90deg, var(--accent-color), #ff9a76);
             padding: 12px 20px;
@@ -783,7 +1041,7 @@
             gap: 10px;
             font-weight: 600;
         }
-        
+
         .copyright {
             text-align: center;
             margin-top: 60px;
@@ -791,7 +1049,7 @@
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             color: #9ca3af;
         }
-        
+
         /* Download Modal mejorado */
         .download-modal {
             display: none;
@@ -806,7 +1064,7 @@
             align-items: center;
             backdrop-filter: blur(5px);
         }
-        
+
         .download-content {
             background: white;
             border-radius: 20px;
@@ -818,7 +1076,7 @@
             animation: fadeInUp 0.5s ease-out;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
         }
-        
+
         .download-progress {
             width: 100%;
             height: 12px;
@@ -827,7 +1085,7 @@
             margin: 30px 0;
             overflow: hidden;
         }
-        
+
         .download-progress-bar {
             height: 100%;
             background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
@@ -835,7 +1093,7 @@
             transition: width 0.5s ease;
             border-radius: 6px;
         }
-        
+
         .download-close {
             position: absolute;
             top: 20px;
@@ -847,12 +1105,12 @@
             color: var(--text-light);
             transition: var(--transition);
         }
-        
+
         .download-close:hover {
             color: var(--primary-color);
             transform: rotate(90deg);
         }
-        
+
         /* Scroll to top button */
         .scroll-top {
             position: fixed;
@@ -872,18 +1130,20 @@
             visibility: hidden;
             transition: var(--transition);
             box-shadow: 0 5px 15px rgba(26, 41, 128, 0.3);
+            border: none;
+            cursor: pointer;
         }
-        
+
         .scroll-top.active {
             opacity: 1;
             visibility: visible;
         }
-        
+
         .scroll-top:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(26, 41, 128, 0.4);
         }
-        
+
         /* Responsive */
         @media (max-width: 992px) {
             .hero-title {
@@ -901,7 +1161,7 @@
         
         @media (max-width: 768px) {
             .hero-section {
-                padding: 80px 0 60px;
+                padding-top: 120px;
                 min-height: auto;
             }
             
@@ -931,8 +1191,12 @@
             }
             
             .navbar-brand img {
-                height: 50px;
+                height: 45px;
                 margin-right: 10px;
+            }
+            
+            .contact-form-card {
+                padding: 2rem;
             }
         }
         
@@ -948,49 +1212,60 @@
             .contact-card-body {
                 padding: 30px 20px;
             }
+            
+            .contact-form-card {
+                padding: 1.5rem;
+            }
         }
     </style>
 </head>
 <body>
     <!-- Scroll to top button -->
-    <a href="#inicio" class="scroll-top" id="scrollTop">
+    <button class="scroll-top" id="scrollTop">
         <i class="fas fa-chevron-up"></i>
-    </a>
+    </button>
 
-    <!-- Navbar -->
+    <!-- NUEVO NAVBAR MODERNIZADO -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="navbar">
         <div class="container">
-            <a class="navbar-brand" href="#inicio">
+            <a class="navbar-brand" href="https://comercioonline.github.io/CSR/">
+                <!-- Imagen optimizada -->
                 <img src="https://z-cdn-media.chatglm.cn/files/eacc73b2-2122-4c19-9553-dd6b06d2be00_Logo2.jpg?auth_key=1790430396-abc36b9bd8c349ef9d9a7dc13691e34d-0-a4a7e44781f0d1447a417d2e80143d68" alt="Logo CSR">
-                CSR s.r.l.
+                <span>CSR s.r.l.</span>
             </a>
+            
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="https://comercioonline.github.io/CSR/">Inicio</a>
+                        <a class="nav-link active" href="https://comercioonline.github.io/CSR/">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="https://comercioonline.github.io/CSR/aceite">Aceites y Lubricantes</a>
+                        <a class="nav-link" href="https://comercioonline.github.io/CSR/aceite">Aceites</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="https://comercioonline.github.io/CSR/autos">Piezas de Auto</a>
+                        <a class="nav-link" href="https://comercioonline.github.io/CSR/autos">Piezas de Autos</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="https://comercioonline.github.io/CSR/contenedores">Contenedores</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="https://comercioonline.github.io/CSR/informacion">Información</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="https://comercioonline.github.io/CSR/nosotros">Nosotros</a>
+                    </li>
+                    <!-- Botón de CTA añadido para mejor conversión -->
+                    <li class="nav-item">
+                        <a class="nav-link btn-nav-cta" href="#contacto">
+                            <i class="fas fa-paper-plane me-2"></i> Contacto
+                        </a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
+    <!-- FIN NAVBAR -->
 
     <!-- Hero Section -->
     <section id="inicio" class="hero-section">
@@ -1063,10 +1338,10 @@
                             </ul>
                             <div class="service-gallery">
                                 <div class="gallery-item">
-                                    <img src="Imagenes de Contenedores/Contenedor Refrigerador.jpg" alt="Contenedor refrigerado">
+                                    <img src="Imagenes de Contenedores/Contenedor Refrigerador.jpg" alt="Contenedor refrigerado" onerror="this.src='https://via.placeholder.com/150/1a2980/ffffff?text=Refrigerado'">
                                 </div>
                                 <div class="gallery-item">
-                                    <img src="Imagenes de Contenedores/Contenedor de 40ftt.jpg" alt="Contenedor seco">
+                                    <img src="Imagenes de Contenedores/Contenedor de 40ftt.jpg" alt="Contenedor seco" onerror="this.src='https://via.placeholder.com/150/26d0ce/ffffff?text=Seco'">
                                 </div>
                             </div>
                         </div>
@@ -1101,10 +1376,10 @@
                             </ul>
                             <div class="service-gallery">
                                 <div class="gallery-item">
-                                    <img src="Imagenes de Nosotros/mantenimiento y reparacion.png" alt="Reparación de contenedor">
+                                    <img src="Imagenes de Nosotros/mantenimiento y reparacion.png" alt="Reparación de contenedor" onerror="this.src='https://via.placeholder.com/150/1a2980/ffffff?text=Reparación'">
                                 </div>
                                 <div class="gallery-item">
-                                    <img src="Imagenes de Nosotros/screenshot-4-container-repair-and-services-4-iizep.avif" alt="Mantenimiento técnico">
+                                    <img src="Imagenes de Nosotros/screenshot-4-container-repair-and-services-4-iizep.avif" alt="Mantenimiento técnico" onerror="this.src='https://via.placeholder.com/150/26d0ce/ffffff?text=Mantenimiento'">
                                 </div>
                             </div>
                         </div>
@@ -1138,10 +1413,10 @@
                             </ul>
                             <div class="service-gallery">
                                 <div class="gallery-item">
-                                    <img src="Imagenes de Nosotros/motor de lada.jpg" alt="Compresores">
+                                    <img src="Imagenes de Nosotros/motor de lada.jpg" alt="Compresores" onerror="this.src='https://via.placeholder.com/150/1a2980/ffffff?text=Motor'">
                                 </div>
                                 <div class="gallery-item">
-                                    <img src="Imagenes de Nosotros/Radiador de lada.webp" alt="Componentes">
+                                    <img src="Imagenes de Nosotros/Radiador de lada.webp" alt="Componentes" onerror="this.src='https://via.placeholder.com/150/26d0ce/ffffff?text=Radiador'">
                                 </div>
                             </div>
                         </div>
@@ -1183,7 +1458,7 @@
                     </div>
                 </div>
                 <div class="about-image">
-                    <img src="Imagenes de Nosotros/Imagen de WhatsApp 2025-09-19 a las 08.13.18_4766f49b.jpg" alt="">
+                    <img src="Imagenes de Nosotros/Imagen de WhatsApp 2025-09-19 a las 08.13.18_4766f49b.jpg" alt="Nuestro equipo" onerror="this.src='https://via.placeholder.com/600x400/1a2980/ffffff?text=CSR+Equipo'">
                 </div>
             </div>
         </div>
@@ -1207,7 +1482,7 @@
                 </div>
                 <div class="col-md-3 col-6">
                     <div class="stat-item fade-in">
-                        <div class="stat-number" data-target="+200">0</div>
+                        <div class="stat-number" data-target="200">0</div>
                         <div class="stat-label">Piezas en Inventario</div>
                     </div>
                 </div>
@@ -1221,7 +1496,146 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- FAQ Section -->
+    <section id="faq" class="py-5" style="padding: 100px 0; background-color: #f8fafc;">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Preguntas Frecuentes</h2>
+                <p class="section-subtitle">Respuestas a las preguntas más comunes de nuestros clientes</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="faq-accordion accordion" id="faqAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                    ¿Cuál es el tiempo de entrega de las piezas?
+                                </button>
+                            </h2>
+                            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    El tiempo de entrega depende del tipo de pieza y disponibilidad. Las piezas en stock se entregan en 24-48 horas en La Habana. Las piezas especiales pueden tardar de 3 a 7 días hábiles. Ofrecemos servicio de entrega express con costo adicional.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                    ¿Ofrecen garantía en las piezas?
+                                </button>
+                            </h2>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Sí, todas nuestras piezas incluyen garantía de 6 a 12 meses dependiendo del producto. Los defectos de fabricación son cubiertos sin costo adicional. Para hacer válida la garantía es necesario presentar la factura original y el producto en su empaque.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                    ¿Cuánto cuesta el servicio de mantenimiento?
+                                </button>
+                            </h2>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Los precios varían según el tipo de servicio. Ofrecemos paquetes de mantenimiento preventivo desde $50. Realizamos diagnóstico gratuito para determinar el costo exacto. Contamos con diferentes planes de mantenimiento según las necesidades de cada equipo.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                                    ¿Pueden instalar las piezas que compro?
+                                </button>
+                            </h2>
+                            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Sí, ofrecemos servicio de instalación profesional con costo adicional. Nuestros técnicos están certificados para garantizar un trabajo de calidad. La instalación incluye garantía de 90 días o según el tipo de equipo.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                                    ¿Tienen contenedores para alquiler a largo plazo?
+                                </button>
+                            </h2>
+                            <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Sí, ofrecemos alquiler de contenedores a largo plazo con descuentos especiales. Los contratos mínimos son de 3 meses con renovaciones flexibles. Los precios varían según el tamaño del contenedor y la duración del alquiler.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Methods and Warranty Section -->
+    <section class="py-5" style="padding: 100px 0;">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Métodos de Pago y Garantía</h2>
+                <p class="section-subtitle">Te ofrecemos múltiples opciones de pago y respaldamos nuestra calidad</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="payment-card">
+                        <div class="payment-icon-large">
+                            <i class="bi bi-credit-card"></i>
+                        </div>
+                        <h4>Tarjetas Crédito/Débito</h4>
+                        <p class="text-muted">Aceptamos Visa, MasterCard y tarjetas bancarias nacionales.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="payment-card">
+                        <div class="payment-icon-large">
+                            <i class="bi bi-cash"></i>
+                        </div>
+                        <h4>Efectivo</h4>
+                        <p class="text-muted">Puedes pagar en efectivo en nuestras sucursales físicas.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="payment-card">
+                        <div class="payment-icon-large">
+                            <i class="bi bi-bank"></i>
+                        </div>
+                        <h4>Transferencia Bancaria</h4>
+                        <p class="text-muted">Transferencia directa a nuestras cuentas bancarias.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-4 mt-4">
+                <div class="col-lg-6">
+                    <div class="service-card p-4">
+                        <h4 class="mb-3"><i class="bi bi-shield-check text-success me-2"></i>Política de Garantía</h4>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i> <strong>Piezas de Automóvil:</strong> 6-12 meses según producto</li>
+                            <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i> <strong>Contenedores:</strong> 2 años contra defectos de fabricación</li>
+                            <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i> <strong>Trabajos de Mecánica:</strong> 90 días o 10,000 km</li>
+                            <li><i class="bi bi-check-circle text-success me-2"></i> <strong>Proceso:</strong> Presenta tu factura y producto para reclamo</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="service-card p-4">
+                        <h4 class="mb-3"><i class="bi bi-arrow-left-circle text-primary me-2"></i>Política de Devoluciones</h4>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="bi bi-check-circle text-primary me-2"></i> <strong>Plazo:</strong> 30 días desde la compra</li>
+                            <li class="mb-2"><i class="bi bi-check-circle text-primary me-2"></i> <strong>Condición:</strong> Producto sin usar, en empaque original</li>
+                            <li class="mb-2"><i class="bi bi-check-circle text-primary me-2"></i> <strong>Excepciones:</strong> Productos personalizados o instalados</li>
+                            <li><i class="bi bi-check-circle text-primary me-2"></i> <strong>Proceso:</strong> Contacta a nuestro servicio al cliente</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section (Combinada) -->
     <section id="contacto" class="contact-section">
         <div class="container">
             <div class="section-title fade-in">
@@ -1242,7 +1656,7 @@
                                 </div>
                                 <div>
                                     <h5>Ubicación</h5>
-                                    <p class="text-muted mb-0">Calle Principal 123, La Habana, Cuba</p>
+                                    <p class="text-muted mb-0">Habana, Cuba</p>
                                 </div>
                             </div>
                             
@@ -1252,9 +1666,20 @@
                                 </div>
                                 <div>
                                     <h5>Teléfonos</h5>
-                                    <p class="text-muted mb-1">(Ing. Jorge Arides Estévez)+53 63179374</p>
-                                    <p class="text-muted mb-1">(Lic. Raciel Rodríguez Temprana) +53 5 2493787</p>
-                                    <p class="text-muted mb-0">(Ing. Luis Carlos Triana Alonso) +53 50669462</p>
+                                    <p class="text-muted mb-1">(Ing. Jorge Arides Estévez): +53 63179374</p>
+                                    <p class="text-muted mb-1">(Lic. Raciel Rodríguez Temprana): +53 5 2493787</p>
+                                    <p class="text-muted mb-0">(Ing. Luis Carlos Triana Alonso): +53 50669462</p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-info-item">
+                                <div class="contact-info-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h5>Email</h5>
+                                    <p class="text-muted mb-1">csrhabana@gmail.com</p>
+                                    <p class="text-muted mb-0">csrdam@hotmail.com</p>
                                 </div>
                             </div>
                             
@@ -1269,45 +1694,51 @@
                                     <p class="text-muted mb-0">Servicio de emergencia 24/7</p>
                                 </div>
                             </div>
+                            <button class="btn btn-whatsapp" onclick="window.open('https://wa.me/+5353729090', '_blank')">
+                                <i class="fab fa-whatsapp me-2"></i> Contactar por WhatsApp
+                            </button>
                         </div>
                     </div>
                 </div>
                 
                 <div class="col-lg-6">
-                    <div class="contact-card">
-                        <div class="contact-card-header">
-                            <h3 class="mb-0">Solicita Información</h3>
-                        </div>
-                        <div class="contact-card-body">
-                            <form id="contactForm">
-                                <div class="mb-4">
-                                    <label for="name" class="form-label">Nombre Completo *</label>
-                                    <input type="text" class="form-control" id="name" placeholder="Ingresa tu nombre" required>
+                    <div class="contact-form-card">
+                        <h3 class="mb-4">Envíanos tu Consulta</h3>
+                        <form id="contactForm">
+                            <div class="row mb-4">
+                                <div class="col-md-6 mb-3">
+                                    <label for="nombre" class="form-label">Nombre Completo *</label>
+                                    <input type="text" class="form-control" id="nombre" name="nombre" required>
                                 </div>
-                                <div class="mb-4">
-                                    <label for="subject" class="form-label">Asunto *</label>
-                                    <input type="text" class="form-control" id="subject" placeholder="¿Cómo podemos ayudarte?" required>
+                                <div class="col-md-6 mb-3">
+                                    <label for="correo" class="form-label">Correo Electrónico *</label>
+                                    <input type="email" class="form-control" id="correo" name="correo" required>
                                 </div>
-                                <div class="mb-4">
-                                    <label for="service" class="form-label">Servicio de Interés</label>
-                                    <select class="form-select" id="service">
-                                        <option value="">Selecciona un servicio</option>
-                                        <option value="contenedores">Venta de Contenedores</option>
-                                        <option value="reparacion">Reparación y Mantenimiento</option>
-                                        <option value="piezas">Venta de Piezas de Autos</option>
-                                        <option value="alquiler">Alquiler de Equipos</option>
-                                        <option value="otro">Otro</option>
-                                    </select>
-                                </div>
-                                <div class="mb-4">
-                                    <label for="message" class="form-label">Mensaje</label>
-                                    <textarea class="form-control" id="message" rows="4" placeholder="Describe tu necesidad o consulta"></textarea>
-                                </div>
-                                <button type="submit" class="btn btn-whatsapp">
-                                    <i class="fab fa-whatsapp me-2"></i> Enviar Mensaje por WhatsApp
+                            </div>
+                            <div class="mb-4">
+                                <label for="asunto" class="form-label">Asunto *</label>
+                                <select class="form-select" id="asunto" name="asunto" required>
+                                    <option value="">Selecciona una opción</option>
+                                    <option value="Venta de Contenedores">Venta de Contenedores</option>
+                                    <option value="Reparación y Mantenimiento">Reparación y Mantenimiento</option>
+                                    <option value="Venta de Piezas">Venta de Piezas de Autos</option>
+                                    <option value="Alquiler de Equipos">Alquiler de Equipos</option>
+                                    <option value="Queja o Sugerencia">Queja o Sugerencia</option>
+                                    <option value="Consulta general">Consulta general</option>
+                                </select>
+                            </div>
+                            <div class="mb-4">
+                                <label for="mensaje" class="form-label">Mensaje *</label>
+                                <textarea class="form-control" id="mensaje" name="mensaje" rows="5" required></textarea>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn-submit" id="submitBtn">
+                                    <i class="bi bi-send me-2"></i>Enviar Mensaje
+                                    <div class="spinner-border spinner-border-sm loading-spinner ms-2" id="loadingSpinner"></div>
                                 </button>
-                            </form>
-                        </div>
+                                <div class="alert-message" id="alertMessage"></div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -1330,7 +1761,7 @@
                         <a href="#" class="social-icon">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="https://wa.me/+529984136581" target="_blank" class="social-icon">
+                        <a href="https://wa.me/+5353729090" target="_blank" class="social-icon">
                             <i class="fab fa-whatsapp"></i>
                         </a>
                         <a href="#" class="social-icon">
@@ -1356,9 +1787,10 @@
                     <h3>Enlaces Rápidos</h3>
                     <ul>
                         <li><a href="https://comercioonline.github.io/CSR/"><i class="fas fa-chevron-right me-2"></i> Inicio</a></li>
-                        <li><a href="#servicios"><i class="fas fa-chevron-right me-2"></i> Servicios</a></li>
-                        <li><a href="#nosotros"><i class="fas fa-chevron-right me-2"></i> Nosotros</a></li>
-                        <li><a href="#contacto"><i class="fas fa-chevron-right me-2"></i> Contacto</a></li>
+                        <li><a href="https://comercioonline.github.io/CSR/aceite"><i class="fas fa-chevron-right me-2"></i>Aceites</a></li>
+                        <li><a href="https://comercioonline.github.io/CSR/autos"><i class="fas fa-chevron-right me-2"></i>Piezas de Autos</a></li>
+                        <li><a href="https://comercioonline.github.io/CSR/contenedores"><i class="fas fa-chevron-right me-2"></i>Contenedores</a></li>
+                        <li><a href="https://comercioonline.github.io/CSR/nosotros"><i class="fas fa-chevron-right me-2"></i>Nosotros</a></li>
                     </ul>
                 </div>
                 
@@ -1387,7 +1819,7 @@
             </div>
             
             <div class="copyright">
-                <p>&copy; IMPERIUM Todos los derechos reservados.</p>
+                <p>&copy; 2025 IMPERIUM. Todos los derechos reservados.</p>
                 <div class="mt-3">
                     <a href="#" class="text-muted text-decoration-none me-3">Términos y Condiciones</a>
                     <a href="#" class="text-muted text-decoration-none me-3">Política de Privacidad</a>
@@ -1444,8 +1876,22 @@
                 });
             }
         }
-        
+
         // Animate numbers on scroll
+        function animateNumber(element, target) {
+            let current = 0;
+            const increment = target / 50;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target;
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current);
+                }
+            }, 20);
+        }
+
         const observerOptions = {
             threshold: 0.5
         };
@@ -1455,20 +1901,7 @@
                 if (entry.isIntersecting) {
                     const target = entry.target;
                     const finalValue = parseInt(target.getAttribute('data-target'));
-                    let currentValue = 0;
-                    const increment = finalValue / 50;
-                    
-                    const updateNumber = () => {
-                        currentValue += increment;
-                        if (currentValue < finalValue) {
-                            target.textContent = Math.floor(currentValue);
-                            requestAnimationFrame(updateNumber);
-                        } else {
-                            target.textContent = finalValue;
-                        }
-                    };
-                    
-                    updateNumber();
+                    animateNumber(target, finalValue);
                     numberObserver.unobserve(target);
                 }
             });
@@ -1477,14 +1910,13 @@
         document.querySelectorAll('.stat-number').forEach(stat => {
             numberObserver.observe(stat);
         });
-        
+
         // Fade in animation
         const fadeElements = document.querySelectorAll('.fade-in');
         
         const fadeObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
                     entry.target.style.opacity = '1';
                     entry.target.style.transform = 'translateY(0)';
                 }
@@ -1497,131 +1929,93 @@
             el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             fadeObserver.observe(el);
         });
-        
-        // Handle contact form submission for WhatsApp
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = {
-                name: document.getElementById('name').value,
-                subject: document.getElementById('subject').value,
-                service: document.getElementById('service').value,
-                message: document.getElementById('message').value
-            };
-            
-            // Validate form
-            if (!formData.name || !formData.subject) {
-                showNotification('Por favor, complete los campos obligatorios (Nombre y Asunto)', 'error');
-                return;
-            }
-            
-            // Format message for WhatsApp
-            let message = `*Solicitud de Información - CSR s.r.l.*%0A%0A`;
-            message += `*Nombre:* ${formData.name}%0A`;
-            message += `*Asunto:* ${formData.subject}%0A`;
-            message += `*Servicio de Interés:* ${formData.service || 'No especificado'}%0A%0A`;
-            message += `*Mensaje:*%0A${formData.message || 'No proporcionado'}`;
-            
-            // Open WhatsApp
-            const whatsappUrl = `https://wa.me/529984136581?text=${message}`;
-            window.open(whatsappUrl, '_blank');
-            
-            // Reset form
-            this.reset();
-            
-            // Show success message
-            showNotification('¡Su mensaje ha sido enviado a WhatsApp! Nos pondremos en contacto con usted pronto.', 'success');
-        });
-        
-        // Show notification
-        function showNotification(message, type) {
-            // Remove existing notifications
-            const existingNotification = document.querySelector('.notification');
-            if (existingNotification) {
-                existingNotification.remove();
-            }
-            
-            // Create notification element
-            const notification = document.createElement('div');
-            notification.className = `notification alert alert-${type === 'error' ? 'danger' : 'success'} alert-dismissible fade show`;
-            notification.style.position = 'fixed';
-            notification.style.top = '100px';
-            notification.style.right = '20px';
-            notification.style.zIndex = '9999';
-            notification.style.minWidth = '300px';
-            notification.style.boxShadow = '0 5px 15px rgba(0,0,0,0.2)';
-            
-            notification.innerHTML = `
-                ${message}
-                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-            `;
-            
-            document.body.appendChild(notification);
-            
-            // Auto remove after 5 seconds
-            setTimeout(() => {
-                if (notification.parentNode) {
-                    notification.remove();
-                }
-            }, 5000);
-        }
-        
-        // Add active class to navbar links on scroll
+
+        // Navbar and scroll effects
         window.addEventListener('scroll', function() {
             const navbar = document.getElementById('navbar');
             const scrollTop = document.getElementById('scrollTop');
             
-            // Toggle navbar background on scroll
             if (window.scrollY > 50) {
                 navbar.classList.add('scrolled');
             } else {
                 navbar.classList.remove('scrolled');
             }
             
-            // Show/hide scroll to top button
             if (window.scrollY > 500) {
                 scrollTop.classList.add('active');
             } else {
                 scrollTop.classList.remove('active');
             }
-            
-            // Highlight active nav link
-            const sections = document.querySelectorAll('section[id]');
-            const scrollY = window.pageYOffset;
-            
-            sections.forEach(current => {
-                const sectionHeight = current.offsetHeight;
-                const sectionTop = current.offsetTop - 100;
-                const sectionId = current.getAttribute('id');
-                
-                if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-                    document.querySelector('.navbar-nav .nav-link[href="#' + sectionId + '"]')?.classList.add('active');
-                } else {
-                    document.querySelector('.navbar-nav .nav-link[href="#' + sectionId + '"]')?.classList.remove('active');
-                }
+        });
+
+        // Scroll to top button click
+        document.getElementById('scrollTop').addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
             });
         });
-        
+
+        // Contact form handling
+        const contactForm = document.getElementById('contactForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const loadingSpinner = document.getElementById('loadingSpinner');
+        const alertMessage = document.getElementById('alertMessage');
+
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Validate form
+                const nombre = document.getElementById('nombre').value;
+                const correo = document.getElementById('correo').value;
+                const asunto = document.getElementById('asunto').value;
+                const mensaje = document.getElementById('mensaje').value;
+
+                if (!nombre || !correo || !asunto || !mensaje) {
+                    alertMessage.className = 'alert-message alert-error';
+                    alertMessage.innerHTML = '<i class="bi bi-exclamation-circle-fill me-2"></i> Por favor, complete todos los campos obligatorios.';
+                    alertMessage.style.display = 'block';
+                    return;
+                }
+
+                // Show loading
+                submitBtn.disabled = true;
+                loadingSpinner.style.display = 'inline-block';
+
+                // Simulate form submission
+                setTimeout(() => {
+                    loadingSpinner.style.display = 'none';
+                    submitBtn.disabled = false;
+                    
+                    alertMessage.className = 'alert-message alert-success';
+                    alertMessage.innerHTML = '<i class="bi bi-check-circle-fill me-2"></i> ¡Mensaje enviado con éxito! Te responderemos en menos de 24 horas.';
+                    alertMessage.style.display = 'block';
+                    
+                    contactForm.reset();
+                    
+                    setTimeout(() => {
+                        alertMessage.style.display = 'none';
+                    }, 5000);
+                }, 1500);
+            });
+        }
+
         // Download catalog function
         function downloadCatalog(type) {
             const catalog = catalogs[type];
             if (!catalog) {
-                showNotification('Error: catálogo no encontrado', 'error');
+                alert('Error: catálogo no encontrado');
                 return;
             }
             
-            // Show download modal
             const modal = document.getElementById('downloadModal');
             modal.style.display = 'flex';
-            
-            // Update file name
             document.getElementById('downloadFileName').textContent = catalog.name;
             
-            // Start download simulation
             simulateDownload(catalog);
         }
-        
+
         // Simulate download process
         function simulateDownload(catalog) {
             const progressBar = document.getElementById('downloadProgressBar');
@@ -1647,9 +2041,7 @@
                 if (progress >= 100) {
                     clearInterval(interval);
                     
-                    // Start actual download
                     setTimeout(() => {
-                        // Create a blob with dummy PDF content
                         const blob = new Blob(['Contenido del catálogo de ' + catalog.name], { type: 'application/pdf' });
                         const url = window.URL.createObjectURL(blob);
                         const a = document.createElement('a');
@@ -1660,26 +2052,20 @@
                         document.body.removeChild(a);
                         window.URL.revokeObjectURL(url);
                         
-                        // Close modal
                         closeDownloadModal();
-                        
-                        // Show success message
-                        showNotification('¡' + catalog.name + ' descargado exitosamente!', 'success');
                     }, 800);
                 }
             }, 200);
         }
-        
+
         // Close download modal
         function closeDownloadModal() {
             const modal = document.getElementById('downloadModal');
             modal.style.display = 'none';
-            
-            // Reset progress bar
             document.getElementById('downloadProgressBar').style.width = '0%';
             document.getElementById('downloadStatus').textContent = 'Preparando descarga...';
         }
-        
+
         // Close modal when clicking outside
         window.onclick = function(event) {
             const modal = document.getElementById('downloadModal');
@@ -1687,27 +2073,18 @@
                 closeDownloadModal();
             }
         }
-        
-        // Initialize when page loads
-        document.addEventListener('DOMContentLoaded', function() {
-            // Trigger initial animations
-            setTimeout(() => {
-                document.querySelector('.hero-content').style.opacity = '1';
-            }, 100);
-            
-            // Prevent default for anchor links with #
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const href = this.getAttribute('href');
-                    if (href !== '#') {
-                        const targetId = href.substring(1);
-                        scrollToSection(targetId);
-                    }
-                });
+
+        // Smooth scrolling for all anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    const targetId = href.substring(1);
+                    scrollToSection(targetId);
+                }
             });
         });
     </script>
 </body>
 </html>
-
