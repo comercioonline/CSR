@@ -12,14 +12,17 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="CSR s.r.l - Piezas de Autos, Aceites y Contenedores">
     <meta property="og:description" content="Especialistas en piezas de automóviles, aceites lubricantes y contenedores de calidad en Cuba">
-    <meta property="og:image" content="imagenes de Inicio/Logo2.jpg">
+    <meta property="og:image" content="https://z-cdn-media.chatglm.cn/files/99351cb1-7686-4e4f-b7cc-f7d853766756.jpeg?auth_key=1872911882-b8fa5b42fc55412baa9ee2e839567271-0-e724c68f4659faf69047cdb492914ccf">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="imagenes de Inicio/Logo2.jpg">
+    <link rel="icon" type="image/x-icon" href="https://z-cdn-media.chatglm.cn/files/99351cb1-7686-4e4f-b7cc-f7d853766756.jpeg?auth_key=1872911882-b8fa5b42fc55412baa9ee2e839567271-0-e724c68f4659faf69047cdb492914ccf">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* ==================== */
+        /* ESTILOS EXISTENTES   */
+        /* ==================== */
         :root {
             --primary-color: #1d4ed8;
             --secondary-color: #059669;
@@ -201,7 +204,7 @@
             background: var(--primary-color);
             color: white;
             transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
         }
         
         /* Estilos para inputs y formularios */
@@ -264,7 +267,7 @@
         }
         
         .section-title.motor::after {
-             background: linear-gradient(to right, #ef4444, #dc2626);
+            background: linear-gradient(to right, #ef4444, #dc2626);
         }
         
         .section-title.aceite::after {
@@ -355,264 +358,704 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
-        
-        /* Estilos para el hero section */
-        .hero-section {
-            background: linear-gradient(135deg, var(--primary-color), #1e40af);
+
+        /* Colores específicos por categoría */
+        .category-oil {
+            color: #10b981;
+            border-color: #10b981;
+        }
+
+        .category-container {
+            color: #ef4444;
+            border-color: #ef4444;
+        }
+
+        .category-parts {
+            color: #3b82f6;
+            border-color: #3b82f6;
+        }
+
+        /* Mejoras para botones de categoría en Hero */
+        .hero-btn-oil {
+            background: linear-gradient(135deg, #10b981, #059669);
+        }
+
+        .hero-btn-parts {
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+        }
+
+        .hero-btn-container {
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+        }
+
+        /* Efectos hover para botones */
+        .hero-btn-oil:hover {
+            background: linear-gradient(135deg, #059669, #047857);
+        }
+
+        .hero-btn-parts:hover {
+            background: linear-gradient(135deg, #2563eb, #1e40af);
+        }
+
+        .hero-btn-container:hover {
+            background: linear-gradient(135deg, #dc2626, #b91c1c);
+        }
+
+        /* Base styles for desktop menu */
+        .desktop-nav-link {
+            font-size: 1.1rem;
+            padding: 0.75rem 1.25rem;
+            border-radius: 0.5rem;
+            border: 2px solid;
+            transition: all 0.3s ease;
+            background-size: 200% auto;
+        }
+
+        .desktop-nav-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            color: white !important;
+        }
+
+        .desktop-nav-link .nav-icon {
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        .desktop-nav-link:hover .nav-icon {
+            color: white !important;
+        }
+
+        /* Estilos para menú móvil */
+        .mobile-menu-item {
+            font-size: 1.25rem;
+            padding: 1.25rem;
+            border-left: 4px solid;
+            margin-bottom: 0.75rem;
+            border-radius: 0.75rem;
+            transition: all 0.3s ease;
+            background-size: 200% auto;
+        }
+
+        .mobile-menu-item:hover {
+            color: white !important;
+            transform: translateX(10px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .mobile-menu-item i {
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .mobile-menu-item:hover i {
+            color: white !important;
+        }
+
+        /* NUEVOS ESTILOS: Logo Profesional ACTUALIZADO */
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.5rem;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .logo-container:hover {
+            background: rgba(59, 130, 246, 0.05);
+        }
+
+        .logo-icon-wrapper {
+            width: 100px; 
+            height: 100px;
+            background: transparent;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             position: relative;
             overflow: hidden;
         }
-        
-        .hero-section::before {
+
+        .logo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        .logo-text-wrapper {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-main-text {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #1e40af, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        .logo-sub-text {
+            font-size: 0.7rem;
+            color: #64748b;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .logo-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.125rem 0.5rem;
+            background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+            color: #1d4ed8;
+            font-size: 0.65rem;
+            font-weight: 700;
+            border-radius: 4px;
+            margin-left: 0.5rem;
+            border: 1px solid #93c5fd;
+        }
+
+        @keyframes logo-entrance {
+            0% {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo-container {
+            animation: logo-entrance 0.6s ease-out;
+        }
+
+        .logo-icon-wrapper {
+            transition: transform 0.3s ease;
+        }
+
+        .logo-container:hover .logo-icon-wrapper {
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 640px) {
+            .logo-icon-wrapper {
+                width: 70px;
+                height: 70px;
+            }
+            
+            .logo-main-text {
+                font-size: 1.25rem;
+            }
+            
+            .logo-sub-text {
+                font-size: 0.6rem;
+            }
+        }
+
+        /* ==================== */
+        /* NUEVOS ESTILOS PARA EL CARRUSEL CON IMG */
+        /* ==================== */
+        .hero-carousel {
+            position: relative;
+            height: 90vh;
+            min-height: 700px;
+            overflow: hidden;
+        }
+
+        .carousel-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .carousel-slide.active {
+            opacity: 1;
+        }
+
+        .carousel-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            z-index: 0;
+        }
+
+        .carousel-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .carousel-content {
+            position: relative;
+            z-index: 2;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
+
+        .carousel-title {
+            font-size: 5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            transform: translateY(30px);
+            opacity: 0;
+            transition: all 0.8s ease-out 0.3s;
+        }
+
+        .active .carousel-title {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .carousel-subtitle {
+            font-size: 2rem;
+            font-weight: 400;
+            margin-bottom: 3rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            transform: translateY(30px);
+            opacity: 0;
+            transition: all 0.8s ease-out 0.6s;
+        }
+
+        .active .carousel-subtitle {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .carousel-buttons {
+            display: flex;
+            gap: 20px;
+            transform: translateY(30px);
+            opacity: 0;
+            transition: all 0.8s ease-out 0.9s;
+        }
+
+        .active .carousel-buttons {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .carousel-btn {
+            padding: 18px 40px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border: 2px solid transparent;
+        }
+
+        .carousel-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .carousel-btn-primary {
+            background: white;
+            color: #1e40af;
+        }
+
+        .carousel-btn-primary:hover {
+            background: transparent;
+            color: white;
+            border-color: white;
+        }
+
+        .carousel-btn-secondary {
+            background: transparent;
+            color: white;
+            border-color: white;
+        }
+
+        .carousel-btn-secondary:hover {
+            background: white;
+            color: #1e40af;
+        }
+
+        .carousel-indicators {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+            z-index: 3;
+        }
+
+        .indicator {
+            width: 60px;
+            height: 4px;
+            background: rgba(255,255,255,0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .indicator:hover {
+            background: rgba(255,255,255,0.6);
+        }
+
+        .indicator.active {
+            background: white;
+            width: 80px;
+        }
+
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 60px;
+            height: 60px;
+            background: rgba(255,255,255,0.2);
+            border: 2px solid rgba(255,255,255,0.5);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 3;
+            backdrop-filter: blur(5px);
+        }
+
+        .carousel-arrow:hover {
+            background: rgba(255,255,255,0.4);
+            border-color: white;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-arrow.left {
+            left: 40px;
+        }
+
+        .carousel-arrow.right {
+            right: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .hero-carousel {
+                height: 100vh;
+                min-height: 600px;
+            }
+
+            .carousel-title {
+                font-size: 3rem;
+            }
+
+            .carousel-subtitle {
+                font-size: 1.3rem;
+            }
+
+            .carousel-buttons {
+                flex-direction: column;
+                width: 90%;
+            }
+
+            .carousel-btn {
+                padding: 15px 30px;
+                font-size: 1rem;
+            }
+
+            .carousel-arrow {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+
+            .carousel-arrow.left {
+                left: 10px;
+            }
+
+            .carousel-arrow.right {
+                right: 10px;
+            }
+
+            .indicator {
+                width: 40px;
+            }
+
+            .indicator.active {
+                width: 60px;
+            }
+        }
+
+        /* Colores específicos para cada slide */
+        .slide-oil .carousel-title {
+            color: #FFD700;
+            text-shadow: 0 0 20px rgba(255,215,0,0.5);
+        }
+
+        .slide-parts .carousel-title {
+            color: #ef4444;
+        }
+
+        .slide-containers .carousel-title {
+            color: #3b82f6;
+        }
+
+        .slide-oil .carousel-overlay {
+            background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(26,26,26,0.9) 50%, rgba(255,215,0,0.3) 100%);
+        }
+
+        .slide-parts .carousel-overlay {
+            background: linear-gradient(135deg, rgba(239,68,68,0.8) 0%, rgba(0,0,0,0.6) 100%);
+        }
+
+        .slide-containers .carousel-overlay {
+            background: linear-gradient(135deg, rgba(59,130,246,0.8) 0%, rgba(0,0,0,0.6) 100%);
+        }
+
+        .slide-oil .carousel-subtitle {
+            color: #FFD700;
+            text-shadow: 0 0 15px rgba(255,215,0,0.3);
+        }
+
+        .slide-oil .carousel-btn-primary {
+            background: #FFD700;
+            color: #000;
+            border-color: #FFD700;
+        }
+
+        .slide-oil .carousel-btn-primary:hover {
+            background: transparent;
+            color: #FFD700;
+            border-color: #FFD700;
+        }
+
+        .slide-oil .carousel-btn-secondary {
+            border-color: #FFD700;
+            color: #FFD700;
+        }
+
+        .slide-oil .carousel-btn-secondary:hover {
+            background: #FFD700;
+            color: #000;
+        }
+
+        .slide-oil.active::after {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
-            background-size: cover;
-            background-position: center;
-            opacity: 0.1;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 50%, rgba(255,215,0,0.1) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 1;
         }
-
-/* Add to the end of your existing CSS */tente */
-
-/* Colores específicos por categoría */
-.category-oil {
-    color: #10b981;
-    border-color: #10b981;
-}
-
-.category-container {
-    color: #ef4444;
-    border-color: #ef4444;
-}
-
-.category-parts {
-    color: #3b82f6;
-    border-color: #3b82f6;
-}
-
-/* Mejoras para botones de categoría en Hero */
-.hero-btn-oil {
-    background: linear-gradient(135deg, #10b981, #059669);
-}
-
-.hero-btn-parts {
-    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-}
-
-.hero-btn-container {
-    background: linear-gradient(135deg, #ef4444, #dc2626);
-}
-
-/* Efectos hover para botones */
-.hero-btn-oil:hover {
-    background: linear-gradient(135deg, #059669, #047857);
-}
-
-.hero-btn-parts:hover {
-    background: linear-gradient(135deg, #2563eb, #1e40af);
-}
-
-.hero-btn-container:hover {
-    background: linear-gradient(135deg, #dc2626, #b91c1c);
-}
-
-/* Base styles for desktop menu */
-.desktop-nav-link {
-    font-size: 1.1rem;
-    padding: 0.75rem 1.25rem;
-    border-radius: 0.5rem;
-    border: 2px solid;
-    transition: all 0.3s ease;
-    background-size: 200% auto;
-}
-
-.desktop-nav-link:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    color: white !important;
-}
-
-.desktop-nav-link .nav-icon {
-    font-size: 1.2rem;
-    transition: color 0.3s ease;
-}
-
-.desktop-nav-link:hover .nav-icon {
-    color: white !important;
-}
-
-/* Estilos para menú móvil */
-.mobile-menu-item {
-    font-size: 1.25rem;
-    padding: 1.25rem;
-    border-left: 4px solid;
-    margin-bottom: 0.75rem;
-    border-radius: 0.75rem;
-    transition: all 0.3s ease;
-    background-size: 200% auto;
-}
-
-.mobile-menu-item:hover {
-    color: white !important;
-    transform: translateX(10px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-.mobile-menu-item i {
-    font-size: 1.5rem;
-    transition: color 0.3s ease;
-}
-
-.mobile-menu-item:hover i {
-    color: white !important;
-}
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
     <!-- Header -->
     <header class="navbar sticky top-0 z-50">
         <div class="container mx-auto px-4">
-            <div class="flex items-center justify-between h-20">
-                <!-- Logo -->
-                <div class="flex items-center gap-3">
-                    <img src="imagenes de Inicio/Logo2.jpg" alt="Logo CSR" 
-                         class="h-12 w-12 rounded-full object-cover border-2 border-blue-100 shadow-sm">
-                    <div>
-                        <h1 class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
-                            CSR s.r.l
-                        </h1>
-                        <p class="text-xs text-gray-500">Especialistas en aceites-lubricantes, autopartes y contenedores</p>
+            <div class="flex items-center justify-between h-24 md:h-28">
+                <!-- Logo Profesional -->
+                <a href="https://comercioonline.github.io/CSR/" class="logo-container group">
+                    <div class="logo-icon-wrapper">
+                        <img src="Imagenes de Inicio/logo.jpeg" 
+                             alt="Logo CSR s.r.l" 
+                             class="logo-img">
                     </div>
-                </div>
+                    <div class="logo-text-wrapper">
+                        <div class="flex items-center">
+                            <span class="logo-main-text">CSR</span>
+                            <span class="logo-badge">s.r.l</span>
+                        </div>
+                        <span class="logo-sub-text">Especialistas en aceites-lubricantes, autopartes y contenedores</span>
+                    </div>
+                </a>
                 
                 <!-- Desktop Navigation -->
-<nav class="hidden lg:flex items-center gap-4">
-    <a href="https://comercioonline.github.io/CSR/ " 
-       class="desktop-nav-link text-purple-700 font-semibold flex items-center gap-2 group border-purple-600 bg-gradient-to-br from-purple-50 to-purple-100 hover:from-purple-600 hover:to-purple-800">
-        <i class="fas fa-home nav-icon text-purple-600 group-hover:text-white"></i>
-        <span>Inicio</span>
-    </a>
-    <a href="https://comercioonline.github.io/CSR/aceite " 
-       class="desktop-nav-link text-yellow-900 font-semibold flex items-center gap-2 group border-yellow-600 bg-gradient-to-br from-yellow-50 to-amber-100 hover:from-yellow-500 hover:to-amber-600">
-        <i class="fas fa-oil-can nav-icon text-amber-600 group-hover:text-white"></i>
-        <span>Aceites</span>
-    </a>
-    <a href="https://comercioonline.github.io/CSR/autos " 
-       class="desktop-nav-link text-red-700 font-semibold flex items-center gap-2 group border-red-600 bg-gradient-to-br from-red-50 to-red-100 hover:from-red-600 hover:to-red-800">
-        <i class="fas fa-car nav-icon text-red-600 group-hover:text-white"></i>
-        <span>Piezas de Autos</span>
-    </a>
-    <a href="https://comercioonline.github.io/CSR/contenedores " 
-       class="desktop-nav-link text-blue-700 font-semibold flex items-center gap-2 group border-blue-600 bg-gradient-to-br from-blue-50 to-blue-100 hover:from-blue-600 hover:to-blue-800">
-        <i class="fas fa-box nav-icon text-blue-600 group-hover:text-white"></i>
-        <span>Contenedores</span>
-    </a>
-    <a href="https://comercioonline.github.io/CSR/informacion " 
-       class="desktop-nav-link text-purple-700 font-semibold flex items-center gap-2 group border-purple-600 bg-gradient-to-br from-purple-50 to-purple-100 hover:from-purple-600 hover:to-purple-800">
-        <i class="fas fa-info-circle nav-icon text-purple-600 group-hover:text-white"></i>
-        <span>Información</span>
-    </a>
-    <a href="https://comercioonline.github.io/CSR/nosotros " 
-       class="desktop-nav-link text-purple-700 font-semibold flex items-center gap-2 group border-purple-600 bg-gradient-to-br from-purple-50 to-purple-100 hover:from-purple-600 hover:to-purple-800">
-        <i class="fas fa-users nav-icon text-purple-600 group-hover:text-white"></i>
-        <span>Nosotros</span>
-    </a>
-</nav>
+                <nav class="hidden lg:flex items-center gap-4">
+                    <a href="https://comercioonline.github.io/CSR/ " 
+                       class="desktop-nav-link text-purple-700 font-semibold flex items-center gap-2 group border-purple-600 bg-gradient-to-br from-purple-50 to-purple-100 hover:from-purple-600 hover:to-purple-800">
+                        <i class="fas fa-home nav-icon text-purple-600 group-hover:text-white"></i>
+                        <span>Inicio</span>
+                    </a>
+                    <a href="https://comercioonline.github.io/CSR/aceite " 
+                       class="desktop-nav-link text-yellow-900 font-semibold flex items-center gap-2 group border-yellow-600 bg-gradient-to-br from-yellow-50 to-amber-100 hover:from-yellow-500 hover:to-amber-600">
+                        <i class="fas fa-oil-can nav-icon text-amber-600 group-hover:text-white"></i>
+                        <span>Aceites</span>
+                    </a>
+                    <a href="https://comercioonline.github.io/CSR/autos " 
+                       class="desktop-nav-link text-red-700 font-semibold flex items-center gap-2 group border-red-600 bg-gradient-to-br from-red-50 to-red-100 hover:from-red-600 hover:to-red-800">
+                        <i class="fas fa-car nav-icon text-red-600 group-hover:text-white"></i>
+                        <span>Piezas de Autos</span>
+                    </a>
+                    <a href="https://comercioonline.github.io/CSR/contenedores " 
+                       class="desktop-nav-link text-blue-700 font-semibold flex items-center gap-2 group border-blue-600 bg-gradient-to-br from-blue-50 to-blue-100 hover:from-blue-600 hover:to-blue-800">
+                        <i class="fas fa-box nav-icon text-blue-600 group-hover:text-white"></i>
+                        <span>Contenedores</span>
+                    </a>
+                    <a href="https://comercioonline.github.io/CSR/nosotros " 
+                       class="desktop-nav-link text-purple-700 font-semibold flex items-center gap-2 group border-purple-600 bg-gradient-to-br from-purple-50 to-purple-100 hover:from-purple-600 hover:to-purple-800">
+                        <i class="fas fa-users nav-icon text-purple-600 group-hover:text-white"></i>
+                        <span>Nosotros</span>
+                    </a>
+                </nav>
 
-<!-- Cart and Mobile Menu Button -->
-<div class="flex items-center gap-4">
-    <button id="cart-btn" class="relative p-3 rounded-full hover:bg-purple-50 transition-colors duration-300">
-        <i class="fas fa-shopping-cart text-xl text-purple-600"></i>
-        <span id="cart-count" 
-              class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-bold">
-            0
-        </span>
-    </button>
-    <button id="mobile-menu-btn" class="lg:hidden p-3 rounded-full hover:bg-gray-100 transition-colors duration-300">
-        <i class="fas fa-bars text-xl text-purple-600"></i>
-    </button>
-</div>
-</div>
+                <!-- Cart and Mobile Menu Button -->
+                <div class="flex items-center gap-4">
+                    <button id="cart-btn" class="relative p-3 rounded-full hover:bg-purple-50 transition-colors duration-300">
+                        <i class="fas fa-shopping-cart text-xl text-purple-600"></i>
+                        <span id="cart-count" 
+                              class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-bold">
+                            0
+                        </span>
+                    </button>
+                    <button id="mobile-menu-btn" class="lg:hidden p-3 rounded-full hover:bg-gray-100 transition-colors duration-300">
+                        <i class="fas fa-bars text-xl text-purple-600"></i>
+                    </button>
+                </div>
+            </div>
 
-<!-- Mobile Menu -->
-<div id="mobile-menu" class="hidden lg:hidden py-6 border-t mt-4 animate-slide-up bg-purple-50 rounded-xl">
-    <div class="flex flex-col gap-4 px-4">
-        <a href="https://comercioonline.github.io/CSR/ " 
-           class="mobile-menu-item text-purple-800 font-bold flex items-center gap-4 border-purple-600 bg-gradient-to-r from-purple-50 to-purple-100 hover:from-purple-600 hover:to-purple-800">
-            <i class="fas fa-home text-purple-600 group-hover:text-white"></i>
-            <span>Inicio</span>
-        </a>
-        <a href="https://comercioonline.github.io/CSR/aceite " 
-           class="mobile-menu-item text-yellow-900 font-bold flex items-center gap-4 border-yellow-600 bg-gradient-to-r from-yellow-50 to-amber-100 hover:from-yellow-500 hover:to-amber-600">
-            <i class="fas fa-oil-can text-amber-600 group-hover:text-white"></i>
-            <span>Aceites y Lubricantes</span>
-        </a> 
-        <a href="https://comercioonline.github.io/CSR/autos " 
-           class="mobile-menu-item text-red-800 font-bold flex items-center gap-4 border-red-600 bg-gradient-to-r from-red-50 to-red-100 hover:from-red-600 hover:to-red-800">
-            <i class="fas fa-car text-red-600 group-hover:text-white"></i>
-            <span>Piezas de Autos</span>
-        </a>  
-        <a href="https://comercioonline.github.io/CSR/contenedores " 
-           class="mobile-menu-item text-blue-800 font-bold flex items-center gap-4 border-blue-600 bg-gradient-to-r from-blue-50 to-blue-100 hover:from-blue-600 hover:to-blue-800">
-            <i class="fas fa-box text-blue-600 group-hover:text-white"></i>
-            <span>Contenedores</span>
-        </a>
-        <a href="https://comercioonline.github.io/CSR/informacion " 
-           class="mobile-menu-item text-purple-800 font-bold flex items-center gap-4 border-purple-600 bg-gradient-to-r from-purple-50 to-purple-100 hover:from-purple-600 hover:to-purple-800">
-            <i class="fas fa-info-circle text-purple-600 group-hover:text-white"></i>
-            <span>Información</span>
-        </a>
-        <a href="https://comercioonline.github.io/CSR/nosotros " 
-           class="mobile-menu-item text-purple-800 font-bold flex items-center gap-4 border-purple-600 bg-gradient-to-r from-purple-50 to-purple-100 hover:from-purple-600 hover:to-purple-800">
-            <i class="fas fa-users text-purple-600 group-hover:text-white"></i>
-            <span>Nosotros</span>
-        </a>
-    </div>
-</div>
-    </header>
-    
-
-<!-- Hero Section -->
-<section class="hero-section text-white py-24 relative overflow-hidden">
-    <div class="container mx-auto px-4 relative z-10">
-        <div class="max-w-4xl mx-auto text-center animate-slide-up">
-            <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-                <span class="bg-gradient-to-r from-green-400 to-green-600 bg-clip-text text-transparent">
-                    Aceites/Lubricantes
-                </span>
-                , 
-                <span class="bg-gradient-to-r from-red-400 to-red-600 bg-clip-text text-transparent">
-                    Piezas de Autos
-                </span>
-                y 
-                <span class="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
-                    Contenedores
-                </span>
-            </h1>
-            <p class="text-xl md:text-2xl mb-10 text-blue-100 leading-relaxed">
-                Soluciones integrales en repuestos automotrices, lubricantes y almacenamiento de calidad
-            </p>
-            <div class="flex flex-col sm:flex-row gap-6 justify-center">
-                <a href="https://comercioonline.github.io/CSR/aceite" 
-                   class="px-10 py-4 text-lg font-semibold bg-gradient-to-r from-green-600 to-green-800 text-white rounded-lg hover:from-green-700 hover:to-green-900 transition-all duration-300 shadow-lg inline-block">
-                    <i class="fas fa-oil-can mr-3"></i>Ver Aceites
-                </a>
-                <a href="https://comercioonline.github.io/CSR/autos" 
-                   class="px-10 py-4 text-lg font-semibold bg-gradient-to-r from-red-600 to-red-800 text-white rounded-lg hover:from-red-700 hover:to-red-900 transition-all duration-300 shadow-lg inline-block">
-                    <i class="fas fa-car mr-3"></i>Ver Piezas Autos
-                </a>
-                <a href="https://comercioonline.github.io/CSR/contenedores" 
-                   class="px-10 py-4 text-lg font-semibold bg-gradient-to-r from-blue-600 to-blue-800 text-white rounded-lg hover:from-blue-700 hover:to-blue-900 transition-all duration-300 shadow-lg inline-block">
-                    <i class="fas fa-boxes mr-3"></i>Ver Contenedores
-                </a>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden lg:hidden py-6 border-t mt-4 animate-slide-up bg-purple-50 rounded-xl">
+                <div class="flex flex-col gap-4 px-4">
+                    <a href="https://comercioonline.github.io/CSR/" 
+                       class="mobile-menu-item text-purple-800 font-bold flex items-center gap-4 border-purple-600 bg-gradient-to-r from-purple-50 to-purple-100 hover:from-purple-600 hover:to-purple-800">
+                        <i class="fas fa-home text-purple-600 group-hover:text-white"></i>
+                        <span>Inicio</span>
+                    </a>
+                    <a href="https://comercioonline.github.io/CSR/aceite " 
+                       class="mobile-menu-item text-yellow-900 font-bold flex items-center gap-4 border-yellow-600 bg-gradient-to-r from-yellow-50 to-amber-100 hover:from-yellow-500 hover:to-amber-600">
+                        <i class="fas fa-oil-can text-amber-600 group-hover:text-white"></i>
+                        <span>Aceites y Lubricantes</span>
+                    </a> 
+                    <a href="https://comercioonline.github.io/CSR/autos " 
+                       class="mobile-menu-item text-red-800 font-bold flex items-center gap-4 border-red-600 bg-gradient-to-r from-red-50 to-red-100 hover:from-red-600 hover:to-red-800">
+                        <i class="fas fa-car text-red-600 group-hover:text-white"></i>
+                        <span>Piezas de Autos</span>
+                    </a>  
+                    <a href="https://comercioonline.github.io/CSR/contenedores " 
+                       class="mobile-menu-item text-blue-800 font-bold flex items-center gap-4 border-blue-600 bg-gradient-to-r from-blue-50 to-blue-100 hover:from-blue-600 hover:to-blue-800">
+                        <i class="fas fa-box text-blue-600 group-hover:text-white"></i>
+                        <span>Contenedores</span>
+                    </a>
+                    <a href="https://comercioonline.github.io/CSR/nosotros " 
+                       class="mobile-menu-item text-purple-800 font-bold flex items-center gap-4 border-purple-600 bg-gradient-to-r from-purple-50 to-purple-100 hover:from-purple-600 hover:to-purple-800">
+                        <i class="fas fa-users text-purple-600 group-hover:text-white"></i>
+                        <span>Nosotros</span>
+                    </a>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </header>
+    
+    <!-- Hero Section con Carrusel usando etiquetas img con lazy loading y fallback -->
+    <section class="hero-carousel">
+        <!-- Slide 1: Aceites - AHORA CON LAZY LOADING Y FALLBACK -->
+        <div class="carousel-slide slide-oil active">
+            <img src="Imagenes de Inicio/fondo.png" 
+                 alt="Aceites lubricantes de alta calidad para motor"
+                 class="carousel-image"
+                 loading="lazy"
+                 onerror="this.src='https://via.placeholder.com/1920x1080/1a1a1a/FFD700?text=Aceites+Lubricantes+CSR'">
+            <div class="carousel-overlay"></div>
+            <div class="carousel-content">
+                <h1 class="carousel-title">ACEITES LUBRICANTES</h1>
+                <div class="carousel-subtitle">Máxima protección y rendimiento para tu motor</div>
+                <div class="carousel-buttons">
+                    <a href="https://comercioonline.github.io/CSR/aceite" class="carousel-btn carousel-btn-primary">
+                        <i class="fas fa-oil-can mr-2"></i>VER CATÁLOGO
+                    </a>
+                    <a href="#contact" class="carousel-btn carousel-btn-secondary">
+                        <i class="fas fa-info-circle mr-2"></i>MÁS INFORMACIÓN
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2: Piezas de Autos - CON LAZY LOADING Y FALLBACK -->
+        <div class="carousel-slide slide-parts">
+            <img src="Imagenes de Inicio/portada2.png" 
+                 alt="Piezas y repuestos de automóviles de calidad"
+                 class="carousel-image"
+                 loading="lazy"
+                 onerror="this.src='https://via.placeholder.com/1920x1080/2d2d2d/ef4444?text=Piezas+de+Autos+CSR'">
+            <div class="carousel-overlay"></div>
+            <div class="carousel-content">
+                <h1 class="carousel-title">PIEZAS DE AUTOS</h1>
+                <div class="carousel-subtitle">Calidad y durabilidad para todas las marcas</div>
+                <div class="carousel-buttons">
+                    <a href="https://comercioonline.github.io/CSR/autos" class="carousel-btn carousel-btn-primary">
+                        <i class="fas fa-car mr-2"></i>VER CATÁLOGO y Servicios
+                    </a>
+                    <a href="#contact" class="carousel-btn carousel-btn-secondary">
+                        <i class="fas fa-info-circle mr-2"></i>MÁS INFORMACIÓN
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: Contenedores - CON LAZY LOADING Y FALLBACK -->
+        <div class="carousel-slide slide-containers">
+            <img src="Imagenes de Inicio/portada.jpg" 
+                 alt="Contenedores de almacenamiento industrial"
+                 class="carousel-image"
+                 loading="lazy"
+                 onerror="this.src='https://via.placeholder.com/1920x1080/363636/3b82f6?text=Contenedores+CSR'">
+            <div class="carousel-overlay"></div>
+            <div class="carousel-content">
+                <h1 class="carousel-title">CONTENEDORES</h1>
+                <div class="carousel-subtitle">Soluciones de almacenamiento industrial</div>
+                <div class="carousel-buttons">
+                    <a href="https://comercioonline.github.io/CSR/contenedores" class="carousel-btn carousel-btn-primary">
+                        <i class="fas fa-boxes mr-2"></i>VER CATÁLOGO y Servicios
+                    </a>
+                    <a href="#contact" class="carousel-btn carousel-btn-secondary">
+                        <i class="fas fa-info-circle mr-2"></i>MÁS INFORMACIÓN
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Flechas de navegación -->
+        <div class="carousel-arrow left" onclick="prevSlide()">
+            <i class="fas fa-chevron-left"></i>
+        </div>
+        <div class="carousel-arrow right" onclick="nextSlide()">
+            <i class="fas fa-chevron-right"></i>
+        </div>
+
+        <!-- Indicadores -->
+        <div class="carousel-indicators">
+            <div class="indicator active" onclick="goToSlide(0)"></div>
+            <div class="indicator" onclick="goToSlide(1)"></div>
+            <div class="indicator" onclick="goToSlide(2)"></div>
+        </div>
+    </section>
 
     <!-- Stats Section -->
     <section class="py-16 bg-white">
@@ -636,7 +1079,6 @@
             </div>
         </div>
     </section>
-
 
     <!-- Features Section -->
     <section class="py-20 bg-gradient-to-r from-blue-600 via-red-600 to-blue-800 text-white">
@@ -771,89 +1213,87 @@
                     </div>
                 </div>
                 
-              <!-- Contact Form -->
-<div class="bg-gradient-to-br from-gray-50 to-white p-8 rounded-2xl border border-gray-200">
-    <h3 class="text-2xl font-bold mb-6 flex items-center gap-3">
-        <i class="fas fa-comments text-blue-600"></i>
-        Envíanos un Mensaje
-    </h3>
-    
-    <form id="contact-form" onsubmit="sendContactMessage(event)" class="space-y-6">
-        <!-- NUEVO CAMPO EMPRESA - AGREGADO ARRIBA DE NOMBRE COMPLETO -->
-        <div>
-            <label for="empresa" class="block text-gray-700 font-medium mb-2">
-                Empresa *
-            </label>
-            <select id="empresa" name="empresa" 
-                    class="form-input" 
-                    required>
-                <option value="">Seleccione su tipo de empresa</option>
-                <option value="Mipyme">Mipyme</option>
-                <option value="TCP">TCP</option>
-                <option value="Particular">Particular</option>
-            </select>
-        </div>
-        
-        <div>
-            <label for="contact-name" class="block text-gray-700 font-medium mb-2">
-                Nombre Completo *
-            </label>
-            <input type="text" id="contact-name" name="name" 
-                   class="form-input" 
-                   placeholder="Tu nombre" 
-                   required>
-        </div>
-        
-        <div>
-            <label for="contact-subject" class="block text-gray-700 font-medium mb-2">
-                Asunto *
-            </label>
-            <input type="text" id="contact-subject" name="subject" 
-                   class="form-input" 
-                   placeholder="Asunto del mensaje" 
-                   required>
-        </div>
-        
-        <div>
-            <label for="contact-purpose" class="block text-gray-700 font-medium mb-2">
-                ¿En qué podemos ayudarte? *
-            </label>
-            <select id="contact-purpose" name="purpose" 
-                    class="form-input" 
-                    required>
-                <option value="">Selecciona una opción</option>
-                <option value="reservar_piezas">Reservar piezas</option>
-                <option value="reservar_aceite">Reservar aceite</option>
-                <option value="reservar_contenedor">Reservar contenedor</option>
-                <option value="cotizacion">Cotización</option>
-                <option value="soporte_tecnico">Soporte técnico</option>
-                <option value="otro">Otro</option>
-            </select>
-        </div>
-        
-        <div>
-            <label for="contact-message" class="block text-gray-700 font-medium mb-2">
-                Mensaje *
-            </label>
-            <textarea id="contact-message" name="message" 
-                      rows="5" 
-                      class="form-input" 
-                      placeholder="Describe tu consulta o necesidad..."
-                      required></textarea>
-        </div>
-        
-        <button type="submit" 
-                class="w-full btn-primary py-4 text-lg font-semibold">
-            <i class="fas fa-paper-plane mr-2"></i>
-            Enviar Mensaje
-        </button>
-    </form>
-</div>
+                <!-- Contact Form -->
+                <div class="bg-gradient-to-br from-gray-50 to-white p-8 rounded-2xl border border-gray-200">
+                    <h3 class="text-2xl font-bold mb-6 flex items-center gap-3">
+                        <i class="fas fa-comments text-blue-600"></i>
+                        Envíanos un Mensaje
+                    </h3>
+                    
+                    <form id="contact-form" onsubmit="sendContactMessage(event)" class="space-y-6">
+                        <div>
+                            <label for="empresa" class="block text-gray-700 font-medium mb-2">
+                                Empresa *
+                            </label>
+                            <select id="empresa" name="empresa" 
+                                    class="form-input" 
+                                    required>
+                                <option value="">Seleccione su tipo de empresa</option>
+                                <option value="Mipyme">Mipyme</option>
+                                <option value="TCP">TCP</option>
+                                <option value="Particular">Particular</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="contact-name" class="block text-gray-700 font-medium mb-2">
+                                Nombre Completo *
+                            </label>
+                            <input type="text" id="contact-name" name="name" 
+                                   class="form-input" 
+                                   placeholder="Tu nombre" 
+                                   required>
+                        </div>
+                        
+                        <div>
+                            <label for="contact-subject" class="block text-gray-700 font-medium mb-2">
+                                Asunto *
+                            </label>
+                            <input type="text" id="contact-subject" name="subject" 
+                                   class="form-input" 
+                                   placeholder="Asunto del mensaje" 
+                                   required>
+                        </div>
+                        
+                        <div>
+                            <label for="contact-purpose" class="block text-gray-700 font-medium mb-2">
+                                ¿En qué podemos ayudarte? *
+                            </label>
+                            <select id="contact-purpose" name="purpose" 
+                                    class="form-input" 
+                                    required>
+                                <option value="">Selecciona una opción</option>
+                                <option value="reservar_piezas">Reservar piezas</option>
+                                <option value="reservar_aceite">Reservar aceite</option>
+                                <option value="reservar_contenedor">Reservar contenedor</option>
+                                <option value="cotizacion">Cotización</option>
+                                <option value="soporte_tecnico">Soporte técnico</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="contact-message" class="block text-gray-700 font-medium mb-2">
+                                Mensaje *
+                            </label>
+                            <textarea id="contact-message" name="message" 
+                                      rows="5" 
+                                      class="form-input" 
+                                      placeholder="Describe tu consulta o necesidad..."
+                                      required></textarea>
+                        </div>
+                        
+                        <button type="submit" 
+                                class="w-full btn-primary py-4 text-lg font-semibold">
+                            <i class="fas fa-paper-plane mr-2"></i>
+                            Enviar Mensaje
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
 
-</script>
     <!-- Footer -->
     <footer class="bg-gray-900 text-white pt-16 pb-8">
         <div class="container mx-auto px-4">
@@ -861,8 +1301,11 @@
                 <!-- Company Info -->
                 <div>
                     <div class="flex items-center gap-3 mb-6">
-                        <img src="imagenes de Inicio/Logo2.jpg" alt="CSR Logo" 
-                             class="h-12 w-12 rounded-full object-cover">
+                        <div class="w-16 h-16 bg-transparent flex items-center justify-center">
+                            <img src="https://z-cdn-media.chatglm.cn/files/99351cb1-7686-4e4f-b7cc-f7d853766756.jpeg?auth_key=1872911882-b8fa5b42fc55412baa9ee2e839567271-0-e724c68f4659faf69047cdb492914ccf" 
+                                 alt="Logo CSR" 
+                                 class="w-full h-full object-contain">
+                        </div>
                         <div>
                             <h3 class="text-xl font-bold">CSR s.r.l</h3>
                             <p class="text-gray-400 text-sm">Calidad y Servicio</p>
@@ -926,13 +1369,6 @@
                             </a>
                         </li>
                         <li>
-                            <a href="https://comercioonline.github.io/CSR/informacion" 
-                               class="text-gray-400 hover:text-white transition-colors duration-300 flex items-center gap-2">
-                                <i class="fas fa-chevron-right text-xs"></i>
-                                Información
-                            </a>
-                        </li>
-                        <li>
                             <a href="https://comercioonline.github.io/CSR/nosotros" 
                                class="text-gray-400 hover:text-white transition-colors duration-300 flex items-center gap-2">
                                 <i class="fas fa-chevron-right text-xs"></i>
@@ -950,7 +1386,7 @@
                             <i class="fas fa-phone-alt text-blue-400 mt-1"></i>
                             <span class="text-gray-400">
                                 +53 63179374<br>
-                                <span class="text-sm">((Ing. Jorge Arides Estévez))</span>
+                                <span class="text-sm">(Ing. Jorge Arides Estévez)</span>
                             </span>
                         </li>
                         <li class="flex items-start gap-3">
@@ -994,7 +1430,7 @@
             <!-- Copyright -->
             <div class="border-t border-gray-800 mt-12 pt-8 text-center">
                 <p class="text-gray-500">
-                    &copy;  IMPERIUM Todos los derechos reservados.
+                    &copy; IMPERIUM Todos los derechos reservados.
                 </p>
                 <div class="mt-4 flex flex-wrap justify-center gap-6 text-sm text-gray-500">
                     <a href="#" class="hover:text-white transition-colors duration-300">
@@ -1014,7 +1450,6 @@
     <!-- Cart Sidebar -->
     <div id="cart-sidebar" class="cart-sidebar">
         <div class="h-full flex flex-col">
-            <!-- Cart Header -->
             <div class="p-6 border-b">
                 <div class="flex items-center justify-between">
                     <h3 class="text-2xl font-bold text-gray-900">
@@ -1029,12 +1464,8 @@
                 <p class="text-gray-600 text-sm mt-2">Revisa y gestiona tus productos</p>
             </div>
             
-            <!-- Cart Items -->
-            <div class="flex-1 overflow-y-auto p-6" id="cart-items">
-                <!-- Cart items will be loaded here -->
-            </div>
+            <div class="flex-1 overflow-y-auto p-6" id="cart-items"></div>
             
-            <!-- Cart Footer -->
             <div class="border-t p-6 bg-gray-50">
                 <div class="space-y-4">
                     <div class="flex justify-between items-center">
@@ -1065,10 +1496,7 @@
         </div>
     </div>
     
-    <!-- Cart Overlay -->
-    <div id="cart-overlay" 
-         class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden"
-         onclick="closeCart()"></div>
+    <div id="cart-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden" onclick="closeCart()"></div>
 
     <!-- Product Detail Modal -->
     <div id="detail-modal" class="modal-overlay">
@@ -1077,9 +1505,7 @@
                     class="absolute top-4 right-4 w-10 h-10 rounded-full hover:bg-gray-100 flex items-center justify-center transition-colors duration-300">
                 <i class="fas fa-times text-xl text-gray-500"></i>
             </button>
-            <div id="detail-container" class="animate-fade-in">
-                <!-- Product details will be loaded here -->
-            </div>
+            <div id="detail-container" class="animate-fade-in"></div>
         </div>
     </div>
 
@@ -1088,7 +1514,7 @@
         <div class="modal-content max-w-2xl">
             <button onclick="closeWhatsAppForm()" 
                     class="absolute top-4 right-4 w-10 h-10 rounded-full hover:bg-gray-100 flex items-center justify-center transition-colors duration-300">
-                <i class="fas fa-times text-xl text-gray-500"></i>
+                    <i class="fas fa-times text-xl text-gray-500"></i>
             </button>
             
             <h2 class="text-3xl font-bold mb-2 text-center">
@@ -1097,117 +1523,114 @@
             </h2>
             <p class="text-gray-600 text-center mb-8">Completa el formulario para enviar tu pedido</p>
             
-            <!-- Reemplaza tu formulario actual con este -->
-<form id="whatsapp-form" onsubmit="procesarPagoWhatsApp(event)" class="space-y-6">
-    <div class="bg-gray-50 p-6 rounded-xl">
-        <h3 class="text-lg font-semibold mb-4 flex items-center gap-2">
-            <i class="fas fa-shopping-cart"></i>
-            Resumen de tu pedido
-        </h3>
-        <div id="cart-summary" class="space-y-3">
-            <!-- Cart summary will be loaded here -->
-        </div>
-    </div>
-    
-    <div class="grid md:grid-cols-2 gap-6">
-        <div>
-            <label for="nombre" class="block text-gray-700 font-medium mb-2">
-                Nombre Completo *
-            </label>
-            <input type="text" id="nombre" name="nombre" 
-                   class="form-input" 
-                   placeholder="Ej: Juan Pérez" 
-                   required>
-        </div>
-        
-        <div>
-            <label for="carnet" class="block text-gray-700 font-medium mb-2">
-                Carnet de Identidad *
-            </label>
-            <input type="text" id="carnet" name="carnet" 
-                   class="form-input" 
-                   placeholder="Número de identificación" 
-                   required>
-        </div>
-    </div>
-    
-    <div class="grid md:grid-cols-2 gap-6">
-        <div>
-            <label for="telefono" class="block text-gray-700 font-medium mb-2">
-                Teléfono de Contacto *
-            </label>
-            <input type="tel" id="telefono" name="telefono" 
-                   class="form-input" 
-                   placeholder="Ej: +53 5XXXXXXX" 
-                   required>
-        </div>
-        
-        <div>
-            <label for="metodo-pago" class="block text-gray-700 font-medium mb-2">
-                Método de Pago Preferido *
-            </label>
-            <select id="metodo-pago" name="metodo-pago" 
-                    class="form-input" 
-                    required>
-                <option value="">Seleccione método de pago</option>
-                <option value="transfermovil">Transfermóvil</option>
-                <option value="efectivo">Efectivo USD</option>
-                <option value="cup">Pago en CUP</option>
-                <option value="tarjeta">Tarjeta en Oficina</option>
-                <option value="pendiente">Decidir después</option>
-            </select>
-        </div>
-    </div>
-    
-    <div>
-        <label for="direccion" class="block text-gray-700 font-medium mb-2">
-            Dirección de Entrega Completa *
-        </label>
-        <textarea id="direccion" name="direccion" 
-                  rows="2" 
-                  class="form-input" 
-                  placeholder="Calle, número, entre calles, municipio, provincia..." 
-                  required></textarea>
-        <p class="text-sm text-gray-500 mt-1">Incluye puntos de referencia si es posible</p>
-    </div>
-    
-    <div>
-        <label for="mensaje" class="block text-gray-700 font-medium mb-2">
-            Instrucciones Especiales
-        </label>
-        <textarea id="mensaje" name="mensaje" 
-                  rows="3" 
-                  class="form-input" 
-                  placeholder="Horario preferido de entrega, acceso al edificio, etc..."></textarea>
-    </div>
-    
-    <div class="bg-blue-50 border border-blue-200 p-4 rounded-lg">
-        <h4 class="font-semibold text-blue-800 mb-2 flex items-center gap-2">
-            <i class="fas fa-info-circle"></i>
-            Información Importante
-        </h4>
-        <ul class="text-sm text-blue-700 space-y-1">
-            <li>• Recibirás confirmación por WhatsApp en 1-2 horas</li>
-            <li>• Guarda el ID de pedido como comprobante</li>
-            <li>• Tiempo de entrega: 24-48 horas en La Habana</li>
-            <li>• Para otras provincias: 3-5 días hábiles</li>
-        </ul>
-    </div>
-    
-    <div class="flex gap-4">
-        <button type="submit" 
-                class="flex-1 btn-primary py-4 text-lg font-semibold">
-            <i class="fab fa-whatsapp mr-3"></i>
-            Generar Pedido y Enviar por WhatsApp
-        </button>
-        
-        <button type="button" 
-                onclick="closeWhatsAppForm()" 
-                class="flex-1 btn-secondary py-4 text-lg font-semibold">
-            Cancelar
-        </button>
-    </div>
-</form>
+            <form id="whatsapp-form" onsubmit="procesarPagoWhatsApp(event)" class="space-y-6">
+                <div class="bg-gray-50 p-6 rounded-xl">
+                    <h3 class="text-lg font-semibold mb-4 flex items-center gap-2">
+                        <i class="fas fa-shopping-cart"></i>
+                        Resumen de tu pedido
+                    </h3>
+                    <div id="cart-summary" class="space-y-3"></div>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="nombre" class="block text-gray-700 font-medium mb-2">
+                            Nombre Completo *
+                        </label>
+                        <input type="text" id="nombre" name="nombre" 
+                               class="form-input" 
+                               placeholder="Ej: Juan Pérez" 
+                               required>
+                    </div>
+                    
+                    <div>
+                        <label for="carnet" class="block text-gray-700 font-medium mb-2">
+                            Carnet de Identidad *
+                        </label>
+                        <input type="text" id="carnet" name="carnet" 
+                               class="form-input" 
+                               placeholder="Número de identificación" 
+                               required>
+                    </div>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="telefono" class="block text-gray-700 font-medium mb-2">
+                            Teléfono de Contacto *
+                        </label>
+                        <input type="tel" id="telefono" name="telefono" 
+                               class="form-input" 
+                               placeholder="Ej: +53 5XXXXXXX" 
+                               required>
+                    </div>
+                    
+                    <div>
+                        <label for="metodo-pago" class="block text-gray-700 font-medium mb-2">
+                            Método de Pago Preferido *
+                        </label>
+                        <select id="metodo-pago" name="metodo-pago" 
+                                class="form-input" 
+                                required>
+                            <option value="">Seleccione método de pago</option>
+                            <option value="transfermovil">Transfermóvil</option>
+                            <option value="efectivo">Efectivo USD</option>
+                            <option value="cup">Pago en CUP</option>
+                            <option value="tarjeta">Tarjeta en Oficina</option>
+                            <option value="pendiente">Decidir después</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div>
+                    <label for="direccion" class="block text-gray-700 font-medium mb-2">
+                        Dirección de Entrega Completa *
+                    </label>
+                    <textarea id="direccion" name="direccion" 
+                              rows="2" 
+                              class="form-input" 
+                              placeholder="Calle, número, entre calles, municipio, provincia..." 
+                              required></textarea>
+                    <p class="text-sm text-gray-500 mt-1">Incluye puntos de referencia si es posible</p>
+                </div>
+                
+                <div>
+                    <label for="mensaje" class="block text-gray-700 font-medium mb-2">
+                        Instrucciones Especiales
+                    </label>
+                    <textarea id="mensaje" name="mensaje" 
+                              rows="3" 
+                              class="form-input" 
+                              placeholder="Horario preferido de entrega, acceso al edificio, etc..."></textarea>
+                </div>
+                
+                <div class="bg-blue-50 border border-blue-200 p-4 rounded-lg">
+                    <h4 class="font-semibold text-blue-800 mb-2 flex items-center gap-2">
+                        <i class="fas fa-info-circle"></i>
+                        Información Importante
+                    </h4>
+                    <ul class="text-sm text-blue-700 space-y-1">
+                        <li>• Recibirás confirmación por WhatsApp en 1-2 horas</li>
+                        <li>• Guarda el ID de pedido como comprobante</li>
+                        <li>• Tiempo de entrega: 24-48 horas en La Habana</li>
+                        <li>• Para otras provincias: 3-5 días hábiles</li>
+                    </ul>
+                </div>
+                
+                <div class="flex gap-4">
+                    <button type="submit" 
+                            class="flex-1 btn-primary py-4 text-lg font-semibold">
+                        <i class="fab fa-whatsapp mr-3"></i>
+                        Generar Pedido y Enviar por WhatsApp
+                    </button>
+                    
+                    <button type="button" 
+                            onclick="closeWhatsAppForm()" 
+                            class="flex-1 btn-secondary py-4 text-lg font-semibold">
+                        Cancelar
+                    </button>
+                </div>
+            </form>
         </div>
     </div>
 
@@ -1215,288 +1638,198 @@
     <div id="notification-container" class="fixed top-4 right-4 z-50 space-y-3"></div>
 
     <script>
-
         // ====================
-// SISTEMA DE PAGOS CSR
-// ====================
+        // VARIABLES GLOBALES Y FUNCIONES DEL CARRUSEL
+        // ====================
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const indicators = document.querySelectorAll('.indicator');
+        let autoSlideInterval;
 
-const sistemaPagosCSR = {
-    // Configuración
-    config: {
-        whatsappNumber: '+5353729090', // Tu número principal
-        whatsappBackup: '+535069462',  // Número de respaldo
-        empresa: 'CSR s.r.l',
-        cuentaTransfermovil: 'TU_NUMERO_AQUI', // Número de teléfono para Transfermóvil
-        tasaCUP: 250, // Tasa de cambio USD a CUP (ajustable)
-    },
-    
-    // Estados de pago
-    estados: {
-        PENDIENTE: 'pendiente',
-        CONFIRMADO: 'confirmado',
-        PAGADO: 'pagado',
-        ENVIADO: 'enviado',
-        ENTREGADO: 'entregado',
-        CANCELADO: 'cancelado'
-    },
-    
-    // Métodos de pago disponibles en Cuba
-    metodosPago: [
-        {
-            id: 'transfermovil',
-            nombre: 'Transfermóvil',
-            icono: 'fas fa-mobile-alt',
-            color: 'bg-green-100 text-green-800',
-            instrucciones: 'Realice transferencia al número: ',
-            datos: 'Número: TU_NUMERO_AQUI'
-        },
-        {
-            id: 'efectivo',
-            nombre: 'Efectivo USD',
-            icono: 'fas fa-money-bill-wave',
-            color: 'bg-blue-100 text-blue-800',
-            instrucciones: 'Pague en efectivo al recibir el producto',
-            datos: 'Moneda: USD'
-        },
-        {
-            id: 'cup',
-            nombre: 'Pago en CUP',
-            icono: 'fas fa-money-bill',
-            color: 'bg-yellow-100 text-yellow-800',
-            instrucciones: 'Pague en CUP equivalente al cambio del día',
-            datos: 'Tasa: 250 CUP por 1 USD'
-        },
-        {
-            id: 'tarjeta',
-            nombre: 'Tarjeta en Oficina',
-            icono: 'fas fa-credit-card',
-            color: 'bg-purple-100 text-purple-800',
-            instrucciones: 'Pague con tarjeta en nuestra oficina',
-            datos: 'Dirección: Habana, Cuba'
+        function showSlide(index) {
+            if (index < 0) index = slides.length - 1;
+            if (index >= slides.length) index = 0;
+            
+            slides.forEach(slide => slide.classList.remove('active'));
+            indicators.forEach(ind => ind.classList.remove('active'));
+            
+            slides[index].classList.add('active');
+            indicators[index].classList.add('active');
+            
+            currentSlide = index;
         }
-    ],
-    
-    // Array para almacenar pedidos
-    pedidos: [],
-    
-    // Inicializar sistema
-    init: function() {
-        this.cargarPedidos();
-        this.actualizarTasaCambio();
-        console.log('✅ Sistema de pagos CSR inicializado');
-    },
-    
-    // Cargar pedidos desde localStorage
-    cargarPedidos: function() {
-        const pedidosGuardados = localStorage.getItem('csr_pedidos');
-        this.pedidos = pedidosGuardados ? JSON.parse(pedidosGuardados) : [];
-        console.log(`📦 Pedidos cargados: ${this.pedidos.length}`);
-        return this.pedidos;
-    },
-    
-    // Guardar pedidos
-    guardarPedidos: function() {
-        localStorage.setItem('csr_pedidos', JSON.stringify(this.pedidos));
-        console.log(`💾 Pedidos guardados: ${this.pedidos.length}`);
-    },
-    
-    // Actualizar tasa de cambio
-    actualizarTasaCambio: function() {
-        const hoy = new Date().toDateString();
-        const ultimaActualizacion = localStorage.getItem('csr_tasa_actualizacion');
-        
-        if (ultimaActualizacion !== hoy) {
-            localStorage.setItem('csr_tasa_actualizacion', hoy);
-            console.log('📈 Tasa de cambio actualizada para hoy');
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+            resetAutoSlide();
         }
-    },
-    
-    // Buscar pedido por ID
-    buscarPedido: function(pedidoId) {
-        return this.pedidos.find(p => p.id === pedidoId);
-    },
-    
-    // Actualizar estado de pedido
-    actualizarEstadoPedido: function(pedidoId, nuevoEstado, accion) {
-        const pedido = this.buscarPedido(pedidoId);
-        if (pedido) {
-            pedido.estado = nuevoEstado;
-            pedido.historial.push({
-                fecha: new Date().toISOString(),
-                accion: accion || `Estado actualizado a ${nuevoEstado}`,
-                estado: nuevoEstado
-            });
-            this.guardarPedidos();
-            return true;
+
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+            resetAutoSlide();
         }
-        return false;
-    }
-};
 
-// Inicializar el sistema cuando cargue la página
-document.addEventListener('DOMContentLoaded', () => {
-    sistemaPagosCSR.init();
-});
-         
+        function goToSlide(index) {
+            showSlide(index);
+            resetAutoSlide();
+        }
 
-        // Datos de productos
-        const carParts = [
-            { 
-                id: 1, 
-                name: "Motor de Lada 2107", 
-                price: 4550, 
-                category: "motor", 
-                image: "Imagenes de Piezas de Carro/Motor de lada1 2107.jpg", 
-                stock: 50,
-                description: "Motor de 4 cilindros, 1.6L, 8 válvulas refrigerado por agua. Compatible con modelos Lada 2107, 2105, 2104 y otros vehículos con motor VAZ-2106. Ofrece alto rendimiento con bajo consumo de combustible y durabilidad probada en condiciones extremas.",
-                specifications: ["Potencia: 75 HP", "Tipo: Gasolina", "Material: Hierro fundido", "Certificado: ISO 9001"],
-                compatibleModels: ["Lada 2107", "Lada 2105", "Lada 2104", "Fiat 124"]
-            },
-            { 
-                id: 2, 
-                name: "Radiador de Lada", 
-                price: 110, 
-                category: "motor", 
-                image: "Imagenes de Piezas de Carro/Radiador de lada.jpg", 
-                stock: 10,
-                description: "Radiador de aluminio con núcleos de cobre, capacidad 6.5 litros. Diseñado para sistemas de enfriamiento de vehículos Lada y algunos modelos de Fiat. Mejora la eficiencia del motor, previene sobrecalentamiento y prolonga su vida útil.",
-                specifications: ["Capacidad: 6.5 litros", "Material: Aluminio con núcleos de cobre", "Presión: 1.1 bar", "Resistencia: Corrosión"],
-                compatibleModels: ["Lada 2107", "Lada 2105", "Fiat 124", "ZAZ 1102"]
-            },
-            { 
-                id: 3, 
-                name: "Filtro de Aire", 
-                price: 0, 
-                category: "motor", 
-                image: "Imagenes de Piezas de Carro/Filtro de Aire.jpg", 
-                stock: 20,
-                description: "Filtro de aire universal con papel filtrante de alta densidad. Compatible con motores de gasolina y diésel de vehículos ligeros. Protege el motor de partículas dañinas, mejora la eficiencia del combustible y prolonga la vida del motor.",
-                specifications: ["Material: Papel filtrante de alta densidad", "Porosidad: 10-15 micrones", "Duración: 15,000 km", "Tipo: Universal"],
-                compatibleModels: ["Toyota Hilux", "Nissan NP300", "Mitsubishi L200", "Chevrolet Colorado"]
-            },
-        ];
+        function startAutoSlide() {
+            autoSlideInterval = setInterval(() => {
+                nextSlide();
+            }, 5000);
+        }
 
-        // Nuevos datos para aceites
-        const aceites = [
-            { 
-                id: 4, 
-                name: "Gaspromneft Super Multi 15W 40 CI-4 205L", 
-                price: 980, 
-                category: "aceite", 
-                subcategory: "sintetico",
-                image: "https://images.unsplash.com/photo-1621265113764-3470c6d8d5f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", 
-                stock: 20,
-                description: "Aceite multigrado para motores de gasolina y diésel de automóviles y furgonetas",
-                specifications: ["Viscosidad: 5W-30", "Tipo: Sintético", "API: SN Plus", "Volumen: 205L"],
-                features: ["Protección avanzada contra el desgaste", "Mejora la eficiencia de combustible", "Excelente limpieza del motor", "Protección en temperaturas extremas"],
-                compatibleModels: ["Toyota", "Honda", "Ford", "Chevrolet", "Motores modernos"]
-            },
-            { 
-                id: 5, 
-                name: "Gazpromneft HD-60 5L", 
-                price: 20.50, 
-                category: "aceite", 
-                subcategory: "semisintetico",
-                image: "https://images.unsplash.com/photo-1563720223486-7a66c5d873e5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", 
-                stock: 159,
-                description: "Aceite semi-sintético 10W-40 de excelente relación calidad-precio. Proporciona protección confiable para motores de gasolina y diésel. Ideal para vehículos de uso diario y condiciones normales de conducción.",
-                specifications: ["Viscosidad: 10W-40", "Tipo: Semi-sintético", "API: SN", "Volumen: 5L"],
-                features: ["Protección equilibrada", "Buena limpieza del motor", "Rendimiento confiable", "Ideal para uso diario"],
-                compatibleModels: ["Lada", "Fiat", "Renault", "VW", "Motores convencionales"]
-            },
-            { 
-                id: 6, 
-                name: "Brake Fluid G- Energy Expert DOT 4 1L", 
-                price: 7.50, 
-                category: "aceite", 
-                subcategory: "mineral",
-                image: "https://images.unsplash.com/photo-1621525143744-45dea9c47e8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", 
-                stock: 600,
-                description: "Aceite mineral 15W-50 para motores más antiguos o de alto kilometraje. Proporciona lubricación efectiva y protección básica a un precio accesible. Ideal para mantenimiento regular.",
-                specifications: ["Viscosidad: 15W-50", "Tipo: Mineral", "API: SL", "Volumen: 1L"],
-                features: ["Lubricación efectiva", "Precio accesible", "Ideal para motores viejos", "Protección básica confiable"],
-                compatibleModels: ["Motores antiguos", "Vehículos de alto kilometraje", "Uso industrial", "Maquinaria agrícola"]
-            },
-        ];
+        function resetAutoSlide() {
+            clearInterval(autoSlideInterval);
+            startAutoSlide();
+        }
 
-        const containers = [
-            { 
-                id: 7, 
-                name: "Contenedor 20ft Nuevo", 
-                price: 12000, 
-                category: "contenedores", 
-                image: "Imagenes de Contenedores/Contenedor de 20ftt.jpg", 
-                stock: 10,
-                description: "Contenedor estándar de acero de alta resistencia. Dimensiones 6.1m x 2.44m x 2.59m con capacidad de carga de 28,200 kg. Compatible con sistemas de transporte marítimo y terrestre, ideal para almacenamiento y transporte de mercancías.",
-                specifications: ["Dimensiones: 6.1m x 2.44m x 2.59m", "Capacidad: 33.1 m³", "Carga máxima: 28,200 kg", "Peso propio: 2,300 kg"],
-                features: ["Pintura exterior anti-corrosión", "Puertas de acero con triple cierre", "Certificado ISO", "Sistema de ventilación"]
-            },
-            { 
-                id: 8, 
-                name: "Contenedor 40ft Usado", 
-                price: 8500, 
-                category: "contenedores", 
-                image: "Imagenes de Contenedores/Contenedor de 40ftt.jpg", 
-                stock: 15,
-                description: "Contenedor de 40 pies en buen estado de uso. Dimensiones 12.2m x 2.44m x 2.59m con capacidad de carga de 28,800 kg. Compatible con sistemas logísticos globales, ideal para almacenamiento a largo plazo.",
-                specifications: ["Dimensiones: 12.2m x 2.44m x 2.59m", "Capacidad: 67.7 m³", "Carga máxima: 28,800 kg", "Peso propio: 3,800 kg"],
-                features: ["Estado: Bueno", "Certificado de inspección", "Ideal para almacenamiento prolongado", "Sistema de seguridad reforzado"]
-            },
-            { 
-                id: 9, 
-                name: "Contenedor Refrigerado", 
-                price: 25000, 
-                category: "contenedores", 
-                image: "Imagenes de Contenedores/Contenedor Refrigerador.jpg", 
-                stock: 5,
-                description: "Contenedor refrigerado de última generación con sistema Carrier. Rango de temperatura -30°C a +30°C, capacidad 28.5 m³. Diseñado para productos perecederos con monitoreo remoto y certificación para alimentos.",
-                specifications: ["Capacidad: 28.5 m³", "Rango de temperatura: -30°C a +30°C", "Motor: Carrier 4400", "Certificado: Alimentos"],
-                features: ["Control digital de temperatura", "Sistema de monitoreo remoto", "Certificado para transporte de alimentos", "Eficiencia energética"]
-            },
-        ];
-
-        // Variables globales
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
-        let currentFilter = null;
-        let currentAceiteFilter = null;
-
-        // Inicialización
+        // Iniciar carrusel automático
         document.addEventListener('DOMContentLoaded', () => {
-            initApp();
+            startAutoSlide();
         });
 
-        // Función de inicialización
-        function initApp() {
-    renderProducts(carParts, 'car-parts-container');
-    renderAceites(aceites, 'aceites-container');
-    renderProducts(containers, 'containers-container');
-    updateCartCount();
-    setupEventListeners();
-    checkCartOnLoad();
-    
-    // Inicializar sistema de pagos
-    sistemaPagosCSR.init();
-}
+        // ====================
+        // SISTEMA DE PAGOS CSR
+        // ====================
+        const sistemaPagosCSR = {
+            config: {
+                whatsappNumber: '+5353729090',
+                whatsappBackup: '+535069462',
+                empresa: 'CSR s.r.l',
+                cuentaTransfermovil: 'TU_NUMERO_AQUI',
+                tasaCUP: 250,
+            },
+            
+            estados: {
+                PENDIENTE: 'pendiente',
+                CONFIRMADO: 'confirmado',
+                PAGADO: 'pagado',
+                ENVIADO: 'enviado',
+                ENTREGADO: 'entregado',
+                CANCELADO: 'cancelado'
+            },
+            
+            metodosPago: [
+                {
+                    id: 'transfermovil',
+                    nombre: 'Transfermóvil',
+                    icono: 'fas fa-mobile-alt',
+                    color: 'bg-green-100 text-green-800',
+                    instrucciones: 'Realice transferencia al número: ',
+                    datos: 'Número: TU_NUMERO_AQUI'
+                },
+                {
+                    id: 'efectivo',
+                    nombre: 'Efectivo USD',
+                    icono: 'fas fa-money-bill-wave',
+                    color: 'bg-blue-100 text-blue-800',
+                    instrucciones: 'Pague en efectivo al recibir el producto',
+                    datos: 'Moneda: USD'
+                },
+                {
+                    id: 'cup',
+                    nombre: 'Pago en CUP',
+                    icono: 'fas fa-money-bill',
+                    color: 'bg-yellow-100 text-yellow-800',
+                    instrucciones: 'Pague en CUP equivalente al cambio del día',
+                    datos: 'Tasa: 250 CUP por 1 USD'
+                },
+                {
+                    id: 'tarjeta',
+                    nombre: 'Tarjeta en Oficina',
+                    icono: 'fas fa-credit-card',
+                    color: 'bg-purple-100 text-purple-800',
+                    instrucciones: 'Pague con tarjeta en nuestra oficina',
+                    datos: 'Dirección: Habana, Cuba'
+                }
+            ],
+            
+            pedidos: [],
+            
+            init: function() {
+                this.cargarPedidos();
+                this.actualizarTasaCambio();
+                console.log('✅ Sistema de pagos CSR inicializado');
+            },
+            
+            cargarPedidos: function() {
+                const pedidosGuardados = localStorage.getItem('csr_pedidos');
+                this.pedidos = pedidosGuardados ? JSON.parse(pedidosGuardados) : [];
+                return this.pedidos;
+            },
+            
+            guardarPedidos: function() {
+                localStorage.setItem('csr_pedidos', JSON.stringify(this.pedidos));
+            },
+            
+            actualizarTasaCambio: function() {
+                const hoy = new Date().toDateString();
+                const ultimaActualizacion = localStorage.getItem('csr_tasa_actualizacion');
+                
+                if (ultimaActualizacion !== hoy) {
+                    localStorage.setItem('csr_tasa_actualizacion', hoy);
+                }
+            },
+            
+            buscarPedido: function(pedidoId) {
+                return this.pedidos.find(p => p.id === pedidoId);
+            },
+            
+            actualizarEstadoPedido: function(pedidoId, nuevoEstado, accion) {
+                const pedido = this.buscarPedido(pedidoId);
+                if (pedido) {
+                    pedido.estado = nuevoEstado;
+                    pedido.historial.push({
+                        fecha: new Date().toISOString(),
+                        accion: accion || `Estado actualizado a ${nuevoEstado}`,
+                        estado: nuevoEstado
+                    });
+                    this.guardarPedidos();
+                    return true;
+                }
+                return false;
+            }
+        };
 
-        // Configurar event listeners
+        // ====================
+        // DATOS DE PRODUCTOS (VACÍOS)
+        // ====================
+        const carParts = [];
+        const aceites = [];
+        const containers = [];
+
+        // ====================
+        // VARIABLES GLOBALES DEL CARRITO
+        // ====================
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        // ====================
+        // INICIALIZACIÓN
+        // ====================
+        document.addEventListener('DOMContentLoaded', () => {
+            initApp();
+            sistemaPagosCSR.init();
+        });
+
+        function initApp() {
+            updateCartCount();
+            setupEventListeners();
+            checkCartOnLoad();
+        }
+
         function setupEventListeners() {
-            // Mobile menu
             document.getElementById('mobile-menu-btn').addEventListener('click', toggleMobileMenu);
-            
-            // Cart button
             document.getElementById('cart-btn').addEventListener('click', openCart);
-            
-            // Close cart on overlay click
             document.getElementById('cart-overlay').addEventListener('click', closeCart);
             
-            // Close modals on ESC key
             document.addEventListener('keydown', (e) => {
                 if (e.key === 'Escape') {
                     closeAllModals();
                 }
             });
             
-            // Smooth scroll for anchor links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
@@ -1514,416 +1847,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-       function renderProducts(products, containerId) {
-       const container = document.getElementById(containerId);
-       container.innerHTML = '';
-    
-       const filteredProducts = currentFilter && currentFilter !== 'all' ? 
-        products.filter(p => p.category === currentFilter) : 
-        products;
-    
-       if (filteredProducts.length === 0) {
-        container.innerHTML = `
-              <div class="col-span-3 text-center py-12">
-                <i class="fas fa-search text-4xl text-gray-300 mb-4"></i>
-                <h3 class="text-xl font-semibold text-gray-600 mb-2">No se encontraron productos</h3>
-                <p class="text-gray-500">Intenta con otra categoría o vuelve más tarde</p>
-            </div>
-        `;
-        return;
-    }
-    
-    filteredProducts.forEach(product => {
-        const productCard = createProductCard(product);
-        container.appendChild(productCard);
-    });
-}
-        // Renderizar aceites
-        function renderAceites(products, containerId) {
-            const container = document.getElementById(containerId);
-            container.innerHTML = '';
-            
-            const filteredProducts = currentAceiteFilter && currentAceiteFilter !== 'all' ? 
-                products.filter(p => p.subcategory === currentAceiteFilter) : 
-                products;
-            
-            if (filteredProducts.length === 0) {
-                container.innerHTML = `
-                    <div class="col-span-3 text-center py-12">
-                        <i class="fas fa-search text-4xl text-gray-300 mb-4"></i>
-                        <h3 class="text-xl font-semibold text-gray-600 mb-2">No se encontraron aceites</h3>
-                        <p class="text-gray-500">Intenta con otra categoría o vuelve más tarde</p>
-                    </div>
-                `;
-                return;
-            }
-            
-            filteredProducts.forEach(product => {
-                const productCard = createAceiteCard(product);
-                container.appendChild(productCard);
-            });
-        }
-
-
-function createProductCard(product) {
-    const card = document.createElement('div');
-    card.className = `product-card ${product.category} animate-slide-up`;
-    
-    // Determinar colores según categoría
-    let badgeColor, badgeText, priceGradient;
-    if (product.category === 'motor') {
-        badgeColor = 'bg-red-500';
-        badgeText = 'Motor';
-        priceGradient = 'linear-gradient(135deg, #ef4444, #dc2626)';
-    } else if (product.category === 'contenedores') {
-        badgeColor = 'bg-blue-500';
-        badgeText = 'Contenedor';
-        priceGradient = 'linear-gradient(135deg, #3b82f6, #1d4ed8)';
-    }
-    
-    const stockColor = product.stock > 10 ? 'bg-green-500' : product.stock > 0 ? 'bg-yellow-500' : 'bg-red-500';
-    
-    card.innerHTML = `
-        <div class="product-image-container">
-            <img src="${product.image}" 
-                 alt="${product.name}" 
-                 class="product-image"
-                 onerror="this.src='https://via.placeholder.com/400x300?text=Imagen+no+disponible'">
-            
-            <!-- Badge de categoría -->
-            <span class="product-badge ${badgeColor} text-white">
-                ${badgeText}
-            </span>
-            
-            <!-- Badge de stock -->
-            <span class="product-badge ${stockColor} text-white" style="top: 50px;">
-                ${product.stock > 0 ? `Stock: ${product.stock}` : 'Agotado'}
-            </span>
-            
-            <!-- Precio -->
-            <div class="price-tag" style="background: ${priceGradient}">
-                $${product.price.toLocaleString()}
-            </div>
-        </div>
-        
-        <div class="p-6 flex-1 flex flex-col">
-            <div class="mb-4 flex-1">
-                <h3 class="text-xl font-bold text-gray-900 mb-2">${product.name}</h3>
-                <p class="text-gray-600 text-sm line-clamp-2">${product.description}</p>
-            </div>
-            
-            <div class="flex justify-between items-center">
-                <button onclick="showProductDetail(${product.id})" 
-                        class="flex items-center gap-2 ${product.category === 'motor' ? 'text-red-600 hover:text-red-800' : product.category === 'contenedores' ? 'text-blue-600 hover:text-blue-800' : 'text-green-600 hover:text-green-800'} font-medium transition-colors duration-300">
-                    <i class="fas fa-info-circle"></i>
-                    Detalles
-                </button>
-                
-                <button onclick="addToCart(${product.id})" 
-                        class="flex items-center gap-2 px-4 py-2 ${product.category === 'motor' ? 'bg-red-600 hover:bg-red-700' : product.category === 'contenedores' ? 'bg-blue-600 hover:bg-blue-700' : 'bg-green-600 hover:bg-green-700'} text-white rounded-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
-                        ${product.stock === 0 ? 'disabled' : ''}>
-                    <i class="fas fa-cart-plus"></i>
-                    Añadir
-                </button>
-            </div>
-        </div>
-    `;
-    
-    return card;
-}
-       
-// Create oil card - UPDATED WITH GREEN COLORS
-function createAceiteCard(product) {
-    const card = document.createElement('div');
-    card.className = `product-card aceite animate-slide-up`;
-    
-    // Determinar colores según subcategoría - CAMBIADO A VERDE
-    let badgeColor, badgeText;
-    switch(product.subcategory) {
-        case 'sintetico':
-            badgeColor = 'bg-green-600';
-            badgeText = 'Sintético';
-            break;
-        case 'semisintetico':
-            badgeColor = 'bg-green-500';
-            badgeText = 'Semi-sintético';
-            break;
-        case 'mineral':
-            badgeColor = 'bg-green-400';
-            badgeText = 'Mineral';
-            break;
-        default:
-            badgeColor = 'bg-green-500';
-            badgeText = 'Aceite';
-    }
-    
-    const stockColor = product.stock > 10 ? 'bg-green-500' : product.stock > 0 ? 'bg-yellow-500' : 'bg-red-500';
-    const priceGradient = 'linear-gradient(135deg, #10b981, #059669)'; // CAMBIADO A VERDE
-    
-    card.innerHTML = `
-        <div class="product-image-container">
-            <img src="${product.image}" 
-                 alt="${product.name}" 
-                 class="product-image"
-                 onerror="this.src='https://via.placeholder.com/400x300?text=Imagen+no+disponible'">
-            
-            <!-- Badge de categoría - VERDE -->
-            <span class="product-badge ${badgeColor} text-white">
-                ${badgeText}
-            </span>
-            
-            <!-- Badge de stock -->
-            <span class="product-badge ${stockColor} text-white" style="top: 50px;">
-                ${product.stock > 0 ? `Stock: ${product.stock}` : 'Agotado'}
-            </span>
-            
-            <!-- Precio - VERDE -->
-            <div class="price-tag" style="background: ${priceGradient}">
-                $${product.price.toLocaleString()}
-            </div>
-        </div>
-        
-        <div class="p-6 flex-1 flex flex-col">
-            <div class="mb-4 flex-1">
-                <h3 class="text-xl font-bold text-gray-900 mb-2">${product.name}</h3>
-                <p class="text-gray-600 text-sm line-clamp-2">${product.description}</p>
-            </div>
-            
-            <div class="flex justify-between items-center">
-              <button onclick="showProductDetail(${product.id})" 
-              class="flex items-center gap-2 ${product.category === 'motor' ? 'text-red-600 hover:text-red-800' : product.category === 'contenedores' ? 'text-blue-600 hover:text-blue-800' : 'text-green-600 hover:text-green-800'} font-medium transition-colors duration-300">
-              <i class="fas fa-info-circle"></i>
-               Detalles
-             </button>
-    
-             <button onclick="addToCart(${product.id})" 
-             class="flex items-center gap-2 px-4 py-2 ${product.category === 'motor' ? 'bg-red-600 hover:bg-red-700' : product.category === 'contenedores' ? 'bg-blue-600 hover:bg-blue-700' : 'bg-green-600 hover:bg-green-700'} text-white rounded-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
-              ${product.stock === 0 ? 'disabled' : ''}>
-             <i class="fas fa-cart-plus"></i>
-             Añadir
-            </button>
-           </div>
-        </div>
-    `;
-    
-    return card;
-}
-
-function filterProducts(category) {
-    currentFilter = category;
-    renderProducts(carParts, 'car-parts-container');
-    renderProducts(containers, 'containers-container');
-    
-    // Actualizar botones activos - CORREGIDO (todo rojo)
-    document.querySelectorAll('#car-parts .flex-wrap button').forEach(btn => {
-        btn.classList.remove('bg-red-600', 'text-white');
-        btn.classList.add('border', 'border-red-200', 'text-gray-700');
-    });
-    
-    const activeBtn = event?.target;
-    if (activeBtn) {
-        activeBtn.classList.remove('border', 'border-red-200', 'text-gray-700');
-        activeBtn.classList.add('bg-red-600', 'text-white');
-    }
-}        
-
-// Filter oils - UPDATED FOR GREENA VERDE
-function filterAceites(category) {
-    currentAceiteFilter = category;
-    renderAceites(aceites, 'aceites-container');
-    
-    // Actualizar botones activos - CAMBIADO A VERDE
-    document.querySelectorAll('#aceites .flex-wrap button').forEach(btn => {
-        btn.classList.remove('bg-green-600', 'text-white');
-        btn.classList.add('border', 'border-green-200', 'text-gray-700');
-    });
-    
-    const activeBtn = event?.target;
-    if (activeBtn) {
-        activeBtn.classList.remove('border', 'border-green-200', 'text-gray-700');
-        activeBtn.classList.add('bg-green-600', 'text-white');
-    }
-}
-        // Mostrar detalles del producto
-        function showProductDetail(productId) {
-            const allProducts = [...carParts, ...aceites, ...containers];
-            const product = allProducts.find(p => p.id === productId);
-            
-            if (!product) return;
-            
-            const detailContainer = document.getElementById('detail-container');
-            
-            // Determinar estilos según categoría
-            let badgeColor, badgeText, primaryColor, buttonColor, titleColor;
-            if (product.category === 'motor') {
-               badgeColor = 'bg-red-500';
-               badgeText = 'Motor';
-               primaryColor = 'red';
-               buttonColor = 'bg-red-600 hover:bg-red-700';
-               titleColor = 'text-red-600';
-            } else if (product.category === 'aceite') {
-                badgeColor = 'bg-green-500';
-                badgeText = 'Aceite';
-                primaryColor = 'green';
-                buttonColor = 'bg-green-600 hover:bg-green-700';
-                titleColor = 'text-green-600';
-            } else if (product.category === 'contenedores') {
-                badgeColor = 'bg-blue-500';
-                badgeText = 'Contenedor';
-                primaryColor = 'blue';
-                buttonColor = 'bg-blue-600 hover:bg-blue-700';
-                titleColor = 'text-blue-600';
-            }
-            
-            const stockColor = product.stock > 10 ? 'text-green-600' : product.stock > 0 ? 'text-yellow-600' : 'text-red-600';
-            
-            let specificationsHTML = '';
-            let featuresHTML = '';
-            let compatibleModelsHTML = '';
-            
-            // Generar HTML para especificaciones
-            if (product.specifications) {
-                specificationsHTML = `
-                    <div class="mb-8">
-                        <h4 class="font-semibold text-lg mb-4 flex items-center gap-2 ${titleColor}">
-                            <i class="fas fa-list-alt"></i>
-                            Especificaciones
-                        </h4>
-                        <ul class="grid grid-cols-1 md:grid-cols-2 gap-2">
-                            ${product.specifications.map(spec => `
-                                <li class="flex items-center gap-2 text-gray-700">
-                                    <i class="fas fa-check text-${primaryColor}-500 text-sm"></i>
-                                    ${spec}
-                                </li>
-                            `).join('')}
-                        </ul>
-                    </div>
-                `;
-            }
-            
-            // Generar HTML para características
-            if (product.features) {
-                featuresHTML = `
-                    <div class="mb-8">
-                        <h4 class="font-semibold text-lg mb-4 flex items-center gap-2 ${titleColor}">
-                            <i class="fas fa-star"></i>
-                            Características
-                        </h4>
-                        <ul class="grid grid-cols-1 md:grid-cols-2 gap-2">
-                            ${product.features.map(feature => `
-                                <li class="flex items-center gap-2 text-gray-700">
-                                    <i class="fas fa-check-circle text-${primaryColor}-500 text-sm"></i>
-                                    ${feature}
-                                </li>
-                            `).join('')}
-                        </ul>
-                    </div>
-                `;
-            }
-            
-            // Generar HTML para modelos compatibles
-            if (product.compatibleModels) {
-                compatibleModelsHTML = `
-                    <div class="mb-8">
-                        <h4 class="font-semibold text-lg mb-4 flex items-center gap-2 ${titleColor}">
-                            <i class="fas fa-car"></i>
-                            ${product.category === 'aceite' ? 'Aplicaciones' : 'Modelos Compatibles'}
-                        </h4>
-                        <div class="flex flex-wrap gap-2">
-                            ${product.compatibleModels.map(model => `
-                                <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">
-                                    ${model}
-                                </span>
-                            `).join('')}
-                        </div>
-                    </div>
-                `;
-            }
-            
-            // Si es aceite, mostrar subcategoría
-            let subcategoryHTML = '';
-            if (product.category === 'aceite' && product.subcategory) {
-                let subcategoryText = '';
-                switch(product.subcategory) {
-                    case 'sintetico': subcategoryText = 'Sintético'; break;
-                    case 'semisintetico': subcategoryText = 'Semi-sintético'; break;
-                    case 'mineral': subcategoryText = 'Mineral'; break;
-                }
-                
-                subcategoryHTML = `
-                    <span class="inline-block px-3 py-1 ${badgeColor} text-white rounded-full text-sm font-semibold ml-2">
-                        ${subcategoryText}
-                    </span>
-                `;
-            }
-            
-            detailContainer.innerHTML = `
-                <div class="grid lg:grid-cols-2 gap-8">
-                    <!-- Imagen del producto -->
-                    <div>
-                        <div class="relative rounded-xl overflow-hidden mb-6">
-                            <img src="${product.image}" 
-                                 alt="${product.name}" 
-                                 class="w-full h-96 object-cover"
-                                 onerror="this.src='https://via.placeholder.com/600x400?text=Imagen+no+disponible'">
-                            
-                            <!-- Badges -->
-                            <div class="absolute top-4 left-4 flex flex-col gap-2">
-                                <span class="${badgeColor} text-white px-3 py-1 rounded-full text-sm font-semibold">
-                                    ${badgeText}
-                                    ${subcategoryHTML}
-                                </span>
-                                <span class="${stockColor} bg-white px-3 py-1 rounded-full text-sm font-semibold">
-                                    ${product.stock > 0 ? `${product.stock} disponibles` : 'Agotado'}
-                                </span>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-gray-50 p-6 rounded-xl">
-                            <div class="flex items-center justify-between">
-                                <div>
-                                    <p class="text-gray-600 text-sm">Precio unitario</p>
-                                    <p class="text-3xl font-bold ${titleColor}">$${product.price.toLocaleString()}</p>
-                                </div>
-                                <div class="text-right">
-                                    <p class="text-gray-600 text-sm">Envío estimado</p>
-                                    <p class="font-semibold">24-48 horas</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Información del producto -->
-                    <div>
-                        <h2 class="text-3xl font-bold text-gray-900 mb-4">${product.name}</h2>
-                        <p class="text-gray-700 mb-6 leading-relaxed">${product.description}</p>
-                        
-                        ${specificationsHTML}
-                        ${featuresHTML}
-                        ${compatibleModelsHTML}
-                        
-                        <!-- Botones de acción -->
-                        <div class="flex gap-4 mt-8">
-                            <button onclick="addToCartFromDetail(${product.id})" 
-                                    class="flex-1 ${buttonColor} text-white py-4 rounded-lg font-semibold text-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
-                                    ${product.stock === 0 ? 'disabled' : ''}>
-                                <i class="fas fa-cart-plus mr-3"></i>
-                                Añadir al Carrito
-                            </button>
-                            <button onclick="closeDetailModal()" 
-                                    class="flex-1 btn-secondary py-4 text-lg font-semibold">
-                                <i class="fas fa-times mr-3"></i>
-                                Cerrar
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            `;
-            
-            openModal('detail-modal');
-        }
-
-        // Añadir al carrito
+        // Funciones del carrito (sin cambios)
         function addToCart(productId) {
             const allProducts = [...carParts, ...aceites, ...containers];
             const product = allProducts.find(p => p.id === productId);
@@ -1953,43 +1877,30 @@ function filterAceites(category) {
             saveCart();
             updateCartCount();
             showNotification('Producto añadido al carrito', 'success');
-            
-            // Animar el botón del carrito
             animateCartButton();
         }
 
-        // Añadir al carrito desde el detalle
-        function addToCartFromDetail(productId) {
-            closeDetailModal();
-            addToCart(productId);
-        }
-
-        // Guardar carrito en localStorage
         function saveCart() {
             localStorage.setItem('cart', JSON.stringify(cart));
         }
 
-        // Actualizar contador del carrito
         function updateCartCount() {
             const count = cart.reduce((total, item) => total + item.quantity, 0);
             const cartCount = document.getElementById('cart-count');
-            cartCount.textContent = count;
+            if (cartCount) cartCount.textContent = count;
             
-            // Animar si hay cambios
             if (count > 0) {
-                cartCount.classList.add('animate-pulse');
-                setTimeout(() => cartCount.classList.remove('animate-pulse'), 300);
+                cartCount?.classList.add('animate-pulse');
+                setTimeout(() => cartCount?.classList.remove('animate-pulse'), 300);
             }
         }
 
-        // Animar botón del carrito
         function animateCartButton() {
             const cartBtn = document.getElementById('cart-btn');
             cartBtn.classList.add('scale-110');
             setTimeout(() => cartBtn.classList.remove('scale-110'), 300);
         }
 
-        // Abrir carrito
         function openCart() {
             document.getElementById('cart-sidebar').classList.add('active');
             document.getElementById('cart-overlay').classList.remove('hidden');
@@ -1997,7 +1908,6 @@ function filterAceites(category) {
             renderCartItems();
         }
 
-        // Cerrar carrito
         function closeCart() {
             document.getElementById('cart-sidebar').classList.remove('active');
             setTimeout(() => {
@@ -2006,7 +1916,6 @@ function filterAceites(category) {
             }, 300);
         }
 
-        // Renderizar items del carrito
         function renderCartItems() {
             const cartItemsContainer = document.getElementById('cart-items');
             const cartSubtotal = document.getElementById('cart-subtotal');
@@ -2024,8 +1933,8 @@ function filterAceites(category) {
                         </button>
                     </div>
                 `;
-                cartSubtotal.textContent = '$0';
-                cartTotal.textContent = '$0';
+                if (cartSubtotal) cartSubtotal.textContent = '$0';
+                if (cartTotal) cartTotal.textContent = '$0';
                 return;
             }
             
@@ -2037,12 +1946,12 @@ function filterAceites(category) {
                 subtotal += itemTotal;
                 
                 const cartItem = document.createElement('div');
-                cartItem.className = 'flex items-center gap-4 p-4 bg-white rounded-lg border border-gray-200 mb-4 animate-slide-in';
+                cartItem.className = 'flex gap-4 py-4 border-b';
                 
-                // Determinar color según categoría
                 let categoryColor = 'blue';
-                if (item.category === 'aceite') categoryColor = 'red';
-                if (item.category === 'contenedores') categoryColor = 'green';
+                if (item.category === 'aceite') categoryColor = 'green';
+                if (item.category === 'contenedores') categoryColor = 'blue';
+                if (item.category === 'motor') categoryColor = 'red';
                 
                 cartItem.innerHTML = `
                     <img src="${item.image}" 
@@ -2054,7 +1963,7 @@ function filterAceites(category) {
                         <div class="flex items-center gap-2 mb-1">
                             <h4 class="font-semibold text-gray-900 truncate">${item.name}</h4>
                             <span class="px-2 py-0.5 text-xs font-medium bg-${categoryColor}-100 text-${categoryColor}-600 rounded-full">
-                                ${item.category === 'aceite' ? 'Aceite' : item.category === 'contenedores' ? 'Contenedor' : 'Motor'}
+                                ${item.category === 'aceite' ? 'Aceite' : item.category === 'contenedores' ? 'Contenedor' : 'Pieza'}
                             </span>
                         </div>
                         <p class="text-gray-600 text-sm">$${item.price.toLocaleString()} c/u</p>
@@ -2082,14 +1991,14 @@ function filterAceites(category) {
                 cartItemsContainer.appendChild(cartItem);
             });
             
-            cartSubtotal.textContent = `$${subtotal.toLocaleString()}`;
-            cartTotal.textContent = `$${subtotal.toLocaleString()}`;
+            if (cartSubtotal) cartSubtotal.textContent = `$${subtotal.toLocaleString()}`;
+            if (cartTotal) cartTotal.textContent = `$${subtotal.toLocaleString()}`;
         }
 
-        // Actualizar item del carrito
         function updateCartItem(index, change) {
             const item = cart[index];
-            const product = [...carParts, ...aceites, ...containers].find(p => p.id === item.id);
+            const allProducts = [...carParts, ...aceites, ...containers];
+            const product = allProducts.find(p => p.id === item.id);
             
             if (!product) return;
             
@@ -2112,7 +2021,6 @@ function filterAceites(category) {
             showNotification('Carrito actualizado', 'success');
         }
 
-        // Eliminar item del carrito
         function removeCartItem(index) {
             const item = cart[index];
             cart.splice(index, 1);
@@ -2122,7 +2030,6 @@ function filterAceites(category) {
             showNotification(`${item.name} eliminado del carrito`, 'info');
         }
 
-        // Vaciar carrito
         function clearCart() {
             cart = [];
             saveCart();
@@ -2131,14 +2038,99 @@ function filterAceites(category) {
             showNotification('Carrito vaciado', 'info');
         }
 
-        // Mostrar formulario de WhatsApp
+        function checkCartOnLoad() {
+            if (cart.length > 0) {
+                const allProducts = [...carParts, ...aceites, ...containers];
+                cart = cart.filter(item => {
+                    const product = allProducts.find(p => p.id === item.id);
+                    return product && product.stock >= item.quantity;
+                });
+                saveCart();
+                updateCartCount();
+            }
+        }
+
+        // Funciones de modales (sin cambios)
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        function closeDetailModal() {
+            closeModal('detail-modal');
+        }
+
+        function closeWhatsAppForm() {
+            closeModal('whatsapp-form-modal');
+        }
+
+        function closeAllModals() {
+            closeCart();
+            closeDetailModal();
+            closeWhatsAppForm();
+        }
+
+        function showNotification(message, type = 'info') {
+            const container = document.getElementById('notification-container');
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            
+            const icons = {
+                success: 'fas fa-check-circle',
+                error: 'fas fa-exclamation-circle',
+                info: 'fas fa-info-circle'
+            };
+            
+            notification.innerHTML = `
+                <i class="${icons[type] || icons.info}"></i>
+                <span>${message}</span>
+            `;
+            
+            container.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.opacity = '0';
+                notification.style.transform = 'translateX(100%)';
+                setTimeout(() => notification.remove(), 300);
+            }, 5000);
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('mobile-menu-btn').querySelector('i');
+            
+            menu.classList.toggle('hidden');
+            
+            if (menu.classList.contains('hidden')) {
+                icon.className = 'fas fa-bars text-xl text-purple-600';
+            } else {
+                icon.className = 'fas fa-times text-xl text-purple-600';
+            }
+        }
+
+        document.addEventListener('click', (e) => {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuBtn = document.getElementById('mobile-menu-btn');
+            
+            if (!mobileMenu.classList.contains('hidden') && 
+                !mobileMenu.contains(e.target) && 
+                !menuBtn.contains(e.target)) {
+                toggleMobileMenu();
+            }
+        });
+
+        // Funciones de WhatsApp (sin cambios)
         function showWhatsAppForm() {
             if (cart.length === 0) {
                 showNotification('Tu carrito está vacío', 'error');
                 return;
             }
             
-            // Generar resumen del carrito
             let cartSummaryHTML = '';
             let total = 0;
             
@@ -2146,7 +2138,6 @@ function filterAceites(category) {
                 const itemTotal = item.price * item.quantity;
                 total += itemTotal;
                 
-                // Determinar categoría para mostrar
                 let category = '';
                 if (item.category === 'aceite') category = 'Aceite';
                 else if (item.category === 'contenedores') category = 'Contenedor';
@@ -2175,601 +2166,342 @@ function filterAceites(category) {
             openModal('whatsapp-form-modal');
         }
 
-
-
-// ===========================
-// FUNCIONES AUXILIARES
-// ===========================
-
-// =============================
-// SISTEMA COMPLETO WHATSAPP API - VERSIÓN CORREGIDA
-// =============================
-
-async function procesarPagoWhatsApp(event) {
-    event.preventDefault();
-    
-    if (cart.length === 0) {
-        showNotification('Tu carrito está vacío', 'error');
-        return;
-    }
-    
-    // 1. Obtener datos del formulario
-    const formData = {
-        nombre: document.getElementById('nombre').value.trim(),
-        carnet: document.getElementById('carnet').value.trim(),
-        direccion: document.getElementById('direccion').value.trim(),
-        telefono: document.getElementById('telefono')?.value?.trim() || 'No proporcionado',
-        mensaje: document.getElementById('mensaje').value.trim(),
-        metodoPago: document.getElementById('metodo-pago')?.value || 'pendiente'
-    };
-    
-    // 2. Validar datos
-    if (!formData.nombre || !formData.carnet || !formData.direccion) {
-        showNotification('Complete todos los campos requeridos', 'error');
-        return;
-    }
-    
-    // 3. Crear pedido en el sistema
-    const pedido = crearPedidoSistema(formData);
-    
-    // 4. Generar mensaje estructurado para WhatsApp
-    const mensajeWhatsApp = generarMensajeWhatsApp(pedido);
-    
-    // 5. Mostrar modal de confirmación antes de enviar
-    mostrarConfirmacionPago(pedido, mensajeWhatsApp);
-}
-
-// ===========================
-// FUNCIONES AUXILIARES - VERSIÓN CORREGIDA
-// ===========================
-
-function crearPedidoSistema(datosCliente) {
-    const pedidoId = `CSR-${Date.now()}-${Math.random().toString(36).substr(2, 4).toUpperCase()}`;
-    
-    // Calcular total
-    let subtotal = 0;
-    const itemsDetallados = cart.map(item => {
-        const itemTotal = item.price * item.quantity;
-        subtotal += itemTotal;
-        
-        return {
-            nombre: item.name,
-            categoria: item.category === 'aceite' ? 'Aceite' : 
-                      item.category === 'contenedores' ? 'Contenedor' : 'Pieza',
-            cantidad: item.quantity,
-            precioUnitario: item.price,
-            subtotal: itemTotal,
-            stockId: item.id
-        };
-    });
-    
-    const envio = calcularEnvio(datosCliente.direccion);
-    const total = subtotal + envio;
-    
-    // Crear objeto pedido
-    const pedido = {
-        id: pedidoId,
-        fecha: new Date().toISOString(),
-        cliente: datosCliente,
-        items: itemsDetallados,
-        subtotal: subtotal,
-        envio: envio,
-        total: total,
-        estado: sistemaPagosCSR.estados.PENDIENTE,
-        metodoPago: datosCliente.metodoPago,
-        confirmado: false,
-        comprobante: null,
-        historial: [
-            {
-                fecha: new Date().toISOString(),
-                accion: 'Pedido creado',
-                estado: sistemaPagosCSR.estados.PENDIENTE
+        async function procesarPagoWhatsApp(event) {
+            event.preventDefault();
+            
+            if (cart.length === 0) {
+                showNotification('Tu carrito está vacío', 'error');
+                return;
             }
-        ]
-    };
-    
-    // Guardar en sistema
-    sistemaPagosCSR.pedidos.push(pedido);
-    sistemaPagosCSR.guardarPedidos();
-    
-    console.log('✅ Pedido creado:', pedidoId);
-    return pedido;
-}
-
-function calcularEnvio(direccion) {
-    if (!direccion) return 25;
-    
-    // Lógica básica de envío
-    const direccionLower = direccion.toLowerCase();
-    if (direccionLower.includes('habana') || 
-        direccionLower.includes('la habana') || 
-        direccionLower.includes('havana')) {
-        return 10; // USD para La Habana
-    }
-    return 25; // USD para otras provincias
-}
-
-function generarMensajeWhatsApp(pedido) {
-    let mensaje = `🛒 *NUEVO PEDIDO - ${sistemaPagosCSR.config.empresa}* 🛒\n\n`;
-    
-    // Encabezado
-    mensaje += `📋 *INFORMACIÓN DEL PEDIDO*\n`;
-    mensaje += `━━━━━━━━━━━━━━━━━━━━━━━━\n`;
-    mensaje += `🆔 *ID Pedido:* ${pedido.id}\n`;
-    mensaje += `📅 *Fecha:* ${new Date(pedido.fecha).toLocaleDateString('es-ES', {
-        weekday: 'long',
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit'
-    })}\n\n`;
-    
-    // Información del cliente
-    mensaje += `👤 *INFORMACIÓN DEL CLIENTE*\n`;
-    mensaje += `━━━━━━━━━━━━━━━━━━━━━━━━\n`;
-    mensaje += `• *Nombre:* ${pedido.cliente.nombre}\n`;
-    mensaje += `• *CI:* ${pedido.cliente.carnet}\n`;
-    mensaje += `• *Teléfono:* ${pedido.cliente.telefono}\n`;
-    mensaje += `• *Dirección:* ${pedido.cliente.direccion}\n\n`;
-    
-    // Detalles del pedido
-    mensaje += `📦 *DETALLES DEL PEDIDO*\n`;
-    mensaje += `━━━━━━━━━━━━━━━━━━━━━━━━\n`;
-    
-    pedido.items.forEach((item, index) => {
-        mensaje += `${index + 1}. *${item.nombre}*\n`;
-        mensaje += `   └ Tipo: ${item.categoria}\n`;
-        mensaje += `   └ Cantidad: ${item.cantidad}\n`;
-        mensaje += `   └ Precio: $${item.precioUnitario.toLocaleString()} USD\n`;
-        mensaje += `   └ Subtotal: $${item.subtotal.toLocaleString()} USD\n\n`;
-    });
-    
-    // Resumen financiero
-    mensaje += `💰 *RESUMEN DE PAGO*\n`;
-    mensaje += `━━━━━━━━━━━━━━━━━━━━━━━━\n`;
-    mensaje += `• Subtotal: $${pedido.subtotal.toLocaleString()} USD\n`;
-    mensaje += `• Envío: $${pedido.envio.toLocaleString()} USD\n`;
-    mensaje += `• *TOTAL: $${pedido.total.toLocaleString()} USD*\n\n`;
-    
-    // Métodos de pago disponibles
-    mensaje += `💳 *MÉTODOS DE PAGO DISPONIBLES*\n`;
-    mensaje += `━━━━━━━━━━━━━━━━━━━━━━━━\n`;
-    
-    sistemaPagosCSR.metodosPago.forEach((metodo, index) => {
-        mensaje += `${index + 1}. *${metodo.nombre}*\n`;
-        mensaje += `   └ ${metodo.instrucciones}\n`;
-        mensaje += `   └ ${metodo.datos}\n\n`;
-    });
-    
-    // Instrucciones importantes
-    mensaje += `📋 *INSTRUCCIONES IMPORTANTES*\n`;
-    mensaje += `━━━━━━━━━━━━━━━━━━━━━━━━\n`;
-    mensaje += `1. *Guarde este mensaje* como comprobante\n`;
-    mensaje += `2. *Seleccione su método de pago*\n`;
-    mensaje += `3. *Espere confirmación* por WhatsApp\n`;
-    mensaje += `4. *Tiempo de entrega:* 24-48 horas\n\n`;
-    
-    // Notas adicionales
-    if (pedido.cliente.mensaje) {
-        mensaje += `📝 *NOTAS ADICIONALES DEL CLIENTE*\n`;
-        mensaje += `━━━━━━━━━━━━━━━━━━━━━━━━\n`;
-        mensaje += `${pedido.cliente.mensaje}\n\n`;
-    }
-    
-    // Pie de página
-    mensaje += `━━━━━━━━━━━━━━━━━━━━━━━━\n`;
-    mensaje += `✅ *${sistemaPagosCSR.config.empresa}*\n`;
-    mensaje += `📍 Habana, Cuba\n`;
-    mensaje += `📞 ${sistemaPagosCSR.config.whatsappNumber} | ${sistemaPagosCSR.config.whatsappBackup}\n`;
-    mensaje += `✉️ csrdam@hotmail.com | csrhabana@gmail.com\n`;
-    mensaje += `⏰ Lunes a Viernes: 8:00 AM - 5:00 PM\n`;
-    
-    return mensaje;
-}
-
-function mostrarConfirmacionPago(pedido, mensajeWhatsApp) {
-    // Crear modal de confirmación
-    const modalHTML = `
-        <div id="confirmacion-modal" class="modal-overlay" style="display: block; z-index: 2000;">
-            <div class="modal-content max-w-2xl animate-fade-in">
-                <div class="text-center mb-6">
-                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-check text-green-600 text-2xl"></i>
-                    </div>
-                    <h2 class="text-2xl font-bold text-gray-900">¡Pedido Creado Exitosamente!</h2>
-                    <p class="text-gray-600 mt-2">ID: ${pedido.id}</p>
-                </div>
-                
-                <div class="bg-gray-50 p-6 rounded-xl mb-6">
-                    <h3 class="font-bold text-lg mb-4">📋 Resumen del Pedido</h3>
-                    <div class="space-y-3">
-                        <div class="flex justify-between">
-                            <span class="text-gray-600">Cliente:</span>
-                            <span class="font-semibold">${pedido.cliente.nombre}</span>
-                        </div>
-                        <div class="flex justify-between">
-                            <span class="text-gray-600">Total:</span>
-                            <span class="font-bold text-blue-600">$${pedido.total.toLocaleString()} USD</span>
-                        </div>
-                        <div class="flex justify-between">
-                            <span class="text-gray-600">Estado:</span>
-                            <span class="font-semibold text-yellow-600">Pendiente de pago</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="mb-6">
-                    <h3 class="font-bold text-lg mb-3">📱 Enviar por WhatsApp</h3>
-                    <p class="text-gray-600 mb-4">Se abrirá WhatsApp con el pedido prellenado. Solo debes enviarlo.</p>
-                    
-                    <div class="flex gap-3">
-                        <button onclick="enviarPorWhatsApp('${sistemaPagosCSR.config.whatsappNumber}', \`${mensajeWhatsApp.replace(/`/g, '\\`')}\`)" 
-                                class="flex-1 bg-green-600 text-white py-3 px-4 rounded-lg font-semibold hover:bg-green-700 transition-colors duration-300 flex items-center justify-center gap-2">
-                            <i class="fab fa-whatsapp"></i>
-                            WhatsApp Principal
-                        </button>
-                        
-                        <button onclick="enviarPorWhatsApp('${sistemaPagosCSR.config.whatsappBackup}', \`${mensajeWhatsApp.replace(/`/g, '\\`')}\`)" 
-                                class="flex-1 bg-blue-600 text-white py-3 px-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-300 flex items-center justify-center gap-2">
-                            <i class="fab fa-whatsapp"></i>
-                            WhatsApp Secundario
-                        </button>
-                    </div>
-                </div>
-                
-                <div class="text-center text-sm text-gray-500">
-                    <p>Guarda el ID de pedido: <span class="font-mono font-bold">${pedido.id}</span></p>
-                    <p class="mt-2">Te contactaremos para confirmar el pago y coordinar la entrega.</p>
-                </div>
-                
-                <div class="flex gap-3 mt-6">
-                    <button onclick="descargarComprobante(${JSON.stringify(pedido).replace(/`/g, '\\`')})" 
-                            class="flex-1 bg-gray-100 text-gray-800 py-3 px-4 rounded-lg font-semibold hover:bg-gray-200 transition-colors duration-300 flex items-center justify-center gap-2">
-                        <i class="fas fa-download"></i>
-                        Descargar Comprobante
-                    </button>
-                    
-                    <button onclick="cerrarConfirmacion()" 
-                            class="flex-1 bg-gray-800 text-white py-3 px-4 rounded-lg font-semibold hover:bg-gray-900 transition-colors duration-300">
-                        Cerrar
-                    </button>
-                </div>
-            </div>
-        </div>
-    `;
-    
-    // Agregar modal al body
-    document.body.insertAdjacentHTML('beforeend', modalHTML);
-}
-
-// ===========================
-// FUNCIONES DE UTILIDAD - VERSIÓN CORREGIDA
-// ===========================
-
-function enviarPorWhatsApp(numero, mensaje) {
-    const encodedMessage = encodeURIComponent(mensaje);
-    window.open(`https://wa.me/${numero}?text=${encodedMessage}`, '_blank');
-    
-    // Actualizar estado del pedido
-    const pedidoId = mensaje.match(/ID Pedido:\s*(CSR-\S+)/)?.[1];
-    if (pedidoId) {
-        const pedido = sistemaPagosCSR.pedidos.find(p => p.id === pedidoId);
-        if (pedido) {
-            pedido.historial.push({
-                fecha: new Date().toISOString(),
-                accion: 'Enviado por WhatsApp',
-                estado: pedido.estado
-            });
-            sistemaPagosCSR.guardarPedidos();
+            
+            const formData = {
+                nombre: document.getElementById('nombre').value.trim(),
+                carnet: document.getElementById('carnet').value.trim(),
+                direccion: document.getElementById('direccion').value.trim(),
+                telefono: document.getElementById('telefono')?.value?.trim() || 'No proporcionado',
+                mensaje: document.getElementById('mensaje').value.trim(),
+                metodoPago: document.getElementById('metodo-pago')?.value || 'pendiente'
+            };
+            
+            if (!formData.nombre || !formData.carnet || !formData.direccion) {
+                showNotification('Complete todos los campos requeridos', 'error');
+                return;
+            }
+            
+            const pedido = crearPedidoSistema(formData);
+            const mensajeWhatsApp = generarMensajeWhatsApp(pedido);
+            mostrarConfirmacionPago(pedido, mensajeWhatsApp);
         }
-    }
-    
-    // Cerrar modal después de 2 segundos
-    setTimeout(() => {
-        cerrarConfirmacion();
-        showNotification('Pedido enviado por WhatsApp', 'success');
-        
-        // Limpiar carrito
-        clearCart();
-        closeWhatsAppForm();
-    }, 2000);
-}
 
-function descargarComprobante(pedidoObj) {
-    const pedido = typeof pedidoObj === 'string' ? JSON.parse(pedidoObj) : pedidoObj;
-    
-    const contenido = `
-        COMPROBANTE DE PEDIDO - CSR s.r.l
-        =================================
-        
-        ID Pedido: ${pedido.id}
-        Fecha: ${new Date(pedido.fecha).toLocaleString()}
-        
-        INFORMACIÓN DEL CLIENTE
-        -----------------------
-        Nombre: ${pedido.cliente.nombre}
-        CI: ${pedido.cliente.carnet}
-        Teléfono: ${pedido.cliente.telefono}
-        Dirección: ${pedido.cliente.direccion}
-        
-        DETALLES DEL PEDIDO
-        -------------------
-        ${pedido.items.map((item, i) => `
-        ${i+1}. ${item.nombre}
-            Cantidad: ${item.cantidad}
-            Precio: $${item.precioUnitario} USD
-            Subtotal: $${item.subtotal} USD
-        `).join('')}
-        
-        RESUMEN DE PAGO
-        ---------------
-        Subtotal: $${pedido.subtotal} USD
-        Envío: $${pedido.envio} USD
-        TOTAL: $${pedido.total} USD
-        
-        Estado: ${pedido.estado}
-        Método de Pago: ${pedido.metodoPago}
-        
-        ----------------------------------
-        CSR s.r.l - Habana, Cuba
-        Tel: +53 63179374 | +53 50669462
-        Email: csrdam@hotmail.com
-        Fecha de impresión: ${new Date().toLocaleString()}
-    `;
-    
-    const blob = new Blob([contenido], { type: 'text/plain' });
-    const url = window.URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `Comprobante-${pedido.id}.txt`;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    window.URL.revokeObjectURL(url);
-    
-    showNotification('Comprobante descargado', 'success');
-}
-
-function cerrarConfirmacion() {
-    const modal = document.getElementById('confirmacion-modal');
-    if (modal) {
-        modal.remove();
-    }
-}
-
-
-function calcularEnvio(direccion) {
-    // Lógica básica de envío (puedes personalizar)
-    if (direccion.toLowerCase().includes('habana')) {
-        return 10; // USD para La Habana
-    }
-    return 25; // USD para otras provincias
-}
-
-
-function mostrarConfirmacionPago(pedido, mensajeWhatsApp) {
-    // Crear modal de confirmación
-    const modalHTML = `
-        <div id="confirmacion-modal" class="modal-overlay" style="display: block;">
-            <div class="modal-content max-w-2xl">
-                <div class="text-center mb-6">
-                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-check text-green-600 text-2xl"></i>
-                    </div>
-                    <h2 class="text-2xl font-bold text-gray-900">¡Pedido Creado Exitosamente!</h2>
-                    <p class="text-gray-600 mt-2">ID: ${pedido.id}</p>
-                </div>
+        function crearPedidoSistema(datosCliente) {
+            const pedidoId = `CSR-${Date.now()}-${Math.random().toString(36).substr(2, 4).toUpperCase()}`;
+            
+            let subtotal = 0;
+            const itemsDetallados = cart.map(item => {
+                const itemTotal = item.price * item.quantity;
+                subtotal += itemTotal;
                 
-                <div class="bg-gray-50 p-6 rounded-xl mb-6">
-                    <h3 class="font-bold text-lg mb-4">📋 Resumen del Pedido</h3>
-                    <div class="space-y-3">
-                        <div class="flex justify-between">
-                            <span class="text-gray-600">Cliente:</span>
-                            <span class="font-semibold">${pedido.cliente.nombre}</span>
-                        </div>
-                        <div class="flex justify-between">
-                            <span class="text-gray-600">Total:</span>
-                            <span class="font-bold text-blue-600">$${pedido.total.toLocaleString()} USD</span>
-                        </div>
-                        <div class="flex justify-between">
-                            <span class="text-gray-600">Estado:</span>
-                            <span class="font-semibold text-yellow-600">Pendiente de pago</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="mb-6">
-                    <h3 class="font-bold text-lg mb-3">📱 Enviar por WhatsApp</h3>
-                    <p class="text-gray-600 mb-4">Se abrirá WhatsApp con el pedido prellenado. Solo debes enviarlo.</p>
-                    
-                    <div class="flex gap-3">
-                        <button onclick="enviarPorWhatsApp('${sistemaPagosCSR.config.whatsappNumber}', \`${mensajeWhatsApp.replace(/`/g, '\\`')}\`)" 
-                                class="flex-1 bg-green-600 text-white py-3 px-4 rounded-lg font-semibold hover:bg-green-700 transition-colors duration-300 flex items-center justify-center gap-2">
-                            <i class="fab fa-whatsapp"></i>
-                            WhatsApp Principal
-                        </button>
-                        
-                        <button onclick="enviarPorWhatsApp('${sistemaPagosCSR.config.whatsappBackup}', \`${mensajeWhatsApp.replace(/`/g, '\\`')}\`)" 
-                                class="flex-1 bg-blue-600 text-white py-3 px-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-300 flex items-center justify-center gap-2">
-                            <i class="fab fa-whatsapp"></i>
-                            WhatsApp Secundario
-                        </button>
-                    </div>
-                </div>
-                
-                <div class="text-center text-sm text-gray-500">
-                    <p>Guarda el ID de pedido: <span class="font-mono font-bold">${pedido.id}</span></p>
-                    <p class="mt-2">Te contactaremos para confirmar el pago y coordinar la entrega.</p>
-                </div>
-                
-                <div class="flex gap-3 mt-6">
-                    <button onclick="descargarComprobante(${JSON.stringify(pedido).replace(/`/g, '\\`')})" 
-                            class="flex-1 bg-gray-100 text-gray-800 py-3 px-4 rounded-lg font-semibold hover:bg-gray-200 transition-colors duration-300 flex items-center justify-center gap-2">
-                        <i class="fas fa-download"></i>
-                        Descargar Comprobante
-                    </button>
-                    
-                    <button onclick="cerrarConfirmacion()" 
-                            class="flex-1 bg-gray-800 text-white py-3 px-4 rounded-lg font-semibold hover:bg-gray-900 transition-colors duration-300">
-                        Cerrar
-                    </button>
-                </div>
-            </div>
-        </div>
-    `;
-    
-    // Agregar modal al body
-    document.body.insertAdjacentHTML('beforeend', modalHTML);
-}
-
-// ===========================
-// FUNCIONES DE UTILIDAD
-// ===========================
-
-function enviarPorWhatsApp(numero, mensaje) {
-    const encodedMessage = encodeURIComponent(mensaje);
-    window.open(`https://wa.me/${numero}?text=${encodedMessage}`, '_blank');
-    
-    // Actualizar estado del pedido
-    const pedidoId = mensaje.match(/ID Pedido:\s*(CSR-\S+)/)?.[1];
-    if (pedidoId) {
-        const pedido = sistemaPagosCSR.pedidos.find(p => p.id === pedidoId);
-        if (pedido) {
-            pedido.historial.push({
-                fecha: new Date().toISOString(),
-                accion: 'Enviado por WhatsApp',
-                estado: pedido.estado
+                return {
+                    nombre: item.name,
+                    categoria: item.category === 'aceite' ? 'Aceite' : 
+                              item.category === 'contenedores' ? 'Contenedor' : 'Pieza',
+                    cantidad: item.quantity,
+                    precioUnitario: item.price,
+                    subtotal: itemTotal,
+                    stockId: item.id
+                };
             });
+            
+            const envio = calcularEnvio(datosCliente.direccion);
+            const total = subtotal + envio;
+            
+            const pedido = {
+                id: pedidoId,
+                fecha: new Date().toISOString(),
+                cliente: datosCliente,
+                items: itemsDetallados,
+                subtotal: subtotal,
+                envio: envio,
+                total: total,
+                estado: sistemaPagosCSR.estados.PENDIENTE,
+                metodoPago: datosCliente.metodoPago,
+                confirmado: false,
+                comprobante: null,
+                historial: [
+                    {
+                        fecha: new Date().toISOString(),
+                        accion: 'Pedido creado',
+                        estado: sistemaPagosCSR.estados.PENDIENTE
+                    }
+                ]
+            };
+            
+            sistemaPagosCSR.pedidos.push(pedido);
             sistemaPagosCSR.guardarPedidos();
+            
+            return pedido;
         }
-    }
-    
-    // Cerrar modal después de 2 segundos
-    setTimeout(() => {
-        cerrarConfirmacion();
-        showNotification('Pedido enviado por WhatsApp', 'success');
-        
-        // Limpiar carrito
-        clearCart();
-    }, 2000);
-}
 
-function descargarComprobante(pedido) {
-    const contenido = `
-        COMPROBANTE DE PEDIDO - CSR s.r.l
-        =================================
-        
-        ID Pedido: ${pedido.id}
-        Fecha: ${new Date(pedido.fecha).toLocaleString()}
-        
-        INFORMACIÓN DEL CLIENTE
-        -----------------------
-        Nombre: ${pedido.cliente.nombre}
-        CI: ${pedido.cliente.carnet}
-        Teléfono: ${pedido.cliente.telefono}
-        Dirección: ${pedido.cliente.direccion}
-        
-        DETALLES DEL PEDIDO
-        -------------------
-        ${pedido.items.map((item, i) => `
-        ${i+1}. ${item.nombre}
-            Cantidad: ${item.cantidad}
-            Precio: $${item.precioUnitario} USD
-            Subtotal: $${item.subtotal} USD
-        `).join('')}
-        
-        RESUMEN DE PAGO
-        ---------------
-        Subtotal: $${pedido.subtotal} USD
-        Envío: $${pedido.envio} USD
-        TOTAL: $${pedido.total} USD
-        
-        Estado: ${pedido.estado}
-        Método de Pago: ${pedido.metodoPago}
-        
-        ----------------------------------
-        CSR s.r.l - Habana, Cuba
-        Tel: +53 63179374 | +53 50669462
-        Email: csrdam@hotmail.com
-        Fecha de impresión: ${new Date().toLocaleString()}
-    `;
-    
-    const blob = new Blob([contenido], { type: 'text/plain' });
-    const url = window.URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `Comprobante-${pedido.id}.txt`;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    window.URL.revokeObjectURL(url);
-}
+        function calcularEnvio(direccion) {
+            if (!direccion) return 25;
+            
+            const direccionLower = direccion.toLowerCase();
+            if (direccionLower.includes('habana') || 
+                direccionLower.includes('la habana') || 
+                direccionLower.includes('havana')) {
+                return 10;
+            }
+            return 25;
+        }
 
-function cerrarConfirmacion() {
-    const modal = document.getElementById('confirmacion-modal');
-    if (modal) {
-        modal.remove();
-    }
-}
+        function generarMensajeWhatsApp(pedido) {
+            let mensaje = `🛒 *NUEVO PEDIDO - ${sistemaPagosCSR.config.empresa}* 🛒\n\n`;
+            
+            mensaje += `📋 *INFORMACIÓN DEL PEDIDO*\n`;
+            mensaje += `━━━━━━━━━━━━━━━━━━━━━━━━━━\n`;
+            mensaje += `🆔 *ID Pedido:* ${pedido.id}\n`;
+            mensaje += `📅 *Fecha:* ${new Date(pedido.fecha).toLocaleDateString('es-ES', {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            })}\n\n`;
+            
+            mensaje += `👤 *INFORMACIÓN DEL CLIENTE*\n`;
+            mensaje += `━━━━━━━━━━━━━━━━━━━━━━━━━━\n`;
+            mensaje += `• *Nombre:* ${pedido.cliente.nombre}\n`;
+            mensaje += `• *CI:* ${pedido.cliente.carnet}\n`;
+            mensaje += `• *Teléfono:* ${pedido.cliente.telefono}\n`;
+            mensaje += `• *Dirección:* ${pedido.cliente.direccion}\n\n`;
+            
+            mensaje += `📦 *DETALLES DEL PEDIDO*\n`;
+            mensaje += `━━━━━━━━━━━━━━━━━━━━━━━━━━\n`;
+            
+            pedido.items.forEach((item, index) => {
+                mensaje += `${index + 1}. *${item.nombre}*\n`;
+                mensaje += `   └ Tipo: ${item.categoria}\n`;
+                mensaje += `   └ Cantidad: ${item.cantidad}\n`;
+                mensaje += `   └ Precio: $${item.precioUnitario.toLocaleString()} USD\n`;
+                mensaje += `   └ Subtotal: $${item.subtotal.toLocaleString()} USD\n\n`;
+            });
+            
+            mensaje += `💰 *RESUMEN DE PAGO*\n`;
+            mensaje += `━━━━━━━━━━━━━━━━━━━━━━━━━━\n`;
+            mensaje += `• Subtotal: $${pedido.subtotal.toLocaleString()} USD\n`;
+            mensaje += `• Envío: $${pedido.envio.toLocaleString()} USD\n`;
+            mensaje += `• *TOTAL: $${pedido.total.toLocaleString()} USD*\n\n`;
+            
+            mensaje += `💳 *MÉTODOS DE PAGO DISPONIBLES*\n`;
+            mensaje += `━━━━━━━━━━━━━━━━━━━━━━━━\n`;
+            
+            sistemaPagosCSR.metodosPago.forEach((metodo, index) => {
+                mensaje += `${index + 1}. *${metodo.nombre}*\n`;
+                mensaje += `   └ ${metodo.instrucciones}\n`;
+                mensaje += `   └ ${metodo.datos}\n\n`;
+            });
+            
+            mensaje += `📋 *INSTRUCCIONES IMPORTANTES*\n`;
+            mensaje += `━━━━━━━━━━━━━━━━━━━━━━━━\n`;
+            mensaje += `1. *Guarde este mensaje* como comprobante\n`;
+            mensaje += `2. *Seleccione su método de pago*\n`;
+            mensaje += `3. *Espere confirmación* por WhatsApp\n`;
+            mensaje += `4. *Tiempo de entrega:* 24-48 horas\n\n`;
+            
+            if (pedido.cliente.mensaje) {
+                mensaje += `📝 *NOTAS ADICIONALES DEL CLIENTE*\n`;
+                mensaje += `━━━━━━━━━━━━━━━━━━━━━━━━━━\n`;
+                mensaje += `${pedido.cliente.mensaje}\n\n`;
+            }
+            
+            mensaje += `━━━━━━━━━━━━━━━━━━━━━━━━━━\n`;
+            mensaje += `✅ *${sistemaPagosCSR.config.empresa}*\n`;
+            mensaje += `📍 Habana, Cuba\n`;
+            mensaje += `📞 ${sistemaPagosCSR.config.whatsappNumber} | ${sistemaPagosCSR.config.whatsappBackup}\n`;
+            mensaje += `✉️ csrdam@hotmail.com | csrhabana@gmail.com\n`;
+            mensaje += `⏰ Lunes a Viernes: 8:00 AM - 5:00 PM\n`;
+            
+            return mensaje;
+        }
 
-// Send contact message
-function sendContactMessage(event) {
-    event.preventDefault();
-    
-    const form = event.target;
-    const empresa = form.empresa.value; // NUEVO CAMPO
-    const nombre = form.name.value;
-    const asunto = form.subject.value;
-    const proposito = form.purpose.value;
-    const mensaje = form.message.value;
-    
-    // Mapear propósito a texto legible
-    const purposeMap = {
-        'reservar_piezas': 'Reservar piezas',
-        'reservar_aceite': 'Reservar aceite',
-        'reservar_contenedor': 'Reservar contenedor',
-        'cotizacion': 'Solicitar cotización',
-        'soporte_tecnico': 'Soporte técnico',
-        'otro': 'Otro'
-    };
-    
-    // Generar mensaje para WhatsApp - INCLUYENDO EMPRESA
-    let whatsappMessage = `*CONSULTA DE CONTACTO - CSR s.r.l*\n\n`;
-    whatsappMessage += `*Empresa:* ${empresa}\n`; // NUEVO CAMPO
-    whatsappMessage += `*Nombre:* ${nombre}\n`;
-    whatsappMessage += `*Asunto:* ${asunto}\n`;
-    whatsappMessage += `*Motivo:* ${purposeMap[proposito] || proposito}\n\n`;
-    whatsappMessage += `*MENSAJE:*\n${mensaje}\n\n`;
-    whatsappMessage += `---\n`;
-    whatsappMessage += `*Fecha:* ${new Date().toLocaleDateString()}\n`;
-    whatsappMessage += `*Hora:* ${new Date().toLocaleTimeString()}`;
-    
-    // Codificar el mensaje
-    const encodedMessage = encodeURIComponent(whatsappMessage);
-    
-    // Número de WhatsApp
-    const phoneNumber = '+5353729090';
-    
-    // Abrir WhatsApp
-    window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
-    
-    // Resetear formulario
-    form.reset();
-    
-    // Mostrar confirmación
-    showNotification('Redirigiendo a WhatsApp...', 'success');
-}
+        function mostrarConfirmacionPago(pedido, mensajeWhatsApp) {
+            const modalHTML = `
+                <div id="confirmacion-modal" class="modal-overlay" style="display: block; z-index: 2000;">
+                    <div class="modal-content max-w-2xl animate-fade-in">
+                        <div class="text-center mb-6">
+                            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-check text-green-600 text-2xl"></i>
+                            </div>
+                            <h2 class="text-2xl font-bold text-gray-900">¡Pedido Creado Exitosamente!</h2>
+                            <p class="text-gray-600 mt-2">ID: ${pedido.id}</p>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-6 rounded-xl mb-6">
+                            <h3 class="font-bold text-lg mb-4">📋 Resumen del Pedido</h3>
+                            <div class="space-y-3">
+                                <div class="flex justify-between">
+                                    <span class="text-gray-600">Cliente:</span>
+                                    <span class="font-semibold">${pedido.cliente.nombre}</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-600">Total:</span>
+                                    <span class="font-bold text-blue-600">$${pedido.total.toLocaleString()} USD</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-600">Estado:</span>
+                                    <span class="font-semibold text-yellow-600">Pendiente de pago</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <h3 class="font-bold text-lg mb-3">📱 Enviar por WhatsApp</h3>
+                            <p class="text-gray-600 mb-4">Se abrirá WhatsApp con el pedido prellenado. Solo debes enviarlo.</p>
+                            
+                            <div class="flex gap-3">
+                                <button onclick="enviarPorWhatsApp('${sistemaPagosCSR.config.whatsappNumber}', \`${mensajeWhatsApp.replace(/`/g, '\\`')}\`)" 
+                                        class="flex-1 bg-green-600 text-white py-3 px-4 rounded-lg font-semibold hover:bg-green-700 transition-colors duration-300 flex items-center justify-center gap-2">
+                                    <i class="fab fa-whatsapp"></i>
+                                    WhatsApp Principal
+                                </button>
+                                
+                                <button onclick="enviarPorWhatsApp('${sistemaPagosCSR.config.whatsappBackup}', \`${mensajeWhatsApp.replace(/`/g, '\\`')}\`)" 
+                                        class="flex-1 bg-blue-600 text-white py-3 px-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-300 flex items-center justify-center gap-2">
+                                    <i class="fab fa-whatsapp"></i>
+                                    WhatsApp Secundario
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="text-center text-sm text-gray-500">
+                            <p>Guarda el ID de pedido: <span class="font-mono font-bold">${pedido.id}</span></p>
+                            <p class="mt-2">Te contactaremos para confirmar el pago y coordinar la entrega.</p>
+                        </div>
+                        
+                        <div class="flex gap-3 mt-6">
+                            <button onclick="descargarComprobante(${JSON.stringify(pedido).replace(/`/g, '\\`')})" 
+                                    class="flex-1 bg-gray-100 text-gray-800 py-3 px-4 rounded-lg font-semibold hover:bg-gray-200 transition-colors duration-300 flex items-center justify-center gap-2">
+                                <i class="fas fa-download"></i>
+                                Descargar Comprobante
+                            </button>
+                            
+                            <button onclick="cerrarConfirmacion()" 
+                                    class="flex-1 bg-gray-800 text-white py-3 px-4 rounded-lg font-semibold hover:bg-gray-900 transition-colors duration-300">
+                                Cerrar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            document.body.insertAdjacentHTML('beforeend', modalHTML);
+        }
+
+        function enviarPorWhatsApp(numero, mensaje) {
+            const encodedMessage = encodeURIComponent(mensaje);
+            window.open(`https://wa.me/${numero}?text=${encodedMessage}`, '_blank');
+            
+            const pedidoId = mensaje.match(/ID Pedido:\s*(CSR-\S+)/)?.[1];
+            if (pedidoId) {
+                const pedido = sistemaPagosCSR.pedidos.find(p => p.id === pedidoId);
+                if (pedido) {
+                    pedido.historial.push({
+                        fecha: new Date().toISOString(),
+                        accion: 'Enviado por WhatsApp',
+                        estado: pedido.estado
+                    });
+                    sistemaPagosCSR.guardarPedidos();
+                }
+            }
+            
+            setTimeout(() => {
+                cerrarConfirmacion();
+                showNotification('Pedido enviado por WhatsApp', 'success');
+                clearCart();
+                closeWhatsAppForm();
+            }, 2000);
+        }
+
+        function descargarComprobante(pedido) {
+            if (typeof pedido === 'string') {
+                try {
+                    pedido = JSON.parse(pedido);
+                } catch (e) {
+                    console.error('Error al parsear pedido:', e);
+                    return;
+                }
+            }
+            
+            const contenido = `
+                COMPROBANTE DE PEDIDO - CSR s.r.l
+                =================================
+                
+                ID Pedido: ${pedido.id}
+                Fecha: ${new Date(pedido.fecha).toLocaleString()}
+                
+                INFORMACIÓN DEL CLIENTE
+                -----------------------
+                Nombre: ${pedido.cliente.nombre}
+                CI: ${pedido.cliente.carnet}
+                Teléfono: ${pedido.cliente.telefono}
+                Dirección: ${pedido.cliente.direccion}
+                
+                DETALLES DEL PEDIDO
+                -------------------
+                ${pedido.items.map((item, i) => `
+                ${i+1}. ${item.nombre}
+                    Cantidad: ${item.cantidad}
+                    Precio: $${item.precioUnitario} USD
+                    Subtotal: $${item.subtotal} USD
+                `).join('')}
+                
+                RESUMEN DE PAGO
+                ---------------
+                Subtotal: $${pedido.subtotal} USD
+                Envío: $${pedido.envio} USD
+                TOTAL: $${pedido.total} USD
+                
+                Estado: ${pedido.estado}
+                Método de Pago: ${pedido.metodoPago}
+                
+                ----------------------------------
+                CSR s.r.l - Habana, Cuba
+                Tel: +53 63179374 | +53 50669462
+                Email: csrdam@hotmail.com
+                Fecha de impresión: ${new Date().toLocaleString()}
+            `;
+            
+            const blob = new Blob([contenido], { type: 'text/plain' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `Comprobante-${pedido.id}.txt`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+            
+            showNotification('Comprobante descargado', 'success');
+        }
+
+        function cerrarConfirmacion() {
+            const modal = document.getElementById('confirmacion-modal');
+            if (modal) {
+                modal.remove();
+            }
+        }
+
         function sendContactMessage(event) {
             event.preventDefault();
             
             const form = event.target;
+            const empresa = form.empresa ? form.empresa.value : 'No especificada';
             const nombre = form.name.value;
             const asunto = form.subject.value;
             const proposito = form.purpose.value;
             const mensaje = form.message.value;
             
-            // Mapear propósito a texto legible
             const purposeMap = {
                 'reservar_piezas': 'Reservar piezas',
                 'reservar_aceite': 'Reservar aceite',
@@ -2779,8 +2511,8 @@ function sendContactMessage(event) {
                 'otro': 'Otro'
             };
             
-            // Generar mensaje para WhatsApp
             let whatsappMessage = `*CONSULTA DE CONTACTO - CSR s.r.l*\n\n`;
+            whatsappMessage += `*Empresa:* ${empresa}\n`;
             whatsappMessage += `*Nombre:* ${nombre}\n`;
             whatsappMessage += `*Asunto:* ${asunto}\n`;
             whatsappMessage += `*Motivo:* ${purposeMap[proposito] || proposito}\n\n`;
@@ -2789,225 +2521,14 @@ function sendContactMessage(event) {
             whatsappMessage += `*Fecha:* ${new Date().toLocaleDateString()}\n`;
             whatsappMessage += `*Hora:* ${new Date().toLocaleTimeString()}`;
             
-            // Codificar el mensaje
             const encodedMessage = encodeURIComponent(whatsappMessage);
-            
-            // Número de WhatsApp
             const phoneNumber = '+5353729090';
             
-            // Abrir WhatsApp
             window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
             
-            // Resetear formulario
             form.reset();
-            
-            // Mostrar confirmación
             showNotification('Redirigiendo a WhatsApp...', 'success');
         }
-
-        // Actualizar stock de productos
-        function updateProductStock() {
-            cart.forEach(item => {
-                let product;
-                if (item.category === 'aceite') {
-                    product = aceites.find(p => p.id === item.id);
-                } else if (item.category === 'contenedores') {
-                    product = containers.find(p => p.id === item.id);
-                } else {
-                    product = carParts.find(p => p.id === item.id);
-                }
-                
-                if (product) {
-                    product.stock = Math.max(0, product.stock - item.quantity);
-                }
-            });
-            
-            // Actualizar la vista de productos
-            renderProducts(carParts, 'car-parts-container');
-            renderAceites(aceites, 'aceites-container');
-            renderProducts(containers, 'containers-container');
-        }
-
-        // Abrir modal
-        function openModal(modalId) {
-            document.getElementById(modalId).style.display = 'block';
-            document.body.style.overflow = 'hidden';
-        }
-
-        // Cerrar modal
-        function closeModal(modalId) {
-            document.getElementById(modalId).style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-
-        // Cerrar modal de detalles
-        function closeDetailModal() {
-            closeModal('detail-modal');
-        }
-
-        // Cerrar formulario de WhatsApp
-        function closeWhatsAppForm() {
-            closeModal('whatsapp-form-modal');
-        }
-
-        // Cerrar todos los modales
-        function closeAllModals() {
-            closeCart();
-            closeDetailModal();
-            closeWhatsAppForm();
-        }
-
-        // Mostrar notificación
-        function showNotification(message, type = 'info') {
-            const container = document.getElementById('notification-container');
-            const notification = document.createElement('div');
-            notification.className = `notification ${type}`;
-            
-            // Iconos por tipo
-            const icons = {
-                success: 'fas fa-check-circle',
-                error: 'fas fa-exclamation-circle',
-                info: 'fas fa-info-circle'
-            };
-            
-            notification.innerHTML = `
-                <i class="${icons[type] || icons.info}"></i>
-                <span>${message}</span>
-            `;
-            
-            container.appendChild(notification);
-            
-            // Remover después de 5 segundos
-            setTimeout(() => {
-                notification.style.opacity = '0';
-                notification.style.transform = 'translateX(100%)';
-                setTimeout(() => notification.remove(), 300);
-            }, 5000);
-        }
-
-        // Toggle menu móvil
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobile-menu');
-            const icon = document.getElementById('mobile-menu-btn').querySelector('i');
-            
-            menu.classList.toggle('hidden');
-            
-            if (menu.classList.contains('hidden')) {
-                icon.className = 'fas fa-bars text-xl text-gray-600';
-            } else {
-                icon.className = 'fas fa-times text-xl text-gray-600';
-            }
-        }
-
-        // Scroll suave a sección
-        function scrollToSection(sectionId) {
-            const element = document.getElementById(sectionId);
-            if (element) {
-                element.scrollIntoView({ behavior: 'smooth' });
-            }
-        }
-
-        // Verificar carrito al cargar
-        function checkCartOnLoad() {
-            if (cart.length > 0) {
-                // Verificar stock de productos en el carrito
-                cart = cart.filter(item => {
-                    let product;
-                    if (item.category === 'aceite') {
-                        product = aceites.find(p => p.id === item.id);
-                    } else if (item.category === 'contenedores') {
-                        product = containers.find(p => p.id === item.id);
-                    } else {
-                        product = carParts.find(p => p.id === item.id);
-                    }
-                    return product && product.stock >= item.quantity;
-                });
-                saveCart();
-                updateCartCount();
-            }
-        }
-
-        // Cerrar menú al hacer clic fuera
-        document.addEventListener('click', (e) => {
-            const mobileMenu = document.getElementById('mobile-menu');
-            const menuBtn = document.getElementById('mobile-menu-btn');
-            
-            if (!mobileMenu.classList.contains('hidden') && 
-                !mobileMenu.contains(e.target) && 
-                !menuBtn.contains(e.target)) {
-                toggleMobileMenu();
-            }
-        });
-
-// Initialize system when page loadsa cargue
-document.addEventListener('DOMContentLoaded', () => {
-    initApp();
-    sistemaPagosCSR.init();
-});
-
-// Función para actualizar el resumen del carrito en el formulario
-function actualizarResumenCarrito() {
-    const summaryDiv = document.getElementById('cart-summary');
-    if (!summaryDiv) return;
-    
-    let html = '';
-    let subtotal = 0;
-    
-    cart.forEach(item => {
-        const itemTotal = item.price * item.quantity;
-        subtotal += itemTotal;
-        
-        html += `
-            <div class="flex justify-between items-center py-2 border-b border-gray-200">
-                <div>
-                    <p class="font-medium">${item.name}</p>
-                    <p class="text-sm text-gray-600">${item.category === 'aceite' ? 'Aceite' : 
-                      item.category === 'contenedores' ? 'Contenedor' : 'Pieza'} • ${item.quantity} unidades</p>
-                </div>
-                <div class="text-right">
-                    <p class="font-semibold">$${itemTotal.toLocaleString()}</p>
-                    <p class="text-sm text-gray-600">$${item.price.toLocaleString()} c/u</p>
-                </div>
-            </div>
-        `;
-    });
-    
-    const envio = calcularEnvio(document.getElementById('direccion')?.value || '');
-    const total = subtotal + envio;
-    
-    html += `
-        <div class="space-y-2 pt-4">
-            <div class="flex justify-between">
-                <span class="text-gray-600">Subtotal:</span>
-                <span class="font-semibold">$${subtotal.toLocaleString()}</span>
-            </div>
-            <div class="flex justify-between">
-                <span class="text-gray-600">Envío estimado:</span>
-                <span class="font-semibold">$${envio.toLocaleString()}</span>
-            </div>
-            <div class="flex justify-between border-t pt-2">
-                <span class="font-bold text-lg">Total estimado:</span>
-                <span class="font-bold text-blue-600 text-lg">$${total.toLocaleString()} USD</span>
-            </div>
-        </div>
-    `;
-    
-    summaryDiv.innerHTML = html;
-}
-
-// Actualizar resumen cuando cambia la dirección
-document.addEventListener('input', function(e) {
-    if (e.target.id === 'direccion') {
-        actualizarResumenCarrito();
-    }
-});
-
-// Actualizar cuando se abre el formulario
-const originalShowWhatsAppForm = showWhatsAppForm;
-showWhatsAppForm = function() {
-    originalShowWhatsAppForm();
-    setTimeout(actualizarResumenCarrito, 100);
-};
     </script>
 </body>
 </html>
