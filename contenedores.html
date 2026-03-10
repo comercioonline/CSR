@@ -12,10 +12,10 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="CSR s.r.l - Soluciones Profesionales de Contenedores">
     <meta property="og:description" content="Venta, alquiler y reparación de contenedores de calidad para empresas e industrias">
-    <meta property="og:image" content="imagenes de Inicio/Logo2.jpg">
+    <meta property="og:image" content="https://z-cdn-media.chatglm.cn/files/99351cb1-7686-4e4f-b7cc-f7d853766756.jpeg?auth_key=1872911882-b8fa5b42fc55412baa9ee2e839567271-0-e724c68f4659faf69047cdb492914ccf">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="imagenes de Inicio/Logo2.jpg">
+    <link rel="icon" type="image/x-icon" href="https://z-cdn-media.chatglm.cn/files/99351cb1-7686-4e4f-b7cc-f7d853766756.jpeg?auth_key=1872911882-b8fa5b42fc55412baa9ee2e839567271-0-e724c68f4659faf69047cdb492914ccf">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -376,13 +376,34 @@
             100% { transform: rotate(360deg); }
         }
         
-        /* Estilos para el hero section */
+        /* Estilos para el hero section ACTUALIZADO CON FONDO DE LOGO */
         .hero-section {
-            background: linear-gradient(135deg, var(--container-color), #1e40af);
+            /* Color de fondo base por si la imagen tarda en cargar */
+            background-color: #1d4ed8;
+            /* Imagen del Logo en el fondo */
+            background-image: url('https://z-cdn-media.chatglm.cn/files/07fb306a-a1aa-4e08-9760-38aac6b2fdf7.jpeg?auth_key=1873027738-5912e19f68cf41ecbac542c529e3a8b2-0-393c40904a647ef6995f438ee4de59ec');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain; /* Muestra el logo completo */
             position: relative;
             overflow: hidden;
         }
         
+        /* Superposición (Overlay) para asegurar legibilidad del texto sobre el logo */
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            /* Gradiente azul semitransparente para oscurecer el logo y resaltar el texto */
+            background: linear-gradient(135deg, rgba(29, 78, 216, 0.85), rgba(30, 64, 175, 0.9));
+            z-index: 2; /* Por encima del fondo, por debajo del texto (z-10) */
+            pointer-events: none;
+        }
+
+        /* Mantenemos el ::before existente para la onda decorativa, asegurando que esté en el nivel correcto */
         .hero-section::before {
             content: '';
             position: absolute;
@@ -394,6 +415,7 @@
             background-size: cover;
             background-position: center;
             opacity: 0.1;
+            z-index: 3; /* Encima del overlay de color, decoración sutil */
         }
         
         /* Estilos para especificaciones */
@@ -514,11 +536,11 @@
             color: white;
         }
 
-        /* NUEVOS ESTILOS: Logo profesional */
+        /* NUEVOS ESTILOS: Logo profesional ACTUALIZADO */
         .logo-container {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
+            gap: 1rem; /* Aumentado ligeramente el espacio */
             padding: 0.5rem;
             border-radius: 12px;
             transition: all 0.3s ease;
@@ -529,32 +551,25 @@
         }
 
         .logo-icon-wrapper {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            /* Aumentado el tamaño significativamente como se solicitó */
+            width: 100px; 
+            height: 100px;
+            background: transparent; /* Fondo transparente para que se vea la imagen completa */
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
             position: relative;
             overflow: hidden;
+            /* Quitamos la sombra y degradado para que la imagen original resalte */
         }
 
-        .logo-icon-wrapper::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
-            transform: rotate(45deg);
-            transition: all 0.5s;
-        }
-
-        .logo-container:hover .logo-icon-wrapper::before {
-            left: 100%;
+        /* Ajuste para imagen del logo */
+        .logo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* Asegura que el logo se vea completo */
+            display: block;
         }
 
         .logo-text-wrapper {
@@ -612,19 +627,18 @@
 
         /* Efecto hover en el icono del logo */
         .logo-icon-wrapper {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s ease;
         }
 
         .logo-container:hover .logo-icon-wrapper {
-            transform: scale(1.05) rotate(2deg);
-            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+            transform: scale(1.05);
         }
 
         /* Responsive del logo */
         @media (max-width: 640px) {
             .logo-icon-wrapper {
-                width: 40px;
-                height: 40px;
+                width: 70px; /* Aumentado de 40px a 70px en móvil */
+                height: 70px;
             }
             
             .logo-main-text {
@@ -642,20 +656,14 @@
     <!-- Header -->
     <header class="navbar sticky top-0 z-50">
         <div class="container mx-auto px-4">
-            <div class="flex items-center justify-between h-20">
-                <!-- Logo Profesional Mejorado -->
+            <div class="flex items-center justify-between h-24 md:h-28"> <!-- Aumentado un poco la altura del header para acomodar el logo grande -->
+                <!-- Logo Profesional Mejorado con Imagen -->
                 <a href="https://comercioonline.github.io/CSR/" class="logo-container group">
                     <div class="logo-icon-wrapper">
-                        <!-- Icono SVG de contenedor profesional -->
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-white">
-                            <rect x="2" y="6" width="20" height="12" rx="2" stroke="currentColor" stroke-width="2" fill="rgba(255,255,255,0.1)"/>
-                            <path d="M6 6V18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                            <path d="M10 6V18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                            <path d="M14 6V18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                            <path d="M18 6V18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                            <path d="M2 10H22" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
-                            <path d="M2 14H22" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
-                        </svg>
+                        <!-- IMAGEN DEL LOGO INSERTADA AQUÍ -->
+                        <img src="https://z-cdn-media.chatglm.cn/files/99351cb1-7686-4e4f-b7cc-f7d853766756.jpeg?auth_key=1872911882-b8fa5b42fc55412baa9ee2e839567271-0-e724c68f4659faf69047cdb492914ccf" 
+                             alt="Logo CSR s.r.l" 
+                             class="logo-img">
                     </div>
                     <div class="logo-text-wrapper">
                         <div class="flex items-center">
@@ -687,11 +695,6 @@
                        class="desktop-nav-link text-blue-700 font-semibold flex items-center gap-2 group">
                         <i class="fas fa-box nav-icon"></i>
                         <span>Contenedores</span>
-                    </a>
-                    <a href="https://comercioonline.github.io/CSR/informacion" 
-                       class="desktop-nav-link text-blue-700 font-semibold flex items-center gap-2 group">
-                        <i class="fas fa-info-circle nav-icon"></i>
-                        <span>Información</span>
                     </a>
                     <a href="https://comercioonline.github.io/CSR/nosotros" 
                        class="desktop-nav-link text-blue-700 font-semibold flex items-center gap-2 group">
@@ -737,11 +740,6 @@
                        class="mobile-menu-item text-blue-800 font-bold flex items-center gap-4">
                         <i class="fas fa-box"></i>
                         <span>Contenedores</span>
-                    </a>
-                    <a href="https://comercioonline.github.io/CSR/informacion" 
-                       class="mobile-menu-item text-blue-800 font-bold flex items-center gap-4">
-                        <i class="fas fa-info-circle"></i>
-                        <span>Información</span>
                     </a>
                     <a href="https://comercioonline.github.io/CSR/nosotros" 
                        class="mobile-menu-item text-blue-800 font-bold flex items-center gap-4">
@@ -1509,17 +1507,11 @@
                 <!-- Company Info -->
                 <div>
                     <div class="flex items-center gap-3 mb-6">
-                        <!-- Logo SVG en el footer -->
-                        <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-700 rounded-xl flex items-center justify-center shadow-lg">
-                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-white">
-                                <rect x="2" y="6" width="20" height="12" rx="2" stroke="currentColor" stroke-width="2" fill="rgba(255,255,255,0.1)"/>
-                                <path d="M6 6V18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                                <path d="M10 6V18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                                <path d="M14 6V18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                                <path d="M18 6V18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                                <path d="M2 10H22" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
-                                <path d="M2 14H22" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
-                            </svg>
+                        <!-- Logo Imagen en el footer también -->
+                        <div class="w-16 h-16 bg-transparent flex items-center justify-center">
+                            <img src="https://z-cdn-media.chatglm.cn/files/99351cb1-7686-4e4f-b7cc-f7d853766756.jpeg?auth_key=1872911882-b8fa5b42fc55412baa9ee2e839567271-0-e724c68f4659faf69047cdb492914ccf" 
+                                 alt="Logo CSR" 
+                                 class="w-full h-full object-contain">
                         </div>
                         <div>
                             <h3 class="text-xl font-bold">CSR s.r.l</h3>
