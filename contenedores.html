@@ -376,20 +376,22 @@
             100% { transform: rotate(360deg); }
         }
         
-        /* Estilos para el hero section ACTUALIZADO CON FONDO DE LOGO */
+        /* --------------------------------------------------- */
+        /* HERO SECTION ACTUALIZADO - FONDO DEL BARCO */
+        /* --------------------------------------------------- */
         .hero-section {
-            /* Color de fondo base por si la imagen tarda en cargar */
-            background-color: #1d4ed8;
-            /* Imagen del Logo en el fondo */
-            background-image: url('https://z-cdn-media.chatglm.cn/files/07fb306a-a1aa-4e08-9760-38aac6b2fdf7.jpeg?auth_key=1873027738-5912e19f68cf41ecbac542c529e3a8b2-0-393c40904a647ef6995f438ee4de59ec');
+            /* Color de fondo oscuro neutral (no azul) por si la imagen tarda en cargar */
+            background-color: #0f172a; 
+            /* NUEVA IMAGEN DEL BARCO EN EL FONDO */
+            background-image: url('https://z-cdn-media.chatglm.cn/files/3a8ab768-accb-479e-95ca-f5bdc20f9279.jpg?auth_key=1873505549-aa90b3abde15444c87fbbd4cda18de0c-0-7102450f6b1d927af605a7f27e6c3a24');
             background-repeat: no-repeat;
-            background-position: center;
-            background-size: contain; /* Muestra el logo completo */
+            background-position: center center;
+            background-size: cover; /* Asegura que la imagen cubra todo el área */
             position: relative;
             overflow: hidden;
         }
         
-        /* Superposición (Overlay) para asegurar legibilidad del texto sobre el logo */
+        /* Superposición (Overlay) actualizada */
         .hero-section::after {
             content: '';
             position: absolute;
@@ -397,13 +399,13 @@
             left: 0;
             right: 0;
             bottom: 0;
-            /* Gradiente azul semitransparente para oscurecer el logo y resaltar el texto */
-            background: linear-gradient(135deg, rgba(29, 78, 216, 0.85), rgba(30, 64, 175, 0.9));
-            z-index: 2; /* Por encima del fondo, por debajo del texto (z-10) */
+            /* CAMBIO: Gradiente oscuro neutro en lugar de azul para resaltar el atardecer y asegurar legibilidad */
+            background: linear-gradient(to bottom, rgba(15, 23, 42, 0.6), rgba(15, 23, 42, 0.85));
+            z-index: 2; 
             pointer-events: none;
         }
 
-        /* Mantenemos el ::before existente para la onda decorativa, asegurando que esté en el nivel correcto */
+        /* Mantenemos el ::before existente para la onda decorativa */
         .hero-section::before {
             content: '';
             position: absolute;
@@ -415,7 +417,25 @@
             background-size: cover;
             background-position: center;
             opacity: 0.1;
-            z-index: 3; /* Encima del overlay de color, decoración sutil */
+            z-index: 3;
+        }
+
+        /* --------------------------------------------------- */
+        /* NUEVO: LOGO CENTRADO (WATERMARK) TRANSPARENTE */
+        /* --------------------------------------------------- */
+        .hero-logo-watermark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 70%; /* Ocupa el 70% del ancho para ser grande e imponente */
+            max-width: 900px; /* Tamaño máximo para pantallas muy grandes */
+            height: auto;
+            opacity: 0.6; /* AUMENTADO: de 0.15 a 0.3 - Más visible pero sutil */
+            z-index: 1; /* Detrás del texto (z-10) pero detrás del overlay (z-2) */
+            pointer-events: none; /* Permite hacer clic a través de la imagen */
+            object-fit: contain;
+            filter: brightness(1.0) contrast(1.1); /* Ajustado: Brillo neutro para mejor visibilidad */
         }
         
         /* Estilos para especificaciones */
@@ -540,7 +560,7 @@
         .logo-container {
             display: flex;
             align-items: center;
-            gap: 1rem; /* Aumentado ligeramente el espacio */
+            gap: 1rem; 
             padding: 0.5rem;
             border-radius: 12px;
             transition: all 0.3s ease;
@@ -551,24 +571,22 @@
         }
 
         .logo-icon-wrapper {
-            /* Aumentado el tamaño significativamente como se solicitó */
             width: 100px; 
             height: 100px;
-            background: transparent; /* Fondo transparente para que se vea la imagen completa */
+            background: transparent; 
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
             overflow: hidden;
-            /* Quitamos la sombra y degradado para que la imagen original resalte */
         }
 
         /* Ajuste para imagen del logo */
         .logo-img {
             width: 100%;
             height: 100%;
-            object-fit: contain; /* Asegura que el logo se vea completo */
+            object-fit: contain; 
             display: block;
         }
 
@@ -637,7 +655,7 @@
         /* Responsive del logo */
         @media (max-width: 640px) {
             .logo-icon-wrapper {
-                width: 70px; /* Aumentado de 40px a 70px en móvil */
+                width: 70px; 
                 height: 70px;
             }
             
@@ -656,12 +674,12 @@
     <!-- Header -->
     <header class="navbar sticky top-0 z-50">
         <div class="container mx-auto px-4">
-            <div class="flex items-center justify-between h-24 md:h-28"> <!-- Aumentado un poco la altura del header para acomodar el logo grande -->
+            <div class="flex items-center justify-between h-24 md:h-28"> 
                 <!-- Logo Profesional Mejorado con Imagen -->
                 <a href="https://comercioonline.github.io/CSR/" class="logo-container group">
                     <div class="logo-icon-wrapper">
                         <!-- IMAGEN DEL LOGO INSERTADA AQUÍ -->
-                        <img src="https://z-cdn-media.chatglm.cn/files/99351cb1-7686-4e4f-b7cc-f7d853766756.jpeg?auth_key=1872911882-b8fa5b42fc55412baa9ee2e839567271-0-e724c68f4659faf69047cdb492914ccf" 
+                        <img src="https://z-cdn-media.chatglm.cn/files/eacc73b2-2122-4c19-9553-dd6b06d2be00_Logo2.jpg?auth_key=1790430396-abc36b9bd8c349ef9d9a7dc13691e34d-0-a4a7e44781f0d1447a417d2e80143d68" 
                              alt="Logo CSR s.r.l" 
                              class="logo-img">
                     </div>
@@ -686,10 +704,10 @@
                         <i class="fas fa-oil-can nav-icon"></i>
                         <span>Aceites</span>
                     </a>
-                    <a href="https://comercioonline.github.io/CSR/autos" 
+                    <a href="https://comercioonline.github.io/CSR/aceite" 
                        class="desktop-nav-link text-blue-700 font-semibold flex items-center gap-2 group">
-                        <i class="fas fa-car nav-icon"></i>
-                        <span>Piezas de Autos</span>
+                        <i class="fas fa-bolt"></i>
+                        <span>Energía</span>
                     </a>
                     <a href="https://comercioonline.github.io/CSR/contenedores" 
                        class="desktop-nav-link text-blue-700 font-semibold flex items-center gap-2 group">
@@ -731,11 +749,11 @@
                         <i class="fas fa-oil-can"></i>
                         <span>Aceites y Lubricantes</span>
                     </a> 
-                    <a href="https://comercioonline.github.io/CSR/autos" 
+                    <a href="https://comercioonline.github.io/CSR/aceite" 
                        class="mobile-menu-item text-blue-800 font-bold flex items-center gap-4">
-                        <i class="fas fa-car"></i>
-                        <span>Piezas de Autos</span>
-                    </a>  
+                        <i class="fas fa-bolt"></i>
+                        <span>Energía</span>
+                    </a> 
                     <a href="https://comercioonline.github.io/CSR/contenedores" 
                        class="mobile-menu-item text-blue-800 font-bold flex items-center gap-4">
                         <i class="fas fa-box"></i>
@@ -753,6 +771,12 @@
 
     <!-- Hero Section -->
     <section class="hero-section text-white py-24 relative overflow-hidden">
+        
+        <!-- NUEVO ELEMENTO: LOGO CENTRADO TRANSPARENTE -->
+        <img src="https://z-cdn-media.chatglm.cn/files/7a6442a2-cc30-478a-8570-3ff7f2b94db3.jpeg?auth_key=1873506252-2eea1eb166da4e83871c3aa48bae79cb-0-da80ff8db3664c7d1e8e8f639b2516e2" 
+             alt="CSR Logo Watermark" 
+             class="hero-logo-watermark">
+
         <div class="container mx-auto px-4 relative z-10">
             <div class="max-w-4xl mx-auto text-center animate-slide-up">
                 <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
@@ -1611,24 +1635,10 @@
                             </a>
                         </li>
                         <li>
-                            <a href="https://comercioonline.github.io/CSR/autos" 
-                               class="text-gray-400 hover:text-white transition-colors duration-300 flex items-center gap-2">
-                                <i class="fas fa-chevron-right text-xs"></i>
-                                Repuestos Automotrices
-                            </a>
-                        </li>
-                        <li>
                             <a href="https://comercioonline.github.io/CSR/aceite" 
                                class="text-gray-400 hover:text-white transition-colors duration-300 flex items-center gap-2">
                                 <i class="fas fa-chevron-right text-xs"></i>
                                 Aceites
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://comercioonline.github.io/CSR/autos" 
-                               class="text-gray-400 hover:text-white transition-colors duration-300 flex items-center gap-2">
-                                <i class="fas fa-chevron-right text-xs"></i>
-                                Piezas de Autos
                             </a>
                         </li>
                     </ul>
