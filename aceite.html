@@ -351,21 +351,46 @@
             background: linear-gradient(to bottom, #b45309, #78350f);
         }
         
-        /* Estilos para el hero section - ORO NEGRO ACTUALIZADO CON FONDO DE LOGO */
+        /* -------------------------------------------------------------------------- */
+        /* ESTILOS ACTUALIZADOS: FONDO DE ACEITE + LOGO ENCIMA */
+        /* -------------------------------------------------------------------------- */
         .hero-section {
             /* Color de fondo base por si la imagen tarda en cargar */
             background-color: #111827;
-            /* Imagen del Logo en el fondo + Gradiente original del tema */
-            background-image: url('https://z-cdn-media.chatglm.cn/files/99351cb1-7686-4e4f-b7cc-f7d853766756.jpeg?auth_key=1872911882-b8fa5b42fc55412baa9ee2e839567271-0-e724c68f4659faf69047cdb492914ccf'),
-                              linear-gradient(135deg, #111827 0%, #374151 50%, #b45309 100%);
+            
+            /* FONDO 1 (Capa trasera): Aceite dorado vertiéndose */
+            background-image: url('https://z-cdn-media.chatglm.cn/files/2921795d-8998-4b3b-bbf5-7a26443f2bea.png?auth_key=1873424500-94f2313572d54654ad80e92f490983f8-0-505e67a9d9ca07efbd96780331ca1f42');
+            
             background-repeat: no-repeat;
-            background-position: center;
-            background-size: contain; /* Muestra el logo completo */
+            background-position: center center;
+            background-size: cover; /* Cubre toda la sección */
+            
             position: relative;
             overflow: hidden;
         }
+
+        /* NUEVO ESTILO: Logo superpuesto (Marca de agua) */
+        .hero-watermark-logo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50%; /* Tamaño relativo al contenedor */
+            max-width: 600px;
+            height: auto;
+            z-index: 2; /* Encima del fondo (1), pero debajo del texto (10) */
+            opacity: 0.5; /* Transparencia para que el aceite se vea "detrás" o a través */
+            filter: brightness(1.2); /* Aclara el logo un poco para mezclarse con el oro */
+            pointer-events: none; /* Permite hacer clic a través del logo */
+            animation: pulse-slow 8s infinite ease-in-out;
+        }
+
+        @keyframes pulse-slow {
+            0%, 100% { opacity: 0.4; transform: translate(-50%, -50%) scale(1); }
+            50% { opacity: 0.6; transform: translate(-50%, -50%) scale(1.05); }
+        }
         
-        /* Superposición (Overlay) para asegurar legibilidad del texto sobre el logo */
+        /* Superposición (Overlay) ajustada */
         .hero-section::after {
             content: '';
             position: absolute;
@@ -373,12 +398,12 @@
             left: 0;
             right: 0;
             bottom: 0;
-            /* Gradiente negro oscuro para oscurecer el logo y resaltar el texto (Tema ORO NEGRO) */
-            background: linear-gradient(135deg, rgba(17, 24, 39, 0.9), rgba(17, 24, 39, 0.85));
-            z-index: 2; /* Por encima del fondo, por debajo del texto */
+            background: linear-gradient(135deg, rgba(17, 24, 39, 0.6), rgba(17, 24, 39, 0.4));
+            z-index: 3; /* Por encima del logo y el aceite */
             pointer-events: none;
         }
         
+        /* Decoración sutil (olas) */
         .hero-section::before {
             content: '';
             position: absolute;
@@ -386,11 +411,12 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23000000" fill-opacity="0.3" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23000000" fill-opacity="0.2" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
             background-size: cover;
-            background-position: center;
-            opacity: 0.4;
-            z-index: 3; /* Decoración sutil encima del oscurecimiento */
+            background-position: bottom;
+            opacity: 0.5;
+            z-index: 4;
+            pointer-events: none;
         }
         
         /* Estilos para tipos de aceite */
@@ -660,11 +686,11 @@
     <header class="navbar sticky top-0 z-50">
         <div class="container mx-auto px-4">
             <div class="flex items-center justify-between h-24 md:h-28">
-                <!-- Logo Profesional Mejorado (Sustituido) -->
+                <!-- Logo Profesional Mejorado -->
                 <a href="https://comercioonline.github.io/CSR/aceite" class="logo-container group">
                     <div class="logo-icon-wrapper">
                         <!-- IMAGEN DEL LOGO INSERTADA AQUÍ -->
-                        <img src="https://z-cdn-media.chatglm.cn/files/99351cb1-7686-4e4f-b7cc-f7d853766756.jpeg?auth_key=1872911882-b8fa5b42fc55412baa9ee2e839567271-0-e724c68f4659faf69047cdb492914ccf" 
+                        <img src="https://z-cdn-media.chatglm.cn/files/eacc73b2-2122-4c19-9553-dd6b06d2be00_Logo2.jpg?auth_key=1790430396-abc36b9bd8c349ef9d9a7dc13691e34d-0-a4a7e44781f0d1447a417d2e80143d68" 
                              alt="Logo CSR s.r.l" 
                              class="logo-img">
                     </div>
@@ -690,9 +716,9 @@
                         <span>Aceites</span>
                     </a>
                     <a href="https://comercioonline.github.io/CSR/autos" 
-                       class="desktop-nav-link text-amber-600 font-semibold flex items-center gap-2 group">
-                        <i class="fas fa-car nav-icon"></i>
-                        <span>Piezas de Autos</span>
+                      class="desktop-nav-link text-amber-600 font-semibold flex items-center gap-2 group">
+                     <i class="fas fa-bolt"></i>   
+                    <span>Energía</span>
                     </a>
                     <a href="https://comercioonline.github.io/CSR/contenedores" 
                        class="desktop-nav-link text-amber-600 font-semibold flex items-center gap-2 group">
@@ -756,15 +782,21 @@
 
     <!-- Hero Section -->
     <section class="hero-section text-white py-24 relative overflow-hidden">
+        <!-- IMAGEN DEL LOGO ENCIMA DEL ACEITE -->
+        <!-- Esta imagen está en z-index 2, encima del fondo (aceite) pero debajo del texto -->
+        <img src="https://z-cdn-media.chatglm.cn/files/1aad9084-851e-4d03-94b7-6f6e62c9852e.jpeg?auth_key=1873425781-c7d2ff3ffd7243b484f60f5b0b95bed0-0-1e4454305999662f81cfe99e187bc63e" 
+             alt="Logo CSR Fondo" 
+             class="hero-watermark-logo">
+
         <div class="container mx-auto px-4 relative z-10">
             <div class="max-w-4xl mx-auto text-center animate-slide-up">
-                <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+                <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight drop-shadow-lg">
                     Aceites y Lubricantes de 
-                    <span class="bg-gradient-to-r from-amber-400 to-yellow-200 bg-clip-text text-transparent">
+                    <span class="bg-gradient-to-r from-amber-400 to-yellow-200 bg-clip-text text-transparent drop-shadow-sm">
                         Alta Calidad
                     </span>
                 </h1>
-                <p class="text-xl md:text-2xl mb-10 text-amber-100 leading-relaxed">
+                <p class="text-xl md:text-2xl mb-10 text-amber-100 leading-relaxed drop-shadow-md">
                     Protege y optimiza el rendimiento de tu motor con los mejores lubricantes del mercado
                 </p>
             </div>
@@ -1623,7 +1655,7 @@
     category: "mineral", 
     image: "Imagenes de Aceites/Gazpromneft HD-60 5L.jpg",
     stock: 159,
-    description: "Aceite mineral monogrado de alta calidad, diseñado específicamente para motores diésel de gran cilindrada, maquinaria agrícola, industrial y comercial que opere en condiciones de alta temperatura. Su fórmula avanzada proporciona una excelente protección contra el desgaste, la corrosión y la formación de depósitos [citation:2].",
+    description: "Aceite mineral monogrado de alta calidad, diseñado específicamente para motores diésel de gran cilindrada, maquinaria agrícola, industrial y comercial que opere en condiciones de alta temperatura. Su fórmula avanzada proporciona una excelente protección contra el desgaste, la corrosión y la formación de depósitos.",
     specifications: [
         "Viscosidad: SAE 60",
         "Tipo: Mineral",
@@ -1688,29 +1720,29 @@ applications: ["Sistemas que requieren rendimiento DOT 3 o DOT 4", "Vehículos m
     description: "Aceite de transmisión desarrollado para su uso en sistemas que requieren lubricantes con especificación GL-4. Formulado con una base mineral y un paquete de aditivos que garantizan una excelente protección de los engranajes y sincronizadores contra el desgaste, la corrosión y la formación de espuma, incluso en condiciones de operación severas y con variaciones de temperatura. Es apto para cajas de cambios manuales de turismos, vehículos comerciales y todoterreno.",
     specifications: [
         "Viscosidad: 80W-90",
-        "Tipo: Mineral [citation:3][citation:4][citation:7]",
-        "API: GL-4 [citation:2][citation:5]",
+        "Tipo: Mineral",
+        "API: GL-4",
         "ACEA: Información no disponible en los resultados de búsqueda",
-        "Volumen: 1 litro [citation:1][citation:3]"
+        "Volumen: 1 litro"
     ],
     features: [
-        "Protección superior de engranajes y sincronizadores contra el desgaste y la corrosión [citation:2][citation:10].",
-        "Alta estabilidad térmica y antioxidante que prolonga la vida útil del lubricante [citation:8][citation:10].",
-        "Facilita el cambio de marchas suave, especialmente en climas fríos, gracias a su buen comportamiento a bajas temperaturas [citation:5][citation:8][citation:10].",
-        "Compatibilidad con los materiales de sellado utilizados en las transmisiones modernas [citation:8][citation:10].",
-        "Previene la formación de espuma y depositos dañinos en los componentes internos de la caja de cambios [citation:5][citation:10]."
+        "Protección superior de engranajes y sincronizadores contra el desgaste y la corrosión.",
+        "Alta estabilidad térmica y antioxidante que prolonga la vida útil del lubricante.",
+        "Facilita el cambio de marchas suave, especialmente en climas fríos, gracias a su buen comportamiento a bajas temperaturas.",
+        "Compatibilidad con los materiales de sellado utilizados en las transmisiones modernas.",
+        "Previene la formación de espuma y depositos dañinos en los componentes internos de la caja de cambios."
     ],
     compatibleModels: [
         "Vehículos con manuales de transmisión que requieran lubricantes API GL-4",
-        "Cajas de cambios manuales de turismos y vehículos comerciales [citation:2][citation:5]",
-        "Vehículos todoterreno y SUVs [citation:2][citation:5]",
-        "Algunos modelos de las marcas del grupo Stellantis (anteriormente GM, Opel, etc.), Volkswagen, Ford, y fabricantes asiáticos que especifiquen GL-4 [citation:2][citation:5][citation:8]"
+        "Cajas de cambios manuales de turismos y vehículos comerciales",
+        "Vehículos todoterreno y SUVs",
+        "Algunos modelos de las marcas del grupo Stellantis (anteriormente GM, Opel, etc.), Volkswagen, Ford, y fabricantes asiáticos que especifiquen GL-4"
     ],
     applications: [
-        "Lubricación de cajas de cambios manuales (MCPP) [citation:3][citation:5]",
-        "Cajas de transferencia (transfer cases) en vehículos 4x4 [citation:4][citation:9]",
-        "Adecuado para su uso en ejes y transmisiones que requieran un lubricante con especificación GL-4 (evitar su uso en diferenciales con hipoide que requieran GL-5) [citation:5]",
-        "Sistemas de transmisión de vehículos de pasajeros y vehículos comerciales ligeros [citation:2][citation:5]"
+        "Lubricación de cajas de cambios manuales (MCPP)",
+        "Cajas de transferencia (transfer cases) en vehículos 4x4",
+        "Adecuado para su uso en ejes y transmisiones que requieran un lubricante con especificación GL-4 (evitar su uso en diferenciales con hipoide que requieran GL-5)",
+        "Sistemas de transmisión de vehículos de pasajeros y vehículos comerciales ligeros"
     ]
 },
             {
@@ -1724,20 +1756,20 @@ applications: ["Sistemas que requieren rendimiento DOT 3 o DOT 4", "Vehículos m
     specifications: [
         "Tecnología: Carboxilada (OAT - G12+)",
         "Composición base: Etilenglicol",
-        "Color: Rojo [citation:2]",
+        "Color: Rojo",
         "Volumen: 1 litro",
-        "Temperatura de cristalización (50% diluido): -37 °C [citation:2]",
-        "Temperatura de ebullición (50% diluido): +108 °C [citation:2]",
-        "Densidad a 20°C: 1.114 g/cm³ [citation:2]",
-        "pH (50% diluido): 8.5 [citation:2]"
+        "Temperatura de cristalización (50% diluido): -37 °C",
+        "Temperatura de ebullición (50% diluido): +108 °C",
+        "Densidad a 20°C: 1.114 g/cm³",
+        "pH (50% diluido): 8.5"
     ],
     features: [
-        "Protección de alta duración (hasta 5 años o 250,000 km) [citation:3]",
-        "Tecnología libre de silicatos, fosfatos, aminas y nitritos [citation:1][citation:2]",
-        "Previene eficazmente la corrosión en metales (aluminio, cobre, acero) [citation:1][citation:2]",
-        "Excelente protección contra la cavitación y la formación de depósitos [citation:2][citation:3]",
-        "Estabilidad térmica superior en un amplio rango de temperaturas [citation:1][citation:3]",
-        "Compatible con juntas y mangueras (no las deteriora) [citation:3]"
+        "Protección de alta duración (hasta 5 años o 250,000 km)",
+        "Tecnología libre de silicatos, fosfatos, aminas y nitritos",
+        "Previene eficazmente la corrosión en metales (aluminio, cobre, acero)",
+        "Excelente protección contra la cavitación y la formación de depósitos",
+        "Estabilidad térmica superior en un amplio rango de temperaturas",
+        "Compatible con juntas y mangueras (no las deteriora)"
     ],
     compatibleModels: ["Motores de gasolina y diésel", "Motores con culata de aluminio", "Sistemas de refrigeración con radiadores de cobre o aluminio", "Vehículos que requieran especificación VW TL 774-F (G12+)"],
     applications: ["Sistemas de refrigeración de autos ligeros", "Motores de combustión interna (gasolina y diésel)", "Vehículos comerciales", "Maquinaria agrícola e industrial", "Uso en regiones con climas extremos (frío/calor)"]
@@ -1749,26 +1781,26 @@ applications: ["Sistemas que requieren rendimiento DOT 3 o DOT 4", "Vehículos m
                 category: "sintetico", 
                 image: "Imagenes de Aceites/Gazpromneft Grease L Moly EP 2 CL 400ml.jpeg", 
                 stock: 477,
-                description: "Grasa lubricante multiusos de alta calidad, formulada con una base de aceites minerales de alta viscosidad y espesante de jabón de litio. Enriquecida con aditivos de presión extrema (EP) y disulfuro de molibdeno para una protección superior contra el desgaste, la corrosión y cargas de impacto en condiciones de operación severas [citation:2][citation:4].",
+                description: "Grasa lubricante multiusos de alta calidad, formulada con una base de aceites minerales de alta viscosidad y espesante de jabón de litio. Enriquecida con aditivos de presión extrema (EP) y disulfuro de molibdeno para una protección superior contra el desgaste, la corrosión y cargas de impacto en condiciones de operación severas.",
                 specifications: [
-                    "Tipo de base: Mineral [citation:2]",
-                    "Viscosidad del aceite base (a 40°C): 150 mm²/s [citation:2]",
-                    "Clasificación NLGI: 2 [citation:1][citation:2]",
-                    "Especificación: DIN 51502 KPF 2 K-30 [citation:2][citation:4]",
-                    "Temperatura de aplicación: -30°C a +120°C (pico hasta +150°C) [citation:1][citation:3][citation:5]",
-                    "Punto de goteo: >190°C [citation:1][citation:2]",
-                    "Color: Gris oscuro [citation:1][citation:2]",
-                    "Volumen: 400ml [citation:5]"
+                    "Tipo de base: Mineral",
+                    "Viscosidad del aceite base (a 40°C): 150 mm²/s",
+                    "Clasificación NLGI: 2",
+                    "Especificación: DIN 51502 KPF 2 K-30",
+                    "Temperatura de aplicación: -30°C a +120°C (pico hasta +150°C)",
+                    "Punto de goteo: >190°C",
+                    "Color: Gris oscuro",
+                    "Volumen: 400ml"
         ],
                 features: [
-                    "Soporta cargas extremas y golpes gracias a los aditivos EP y al disulfuro de molibdeno [citation:1][citation:2]",
-                    "Excelente protección contra el desgaste, la fricción y el gripado [citation:2][citation:3]",
-                    "Alta resistencia al agua, previene la corrosión y el óxido [citation:1][citation:3]",
-                    "Amplio rango de temperaturas de trabajo, de -30°C a +120°C [citation:1][citation:5]",
-                    "Buena bombeabilidad a bajas temperaturas [citation:1][citation:3]"
+                    "Soporta cargas extremas y golpes gracias a los aditivos EP y al disulfuro de molibdeno",
+                    "Excelente protección contra el desgaste, la fricción y el gripado",
+                    "Alta resistencia al agua, previene la corrosión y el óxido",
+                    "Amplio rango de temperaturas de trabajo, de -30°C a +120°C",
+                    "Buena bombeabilidad a bajas temperaturas"
                 ],
-                compatibleModels: ["Vehículos de pasajeros", "Camiones", "Tractores", "Excavadoras", "Bulldozers", "Cargadoras", "Maquinaria de construcción y minería", "Equipos industriales como trituradoras y cribas vibratorias [citation:1][citation:4]"],
-                applications: ["Lubricación de chasis y rodamientos en maquinaria pesada", "Articulaciones y pasadores sometidos a alta carga", "Sistemas de suspensión y dirección", "Equipos de construcción, minería y agricultura [citation:1][citation:3]"]
+                compatibleModels: ["Vehículos de pasajeros", "Camiones", "Tractores", "Excavadoras", "Bulldozers", "Cargadoras", "Maquinaria de construcción y minería", "Equipos industriales como trituradoras y cribas vibratorias"],
+                applications: ["Lubricación de chasis y rodamientos en maquinaria pesada", "Articulaciones y pasadores sometidos a alta carga", "Sistemas de suspensión y dirección", "Equipos de construcción, minería y agricultura"]
             },
             {
                 id: 7, 
@@ -1777,23 +1809,23 @@ applications: ["Sistemas que requieren rendimiento DOT 3 o DOT 4", "Vehículos m
                 category: "grasa", 
                 image: "Imagenes de Aceites/Gazpromneft Grease L Moly EP 2 18L.png", 
                 stock: 10,
-                description: "Gazpromneft Grease L Moly EP 2 es una grasa lubricante multifuncional de alta calidad, formulada con jabón de litio y aditivos extremadamente presion (EP) [citation:1][citation:4]. Contiene disulfuro de molibdeno (Moly), un sólido lubricante que proporciona una protección excepcional contra el desgaste y el agarrotamiento, incluso en condiciones de extrema presión y en entornos contaminados [citation:2][citation:4]. Ideal para la lubricación de maquinaria industrial y vehículos que operan en las condiciones más exigentes.",
+                description: "Gazpromneft Grease L Moly EP 2 es una grasa lubricante multifuncional de alta calidad, formulada con jabón de litio y aditivos extremamente presion (EP). Contiene disulfuro de molibdeno (Moly), un sólido lubricante que proporciona una protección excepcional contra el desgaste y el agarrotamiento, incluso en condiciones de extrema presión y en entornos contaminados. Ideal para la lubricación de maquinaria industrial y vehículos que operan en las condiciones más exigentes.",
                 specifications: [
-                    "Tipo de grasa: Multifuncional con jabón de litio [citation:1][citation:3]",
-                    "Clasificación NLGI: 2 [citation:1][citation:2][citation:3]",
-                    "Especificación DIN: 51502 KPF 2 K -30 [citation:1][citation:3][citation:6]",
-                    "Aditivos: Extreme Pressure (EP) y disulfuro de molibdeno (Moly) [citation:1][citation:2]",
-                    "Volumen: 18 litros / 18 kg [citation:1][citation:4][citation:5]"
+                    "Tipo de grasa: Multifuncional con jabón de litio",
+                    "Clasificación NLGI: 2",
+                    "Especificación DIN: 51502 KPF 2 K -30",
+                    "Aditivos: Extreme Pressure (EP) y disulfuro de molibdeno (Moly)",
+                    "Volumen: 18 litros / 18 kg"
                 ],
                 features: [
-                    "Soporta cargas extremas y impactos pesados gracias a los aditivos EP y al disulfuro de molibdeno [citation:2][citation:4]",
-                    "Amplio rango de temperaturas de trabajo: de -30°C a +120°C (picos de hasta +150°C) [citation:2][citation:4][citation:6]",
-                    "Excelente resistencia al agua, protegiendo contra la corrosión y el óxido [citation:2][citation:4][citation:6]",
-                    "Buena bombeabilidad a bajas temperaturas [citation:2]",
-                    "Alta resistencia a la oxidación, prolongando la vida útil de los componentes [citation:3][citation:5]"
+                    "Soporta cargas extremas y impactos pesados gracias a los aditivos EP y al disulfuro de molibdeno",
+                    "Amplio rango de temperaturas de trabajo: de -30°C a +120°C (picos de hasta +150°C)",
+                    "Excelente resistencia al agua, protegiendo contra la corrosión y el óxido",
+                    "Buena bombeabilidad a bajas temperaturas",
+                    "Alta resistencia a la oxidación, prolongando la vida útil de los componentes"
                 ],
                 compatibleModels: ["Sistemas de lubricación centralizados", "Rodamientos y cojinetes", "Chasis y pasadores", "Articulaciones y juntas", "Guias y deslizamientos"],
-                applications: ["Maquinaria de construcción (excavadoras, bulldozers, cargadoras) [citation:1][citation:2]", "Equipos mineros [citation:3]", "Maquinaria agrícola (tractores) [citation:1][citation:2]", "Vehículos pesados (camiones) [citation:3]", "Equipos industriales (trituradoras, cribas vibratorias) [citation:1][citation:2]"]
+                applications: ["Maquinaria de construcción (excavadoras, bulldozers, cargadoras)", "Equipos mineros", "Maquinaria agrícola (tractores)", "Vehículos pesados (camiones)", "Equipos industriales (trituradoras, cribas vibratorias)"]
             },
             {
     id: 8,
@@ -1804,34 +1836,34 @@ applications: ["Sistemas que requieren rendimiento DOT 3 o DOT 4", "Vehículos m
     stock: 50,
     description: "Aceite mineral de alta calidad para motores de dos tiempos. Formulado con aditivos de baja ceniza para proteger contra el desgaste, reducir los depósitos en la cámara de combustión y minimizar el humo en el escape. Ideal para una amplia gama de vehículos de motor y maquinaria de jardinería.",
     specifications: [
-        "Viscosidad: SAE 30 (equivalente 2T) [citation:1]",
-        "Tipo: Mineral [citation:2][citation:5][citation:8]",
+        "Viscosidad: SAE 30 (equivalente 2T)",
+        "Tipo: Mineral",
         "API: Desconocida (equivalente a TC)",
-        "JASO: FB [citation:2][citation:3][citation:4]",
-        "ISO: L-EGB [citation:2][citation:3][citation:7]",
+        "JASO: FB",
+        "ISO: L-EGB",
         "Volumen: 1 litro"
     ],
     features: [
-        "Protege contra el desgaste y evita el gripado del pistón [citation:1][citation:4]",
-        "Minimiza la formación de depósitos y mantiene la limpieza del motor [citation:1][citation:7]",
-        "Alta solubilidad y mezcla estable con el combustible [citation:1][citation:5]",
-        "Reduce la emisión de humos (baja humareda) [citation:5][citation:7]"
+        "Protege contra el desgaste y evita el gripado del pistón",
+        "Minimiza la formación de depósitos y mantiene la limpieza del motor",
+        "Alta solubilidad y mezcla estable con el combustible",
+        "Reduce la emisión de humos (baja humareda)"
     ],
     compatibleModels: [
         "Motos",
-        "Scooters / Mopeds [citation:5][citation:6]",
+        "Scooters / Mopeds",
         "Motos de cross / enduro",
         "Ciclomotores",
-        "Motonieves [citation:4][citation:5]",
+        "Motonieves",
         "Vehículos recreativos"
     ],
     applications: [
-        "Motores 2T de gasolina con refrigeración por aire [citation:3][citation:4]",
-        "Vehículos de motor (transporte) [citation:5][citation:6]",
-        "Maquinaria de jardinería (cortacéspedes, cultivadores) [citation:2][citation:4]",
-        "Herramientas motorizadas (motosierras, desbrozadoras) [citation:4][citation:5]",
-        "Motores fuera borda [citation:4][citation:8]",
-        "Motobloques [citation:4][citation:10]"
+        "Motores 2T de gasolina con refrigeración por aire",
+        "Vehículos de motor (transporte)",
+        "Maquinaria de jardinería (cortacéspedes, cultivadores)",
+        "Herramientas motorizadas (motosierras, desbrozadoras)",
+        "Motores fuera borda",
+        "Motobloques"
     ]
 }
         ];
