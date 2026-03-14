@@ -3,28 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSR s.r.l - Venta Profesional de Repuestos Automotrices</title>
-    <meta name="description" content="CSR s.r.l - Especialistas en venta e instalación de repuestos automotrices. Calidad certificada, servicio técnico profesional y garantía extendida.">
-    <meta name="keywords" content="piezas autos, repuestos automotrices, CSR, Lada, Toyota, Nissan, reparación de autos, mantenimiento vehicular">
-    <meta name="author" content="CSR s.r.l">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="CSR s.r.l - Repuestos Automotrices Profesionales">
-    <meta property="og:description" content="Venta e instalación de repuestos automotrices de calidad con servicio técnico profesional">
-    <meta property="og:image" content="https://z-cdn-media.chatglm.cn/files/99351cb1-7686-4e4f-b7cc-f7d853766756.jpeg?auth_key=1872911882-b8fa5b42fc55412baa9ee2e839567271-0-e724c68f4659faf69047cdb492914ccf">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="https://z-cdn-media.chatglm.cn/files/99351cb1-7686-4e4f-b7cc-f7d853766756.jpeg?auth_key=1872911882-b8fa5b42fc55412baa9ee2e839567271-0-e724c68f4659faf69047cdb492914ccf">
+    <title>Repuestos Automotrices Profesionales</title>
+    <meta name="description" content="Especialistas en venta e instalación de repuestos automotrices. Calidad certificada, servicio técnico profesional y garantía extendida.">
+    <meta name="keywords" content="piezas autos, repuestos automotrices, Lada, Toyota, Nissan, reparación de autos, mantenimiento vehicular">
+    <meta name="author" content="Taller de Repuestos Automotrices">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            /* CAMBIO DE COLOR PRINCIPAL: De Azul (#1d4ed8) a Rojo (#dc2626) */
-            --primary-color: #dc2626;
-            --secondary-color: #059669;
-            --accent-color: #f59e0b;
+            --primary-color: #4B5563;      /* Gris medio profesional */
+            --primary-light: #9CA3AF;       /* Gris claro metálico */
+            --primary-dark: #1F2937;        /* Gris oscuro para contrastes */
+            --accent-color: #6B7280;        /* Gris acento */
         }
         
         /* Animaciones mejoradas */
@@ -149,21 +140,19 @@
             position: absolute;
             bottom: 12px;
             right: 12px;
-            /* Cambio a rojo */
-            background: linear-gradient(135deg, var(--primary-color), #ef4444);
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
             color: white;
             padding: 8px 16px;
             border-radius: 8px 0 8px 0;
             font-weight: 700;
             font-size: 1.1rem;
             z-index: 10;
-            box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+            box-shadow: 0 4px 12px rgba(75, 85, 99, 0.3);
         }
         
         /* Estilos para botones */
         .btn-primary {
-            /* Cambio a rojo */
-            background: linear-gradient(135deg, var(--primary-color), #ef4444);
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
             color: white;
             padding: 12px 24px;
             border-radius: 10px;
@@ -175,7 +164,7 @@
         
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(239, 68, 68, 0.3);
+            box-shadow: 0 10px 20px rgba(75, 85, 99, 0.3);
         }
         
         .btn-secondary {
@@ -209,8 +198,7 @@
         .form-input:focus {
             outline: none;
             border-color: var(--primary-color);
-            /* Cambio sombra a rojo */
-            box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
+            box-shadow: 0 0 0 3px rgba(75, 85, 99, 0.2);
         }
         
         /* Estilos para la barra de navegación */
@@ -269,7 +257,7 @@
         
         .feature-card:hover {
             border-color: var(--primary-color);
-            box-shadow: 0 10px 25px rgba(239, 68, 68, 0.1);
+            box-shadow: 0 10px 25px rgba(75, 85, 99, 0.1);
             transform: translateY(-5px);
         }
         
@@ -285,8 +273,7 @@
         }
         
         .compatibility-tag:hover {
-            /* Cambio a rojo */
-            background: linear-gradient(135deg, #ef4444, #dc2626);
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
             color: white;
             transform: translateY(-1px);
         }
@@ -335,8 +322,7 @@
         }
         
         .notification.info {
-            /* Cambio a rojo */
-            background: linear-gradient(135deg, #ef4444, #dc2626);
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
         }
         
         /* Estilos para scrollbar personalizada */
@@ -350,13 +336,12 @@
         }
         
         ::-webkit-scrollbar-thumb {
-            /* Cambio a rojo */
-            background: linear-gradient(to bottom, var(--primary-color), #ef4444);
+            background: linear-gradient(to bottom, var(--primary-color), var(--primary-dark));
             border-radius: 5px;
         }
         
         ::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(to bottom, #dc2626, #b91c1c);
+            background: linear-gradient(to bottom, var(--primary-dark), #111827);
         }
         
         /* Estilos para el loader */
@@ -374,20 +359,17 @@
             100% { transform: rotate(360deg); }
         }
         
-        /* Estilos para el hero section ACTUALIZADO CON FONDO DE LOGO (TEMA ROJO) */
+        /* Estilos para el hero section - sin logo */
         .hero-section {
-            /* Color de fondo base por si la imagen tarda en cargar */
-            background-color: #dc2626;
-            /* Imagen del Logo en el fondo */
-            background-image: url('https://z-cdn-media.chatglm.cn/files/99351cb1-7686-4e4f-b7cc-f7d853766756.jpeg?auth_key=1872911882-b8fa5b42fc55412baa9ee2e839567271-0-e724c68f4659faf69047cdb492914ccf');
-            background-repeat: no-repeat;
+            background-color: var(--primary-color);
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-repeat: repeat;
             background-position: center;
-            background-size: contain; /* Muestra el logo completo */
+            background-size: cover;
             position: relative;
             overflow: hidden;
         }
         
-        /* Superposición (Overlay) para asegurar legibilidad del texto sobre el logo */
         .hero-section::after {
             content: '';
             position: absolute;
@@ -395,25 +377,9 @@
             left: 0;
             right: 0;
             bottom: 0;
-            /* Gradiente ROJO semitransparente para oscurecer el logo y resaltar el texto */
-            background: linear-gradient(135deg, rgba(220, 38, 38, 0.85), rgba(153, 27, 27, 0.9));
-            z-index: 2; /* Por encima del fondo, por debajo del texto */
+            background: linear-gradient(135deg, rgba(75, 85, 99, 0.9), rgba(31, 41, 55, 0.95));
+            z-index: 2;
             pointer-events: none;
-        }
-        
-        /* Mantenemos el ::before existente para la onda decorativa, asegurando que esté en el nivel correcto */
-        .hero-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
-            background-size: cover;
-            background-position: center;
-            opacity: 0.1;
-            z-index: 3; /* Encima del overlay de color, decoración sutil */
         }
         
         /* Estilos para marcas */
@@ -457,26 +423,26 @@
             }
         }
         
-        /* NUEVOS ESTILOS: Menú de inicio más grande y rojo */
+        /* Estilos para menú móvil */
         .mobile-menu-item {
             font-size: 1.25rem;
             padding: 1.25rem;
-            background: linear-gradient(135deg, #fee2e2, #fecaca);
-            border-left: 4px solid #dc2626;
+            background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+            border-left: 4px solid var(--primary-color);
             margin-bottom: 0.75rem;
             border-radius: 0.75rem;
             transition: all 0.3s ease;
         }
 
         .mobile-menu-item:hover {
-            background: linear-gradient(135deg, #dc2626, #b91c1c);
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
             color: white !important;
             transform: translateX(10px);
         }
 
         .mobile-menu-item i {
             font-size: 1.5rem;
-            color: #dc2626;
+            color: var(--primary-color);
         }
 
         .mobile-menu-item:hover i {
@@ -486,21 +452,21 @@
         .desktop-nav-link {
             font-size: 1.1rem;
             padding: 0.75rem 1.25rem;
-            background: linear-gradient(135deg, #fee2e2, #fecaca);
+            background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
             border-radius: 0.5rem;
-            border: 2px solid #dc2626;
+            border: 2px solid var(--primary-color);
             transition: all 0.3s ease;
         }
 
         .desktop-nav-link:hover {
-            background: linear-gradient(135deg, #dc2626, #b91c1c);
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
             color: white !important;
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(220, 38, 38, 0.4);
+            box-shadow: 0 4px 12px rgba(75, 85, 99, 0.4);
         }
 
         .desktop-nav-link .nav-icon {
-            color: #dc2626;
+            color: var(--primary-color);
             font-size: 1.2rem;
         }
 
@@ -508,39 +474,18 @@
             color: white;
         }
 
-        /* NUEVOS ESTILOS: Logo profesional ACTUALIZADO (Adaptado a tema ROJO) */
+        /* Estilos para el logo - ahora solo texto */
         .logo-container {
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 0.5rem;
             padding: 0.5rem;
             border-radius: 12px;
             transition: all 0.3s ease;
         }
 
         .logo-container:hover {
-            background: rgba(220, 38, 38, 0.05);
-        }
-
-        .logo-icon-wrapper {
-            /* Aumentado el tamaño significativamente */
-            width: 100px; 
-            height: 100px;
-            background: transparent;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* Ajuste para imagen del logo */
-        .logo-img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            display: block;
+            background: rgba(75, 85, 99, 0.05);
         }
 
         .logo-text-wrapper {
@@ -549,10 +494,9 @@
         }
 
         .logo-main-text {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             font-weight: 800;
-            /* Adaptado para tema ROJO */
-            background: linear-gradient(135deg, #b91c1c, #dc2626);
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -561,28 +505,25 @@
         }
 
         .logo-sub-text {
-            font-size: 0.7rem;
+            font-size: 0.8rem;
             color: #64748b;
             font-weight: 500;
             letter-spacing: 0.05em;
             text-transform: uppercase;
         }
 
-        .logo-badge {
-            display: inline-flex;
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            border-radius: 12px;
+            display: flex;
             align-items: center;
-            padding: 0.125rem 0.5rem;
-            /* Colores adaptados para tema Rojo */
-            background: linear-gradient(135deg, #fee2e2, #fecaca);
-            color: #991b1b;
-            font-size: 0.65rem;
-            font-weight: 700;
-            border-radius: 4px;
-            margin-left: 0.5rem;
-            border: 1px solid #f87171;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
         }
 
-        /* Animación del logo al cargar */
         @keyframes logo-entrance {
             0% {
                 opacity: 0;
@@ -598,28 +539,19 @@
             animation: logo-entrance 0.6s ease-out;
         }
 
-        /* Efecto hover en el icono del logo */
-        .logo-icon-wrapper {
-            transition: transform 0.3s ease;
-        }
-
-        .logo-container:hover .logo-icon-wrapper {
-            transform: scale(1.05);
-        }
-
-        /* Responsive del logo */
         @media (max-width: 640px) {
-            .logo-icon-wrapper {
-                width: 70px;
-                height: 70px;
-            }
-            
             .logo-main-text {
-                font-size: 1.25rem;
+                font-size: 1.5rem;
             }
             
             .logo-sub-text {
-                font-size: 0.6rem;
+                font-size: 0.7rem;
+            }
+            
+            .logo-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
             }
         }
     </style>
@@ -629,94 +561,80 @@
     <header class="navbar sticky top-0 z-50">
         <div class="container mx-auto px-4">
             <div class="flex items-center justify-between h-24 md:h-28">
-                <!-- Logo Profesional Mejorado (Sustituido) -->
-                <a href="https://comercioonline.github.io/CSR/autos" class="logo-container group">
-                    <div class="logo-icon-wrapper">
-                        <!-- IMAGEN DEL LOGO INSERTADA AQUÍ -->
-                        <img src="https://z-cdn-media.chatglm.cn/files/99351cb1-7686-4e4f-b7cc-f7d853766756.jpeg?auth_key=1872911882-b8fa5b42fc55412baa9ee2e839567271-0-e724c68f4659faf69047cdb492914ccf" 
-                             alt="Logo CSR s.r.l" 
-                             class="logo-img">
+                <!-- Logo sin CSR - solo texto e icono genérico -->
+                <a href="#" class="logo-container group">
+                    <div class="logo-icon">
+                        <i class="fas fa-car"></i>
                     </div>
                     <div class="logo-text-wrapper">
                         <div class="flex items-center">
-                            <span class="logo-main-text">CSR</span>
-                            <span class="logo-badge">s.r.l</span>
+                            <span class="logo-main-text">HORIZONTES</span>
                         </div>
-                        <span class="logo-sub-text">Repuestos Automotrices</span>
+                        <span class="logo-sub-text">Repuestos de Calidad</span>
                     </div>
                 </a>
                 
-                <!-- Desktop Navigation - NUEVO ESTILO ROJO -->
+                <!-- Desktop Navigation -->
                 <nav class="hidden lg:flex items-center gap-4">
-                    <a href="https://comercioonline.github.io/CSR/" 
-                       class="desktop-nav-link text-red-700 font-semibold flex items-center gap-2 group">
+                    <a href="#" class="desktop-nav-link text-gray-700 font-semibold flex items-center gap-2 group">
                         <i class="fas fa-home nav-icon"></i>
                         <span>Inicio</span>
                     </a>
-                    <a href="https://comercioonline.github.io/CSR/aceite" 
-                       class="desktop-nav-link text-red-700 font-semibold flex items-center gap-2 group">
-                        <i class="fas fa-oil-can nav-icon"></i>
-                        <span>Aceites</span>
-                    </a>
-                    <a href="https://comercioonline.github.io/CSR/autos" 
-                       class="desktop-nav-link text-red-700 font-semibold flex items-center gap-2 group">
+                    <a href="#categorias" class="desktop-nav-link text-gray-700 font-semibold flex items-center gap-2 group">
                         <i class="fas fa-car nav-icon"></i>
-                        <span>Piezas de Autos</span>
+                        <span>Repuestos</span>
                     </a>
-                    <a href="https://comercioonline.github.io/CSR/contenedores" 
-                       class="desktop-nav-link text-red-700 font-semibold flex items-center gap-2 group">
-                        <i class="fas fa-box nav-icon"></i>
-                        <span>Contenedores</span>
+                    <a href="#servicios" class="desktop-nav-link text-gray-700 font-semibold flex items-center gap-2 group">
+                        <i class="fas fa-wrench nav-icon"></i>
+                        <span>Servicios</span>
                     </a>
-                    <a href="https://comercioonline.github.io/CSR/nosotros" 
-                       class="desktop-nav-link text-red-700 font-semibold flex items-center gap-2 group">
-                        <i class="fas fa-users nav-icon"></i>
-                        <span>Nosotros</span>
+                    <a href="#marcas" class="desktop-nav-link text-gray-700 font-semibold flex items-center gap-2 group">
+                        <i class="fas fa-tag nav-icon"></i>
+                        <span>Marcas</span>
+                    </a>
+                    <a href="#contact" class="desktop-nav-link text-gray-700 font-semibold flex items-center gap-2 group">
+                        <i class="fas fa-envelope nav-icon"></i>
+                        <span>Contacto</span>
                     </a>
                 </nav>
                 
                 <!-- Cart and Mobile Menu Button -->
                 <div class="flex items-center gap-4">
-                    <button id="cart-btn" class="relative p-3 rounded-full hover:bg-red-50 transition-colors duration-300">
-                        <i class="fas fa-shopping-cart text-xl text-red-600"></i>
+                    <button id="cart-btn" class="relative p-3 rounded-full hover:bg-gray-100 transition-colors duration-300">
+                        <i class="fas fa-shopping-cart text-xl text-gray-600"></i>
                         <span id="cart-count" 
-                              class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-bold">
+                              class="absolute -top-1 -right-1 bg-gray-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-bold">
                             0
                         </span>
                     </button>
                     <button id="mobile-menu-btn" class="lg:hidden p-3 rounded-full hover:bg-gray-100 transition-colors duration-300">
-                        <i class="fas fa-bars text-xl text-red-600"></i>
+                        <i class="fas fa-bars text-xl text-gray-600"></i>
                     </button>
                 </div>
             </div>
             
-            <!-- Mobile Menu - NUEVO ESTILO ROJO -->
-            <div id="mobile-menu" class="hidden lg:hidden py-6 border-t mt-4 animate-slide-up bg-red-50 rounded-xl">
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden lg:hidden py-6 border-t mt-4 animate-slide-up bg-gray-100 rounded-xl">
                 <div class="flex flex-col gap-4 px-4">
-                    <a href="https://comercioonline.github.io/CSR/" 
-                       class="mobile-menu-item text-red-800 font-bold flex items-center gap-4">
+                    <a href="#" class="mobile-menu-item text-gray-700 font-bold flex items-center gap-4">
                         <i class="fas fa-home"></i>
                         <span>Inicio</span>
                     </a>
-                    <a href="https://comercioonline.github.io/CSR/aceite" 
-                       class="mobile-menu-item text-red-800 font-bold flex items-center gap-4">
-                        <i class="fas fa-oil-can"></i>
-                        <span>Aceites y Lubricantes</span>
-                    </a> 
-                    <a href="https://comercioonline.github.io/CSR/autos" 
-                       class="mobile-menu-item text-red-800 font-bold flex items-center gap-4">
+                    <a href="#categorias" class="mobile-menu-item text-gray-700 font-bold flex items-center gap-4">
                         <i class="fas fa-car"></i>
-                        <span>Piezas de Autos</span>
-                    </a>  
-                    <a href="https://comercioonline.github.io/CSR/contenedores" 
-                       class="mobile-menu-item text-red-800 font-bold flex items-center gap-4">
-                        <i class="fas fa-box"></i>
-                        <span>Contenedores</span>
+                        <span>Repuestos</span>
                     </a>
-                    <a href="https://comercioonline.github.io/CSR/nosotros" 
-                       class="mobile-menu-item text-red-800 font-bold flex items-center gap-4">
-                        <i class="fas fa-users"></i>
-                        <span>Nosotros</span>
+                    <a href="#servicios" class="mobile-menu-item text-gray-700 font-bold flex items-center gap-4">
+                        <i class="fas fa-wrench"></i>
+                        <span>Servicios</span>
+                    </a>
+                    <a href="#marcas" class="mobile-menu-item text-gray-700 font-bold flex items-center gap-4">
+                        <i class="fas fa-tag"></i>
+                        <span>Marcas</span>
+                    </a>
+                    <a href="#contact" class="mobile-menu-item text-gray-700 font-bold flex items-center gap-4">
+                        <i class="fas fa-envelope"></i>
+                        <span>Contacto</span>
                     </a>
                 </div>
             </div>
@@ -728,12 +646,12 @@
         <div class="container mx-auto px-4 relative z-10">
             <div class="max-w-4xl mx-auto text-center animate-slide-up">
                 <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-                    Piezas de Autos de
+                    Repuestos para Autos de
                     <span class="bg-gradient-to-r from-yellow-300 to-orange-400 bg-clip-text text-transparent">
                         Alta Calidad
                     </span>
                 </h1>
-                <p class="text-xl md:text-2xl mb-10 text-red-100 leading-relaxed">
+                <p class="text-xl md:text-2xl mb-10 text-gray-200 leading-relaxed">
                     Venta profesional e instalación de piezas originales y compatibles para todas las marcas
                 </p>
                 <div class="flex flex-col sm:flex-row gap-6 justify-center">
@@ -754,22 +672,22 @@
     <section class="py-16 bg-white">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div class="text-center p-8 rounded-xl bg-gradient-to-br from-red-50 to-white border border-red-100">
-                    <div class="text-4xl font-bold text-red-600 mb-3">+100</div>
+                <div class="text-center p-8 rounded-xl bg-gradient-to-br from-gray-50 to-white border border-gray-200">
+                    <div class="text-4xl font-bold text-gray-600 mb-3">+100</div>
                     <h3 class="text-xl font-semibold mb-2">Piezas Disponibles</h3>
                     <p class="text-gray-600">Amplio catálogo de repuestos para todas las marcas</p>
                 </div>
-                <div class="text-center p-8 rounded-xl bg-gradient-to-br from-green-50 to-white border border-green-100">
-                    <div class="text-4xl font-bold text-green-600 mb-3">3 a 6 meses </div>
+                <div class="text-center p-8 rounded-xl bg-gradient-to-br from-green-50 to-white border border-green-200">
+                    <div class="text-4xl font-bold text-green-600 mb-3">3 a 6 meses</div>
                     <h3 class="text-xl font-semibold mb-2">Garantía Extendida</h3>
                     <p class="text-gray-600">En todas nuestras piezas con instalación profesional</p>
                 </div>
-                <div class="text-center p-8 rounded-xl bg-gradient-to-br from-orange-50 to-white border border-orange-100">
+                <div class="text-center p-8 rounded-xl bg-gradient-to-br from-orange-50 to-white border border-orange-200">
                     <div class="text-4xl font-bold text-orange-600 mb-3">24-48h</div>
                     <h3 class="text-xl font-semibold mb-2">Entrega Garantizada</h3>
                     <p class="text-gray-600">Servicio rápido para toda La Habana y Cuba</p>
                 </div>
-                <div class="text-center p-8 rounded-xl bg-gradient-to-br from-purple-50 to-white border border-purple-100">
+                <div class="text-center p-8 rounded-xl bg-gradient-to-br from-purple-50 to-white border border-purple-200">
                     <div class="text-4xl font-bold text-purple-600 mb-3">+18</div>
                     <h3 class="text-xl font-semibold mb-2">Años de Experiencia</h3>
                     <p class="text-gray-600">Especialistas en repuestos automotrices</p>
@@ -793,23 +711,23 @@
             <!-- Category Filters -->
             <div class="flex flex-wrap gap-3 justify-center mb-12">
                 <button onclick="filterProducts('all')" 
-                        class="px-6 py-2 rounded-full border border-red-600 text-red-600 hover:bg-red-600 hover:text-white transition-all duration-300 font-medium">
+                        class="px-6 py-2 rounded-full border border-gray-600 text-gray-600 hover:bg-gray-600 hover:text-white transition-all duration-300 font-medium">
                     Todas las Categorías
                 </button>
                 <button onclick="filterProducts('motor')" 
-                        class="px-6 py-2 rounded-full border border-red-200 text-gray-700 hover:border-red-600 hover:text-red-600 transition-all duration-300 font-medium">
+                        class="px-6 py-2 rounded-full border border-gray-300 text-gray-700 hover:border-gray-600 hover:text-gray-600 transition-all duration-300 font-medium">
                     <i class="fas fa-cogs mr-2"></i>Motor
                 </button>
                 <button onclick="filterProducts('transmision')" 
-                        class="px-6 py-2 rounded-full border border-red-200 text-gray-700 hover:border-red-600 hover:text-red-600 transition-all duration-300 font-medium">
+                        class="px-6 py-2 rounded-full border border-gray-300 text-gray-700 hover:border-gray-600 hover:text-gray-600 transition-all duration-300 font-medium">
                     <i class="fas fa-cog mr-2"></i>Transmisión
                 </button>
                 <button onclick="filterProducts('suspension')" 
-                        class="px-6 py-2 rounded-full border border-red-200 text-gray-700 hover:border-red-600 hover:text-red-600 transition-all duration-300 font-medium">
+                        class="px-6 py-2 rounded-full border border-gray-300 text-gray-700 hover:border-gray-600 hover:text-gray-600 transition-all duration-300 font-medium">
                     <i class="fas fa-car-side mr-2"></i>Suspensión
                 </button>
                 <button onclick="filterProducts('frenos')" 
-                        class="px-6 py-2 rounded-full border border-red-200 text-gray-700 hover:border-red-600 hover:text-red-600 transition-all duration-300 font-medium">
+                        class="px-6 py-2 rounded-full border border-gray-300 text-gray-700 hover:border-gray-600 hover:text-gray-600 transition-all duration-300 font-medium">
                     <i class="fas fa-tachometer-alt mr-2"></i>Frenos
                 </button>
             </div>
@@ -834,7 +752,7 @@
             
             <div class="grid md:grid-cols-3 gap-8">
                 <div class="feature-card animate-slide-up">
-                    <div class="text-red-600 text-3xl mb-4">
+                    <div class="text-gray-600 text-3xl mb-4">
                         <i class="fas fa-wrench"></i>
                     </div>
                     <h3 class="text-xl font-semibold mb-3">Instalación Profesional</h3>
@@ -860,7 +778,7 @@
                 </div>
                 
                 <div class="feature-card animate-slide-up">
-                    <div class="text-red-600 text-3xl mb-4">
+                    <div class="text-gray-600 text-3xl mb-4">
                         <i class="fas fa-search"></i>
                     </div>
                     <h3 class="text-xl font-semibold mb-3">Diagnóstico y Reparación</h3>
@@ -886,7 +804,7 @@
                 </div>
                 
                 <div class="feature-card animate-slide-up">
-                    <div class="text-red-600 text-3xl mb-4">
+                    <div class="text-gray-600 text-3xl mb-4">
                         <i class="fas fa-headset"></i>
                     </div>
                     <h3 class="text-xl font-semibold mb-3">Asesoría Técnica</h3>
@@ -928,23 +846,23 @@
             
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
                 <div class="brand-card text-center hover:animate-pulse">
-                    <div class="inline-flex items-center justify-center w-20 h-20 bg-red-50 rounded-full mb-4">
-                        <i class="fas fa-car text-4xl text-red-600"></i>
+                    <div class="inline-flex items-center justify-center w-20 h-20 bg-gray-100 rounded-full mb-4">
+                        <i class="fas fa-car text-4xl text-gray-600"></i>
                     </div>
                     <h4 class="font-bold text-xl mb-2">Lada</h4>
                     <p class="text-gray-600 text-sm">Repuestos originales y compatibles</p>
                 </div>
                 
                 <div class="brand-card text-center hover:animate-pulse">
-                    <div class="inline-flex items-center justify-center w-20 h-20 bg-red-50 rounded-full mb-4">
-                        <i class="fas fa-car text-4xl text-red-600"></i>
+                    <div class="inline-flex items-center justify-center w-20 h-20 bg-gray-100 rounded-full mb-4">
+                        <i class="fas fa-car text-4xl text-gray-600"></i>
                     </div>
                     <h4 class="font-bold text-xl mb-2">Toyota</h4>
                     <p class="text-gray-600 text-sm">Piezas originales y de alta calidad</p>
                 </div>
                 
                 <div class="brand-card text-center hover:animate-pulse">
-                    <div class="inline-flex items-center justify-center w-20 h-20 bg-gray-50 rounded-full mb-4">
+                    <div class="inline-flex items-center justify-center w-20 h-20 bg-gray-100 rounded-full mb-4">
                         <i class="fas fa-car text-4xl text-gray-600"></i>
                     </div>
                     <h4 class="font-bold text-xl mb-2">Nissan</h4>
@@ -952,8 +870,8 @@
                 </div>
                 
                 <div class="brand-card text-center hover:animate-pulse">
-                    <div class="inline-flex items-center justify-center w-20 h-20 bg-red-50 rounded-full mb-4">
-                        <i class="fas fa-car text-4xl text-red-700"></i>
+                    <div class="inline-flex items-center justify-center w-20 h-20 bg-gray-100 rounded-full mb-4">
+                        <i class="fas fa-car text-4xl text-gray-600"></i>
                     </div>
                     <h4 class="font-bold text-xl mb-2">Chevrolet</h4>
                     <p class="text-gray-600 text-sm">Piezas GM originales y compatibles</p>
@@ -970,7 +888,7 @@
     </section>
 
     <!-- Proceso de Compra Section -->
-    <section class="py-20 bg-gradient-to-r from-red-50 to-red-100">
+    <section class="py-20 bg-gradient-to-r from-gray-100 to-gray-200">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
                 <h2 class="section-title text-4xl font-bold text-gray-900">
@@ -983,7 +901,7 @@
             
             <div class="grid md:grid-cols-5 gap-4">
                 <div class="process-step text-center">
-                    <div class="bg-red-600 text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3 relative z-10">
+                    <div class="bg-gray-600 text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3 relative z-10">
                         <span class="font-bold">1</span>
                     </div>
                     <h4 class="font-semibold mb-2 text-lg">Consulta</h4>
@@ -991,7 +909,7 @@
                 </div>
                 
                 <div class="process-step text-center">
-                    <div class="bg-red-600 text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3 relative z-10">
+                    <div class="bg-gray-600 text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3 relative z-10">
                         <span class="font-bold">2</span>
                     </div>
                     <h4 class="font-semibold mb-2 text-lg">Diagnóstico</h4>
@@ -999,7 +917,7 @@
                 </div>
                 
                 <div class="process-step text-center">
-                    <div class="bg-red-600 text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3 relative z-10">
+                    <div class="bg-gray-600 text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3 relative z-10">
                         <span class="font-bold">3</span>
                     </div>
                     <h4 class="font-semibold mb-2 text-lg">Selección</h4>
@@ -1007,7 +925,7 @@
                 </div>
                 
                 <div class="process-step text-center">
-                    <div class="bg-red-600 text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3 relative z-10">
+                    <div class="bg-gray-600 text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3 relative z-10">
                         <span class="font-bold">4</span>
                     </div>
                     <h4 class="font-semibold mb-2 text-lg">Cotización</h4>
@@ -1040,16 +958,16 @@
             <div class="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
                 <!-- Contact Info -->
                 <div class="space-y-8">
-                    <div class="bg-gradient-to-br from-red-50 to-white p-8 rounded-2xl border border-red-100">
+                    <div class="bg-gradient-to-br from-gray-50 to-white p-8 rounded-2xl border border-gray-200">
                         <h3 class="text-2xl font-bold mb-6 flex items-center gap-3">
-                            <i class="fas fa-address-card text-red-600"></i>
+                            <i class="fas fa-address-card text-gray-600"></i>
                             Información de Contacto
                         </h3>
                         
                         <div class="space-y-6">
                             <div class="flex items-start gap-4">
-                                <div class="flex-shrink-0 w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center">
-                                    <i class="fas fa-phone text-red-600"></i>
+                                <div class="flex-shrink-0 w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-phone text-gray-600"></i>
                                 </div>
                                 <div>
                                     <h4 class="font-semibold text-gray-900">Teléfonos Principales</h4>
@@ -1062,21 +980,21 @@
                             </div>
                             
                             <div class="flex items-start gap-4">
-                                <div class="flex-shrink-0 w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center">
-                                    <i class="fas fa-envelope text-red-600"></i>
+                                <div class="flex-shrink-0 w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-envelope text-gray-600"></i>
                                 </div>
                                 <div>
                                     <h4 class="font-semibold text-gray-900">Correos Electrónicos</h4>
                                     <div class="mt-2 space-y-1">
-                                        <p class="text-gray-600">csrdam@hotmail.com</p>
-                                        <p class="text-gray-600">csrhabana@gmail.com</p>
+                                        <p class="text-gray-600"></p>
+                                        <p class="text-gray-600"></p>
                                     </div>
                                 </div>
                             </div>
                             
                             <div class="flex items-start gap-4">
-                                <div class="flex-shrink-0 w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center">
-                                    <i class="fas fa-map-marker-alt text-red-600"></i>
+                                <div class="flex-shrink-0 w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-map-marker-alt text-gray-600"></i>
                                 </div>
                                 <div>
                                     <h4 class="font-semibold text-gray-900">Ubicación</h4>
@@ -1085,8 +1003,8 @@
                             </div>
                             
                             <div class="flex items-start gap-4">
-                                <div class="flex-shrink-0 w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center">
-                                    <i class="fas fa-clock text-red-600"></i>
+                                <div class="flex-shrink-0 w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-clock text-gray-600"></i>
                                 </div>
                                 <div>
                                     <h4 class="font-semibold text-gray-900">Horarios de Atención</h4>
@@ -1102,7 +1020,7 @@
                     </div>
                     
                     <!-- WhatsApp Quick Button -->
-                    <div class="bg-gradient-to-br from-green-50 to-white p-8 rounded-2xl border border-green-100">
+                    <div class="bg-gradient-to-br from-green-50 to-white p-8 rounded-2xl border border-green-200">
                         <div class="flex items-center gap-4">
                             <div class="flex-shrink-0 w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
                                 <i class="fab fa-whatsapp text-green-600 text-xl"></i>
@@ -1121,83 +1039,84 @@
                 </div>
                 
                 <!-- Contact Form -->
-<div class="bg-gradient-to-br from-gray-50 to-white p-8 rounded-2xl border border-gray-200">
-    <h3 class="text-2xl font-bold mb-6 flex items-center gap-3">
-        <i class="fas fa-comments text-red-600"></i>
-        Envíanos un Mensaje
-    </h3>
-    
-    <form id="contact-form" onsubmit="sendContactMessage(event)" class="space-y-6">
-        <!-- NUEVO CAMPO: Empresa -->
-        <div>
-            <label for="contact-empresa" class="block text-gray-700 font-medium mb-2">
-                Empresa *
-            </label>
-            <select id="contact-empresa" name="empresa" 
-                    class="form-input" 
-                    required>
-                <option value="">Selecciona una opción</option>
-                <option value="mipyme">Mipyme</option>
-                <option value="tcp">TCP</option>
-                <option value="particular">Particular</option>
-            </select>
-        </div>
+                <div class="bg-gradient-to-br from-gray-50 to-white p-8 rounded-2xl border border-gray-200">
+                    <h3 class="text-2xl font-bold mb-6 flex items-center gap-3">
+                        <i class="fas fa-comments text-gray-600"></i>
+                        Envíanos un Mensaje
+                    </h3>
+                    
+                    <form id="contact-form" onsubmit="sendContactMessage(event)" class="space-y-6">
+                        <div>
+                            <label for="contact-empresa" class="block text-gray-700 font-medium mb-2">
+                                Empresa *
+                            </label>
+                            <select id="contact-empresa" name="empresa" 
+                                    class="form-input" 
+                                    required>
+                                <option value="">Selecciona una opción</option>
+                                <option value="mipyme">Mipyme</option>
+                                <option value="tcp">TCP</option>
+                                <option value="particular">Particular</option>
+                            </select>
+                        </div>
 
-        <div>
-            <label for="contact-name" class="block text-gray-700 font-medium mb-2">
-                Nombre Completo *
-            </label>
-            <input type="text" id="contact-name" name="name" 
-                   class="form-input" 
-                   placeholder="Tu nombre completo" 
-                   required>
+                        <div>
+                            <label for="contact-name" class="block text-gray-700 font-medium mb-2">
+                                Nombre Completo *
+                            </label>
+                            <input type="text" id="contact-name" name="name" 
+                                   class="form-input" 
+                                   placeholder="Tu nombre completo" 
+                                   required>
+                        </div>
+                        
+                        <div>
+                            <label for="contact-phone" class="block text-gray-700 font-medium mb-2">
+                                Teléfono *
+                            </label>
+                            <input type="text" id="contact-phone" name="phone" 
+                                   class="form-input" 
+                                   placeholder="Número de contacto" 
+                                   required>
+                        </div>
+                        
+                        <div>
+                            <label for="contact-purpose" class="block text-gray-700 font-medium mb-2">
+                                ¿En qué podemos ayudarte? *
+                            </label>
+                            <select id="contact-purpose" name="purpose" 
+                                    class="form-input" 
+                                    required>
+                                <option value="">Selecciona una opción</option>
+                                <option value="venta">Venta de Piezas</option>
+                                <option value="instalacion">Solicitud de Instalación</option>
+                                <option value="diagnostico">Solicitud de Diagnóstico</option>
+                                <option value="cotizacion">Solicitar Cotización</option>
+                                <option value="emergencia">Emergencia / Ayuda Urgente</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="contact-message" class="block text-gray-700 font-medium mb-2">
+                                Mensaje *
+                            </label>
+                            <textarea id="contact-message" name="message" 
+                                      rows="5" 
+                                      class="form-input" 
+                                      placeholder="Describe el problema, piezas que necesitas, modelo de vehículo..."
+                                      required></textarea>
+                        </div>
+                        
+                        <button type="submit" 
+                                class="w-full btn-primary py-4 text-lg font-semibold">
+                            <i class="fas fa-paper-plane mr-2"></i>
+                            Enviar Mensaje
+                        </button>
+                    </form>
+                </div>
+            </div>
         </div>
-        
-        <div>
-            <label for="contact-phone" class="block text-gray-700 font-medium mb-2">
-                Teléfono *
-            </label>
-            <input type="text" id="contact-phone" name="phone" 
-                   class="form-input" 
-                   placeholder="Número de contacto" 
-                   required>
-        </div>
-        
-        <div>
-            <label for="contact-purpose" class="block text-gray-700 font-medium mb-2">
-                ¿En qué podemos ayudarte? *
-            </label>
-            <select id="contact-purpose" name="purpose" 
-                    class="form-input" 
-                    required>
-                <option value="">Selecciona una opción</option>
-                <option value="venta">Venta de Piezas</option>
-                <option value="instalacion">Solicitud de Instalación</option>
-                <option value="diagnostico">Solicitud de Diagnóstico</option>
-                <option value="cotizacion">Solicitar Cotización</option>
-                <option value="emergencia">Emergencia / Ayuda Urgente</option>
-            </select>
-        </div>
-        
-        <div>
-            <label for="contact-message" class="block text-gray-700 font-medium mb-2">
-                Mensaje *
-            </label>
-            <textarea id="contact-message" name="message" 
-                      rows="5" 
-                      class="form-input" 
-                      placeholder="Describe el problema, piezas que necesitas, modelo de vehículo..."
-                      required></textarea>
-        </div>
-        
-        <button type="submit" 
-                class="w-full btn-primary py-4 text-lg font-semibold">
-            <i class="fas fa-paper-plane mr-2"></i>
-            Enviar Mensaje
-        </button>
-    </form>
-</div>
-</div>
+    </section>
 
     <!-- Footer -->
     <footer class="bg-gray-900 text-white pt-16 pb-8">
@@ -1206,15 +1125,12 @@
                 <!-- Company Info -->
                 <div>
                     <div class="flex items-center gap-3 mb-6">
-                         <!-- Logo Imagen en el footer -->
-                         <div class="w-16 h-16 bg-transparent flex items-center justify-center">
-                            <img src="https://z-cdn-media.chatglm.cn/files/99351cb1-7686-4e4f-b7cc-f7d853766756.jpeg?auth_key=1872911882-b8fa5b42fc55412baa9ee2e839567271-0-e724c68f4659faf69047cdb492914ccf" 
-                                 alt="Logo CSR" 
-                                 class="w-full h-full object-contain">
+                        <div class="w-12 h-12 bg-gray-700 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-car text-2xl text-gray-300"></i>
                         </div>
                         <div>
-                            <h3 class="text-xl font-bold">CSR s.r.l</h3>
-                            <p class="text-gray-400 text-sm">Repuestos Automotrices Profesionales</p>
+                            <h3 class="text-xl font-bold">HORIZONTES</h3>
+                            <p class="text-gray-400 text-sm">Repuestos Automotrices</p>
                         </div>
                     </div>
                     <p class="text-gray-400 mb-6 leading-relaxed">
@@ -1282,7 +1198,7 @@
                     <h4 class="text-xl font-bold mb-6">Enlaces Rápidos</h4>
                     <ul class="space-y-3">
                         <li>
-                            <a href="https://comercioonline.github.io/CSR/" 
+                            <a href="#" 
                                class="text-gray-400 hover:text-white transition-colors duration-300 flex items-center gap-2">
                                 <i class="fas fa-chevron-right text-xs"></i>
                                 Inicio
@@ -1309,21 +1225,6 @@
                                 Marcas
                             </a>
                         </li>
-                        <li>
-                            <a href="https://comercioonline.github.io/CSR/aceite" 
-                               class="text-gray-400 hover:text-white transition-colors duration-300 flex items-center gap-2">
-                                <i class="fas fa-chevron-right text-xs"></i>
-                                Aceites y Lubricantes
-                            </a>
-                        </li>
-                        <li>
-                        <li>
-                            <a href="https://comercioonline.github.io/CSR/contenedores" 
-                               class="text-gray-400 hover:text-white transition-colors duration-300 flex items-center gap-2">
-                                <i class="fas fa-chevron-right text-xs"></i>
-                                Contenedores
-                            </a>
-                        </li>
                     </ul>
                 </div>
                 
@@ -1344,8 +1245,8 @@
                             <span>9:00 AM - 1:00 PM</span>
                         </div>
                     </div>
-                    <div class="p-3 bg-red-900/30 border border-red-800 rounded-lg flex items-center gap-3">
-                        <i class="fas fa-phone-alt text-red-400"></i>
+                    <div class="p-3 bg-gray-800/50 border border-gray-700 rounded-lg flex items-center gap-3">
+                        <i class="fas fa-phone-alt text-gray-400"></i>
                         <span class="text-sm">Atención 24/7 para emergencias vehiculares</span>
                     </div>
                 </div>
@@ -1354,7 +1255,7 @@
             <!-- Copyright -->
             <div class="border-t border-gray-800 mt-12 pt-8 text-center">
                 <p class="text-gray-500">
-                    &copy; IMPERIUM Todos los derechos reservados.
+                    IMPERIUM 2025 - Todos los derechos reservados.
                 </p>
                 <div class="mt-4 flex flex-wrap justify-center gap-6 text-sm text-gray-500">
                     <a href="#" class="hover:text-white transition-colors duration-300">
@@ -1399,7 +1300,7 @@
                 <div class="space-y-4">
                     <div class="flex justify-between items-center">
                         <span class="text-lg font-semibold">Subtotal:</span>
-                        <span class="text-xl font-bold text-red-600" id="cart-subtotal">$0</span>
+                        <span class="text-xl font-bold text-gray-600" id="cart-subtotal">$0</span>
                     </div>
                     <div class="flex justify-between items-center text-sm text-gray-600">
                         <span>Envío:</span>
@@ -1726,351 +1627,339 @@
                 compatibleModels: ["Chevrolet Silverado", "Ford F-150", "Dodge Ram", "Toyota Tundra"],
                 applications: ["Reemplazo de eje trasero", "Conversión de diferencial", "Proyectos de alto torque", "Off-road"]
             },
-
             { 
-    id: 7, 
-    name: "Filtro de Aceite Kamaz", 
-    price: 25, 
-    category: "motor", 
-    image: "Imagenes de Piezas de Carros/Filtro de Aceite Kamaz.jpg", 
-    stock: 18,
-    description: "Filtro de aceite de alta eficiencia para motores diésel Kamaz. Diseñado para soportar altas presiones y garantizar la limpieza del lubricante, prolongando la vida útil del motor.",
-    specifications: [
-        "Rosca: M20x1.5 (medida estándar Kamaz)",
-        "Presión de apertura de válvula by-pass: 0.8 - 1.2 bar",
-        "Eficiencia de filtración: 99% a 25 micras",
-        "Altura: 120 mm / Diámetro: 95 mm",
-        "Tipo: Filtro de flujo full"
-    ],
-    features: [
-        "Válvula anti-drenaje para arranques en frío",
-        "Medio filtrante de celulosa y sintético de alta capacidad",
-        "Resistente a la presión y pulsaciones del sistema de lubricación",
-        "Instalación directa sin modificaciones",
-        "Cumple con estándares de calidad OEM"
-    ],
-    compatibleModels: ["Kamaz 4310", "Kamaz 5320", "Kamaz 5511", "Kamaz 65115", "Modelos con motor R6 Kamaz"],
-    applications: ["Cambio de aceite programado", "Overhaul de motor diésel", "Lubricación de motores de alta cilindrada"]
-},
-
+                id: 7, 
+                name: "Filtro de Aceite Kamaz", 
+                price: 25, 
+                category: "motor", 
+                image: "Imagenes de Piezas de Carros/Filtro de Aceite Kamaz.jpg", 
+                stock: 18,
+                description: "Filtro de aceite de alta eficiencia para motores diésel Kamaz. Diseñado para soportar altas presiones y garantizar la limpieza del lubricante, prolongando la vida útil del motor.",
+                specifications: [
+                    "Rosca: M20x1.5 (medida estándar Kamaz)",
+                    "Presión de apertura de válvula by-pass: 0.8 - 1.2 bar",
+                    "Eficiencia de filtración: 99% a 25 micras",
+                    "Altura: 120 mm / Diámetro: 95 mm",
+                    "Tipo: Filtro de flujo full"
+                ],
+                features: [
+                    "Válvula anti-drenaje para arranques en frío",
+                    "Medio filtrante de celulosa y sintético de alta capacidad",
+                    "Resistente a la presión y pulsaciones del sistema de lubricación",
+                    "Instalación directa sin modificaciones",
+                    "Cumple con estándares de calidad OEM"
+                ],
+                compatibleModels: ["Kamaz 4310", "Kamaz 5320", "Kamaz 5511", "Kamaz 65115", "Modelos con motor R6 Kamaz"],
+                applications: ["Cambio de aceite programado", "Overhaul de motor diésel", "Lubricación de motores de alta cilindrada"]
+            },
             { 
-    id: 8, 
-    name: "Amortiguador Delantero", 
-    price: 50, 
-    category: "suspension", 
-    image: "Imagenes de Piezas de Carros/Amortiguadores Delantero.webp", 
-    stock: 18,
-    description: "Amortiguador delantero de doble tubo para una conducción suave y controlada. Diseñado para absorber impactos y reducir las vibraciones de la carretera, mejorando la estabilidad y el confort de manejo.",
-    specifications: [
-        "Tipo: Doble tubo con gas presurizado",
-        "Diámetro del vástago: 12 mm",
-        "Longitud extendida: 520 mm",
-        "Longitud colapsada: 350 mm",
-        "Material: Acero al carbono con recubrimiento anticorrosivo"
-    ],
-    features: [
-        "Control superior de rebote para mayor estabilidad",
-        "Responde eficientemente en terrenos irregulares",
-        "Fácil instalación, compatible con soportes originales",
-        "Sellado hermético que evita fugas de aceite",
-        "Garantía 6 meses"
-    ],
-    compatibleModels: ["Chevrolet Silverado", "Ford F-150", "Dodge Ram", "Toyota Tundra"], // Puedes ajustar esta lista si es necesario
-    applications: ["Suspensión delantera", "Reemplazo directo", "Uso diario en ciudad y carretera", "Mejora de confort al conducir"]
-},
-
+                id: 8, 
+                name: "Amortiguador Delantero", 
+                price: 50, 
+                category: "suspension", 
+                image: "Imagenes de Piezas de Carros/Amortiguadores Delantero.webp", 
+                stock: 18,
+                description: "Amortiguador delantero de doble tubo para una conducción suave y controlada. Diseñado para absorber impactos y reducir las vibraciones de la carretera, mejorando la estabilidad y el confort de manejo.",
+                specifications: [
+                    "Tipo: Doble tubo con gas presurizado",
+                    "Diámetro del vástago: 12 mm",
+                    "Longitud extendida: 520 mm",
+                    "Longitud colapsada: 350 mm",
+                    "Material: Acero al carbono con recubrimiento anticorrosivo"
+                ],
+                features: [
+                    "Control superior de rebote para mayor estabilidad",
+                    "Responde eficientemente en terrenos irregulares",
+                    "Fácil instalación, compatible con soportes originales",
+                    "Sellado hermético que evita fugas de aceite",
+                    "Garantía 6 meses"
+                ],
+                compatibleModels: ["Chevrolet Silverado", "Ford F-150", "Dodge Ram", "Toyota Tundra"],
+                applications: ["Suspensión delantera", "Reemplazo directo", "Uso diario en ciudad y carretera", "Mejora de confort al conducir"]
+            },
             { 
-    id: 9, 
-    name: "Esfericas Inferior", 
-    price: 20, 
-    category: "suspension", 
-    image: "Imagenes de Piezas de Carros/esferica inferior.webp", 
-    stock: 18,
-    description: "Rótula esférica inferior de alta resistencia para sistema de suspensión delantera, fabricada en acero forjado con tratamiento térmico.",
-    specifications: [
-        "Material: Acero forjado con tratamiento térmico",
-        "Diámetro del perno: 18 mm",
-        "Rosca: M16x1.5",
-        "Altura total: 95 mm",
-        "Carga máxima: 1200 kg por par"
-    ],
-    features: [
-        "Durabilidad mejorada para caminos irregulares",
-        "Protección contra corrosión con recubrimiento zincado",
-        "Buje de PTFE para movimiento suave",
-        "Fuelle protector contra polvo y humedad",
-        "Instalación directa sin modificaciones"
-    ],
-    compatibleModels: ["Chevrolet Chevy", "Ford Focus", "Volkswagen Golf", "Renault Logan"],
-    applications: ["Reemplazo de suspensión delantera", "Mantenimiento preventivo", "Reparación de desgaste", "Uso en flotillas"]
-},
-
-
-     {
-    id: 10, 
-    name: "Esfericas Superior",
-    price: 20, 
-    category: "Suspensión y Dirección",
-    image: "Imagenes de Piezas de Carros/Esfericas Superior.png", 
-    stock: 15,
-    description: "Rótula esférica de primera calidad diseñada para soportar las cargas más exigentes en vehículos todoterreno y de trabajo pesado, garantizando precisión y seguridad en la conducción.",
-    specifications: [
-        "Diámetro de la esfera: 25 mm",
-        "Material: Acero al cromo-silicio forjado",
-        "Rosca: M18x1.5 / M20x1.5",
-        "Carga máxima: 3500 kg",
-        "Grado de estanqueidad: IP68"
-    ],
-    features: [
-        "Núcleo de esfera de alta dureza (60-65 HRC)",
-        "Fuelle de poliuretano resistente a la abrasión",
-        "Recubrimiento anticorrosivo multicapa",
-        "Sistema de fijación con contratuerca autoblocante",
-        "Homologación TÜV para uso en vías públicas"
-    ],
-    compatibleModels: ["Ford F-150", "Chevrolet Silverado", "Ram 2500", "Jeep Gladiator"],
-    applications: ["Eje delantero superior", "Eje trasero", "Suspensión de camioneta", "Maquinaria agrícola"]
-},
-
+                id: 9, 
+                name: "Esfericas Inferior", 
+                price: 20, 
+                category: "suspension", 
+                image: "Imagenes de Piezas de Carros/esferica inferior.webp", 
+                stock: 18,
+                description: "Rótula esférica inferior de alta resistencia para sistema de suspensión delantera, fabricada en acero forjado con tratamiento térmico.",
+                specifications: [
+                    "Material: Acero forjado con tratamiento térmico",
+                    "Diámetro del perno: 18 mm",
+                    "Rosca: M16x1.5",
+                    "Altura total: 95 mm",
+                    "Carga máxima: 1200 kg por par"
+                ],
+                features: [
+                    "Durabilidad mejorada para caminos irregulares",
+                    "Protección contra corrosión con recubrimiento zincado",
+                    "Buje de PTFE para movimiento suave",
+                    "Fuelle protector contra polvo y humedad",
+                    "Instalación directa sin modificaciones"
+                ],
+                compatibleModels: ["Chevrolet Chevy", "Ford Focus", "Volkswagen Golf", "Renault Logan"],
+                applications: ["Reemplazo de suspensión delantera", "Mantenimiento preventivo", "Reparación de desgaste", "Uso en flotillas"]
+            },
             {
-    id: 11,
-    name: "Delco",
-    price: 110,
-    category: "Sistema Eléctrico",
-    image: "Imagenes de Piezas de Carros/Delco.jpg",
-    stock: 12,
-    description: "Motor de arranque de alta resistencia para aplicaciones automotrices e industriales. Diseñado para proporcionar un par de arranque superior y una fiabilidad excepcional en condiciones exigentes, desde vehículos comerciales hasta maquinaria pesada y aplicaciones marinas. [citation:3][citation:6]",
-    specifications: [
-        "Tensión: 12V / 24V",
-        "Potencia: 4.5 kW (típico)",
-        "Número de dientes: 10/12 (según aplicación)",
-        "Sentido de giro: Horario (visto desde el lado del piñón)",
-        "Peso aproximado: 8.5 kg"
-    ],
-    features: [
-        "Alta salida de par para un arranque suave y rápido del motor [citation:3]",
-        "Construcción duradera con materiales de alta calidad para una larga vida útil [citation:3]",
-        "Diseño compacto que facilita la instalación en diversos compartimentos del motor [citation:3]",
-        "Resistencia a temperaturas extremas y a la corrosión para un rendimiento constante en entornos hostiles [citation:3]",
-        "Respaldo de una marca con más de 100 años de historia en componentes eléctricos [citation:6]"
-    ],
-    compatibleModels: [
-        "Camiones y tractocamiones de servicio pesado",
-        "Maquinaria de construcción (retroexcavadoras, cargadores)",
-        "Equipos agrícolas (tractores, cosechadoras)",
-        "Autobuses y furgonetas de gran tamaño",
-        "Aplicaciones marinas (embarcaciones a motor)"
-    ],
-    applications: [
-        "Sistema de arranque de motores diésel de gran cilindrada",
-        "Vehículos comerciales e industriales [citation:3]",
-        "Equipos fuera de carretera (off-highway) [citation:8]",
-        "Grupos electrógenos y maquinaria estacionaria"
-    ]
-},
-
+                id: 10, 
+                name: "Esfericas Superior",
+                price: 20, 
+                category: "suspension",
+                image: "Imagenes de Piezas de Carros/Esfericas Superior.png", 
+                stock: 15,
+                description: "Rótula esférica de primera calidad diseñada para soportar las cargas más exigentes en vehículos todoterreno y de trabajo pesado, garantizando precisión y seguridad en la conducción.",
+                specifications: [
+                    "Diámetro de la esfera: 25 mm",
+                    "Material: Acero al cromo-silicio forjado",
+                    "Rosca: M18x1.5 / M20x1.5",
+                    "Carga máxima: 3500 kg",
+                    "Grado de estanqueidad: IP68"
+                ],
+                features: [
+                    "Núcleo de esfera de alta dureza (60-65 HRC)",
+                    "Fuelle de poliuretano resistente a la abrasión",
+                    "Recubrimiento anticorrosivo multicapa",
+                    "Sistema de fijación con contratuerca autoblocante",
+                    "Homologación TÜV para uso en vías públicas"
+                ],
+                compatibleModels: ["Ford F-150", "Chevrolet Silverado", "Ram 2500", "Jeep Gladiator"],
+                applications: ["Eje delantero superior", "Eje trasero", "Suspensión de camioneta", "Maquinaria agrícola"]
+            },
             {
-id: 12,
-name: "Filtro de Aceite para Lada",
-price: 15,
-category: "Filtros",
-image: "Imagenes de Piezas de Carros/Filtro de Aceite.png",
-stock: 25,
-description: "Filtro de aceite tipo spin-on de alta eficiencia para motores Lada (Niva, Samara, Riva, 2100). Construido con una válvula antidrenaje para evitar arranques en seco y una válvula de derivación calibrada para proteger el motor en condiciones de alta exigencia, asegurando una lubricación óptima y una larga vida del motor .",
-specifications: [
-"Tipo: Filtro de aceite de flujo total (tipo spin-on o de bote) ",
-"Rosca: 3/4 - 16 UNF ",
-"Diámetro Externo: 93 mm (3.656 pulgadas) ",
-"Altura: 97 - 102 mm (aprox. 4 pulgadas) ",
-"Presión de Apertura Válvula de Derivación: 0.8 - 1.2 bar ",
-"Capacidad de Filtración: 20-30 micrones "
-],
-features: [
-"Válvula antidrenaje de goma nitrilo que previene el retorno de aceite al cárter, asegurando una lubricación inmediata en el arranque ",
-"Válvula de derivación incorporada (by-pass) que garantiza el flujo de aceite incluso si el filtro está obstruido ",
-"Medio filtrante de alta eficiencia (flujo alto) que atrapa partículas contaminantes y prolonga la vida del motor ",
-"Junta de sellado de alta calidad para un ajuste perfecto y sin fugas ",
-"Tuerca de extracción de 1 pulgada integrada para facilitar el cambio sin herramientas especiales (en modelos específicos como K&N) "
-],
-compatibleModels: ["Lada Niva (2121, 2131)", "Lada Samara", "Lada Riva", "Lada 1200/1300/1500 (2101, 2103, 2105, 2107)", "Lada Kalina", "Dacia 1300/1310"],
-applications: ["Sistema de lubricación del motor", "Motores de gasolina y diésel de la familia Lada (1.3L, 1.5L, 1.6L, 1.7L)", "Reemplazo para números de pieza originales: 2101-1012005, 2105-1012005"]
-},
-
+                id: 11,
+                name: "Delco",
+                price: 110,
+                category: "motor",
+                image: "Imagenes de Piezas de Carros/Delco.jpg",
+                stock: 12,
+                description: "Motor de arranque de alta resistencia para aplicaciones automotrices e industriales. Diseñado para proporcionar un par de arranque superior y una fiabilidad excepcional en condiciones exigentes, desde vehículos comerciales hasta maquinaria pesada y aplicaciones marinas.",
+                specifications: [
+                    "Tensión: 12V / 24V",
+                    "Potencia: 4.5 kW (típico)",
+                    "Número de dientes: 10/12 (según aplicación)",
+                    "Sentido de giro: Horario (visto desde el lado del piñón)",
+                    "Peso aproximado: 8.5 kg"
+                ],
+                features: [
+                    "Alta salida de par para un arranque suave y rápido del motor",
+                    "Construcción duradera con materiales de alta calidad para una larga vida útil",
+                    "Diseño compacto que facilita la instalación en diversos compartimentos del motor",
+                    "Resistencia a temperaturas extremas y a la corrosión para un rendimiento constante en entornos hostiles",
+                    "Respaldo de una marca con más de 100 años de historia en componentes eléctricos"
+                ],
+                compatibleModels: [
+                    "Camiones y tractocamiones de servicio pesado",
+                    "Maquinaria de construcción (retroexcavadoras, cargadores)",
+                    "Equipos agrícolas (tractores, cosechadoras)",
+                    "Autobuses y furgonetas de gran tamaño",
+                    "Aplicaciones marinas (embarcaciones a motor)"
+                ],
+                applications: [
+                    "Sistema de arranque de motores diésel de gran cilindrada",
+                    "Vehículos comerciales e industriales",
+                    "Equipos fuera de carretera (off-highway)",
+                    "Grupos electrógenos y maquinaria estacionaria"
+                ]
+            },
             {
-    id: 13,
-    name: "Bomba de Aceite",
-    price: 70,
-    category: "Lubricación",
-    image: "Imagenes de Piezas de Carros/Bomba.png",
-    stock: 12,
-    description: "Bomba de aceite de tipo engranajes, diseñada para los motores de los modelos Lada Niva (2121, 21214) y VAZ de tracción trasera (clásicos). Fabricada con materiales de alta resistencia, su función es suministrar aceite a presión a los componentes críticos del motor, garantizando una lubricación constante y fiable para una larga vida útil del propulsor [citation:2][citation:7][citation:8].",
-    specifications: [
-        "Presión de salida: Mínimo 1.0 kgf/cm² a ralentí (750-800 rpm) [citation:2]",
-        "Caudal: Aprox. 13-14 L/min (modelo base/avanzado) [citation:1]",
-        "Temperatura de operación: -40°C a +160°C [citation:1]",
-        "Peso: 1.2 kg - 1.5 kg [citation:2][citation:4]",
-        "Número de pieza equivalente: 2121-1011010, 21210101101082 [citation:2][citation:8]"
-    ],
-    features: [
-        "Construcción robusta en hierro fundido de alta resistencia para soportar altas presiones y temperaturas [citation:1]",
-        "Diseño de engranajes que proporciona una presión de salida alta y constante, ideal para condiciones de alta exigencia [citation:3]",
-        "Incluye una válvula de alivio de presión integrada para evitar picos de presión en el sistema [citation:7]",
-        "Canales internos optimizados que aseguran una circulación eficiente del aceite [citation:1]",
-        "Fiabilidad demostrada con una vida útil proyectada de al menos 125,000 km [citation:2]"
-    ],
-    compatibleModels: ["Lada Niva 2121 (1.6i, 1.7i)", "Lada Niva 21214", "Lada Niva II (2123)", "Chevrolet Niva (1.7i)", "VAZ 2101-2107 ('Clásicos')"],
-    applications: ["Sistema de lubricación de motor", "Motores de gasolina de la familia VAZ", "Vehículos todo terreno y de uso rudo", "Reemplazo de unidad original (OE)"]
-},
+                id: 12,
+                name: "Filtro de Aceite para Lada",
+                price: 15,
+                category: "motor",
+                image: "Imagenes de Piezas de Carros/Filtro de Aceite.png",
+                stock: 25,
+                description: "Filtro de aceite tipo spin-on de alta eficiencia para motores Lada (Niva, Samara, Riva, 2100). Construido con una válvula antidrenaje para evitar arranques en seco y una válvula de derivación calibrada para proteger el motor en condiciones de alta exigencia, asegurando una lubricación óptima y una larga vida del motor.",
+                specifications: [
+                    "Tipo: Filtro de aceite de flujo total (tipo spin-on o de bote)",
+                    "Rosca: 3/4 - 16 UNF",
+                    "Diámetro Externo: 93 mm (3.656 pulgadas)",
+                    "Altura: 97 - 102 mm (aprox. 4 pulgadas)",
+                    "Presión de Apertura Válvula de Derivación: 0.8 - 1.2 bar",
+                    "Capacidad de Filtración: 20-30 micrones"
+                ],
+                features: [
+                    "Válvula antidrenaje de goma nitrilo que previene el retorno de aceite al cárter, asegurando una lubricación inmediata en el arranque",
+                    "Válvula de derivación incorporada (by-pass) que garantiza el flujo de aceite incluso si el filtro está obstruido",
+                    "Medio filtrante de alta eficiencia (flujo alto) que atrapa partículas contaminantes y prolonga la vida del motor",
+                    "Junta de sellado de alta calidad para un ajuste perfecto y sin fugas",
+                    "Tuerca de extracción de 1 pulgada integrada para facilitar el cambio sin herramientas especiales (en modelos específicos como K&N)"
+                ],
+                compatibleModels: ["Lada Niva (2121, 2131)", "Lada Samara", "Lada Riva", "Lada 1200/1300/1500 (2101, 2103, 2105, 2107)", "Lada Kalina", "Dacia 1300/1310"],
+                applications: ["Sistema de lubricación del motor", "Motores de gasolina y diésel de la familia Lada (1.3L, 1.5L, 1.6L, 1.7L)", "Reemplazo para números de pieza originales: 2101-1012005, 2105-1012005"]
+            },
             {
-id: 14,
-name: "Bomba de Agua",
-price: 40,
-category: "Sistema de Enfriamiento",
-image: "Imagenes de Piezas de Carros/Bomba de Agua.png",
-stock: 12,
-description: "Bomba de agua mecánica de alta calidad para vehículos Lada, diseñada para garantizar una circulación óptima del refrigerante y mantener la temperatura del motor en condiciones de operación seguras, incluso en terrenos exigentes o climas adversos.",
-specifications: [
-"Tipo de impulsor: Cerrado de acero estampado",
-"Cuerpo: Fundición de hierro gris de alta resistencia",
-"Conexiones: Manguera superior de 40mm, inferior de 45mm",
-"Rodamiento: Dúplex de bola de precisión",
-"Sello mecánico: Tipo cassette con junta cerámica-grafito"
-],
-features: [
-"Fabricada bajo estándares OEM rusos",
-"Refrigeración eficiente para motores 1.6L y 1.7L",
-"Sello hermético antipolvo y antihumedad",
-"Polea metálica de 4 canales para correa Poly-V",
-"Alta resistencia a la cavitación y corrosión"
-],
-compatibleModels: ["Lada Niva 4x4 (2121/2131)", "Lada Riva / Nova / Classic (2105, 2107)", "Lada Samara (2108, 2109)", "Lada 110 (2110, 2111, 2112)"],
-applications: ["Sistema de refrigeración de motor", "Circuito cerrado de anticongelante", "Vehículos de uso diario y off-road ligero"]
-},
-
+                id: 13,
+                name: "Bomba de Aceite",
+                price: 70,
+                category: "motor",
+                image: "Imagenes de Piezas de Carros/Bomba.png",
+                stock: 12,
+                description: "Bomba de aceite de tipo engranajes, diseñada para los motores de los modelos Lada Niva (2121, 21214) y VAZ de tracción trasera (clásicos). Fabricada con materiales de alta resistencia, su función es suministrar aceite a presión a los componentes críticos del motor, garantizando una lubricación constante y fiable para una larga vida útil del propulsor.",
+                specifications: [
+                    "Presión de salida: Mínimo 1.0 kgf/cm² a ralentí (750-800 rpm)",
+                    "Caudal: Aprox. 13-14 L/min (modelo base/avanzado)",
+                    "Temperatura de operación: -40°C a +160°C",
+                    "Peso: 1.2 kg - 1.5 kg",
+                    "Número de pieza equivalente: 2121-1011010, 21210101101082"
+                ],
+                features: [
+                    "Construcción robusta en hierro fundido de alta resistencia para soportar altas presiones y temperaturas",
+                    "Diseño de engranajes que proporciona una presión de salida alta y constante, ideal para condiciones de alta exigencia",
+                    "Incluye una válvula de alivio de presión integrada para evitar picos de presión en el sistema",
+                    "Canales internos optimizados que aseguran una circulación eficiente del aceite",
+                    "Fiabilidad demostrada con una vida útil proyectada de al menos 125,000 km"
+                ],
+                compatibleModels: ["Lada Niva 2121 (1.6i, 1.7i)", "Lada Niva 21214", "Lada Niva II (2123)", "Chevrolet Niva (1.7i)", "VAZ 2101-2107 ('Clásicos')"],
+                applications: ["Sistema de lubricación de motor", "Motores de gasolina de la familia VAZ", "Vehículos todo terreno y de uso rudo", "Reemplazo de unidad original (OE)"]
+            },
             {
-    id: 15,
-    name: "Calzo de Caja de Velocidad Lada",
-    price: 10,
-    category: "Transmisión",
-    image: "Imagenes de Piezas de Carros/calzo de caja de lada.webp",
-    stock: 25,
-    description: "Soporte o cojín de transmisión fabricado en caucho de alta densidad con refuerzo metálico, diseñado para absorber las vibraciones de la caja de cambios Lada (VAZ) y evitar el desalineamiento del grupo motriz.",
-    specifications: [
-        "Altura: 65 mm",
-        "Ancho: 95 mm",
-        "Largo: 100 mm",
-        "Material: Caucho natural vulcanizado con inserto metálico",
-        "Dureza: 65-70 Shore A",
-        "Peso: 0.5 kg"
-    ],
-    features: [
-        "Aísla eficazmente las vibraciones de la transmisión",
-        "Resistente a aceites y temperaturas extremas (-40°C a +120°C)",
-        "Diseño original para cajas de 4 y 5 velocidades",
-        "Previene roturas del múltiple de escape por torsión del motor",
-        "Instalación directa, sin modificaciones"
-    ],
-    compatibleModels: ["Lada Niva (4x4)", "Lada Samara", "Lada Sputnik", "Lada Classic (2105, 2106, 2107)"],
-    applications: ["Sujeción de caja de velocidades", "Amortiguación de par motor", "Transmisión trasera y delantera (Niva)"]
-},
-
+                id: 14,
+                name: "Bomba de Agua",
+                price: 40,
+                category: "motor",
+                image: "Imagenes de Piezas de Carros/Bomba de Agua.png",
+                stock: 12,
+                description: "Bomba de agua mecánica de alta calidad para vehículos Lada, diseñada para garantizar una circulación óptima del refrigerante y mantener la temperatura del motor en condiciones de operación seguras, incluso en terrenos exigentes o climas adversos.",
+                specifications: [
+                    "Tipo de impulsor: Cerrado de acero estampado",
+                    "Cuerpo: Fundición de hierro gris de alta resistencia",
+                    "Conexiones: Manguera superior de 40mm, inferior de 45mm",
+                    "Rodamiento: Dúplex de bola de precisión",
+                    "Sello mecánico: Tipo cassette con junta cerámica-grafito"
+                ],
+                features: [
+                    "Fabricada bajo estándares OEM rusos",
+                    "Refrigeración eficiente para motores 1.6L y 1.7L",
+                    "Sello hermético antipolvo y antihumedad",
+                    "Polea metálica de 4 canales para correa Poly-V",
+                    "Alta resistencia a la cavitación y corrosión"
+                ],
+                compatibleModels: ["Lada Niva 4x4 (2121/2131)", "Lada Riva / Nova / Classic (2105, 2107)", "Lada Samara (2108, 2109)", "Lada 110 (2110, 2111, 2112)"],
+                applications: ["Sistema de refrigeración de motor", "Circuito cerrado de anticongelante", "Vehículos de uso diario y off-road ligero"]
+            },
             {
-    id: 16,
-    name: "Travesaño de Caja de Velocidades",
-    price: 25,
-    category: "Transmisión",
-    image: "Imagenes de Piezas de Carros/Travesaño de Caja de Velocidades.png",
-    stock: 12,
-    description: "Travesaño o soporte estructural de alta resistencia para la fijación de la caja de cambios al chasis del vehículo. Fabricado en acero aleado de alta resistencia para proporcionar un soporte rígido y duradero, minimizando la vibración y asegurando la alineación correcta del sistema de transmisión en condiciones de alta exigencia [citation:1][citation:7].",
-    specifications: [
-        "Material: Acero aleado de alta resistencia",
-        "Tubo principal: Diámetro exterior de 1-3/4 pulgadas (44.45 mm) con pared de 0.109 pulgadas (2.77 mm) [citation:1][citation:2]",
-        "Acabado: Natural / Acero crudo (puede requerir protección anticorrosiva) [citation:1][citation:2]",
-        "Ancho ajustable: adaptable a largueros del chasis de hasta 38 pulgadas (965 mm) [citation:1][citation:2]",
-        "Tipo de montaje: Soldable o atornillable (mediante bridas o extremos) [citation:1][citation:2]",
-        "Capacidad de carga: Diseñado para soportar el peso y el par de transmisiones de alta potencia"
-    ],
-    features: [
-        "Construcción de tubo de acero de pared gruesa para máxima rigidez torsional [citation:1]",
-        "Diseño universal con opciones de caída (0, 2, 4, 6 pulgadas) para adaptarse a diferentes ángulos del eje de transmisión [citation:1][citation:2]",
-        "Incluye soportes o extremos atornillados para una instalación versátil sin necesidad de soldadura [citation:2]",
-        "Compatibilidad amplia con vehículos de transmisión trasera (RWD) de marcas GM, Ford y Mopar [citation:1][citation:2]",
-        "Resistente a la corrosión y a la fatiga por vibraciones constantes"
-    ],
-    compatibleModels: [
-        "Jeep Wrangler (modelos con transmisión manual/automática)",
-        "Chevrolet Camaro / Pontiac Firebird (aplicaciones RWD)",
-        "Ford Mustang (modelos clásicos y modernos con adaptación)",
-        "LADA 2101-2107 (como repuesto original) [citation:5]",
-        "Vehículos Hot Rod y personalizados con marco de hasta 38 pulgadas de ancho [citation:1]"
-    ],
-    applications: [
-        "Sujeción de la caja de velocidades (transmisión) al chasis",
-        "Soporte trasero de la transmisión",
-        "Intercambios de motor (engine swaps) que requieren reubicación de la transmisión [citation:1]",
-        "Vehículos de competición y alto rendimiento",
-        "Adaptación de transmisiones en vehículos clásicos"
-    ]
-},
-
-           { 
-    id: 17, 
-    name: "Bomba de Gasolina", 
-    price: 65, 
-    category: "sistema_combustible", 
-    image: "Imagenes de Piezas de Carros/Bomba de Gasolina.png", 
-    stock: 24,
-    description: "Bomba de gasolina eléctrica de alta presión, diseñada para garantizar un suministro constante y eficiente de combustible al motor, optimizando el rendimiento del sistema de inyección.",
-    specifications: [
-        "Voltaje de operación: 12V",
-        "Presión de salida: 3.0 - 4.0 Bar",
-        "Caudal: 100 L/h",
-        "Material: Aleación de acero inoxidable y plástico reforzado",
-        "Incluye: Filtro de malla y conector eléctrico"
-    ],
-    features: [
-        "Diseño compacto y de fácil instalación",
-        "Funcionamiento silencioso y de baja vibración",
-        "Alta resistencia a la corrosión y desgaste",
-        "Cumple con normas OEM de calidad",
-        "Garantía de 1 año"
-    ],
-    compatibleModels: ["Volkswagen Jetta", "Nissan Sentra", "Toyota Corolla", "Honda Civic", "Ford Focus"],
-    applications: ["Reemplazo de bomba fallida", "Mantenimiento preventivo del sistema de inyección", "Restauración de vehículos", "Mejora de rendimiento de combustible"]
-},
-
+                id: 15,
+                name: "Calzo de Caja de Velocidad Lada",
+                price: 10,
+                category: "transmision",
+                image: "Imagenes de Piezas de Carros/calzo de caja de lada.webp",
+                stock: 25,
+                description: "Soporte o cojín de transmisión fabricado en caucho de alta densidad con refuerzo metálico, diseñado para absorber las vibraciones de la caja de cambios Lada (VAZ) y evitar el desalineamiento del grupo motriz.",
+                specifications: [
+                    "Altura: 65 mm",
+                    "Ancho: 95 mm",
+                    "Largo: 100 mm",
+                    "Material: Caucho natural vulcanizado con inserto metálico",
+                    "Dureza: 65-70 Shore A",
+                    "Peso: 0.5 kg"
+                ],
+                features: [
+                    "Aísla eficazmente las vibraciones de la transmisión",
+                    "Resistente a aceites y temperaturas extremas (-40°C a +120°C)",
+                    "Diseño original para cajas de 4 y 5 velocidades",
+                    "Previene roturas del múltiple de escape por torsión del motor",
+                    "Instalación directa, sin modificaciones"
+                ],
+                compatibleModels: ["Lada Niva (4x4)", "Lada Samara", "Lada Sputnik", "Lada Classic (2105, 2106, 2107)"],
+                applications: ["Sujeción de caja de velocidades", "Amortiguación de par motor", "Transmisión trasera y delantera (Niva)"]
+            },
             {
-    id: 18,
-    name: "Motor Lada 2107 1.5L (VAZ-2103)",
-    price: 3050,
-    category: "Motores y Repuestos",
-    image: "Imagenes de Piezas de Carros/Motor Completo Lada 2107.jpg",
-    stock: 10,
-    description: "El motor VAZ-2103 es un clásico de la ingeniería soviética, conocido por su robustez, simplicidad y facilidad de mantenimiento. Este bloque de 4 cilindros en línea, con alimentación por carburador, fue el corazón de las versiones más emblemáticas del Lada 2107, ofreciendo un par motor contundente a bajas revoluciones, ideal para condiciones de conducción exigentes y terrenos variados. Su diseño, heredado del Fiat 124 pero adaptado para mayor durabilidad, lo convierte en una opción fiable y económica.",
-    specifications: [
-        "Código de motor: VAZ-2103 [citation:2]",
-        "Cilindrada: 1.5 litros (1451 cm³) [citation:1]",
-        "Número de cilindros: 4, en línea [citation:1]",
-        "Diámetro x Carrera: 76 mm x 80 mm [citation:1]",
-        "Potencia máxima: 72 - 75 CV @ 5600 rpm [citation:1][citation:5][citation:8]",
-        "Par máximo: 104 Nm @ 3400 rpm [citation:1]",
-        "Relación de compresión: 8.5:1 [citation:1][citation:5]",
-        "Sistema de combustible: Carburador [citation:1]",
-        "Sistema de distribución: OHC (árbol de levas en cabeza) [citation:1][citation:6]",
-        "Número de válvulas: 8 (2 por cilindro) [citation:2]",
-        "Tipo de combustible: Gasolina (A-76, A-92) [citation:2][citation:4]",
-        "Aspiración: Atmosférico [citation:1]"
-    ],
-    features: [
-        "Diseño robusto y duradero, capaz de soportar condiciones climáticas extremas y terrenos adversos [citation:3][citation:10]",
-        "Arquitectura mecánica simple que facilita el mantenimiento y la reparación con herramientas básicas [citation:3]",
-        "Alta disponibilidad y bajo costo de piezas de repuesto, gracias a su larga vida útil y popularidad [citation:3]",
-        "Buena entrega de par motor a bajas revoluciones (desde 3400 rpm), lo que proporciona empuje en situaciones de baja exigencia de régimen [citation:1]",
-        "Alimentación por carburador, fácil de ajustar y reparar sin necesidad de electrónica especializada [citation:1]"
-    ],
-    compatibleModels: ["Lada 2101 (Zhiguli)", "Lada 2102", "Lada 2103", "Lada 2104", "Lada 2105", "Lada 2106", "Lada 2107", "Lada Niva (versiones 1.5L)"],
-    applications: ["Motor de combustión interna para automóviles", "Reemplazo directo para modelos Lada de la serie 'clásica'", "Base para proyectos de restauración y preparación de vehículos clásicos"]
-}
+                id: 16,
+                name: "Travesaño de Caja de Velocidades",
+                price: 25,
+                category: "transmision",
+                image: "Imagenes de Piezas de Carros/Travesaño de Caja de Velocidades.png",
+                stock: 12,
+                description: "Travesaño o soporte estructural de alta resistencia para la fijación de la caja de cambios al chasis del vehículo. Fabricado en acero aleado de alta resistencia para proporcionar un soporte rígido y duradero, minimizando la vibración y asegurando la alineación correcta del sistema de transmisión en condiciones de alta exigencia.",
+                specifications: [
+                    "Material: Acero aleado de alta resistencia",
+                    "Tubo principal: Diámetro exterior de 1-3/4 pulgadas (44.45 mm) con pared de 0.109 pulgadas (2.77 mm)",
+                    "Acabado: Natural / Acero crudo (puede requerir protección anticorrosiva)",
+                    "Ancho ajustable: adaptable a largueros del chasis de hasta 38 pulgadas (965 mm)",
+                    "Tipo de montaje: Soldable o atornillable (mediante bridas o extremos)",
+                    "Capacidad de carga: Diseñado para soportar el peso y el par de transmisiones de alta potencia"
+                ],
+                features: [
+                    "Construcción de tubo de acero de pared gruesa para máxima rigidez torsional",
+                    "Diseño universal con opciones de caída (0, 2, 4, 6 pulgadas) para adaptarse a diferentes ángulos del eje de transmisión",
+                    "Incluye soportes o extremos atornillados para una instalación versátil sin necesidad de soldadura",
+                    "Compatibilidad amplia con vehículos de transmisión trasera (RWD) de marcas GM, Ford y Mopar",
+                    "Resistente a la corrosión y a la fatiga por vibraciones constantes"
+                ],
+                compatibleModels: [
+                    "Jeep Wrangler (modelos con transmisión manual/automática)",
+                    "Chevrolet Camaro / Pontiac Firebird (aplicaciones RWD)",
+                    "Ford Mustang (modelos clásicos y modernos con adaptación)",
+                    "LADA 2101-2107 (como repuesto original)",
+                    "Vehículos Hot Rod y personalizados con marco de hasta 38 pulgadas de ancho"
+                ],
+                applications: [
+                    "Sujeción de la caja de velocidades (transmisión) al chasis",
+                    "Soporte trasero de la transmisión",
+                    "Intercambios de motor (engine swaps) que requieren reubicación de la transmisión",
+                    "Vehículos de competición y alto rendimiento",
+                    "Adaptación de transmisiones en vehículos clásicos"
+                ]
+            },
+            { 
+                id: 17, 
+                name: "Bomba de Gasolina", 
+                price: 65, 
+                category: "motor", 
+                image: "Imagenes de Piezas de Carros/Bomba de Gasolina.png", 
+                stock: 24,
+                description: "Bomba de gasolina eléctrica de alta presión, diseñada para garantizar un suministro constante y eficiente de combustible al motor, optimizando el rendimiento del sistema de inyección.",
+                specifications: [
+                    "Voltaje de operación: 12V",
+                    "Presión de salida: 3.0 - 4.0 Bar",
+                    "Caudal: 100 L/h",
+                    "Material: Aleación de acero inoxidable y plástico reforzado",
+                    "Incluye: Filtro de malla y conector eléctrico"
+                ],
+                features: [
+                    "Diseño compacto y de fácil instalación",
+                    "Funcionamiento silencioso y de baja vibración",
+                    "Alta resistencia a la corrosión y desgaste",
+                    "Cumple con normas OEM de calidad",
+                    "Garantía de 1 año"
+                ],
+                compatibleModels: ["Volkswagen Jetta", "Nissan Sentra", "Toyota Corolla", "Honda Civic", "Ford Focus"],
+                applications: ["Reemplazo de bomba fallida", "Mantenimiento preventivo del sistema de inyección", "Restauración de vehículos", "Mejora de rendimiento de combustible"]
+            },
+            {
+                id: 18,
+                name: "Motor Lada 2107 1.5L (VAZ-2103)",
+                price: 3050,
+                category: "motor",
+                image: "Imagenes de Piezas de Carros/Motor Completo Lada 2107.jpg",
+                stock: 10,
+                description: "El motor VAZ-2103 es un clásico de la ingeniería soviética, conocido por su robustez, simplicidad y facilidad de mantenimiento. Este bloque de 4 cilindros en línea, con alimentación por carburador, fue el corazón de las versiones más emblemáticas del Lada 2107, ofreciendo un par motor contundente a bajas revoluciones, ideal para condiciones de conducción exigentes y terrenos variados. Su diseño, heredado del Fiat 124 pero adaptado para mayor durabilidad, lo convierte en una opción fiable y económica.",
+                specifications: [
+                    "Código de motor: VAZ-2103",
+                    "Cilindrada: 1.5 litros (1451 cm³)",
+                    "Número de cilindros: 4, en línea",
+                    "Diámetro x Carrera: 76 mm x 80 mm",
+                    "Potencia máxima: 72 - 75 CV @ 5600 rpm",
+                    "Par máximo: 104 Nm @ 3400 rpm",
+                    "Relación de compresión: 8.5:1",
+                    "Sistema de combustible: Carburador",
+                    "Sistema de distribución: OHC (árbol de levas en cabeza)",
+                    "Número de válvulas: 8 (2 por cilindro)",
+                    "Tipo de combustible: Gasolina (A-76, A-92)",
+                    "Aspiración: Atmosférico"
+                ],
+                features: [
+                    "Diseño robusto y duradero, capaz de soportar condiciones climáticas extremas y terrenos adversos",
+                    "Arquitectura mecánica simple que facilita el mantenimiento y la reparación con herramientas básicas",
+                    "Alta disponibilidad y bajo costo de piezas de repuesto, gracias a su larga vida útil y popularidad",
+                    "Buena entrega de par motor a bajas revoluciones (desde 3400 rpm), lo que proporciona empuje en situaciones de baja exigencia de régimen",
+                    "Alimentación por carburador, fácil de ajustar y reparar sin necesidad de electrónica especializada"
+                ],
+                compatibleModels: ["Lada 2101 (Zhiguli)", "Lada 2102", "Lada 2103", "Lada 2104", "Lada 2105", "Lada 2106", "Lada 2107", "Lada Niva (versiones 1.5L)"],
+                applications: ["Motor de combustión interna para automóviles", "Reemplazo directo para modelos Lada de la serie 'clásica'", "Base para proyectos de restauración y preparación de vehículos clásicos"]
+            }
         ];
 
         // Variables globales
@@ -2092,23 +1981,14 @@ applications: ["Sistema de refrigeración de motor", "Circuito cerrado de antico
 
         // Configurar event listeners
         function setupEventListeners() {
-            // Mobile menu
             document.getElementById('mobile-menu-btn').addEventListener('click', toggleMobileMenu);
-            
-            // Cart button
             document.getElementById('cart-btn').addEventListener('click', openCart);
-            
-            // Close cart on overlay click
             document.getElementById('cart-overlay').addEventListener('click', closeCart);
-            
-            // Close modals on ESC key
             document.addEventListener('keydown', (e) => {
                 if (e.key === 'Escape') {
                     closeAllModals();
                 }
             });
-            
-            // Smooth scroll for anchor links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
@@ -2161,8 +2041,7 @@ applications: ["Sistema de refrigeración de motor", "Circuito cerrado de antico
             const card = document.createElement('div');
             card.className = 'product-card animate-slide-up';
             
-            // Cambio a rojo: badgeColor
-            const badgeColor = 'bg-red-500';
+            const badgeColor = 'bg-gray-600';
             const badgeText = getCategoryText(product.category);
             const stockColor = product.stock > 10 ? 'bg-green-500' : product.stock > 0 ? 'bg-yellow-500' : 'bg-red-500';
             
@@ -2173,17 +2052,14 @@ applications: ["Sistema de refrigeración de motor", "Circuito cerrado de antico
                          class="product-image"
                          onerror="this.src='https://via.placeholder.com/400x300?text=Imagen+no+disponible'">
                     
-                    <!-- Badge de categoría -->
                     <span class="product-badge ${badgeColor} text-white">
                         ${badgeText}
                     </span>
                     
-                    <!-- Badge de stock -->
                     <span class="product-badge ${stockColor} text-white" style="top: 50px;">
                         ${product.stock > 0 ? `${product.stock} disponibles` : 'Agotado'}
                     </span>
                     
-                    <!-- Precio -->
                     <div class="price-tag">
                         $${product.price.toLocaleString()}
                     </div>
@@ -2202,15 +2078,14 @@ applications: ["Sistema de refrigeración de motor", "Circuito cerrado de antico
                     </div>
                     
                     <div class="flex justify-between items-center">
-                        <!-- Cambio a rojo en el texto del botón de detalles -->
                         <button onclick="showProductDetail(${product.id})" 
-                                class="flex items-center gap-2 text-red-600 hover:text-red-800 font-medium transition-colors duration-300">
+                                class="flex items-center gap-2 text-gray-600 hover:text-gray-800 font-medium transition-colors duration-300">
                             <i class="fas fa-info-circle"></i>
                             Detalles
                         </button>
                         
                         <button onclick="addToCart(${product.id})" 
-                                class="flex items-center gap-2 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                                class="flex items-center gap-2 px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                                 ${product.stock === 0 ? 'disabled' : ''}>
                             <i class="fas fa-cart-plus"></i>
                             Cotizar
@@ -2240,16 +2115,15 @@ applications: ["Sistema de refrigeración de motor", "Circuito cerrado de antico
             currentFilter = category;
             renderProducts(carParts, 'car-parts-container');
             
-            // Actualizar botones activos
             document.querySelectorAll('#categorias .flex-wrap button').forEach(btn => {
-                btn.classList.remove('bg-red-600', 'text-white');
-                btn.classList.add('border', 'border-red-200', 'text-gray-700');
+                btn.classList.remove('bg-gray-600', 'text-white');
+                btn.classList.add('border', 'border-gray-300', 'text-gray-700');
             });
             
             const activeBtn = event?.target;
             if (activeBtn) {
-                activeBtn.classList.remove('border', 'border-red-200', 'text-gray-700');
-                activeBtn.classList.add('bg-red-600', 'text-white');
+                activeBtn.classList.remove('border', 'border-gray-300', 'text-gray-700');
+                activeBtn.classList.add('bg-gray-600', 'text-white');
             }
         }
 
@@ -2260,27 +2134,20 @@ applications: ["Sistema de refrigeración de motor", "Circuito cerrado de antico
             if (!product) return;
             
             const detailContainer = document.getElementById('detail-container');
-            // Cambio a rojo
-            const badgeColor = 'bg-red-500';
+            const badgeColor = 'bg-gray-600';
             const badgeText = getCategoryText(product.category);
             const stockColor = product.stock > 10 ? 'text-green-600' : product.stock > 0 ? 'text-yellow-600' : 'text-red-600';
             
-            let specificationsHTML = '';
-            let featuresHTML = '';
-            let compatibleModelsHTML = '';
-            let applicationsHTML = '';
-            
-            // Generar HTML para especificaciones
-            specificationsHTML = `
+            let specificationsHTML = `
                 <div class="mb-8">
-                    <h4 class="font-semibold text-lg mb-4 flex items-center gap-2 text-red-600">
+                    <h4 class="font-semibold text-lg mb-4 flex items-center gap-2 text-gray-600">
                         <i class="fas fa-list-alt"></i>
                         Especificaciones Técnicas
                     </h4>
                     <ul class="grid grid-cols-1 md:grid-cols-2 gap-2">
                         ${product.specifications.map(spec => `
                             <li class="flex items-center gap-2 text-gray-700">
-                                <i class="fas fa-check text-red-500 text-sm"></i>
+                                <i class="fas fa-check text-gray-500 text-sm"></i>
                                 ${spec}
                             </li>
                         `).join('')}
@@ -2288,10 +2155,9 @@ applications: ["Sistema de refrigeración de motor", "Circuito cerrado de antico
                 </div>
             `;
             
-            // Generar HTML para características
-            featuresHTML = `
+            let featuresHTML = `
                 <div class="mb-8">
-                    <h4 class="font-semibold text-lg mb-4 flex items-center gap-2 text-red-600">
+                    <h4 class="font-semibold text-lg mb-4 flex items-center gap-2 text-gray-600">
                         <i class="fas fa-star"></i>
                         Características
                     </h4>
@@ -2306,16 +2172,15 @@ applications: ["Sistema de refrigeración de motor", "Circuito cerrado de antico
                 </div>
             `;
             
-            // Generar HTML para modelos compatibles
-            compatibleModelsHTML = `
+            let compatibleModelsHTML = `
                 <div class="mb-8">
-                    <h4 class="font-semibold text-lg mb-4 flex items-center gap-2 text-red-600">
+                    <h4 class="font-semibold text-lg mb-4 flex items-center gap-2 text-gray-600">
                         <i class="fas fa-car"></i>
                         Modelos Compatibles
                     </h4>
                     <div class="flex flex-wrap gap-2">
                         ${product.compatibleModels.map(model => `
-                            <span class="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm font-medium">
+                            <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm font-medium">
                                 ${model}
                             </span>
                         `).join('')}
@@ -2323,10 +2188,9 @@ applications: ["Sistema de refrigeración de motor", "Circuito cerrado de antico
                 </div>
             `;
             
-            // Generar HTML para aplicaciones
-            applicationsHTML = `
+            let applicationsHTML = `
                 <div class="mb-8">
-                    <h4 class="font-semibold text-lg mb-4 flex items-center gap-2 text-red-600">
+                    <h4 class="font-semibold text-lg mb-4 flex items-center gap-2 text-gray-600">
                         <i class="fas fa-wrench"></i>
                         Aplicaciones
                     </h4>
@@ -2342,7 +2206,6 @@ applications: ["Sistema de refrigeración de motor", "Circuito cerrado de antico
             
             detailContainer.innerHTML = `
                 <div class="grid lg:grid-cols-2 gap-8">
-                    <!-- Imagen del producto -->
                     <div>
                         <div class="relative rounded-xl overflow-hidden mb-6">
                             <img src="${product.image}" 
@@ -2350,7 +2213,6 @@ applications: ["Sistema de refrigeración de motor", "Circuito cerrado de antico
                                  class="w-full h-96 object-cover"
                                  onerror="this.src='https://via.placeholder.com/600x400?text=Imagen+no+disponible'">
                             
-                            <!-- Badges -->
                             <div class="absolute top-4 left-4 flex flex flex-col gap-2">
                                 <span class="${badgeColor} text-white px-3 py-1 rounded-full text-sm font-semibold">
                                     ${badgeText}
@@ -2361,12 +2223,11 @@ applications: ["Sistema de refrigeración de motor", "Circuito cerrado de antico
                             </div>
                         </div>
                         
-                        <div class="bg-gradient-to-br from-red-50 to-white p-6 rounded-xl border border-red-100">
+                        <div class="bg-gradient-to-br from-gray-50 to-white p-6 rounded-xl border border-gray-200">
                             <div class="flex items-center justify-between">
                                 <div>
                                     <p class="text-gray-600 text-sm">Precio unitario</p>
-                                    <!-- Cambio a rojo -->
-                                    <p class="text-3xl font-bold text-red-600">$${product.price.toLocaleString()}</p>
+                                    <p class="text-3xl font-bold text-gray-600">$${product.price.toLocaleString()}</p>
                                 </div>
                                 <div class="text-right">
                                     <p class="text-gray-600 text-sm">Entrega</p>
@@ -2376,7 +2237,6 @@ applications: ["Sistema de refrigeración de motor", "Circuito cerrado de antico
                         </div>
                     </div>
                     
-                    <!-- Información del producto -->
                     <div>
                         <h2 class="text-3xl font-bold text-gray-900 mb-4">${product.name}</h2>
                         <p class="text-gray-700 mb-6 leading-relaxed">${product.description}</p>
@@ -2386,7 +2246,6 @@ applications: ["Sistema de refrigeración de motor", "Circuito cerrado de antico
                         ${compatibleModelsHTML}
                         ${applicationsHTML}
                         
-                        <!-- Botones de acción -->
                         <div class="flex gap-4 mt-8">
                             <button onclick="addToCartFromDetail(${product.id})" 
                                     class="flex-1 btn-primary py-4 text-lg font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
@@ -2437,7 +2296,6 @@ applications: ["Sistema de refrigeración de motor", "Circuito cerrado de antico
             updateCartCount();
             showNotification('Producto añadido a la cotización', 'success');
             
-            // Animar el botón del carrito
             animateCartButton();
         }
 
@@ -2458,7 +2316,6 @@ applications: ["Sistema de refrigeración de motor", "Circuito cerrado de antico
             const cartCount = document.getElementById('cart-count');
             cartCount.textContent = count;
             
-            // Animar si hay cambios
             if (count > 0) {
                 cartCount.classList.add('animate-pulse');
                 setTimeout(() => cartCount.classList.remove('animate-pulse'), 300);
@@ -2530,8 +2387,7 @@ applications: ["Sistema de refrigeración de motor", "Circuito cerrado de antico
                     <div class="flex-1 min-w-0">
                         <div class="flex items-center gap-2 mb-1">
                             <h4 class="font-semibold text-gray-900 truncate">${item.name}</h4>
-                            <!-- Cambio a rojo -->
-                            <span class="px-2 py-0.5 text-xs font-medium bg-red-100 text-red-600 rounded-full">
+                            <span class="px-2 py-0.5 text-xs font-medium bg-gray-100 text-gray-600 rounded-full">
                                 ${getCategoryText(item.category)}
                             </span>
                         </div>
@@ -2616,7 +2472,6 @@ applications: ["Sistema de refrigeración de motor", "Circuito cerrado de antico
                 return;
             }
             
-            // Generar resumen del carrito
             let cartSummaryHTML = '';
             let total = 0;
             
@@ -2637,8 +2492,7 @@ applications: ["Sistema de refrigeración de motor", "Circuito cerrado de antico
             cartSummaryHTML += `
                 <div class="flex justify-between items-center py-3 font-bold text-lg">
                     <span>Total estimado:</span>
-                    <!-- Cambio a rojo -->
-                    <span class="text-red-600">$${total.toLocaleString()}</span>
+                    <span class="text-gray-600">$${total.toLocaleString()}</span>
                 </div>
             `;
             
@@ -2651,7 +2505,6 @@ applications: ["Sistema de refrigeración de motor", "Circuito cerrado de antico
         function sendWhatsAppMessage(event) {
             event.preventDefault();
             
-            // Obtener datos del formulario
             const nombre = document.getElementById('nombre').value;
             const telefono = document.getElementById('telefono').value;
             const marca = document.getElementById('marca').value;
@@ -2660,8 +2513,7 @@ applications: ["Sistema de refrigeración de motor", "Circuito cerrado de antico
             const tipo_servicio = document.getElementById('tipo_servicio').value;
             const mensaje = document.getElementById('mensaje').value;
             
-            // Generar mensaje para WhatsApp
-            let whatsappMessage = `*SOLICITUD DE COTIZACIÓN - CSR s.r.l*\n\n`;
+            let whatsappMessage = `*SOLICITUD DE COTIZACIÓN - Autopartes*\n\n`;
             whatsappMessage += `*Cliente:* ${nombre}\n`;
             whatsappMessage += `*Teléfono:* ${telefono}\n`;
             whatsappMessage += `*Vehículo:* ${marca} ${modelo} (${año})\n`;
@@ -2696,23 +2548,16 @@ applications: ["Sistema de refrigeración de motor", "Circuito cerrado de antico
             whatsappMessage += `*ID de solicitud:* ${Date.now()}\n\n`;
             whatsappMessage += `Por favor, confirmen disponibilidad y envíen cotización final con detalles de instalación si aplica.`;
             
-            // Codificar el mensaje para URL
             const encodedMessage = encodeURIComponent(whatsappMessage);
-            
-            // Número de WhatsApp
             const phoneNumber = '+5353729090';
             
-            // Abrir WhatsApp
             window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
             
-            // Cerrar el formulario
             closeWhatsAppForm();
             
-            // Actualizar stock y limpiar carrito
             updateProductStock();
             clearCart();
             
-            // Mostrar confirmación
             showNotification('Solicitud enviada correctamente', 'success');
         }
 
@@ -2726,7 +2571,6 @@ applications: ["Sistema de refrigeración de motor", "Circuito cerrado de antico
             const proposito = form.purpose.value;
             const mensaje = form.message.value;
             
-            // Mapear propósito a texto legible
             const purposeMap = {
                 'venta': 'Venta de Piezas',
                 'instalacion': 'Solicitud de Instalación',
@@ -2735,8 +2579,7 @@ applications: ["Sistema de refrigeración de motor", "Circuito cerrado de antico
                 'emergencia': 'Emergencia / Ayuda Urgente'
             };
             
-            // Generar mensaje para WhatsApp
-            let whatsappMessage = `*CONSULTA DE CONTACTO - CSR s.r.l*\n\n`;
+            let whatsappMessage = `*CONSULTA DE CONTACTO - Autopartes*\n\n`;
             whatsappMessage += `*Nombre:* ${nombre}\n`;
             whatsappMessage += `*Teléfono:* ${telefono}\n`;
             whatsappMessage += `*Motivo:* ${purposeMap[proposito] || proposito}\n\n`;
@@ -2745,19 +2588,13 @@ applications: ["Sistema de refrigeración de motor", "Circuito cerrado de antico
             whatsappMessage += `*Fecha:* ${new Date().toLocaleDateString()}\n`;
             whatsappMessage += `*Hora:* ${new Date().toLocaleTimeString()}`;
             
-            // Codificar el mensaje
             const encodedMessage = encodeURIComponent(whatsappMessage);
-            
-            // Número de WhatsApp
             const phoneNumber = '+5353729090';
             
-            // Abrir WhatsApp
             window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
             
-            // Resetear formulario
             form.reset();
             
-            // Mostrar confirmación
             showNotification('Redirigiendo a WhatsApp...', 'success');
         }
 
@@ -2770,7 +2607,6 @@ applications: ["Sistema de refrigeración de motor", "Circuito cerrado de antico
                 }
             });
             
-            // Actualizar la vista de productos
             renderProducts(carParts, 'car-parts-container');
         }
 
@@ -2809,7 +2645,6 @@ applications: ["Sistema de refrigeración de motor", "Circuito cerrado de antico
             const notification = document.createElement('div');
             notification.className = `notification ${type}`;
             
-            // Iconos por tipo
             const icons = {
                 success: 'fas fa-check-circle',
                 error: 'fas fa-exclamation-circle',
@@ -2823,7 +2658,6 @@ applications: ["Sistema de refrigeración de motor", "Circuito cerrado de antico
             
             container.appendChild(notification);
             
-            // Remover después de 5 segundos
             setTimeout(() => {
                 notification.style.opacity = '0';
                 notification.style.transform = 'translateX(100%)';
@@ -2839,9 +2673,9 @@ applications: ["Sistema de refrigeración de motor", "Circuito cerrado de antico
             menu.classList.toggle('hidden');
             
             if (menu.classList.contains('hidden')) {
-                icon.className = 'fas fa-bars text-xl text-red-600';
+                icon.className = 'fas fa-bars text-xl text-gray-600';
             } else {
-                icon.className = 'fas fa-times text-xl text-red-600';
+                icon.className = 'fas fa-times text-xl text-gray-600';
             }
         }
 
@@ -2856,7 +2690,6 @@ applications: ["Sistema de refrigeración de motor", "Circuito cerrado de antico
         // Verificar carrito al cargar
         function checkCartOnLoad() {
             if (cart.length > 0) {
-                // Verificar stock de productos en el carrito
                 cart = cart.filter(item => {
                     const product = carParts.find(p => p.id === item.id);
                     return product && product.stock >= item.quantity;
