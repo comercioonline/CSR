@@ -1041,6 +1041,14 @@
             </div>
         </div>
 
+        <!-- Marca de Agua (Watermark) en el Hero Section -->
+        <!-- Z-index [1] lo sitúa encima del fondo y overlay, pero debajo del contenido (z-2) -->
+        <div class="absolute inset-0 z-[1] flex items-center justify-center pointer-events-none overflow-hidden">
+            <img src="https://z-cdn-media.chatglm.cn/files/350f527f-20f5-4df3-b892-5fea09c6cdee.jpeg?auth_key=1873798471-befa3ab094e04acab2224b384e247766-0-a38ef41debd22e4d9032cd04e5971971" 
+                 alt="Logo CSR Watermark" 
+                 class="w-[60%] md:w-[45%] lg:w-[35%] h-auto opacity-30 object-contain mix-blend-overlay grayscale-[20%]">
+        </div>
+
         <!-- Flechas de navegación -->
         <div class="carousel-arrow left" onclick="prevSlide()">
             <i class="fas fa-chevron-left"></i>
@@ -1154,6 +1162,7 @@
                                     <div class="mt-2 space-y-2">
                                         <p class="text-gray-600">(Ing. Jorge Arides Estévez): <span class="font-medium">+53 63179374</span></p>
                                         <p class="text-gray-600">(Ing. Luis Carlos Triana Alonso): <span class="font-medium">+53 50669462</span></p>
+                                        <p class="text-gray-600">(Lic. Livan Molina Nápoles): <span class="font-medium">+53 53860774</span></p>
                                     </div>
                                 </div>
                             </div>
@@ -1165,8 +1174,8 @@
                                 <div>
                                     <h4 class="font-semibold text-gray-900">Correos Electrónicos</h4>
                                     <div class="mt-2 space-y-1">
-                                        <p class="text-gray-600">csrdam@hotmail.com</p>
                                         <p class="text-gray-600">csrhabana@gmail.com</p>
+                                        <p class="text-gray-600">csrdam@hotmail.com</p>   
                                     </div>
                                 </div>
                             </div>
