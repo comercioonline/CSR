@@ -21,55 +21,94 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            /* CAMBIO DE COLOR PRINCIPAL: De Gris a Verde Sostenible */
+            /* Colores Principales: Tema Verde Sostenible */
             --primary-color: #10B981;      /* Verde esmeralda */
             --primary-light: #6EE7B7;       /* Verde claro */
             --primary-dark: #047857;        /* Verde oscuro bosque */
             --accent-color: #34D399;         /* Verde acento */
+            
+            /* Imagen solicitada para el Hero */
+            --hero-bg-image: url('https://z-cdn-media.chatglm.cn/files/9efaec8c-250d-4bb5-a4a8-7c100d19307e.png?auth_key=1874026765-ab069a38729a4a43bb2b9d4838c249b7-0-fe26b5012f034033e71242e52ad13af7');
         }
 
         /* Animaciones mejoradas */
         @keyframes slideIn {
-            from {
-                transform: translateX(100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
         }
 
         @keyframes slideUp {
-            from {
-                transform: translateY(30px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
 
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
-        .animate-slide-in {
-            animation: slideIn 0.4s ease-out;
+        /* Animación de pulsación brillante para botones (Efecto Energía) */
+        @keyframes pulse-green {
+            0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(16, 185, 129, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
         }
 
-        .animate-slide-up {
-            animation: slideUp 0.4s ease-out;
+        /* Animación de fondo sutil para sensación de naturaleza viva */
+        @keyframes bg-zoom {
+            0% { background-size: 100%; }
+            50% { background-size: 110%; }
+            100% { background-size: 100%; }
         }
 
-        .animate-fade-in {
-            animation: fadeIn 0.3s ease-out;
+        /* Nueva Animación: Flotación Suave (Watermark) */
+        @keyframes float-watermark {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .animate-slide-in { animation: slideIn 0.4s ease-out; }
+        .animate-slide-up { animation: slideUp 0.4s ease-out; }
+        .animate-fade-in { animation: fadeIn 0.3s ease-out; }
+        .animate-float-watermark { animation: float-watermark 4s ease-in-out infinite; }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: white;
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(16, 185, 129, 0.3);
+            animation: pulse-green 2s infinite;
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--primary-color);
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid white; /* Borde blanco para contraste en imagen */
+            cursor: pointer;
+            backdrop-filter: blur(5px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
 
         /* Estilos para modales */
@@ -160,42 +199,6 @@
             box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
         }
 
-        /* Estilos para botones */
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
-            color: white;
-            padding: 12px 24px;
-            border-radius: 10px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(16, 185, 129, 0.3);
-        }
-
-        .btn-secondary {
-            background: white;
-            color: var(--primary-color);
-            padding: 12px 24px;
-            border-radius: 10px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: 2px solid var(--primary-color);
-            cursor: pointer;
-        }
-
-        .btn-secondary:hover {
-            background: var(--primary-color);
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Estilos para inputs y formularios */
         .form-input {
             width: 100%;
             padding: 12px 16px;
@@ -211,14 +214,12 @@
             box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
         }
 
-        /* Estilos para la barra de navegación */
         .navbar {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
         }
 
-        /* Estilos para el carrito */
         .cart-sidebar {
             position: fixed;
             top: 0;
@@ -233,11 +234,8 @@
             z-index: 1100;
         }
 
-        .cart-sidebar.active {
-            transform: translateX(0);
-        }
+        .cart-sidebar.active { transform: translateX(0); }
 
-        /* Estilos para secciones */
         .section-title {
             position: relative;
             display: inline-block;
@@ -255,7 +253,6 @@
             border-radius: 2px;
         }
 
-        /* Estilos para tarjetas de características */
         .feature-card {
             transition: all 0.3s ease;
             border: 1px solid #e5e7eb;
@@ -271,7 +268,6 @@
             transform: translateY(-5px);
         }
 
-        /* Estilos para badges */
         .compatibility-tag {
             display: inline-block;
             background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
@@ -288,25 +284,12 @@
             transform: translateY(-1px);
         }
 
-        /* Estilos responsivos */
         @media (max-width: 768px) {
-            .modal-content {
-                margin: 1rem auto;
-                padding: 1.5rem;
-                width: 95%;
-                max-height: 95vh;
-            }
-
-            .product-image-container {
-                height: 240px;
-            }
-
-            .cart-sidebar {
-                max-width: 100%;
-            }
+            .modal-content { margin: 1rem auto; padding: 1.5rem; width: 95%; max-height: 95vh; }
+            .product-image-container { height: 240px; }
+            .cart-sidebar { max-width: 100%; }
         }
 
-        /* Estilos para notificaciones */
         .notification {
             position: fixed;
             top: 20px;
@@ -323,38 +306,10 @@
             gap: 12px;
         }
 
-        .notification.success {
-            background: linear-gradient(135deg, #10b981, #059669);
-        }
+        .notification.success { background: linear-gradient(135deg, #10b981, #059669); }
+        .notification.error { background: linear-gradient(135deg, #ef4444, #dc2626); }
+        .notification.info { background: linear-gradient(135deg, var(--primary-color), var(--primary-dark)); }
 
-        .notification.error {
-            background: linear-gradient(135deg, #ef4444, #dc2626);
-        }
-
-        .notification.info {
-            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
-        }
-
-        /* Estilos para scrollbar personalizada */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1;
-            border-radius: 5px;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(to bottom, var(--primary-color), var(--primary-dark));
-            border-radius: 5px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(to bottom, var(--primary-dark), #065f46);
-        }
-
-        /* Estilos para el loader */
         .loader {
             border: 4px solid #f3f3f3;
             border-top: 4px solid var(--primary-color);
@@ -364,24 +319,25 @@
             animation: spin 1s linear infinite;
         }
 
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
-        /* Estilos para el hero section - FONDO SIN VERDE */
+        /* ESTILOS ACTUALIZADOS DEL HERO SECTION */
         .hero-section {
-            background-color: var(--primary-dark);
-            /* NUEVA IMAGEN SOLICITADA */
-            background-image: url('https://z-cdn-media.chatglm.cn/files/ace64df5-8c4a-4ef9-836b-ede576d1aecb.png?auth_key=1873508145-20a2cd89613f4ceaa06cd0216149d20b-0-19c05f2fb5c5df417f9d0303b3b4341c');
-            background-repeat: no-repeat;
-            background-position: center;
+            /* Fondo: Imagen solicitada por el usuario */
+            background-image: var(--hero-bg-image);
             background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            /* Animación suave de acercamiento para dar vida a la imagen */
+            animation: bg-zoom 20s infinite alternate ease-in-out;
             position: relative;
             overflow: hidden;
+            min-height: 85vh; /* Altura mínima para impacto visual */
+            display: flex;
+            align-items: center;
         }
 
-        /* Overlay: Sin verde, solo un negro sutil para contraste */
+        /* Overlay: Oscurecimiento para asegurar legibilidad del texto sobre la foto */
         .hero-section::after {
             content: '';
             position: absolute;
@@ -389,33 +345,18 @@
             left: 0;
             right: 0;
             bottom: 0;
-            /* CAMBIO: Eliminado el verde. Usamos un degradado negro suave (más oscuro arriba, más claro abajo) */
-            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2));
-            z-index: 2;
+            /* Gradiente oscuro de arriba a abajo, más oscuro abajo para que los botones resalten */
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.7) 100%);
+            z-index: 1;
             pointer-events: none;
         }
 
-        /* Patrón decorativo sutil (opcional, pero ayuda a dar textura sin cambiar color) */
-        .hero-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.05" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
-            background-size: cover;
-            background-position: center;
-            opacity: 0.3;
-            z-index: 3;
-        }
-
-        /* Sombra de texto para asegurar legibilidad sobre la imagen clara */
+        /* Ajuste de tipografía para imagen de fondo */
         .hero-section h1, .hero-section p {
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.6);
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.8); /* Sombra más fuerte para contraste */
         }
 
-        /* Estilos para marcas/equipos (inversores, marcas) */
+        /* Ajuste de navegación y estilos generales para que coincidan */
         .brand-card {
             transition: all 0.3s ease;
             background: white;
@@ -430,7 +371,6 @@
             border-color: var(--primary-color);
         }
 
-        /* Estilos para pasos del proceso */
         .process-step {
             position: relative;
         }
@@ -446,17 +386,12 @@
             z-index: 1;
         }
 
-        .process-step:last-child::after {
-            display: none;
-        }
+        .process-step:last-child::after { display: none; }
 
         @media (max-width: 768px) {
-            .process-step::after {
-                display: none;
-            }
+            .process-step::after { display: none; }
         }
 
-        /* Estilos de menú móvil verde */
         .mobile-menu-item {
             font-size: 1.25rem;
             padding: 1.25rem;
@@ -473,9 +408,7 @@
             transform: translateX(10px);
         }
 
-        .mobile-menu-item:hover i {
-            color: white;
-        }
+        .mobile-menu-item:hover i { color: white; }
 
         .desktop-nav-link {
             font-size: 1.1rem;
@@ -498,11 +431,8 @@
             font-size: 1.2rem;
         }
 
-        .desktop-nav-link:hover .nav-icon {
-            color: white;
-        }
+        .desktop-nav-link:hover .nav-icon { color: white; }
 
-        /* Estilos para el logo (verde) */
         .logo-container {
             display: flex;
             align-items: center;
@@ -512,9 +442,7 @@
             transition: all 0.3s ease;
         }
 
-        .logo-container:hover {
-            background: rgba(16, 185, 129, 0.05);
-        }
+        .logo-container:hover { background: rgba(16, 185, 129, 0.05); }
 
         .logo-icon-wrapper {
             width: 100px;
@@ -535,10 +463,7 @@
             display: block;
         }
 
-        .logo-text-wrapper {
-            display: flex;
-            flex-direction: column;
-        }
+        .logo-text-wrapper { display: flex; flex-direction: column; }
 
         .logo-main-text {
             font-size: 1.5rem;
@@ -573,41 +498,20 @@
         }
 
         @keyframes logo-entrance {
-            0% {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            0% { opacity: 0; transform: translateY(-10px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
 
-        .logo-container {
-            animation: logo-entrance 0.6s ease-out;
-        }
+        .logo-container { animation: logo-entrance 0.6s ease-out; }
 
-        .logo-icon-wrapper {
-            transition: transform 0.3s ease;
-        }
+        .logo-icon-wrapper { transition: transform 0.3s ease; }
 
-        .logo-container:hover .logo-icon-wrapper {
-            transform: scale(1.05);
-        }
+        .logo-container:hover .logo-icon-wrapper { transform: scale(1.05); }
 
         @media (max-width: 640px) {
-            .logo-icon-wrapper {
-                width: 70px;
-                height: 70px;
-            }
-
-            .logo-main-text {
-                font-size: 1.25rem;
-            }
-
-            .logo-sub-text {
-                font-size: 0.6rem;
-            }
+            .logo-icon-wrapper { width: 70px; height: 70px; }
+            .logo-main-text { font-size: 1.25rem; }
+            .logo-sub-text { font-size: 0.6rem; }
         }
     </style>
 </head>
@@ -616,7 +520,7 @@
     <header class="navbar sticky top-0 z-50">
         <div class="container mx-auto px-4">
             <div class="flex items-center justify-between h-24 md:h-28">
-                <!-- Logo Profesional Mejorado (Tema Energía Solar) -->
+                <!-- Logo Profesional Mejorado -->
                 <a href="https://comercioonline.github.io/CSR/autos" class="logo-container group">
                     <div class="logo-icon-wrapper">
                         <img src="https://z-cdn-media.chatglm.cn/files/eacc73b2-2122-4c19-9553-dd6b06d2be00_Logo2.jpg?auth_key=1790430396-abc36b9bd8c349ef9d9a7dc13691e34d-0-a4a7e44781f0d1447a417d2e80143d68"
@@ -632,7 +536,7 @@
                     </div>
                 </a>
 
-                <!-- Desktop Navigation - NUEVO ESTILO VERDE (Mismos HREF) -->
+                <!-- Desktop Navigation -->
                 <nav class="hidden lg:flex items-center gap-4">
                     <a href="https://comercioonline.github.io/CSR/"
                        class="desktop-nav-link text-gray-700 font-semibold flex items-center gap-2 group">
@@ -676,7 +580,7 @@
                 </div>
             </div>
 
-            <!-- Mobile Menu - NUEVO ESTILO VERDE (Mismos HREF) -->
+            <!-- Mobile Menu -->
             <div id="mobile-menu" class="hidden lg:hidden py-6 border-t mt-4 animate-slide-up bg-gray-100 rounded-xl">
                 <div class="flex flex-col gap-4 px-4">
                     <a href="https://comercioonline.github.io/CSR/"
@@ -709,78 +613,51 @@
         </div>
     </header>
 
-    <!-- Hero Section - TEMA ENERGÍA SOLAR -->
-    <section class="hero-section text-white py-24 relative overflow-hidden">
+    <!-- Hero Section - ACTUALIZADO CON MARCA DE AGUA FLOTANTE -->
+    <section class="hero-section text-white py-24 relative">
         <div class="container mx-auto px-4 relative z-10">
             
-            <!-- NUEVO LOGO 3D EN EL CENTRO -->
-            <div class="flex justify-center mb-8 animate-slide-up" style="animation-delay: 0.1s;">
-                <div class="relative group">
-                    <!-- Efecto de resplandor detrás del logo -->
-                    <div class="absolute -inset-1 bg-gradient-to-r from-green-400 to-blue-500 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
-                    <!-- Contenedor del logo con borde sutil para delimitarlo del fondo -->
-                    <div class="relative p-2 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 shadow-2xl inline-block">
-                        <img src="https://z-cdn-media.chatglm.cn/files/06fd440d-ab6f-446f-a5fd-e6e5c3e53910.jpeg?auth_key=1873511883-932fd1da0d694d96b599a08ce9e5981e-0-9a354d94a312ce04aed2fc6bed6c75f6"
-                             alt="Logo CSR 3D"
-                             class="h-32 md:h-40 w-auto object-contain drop-shadow-2xl filter brightness-110 transition-transform duration-500 group-hover:scale-105">
-                    </div>
-                </div>
-            </div>
-            <!-- FIN DEL NUEVO LOGO -->
-
             <div class="max-w-4xl mx-auto text-center animate-slide-up">
-                <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+                
+                <!-- NUEVO: MARCA DE AGUA FLOTANTE (Logo 3D CSR) -->
+                <div class="mb-8 animate-float-watermark">
+                    <img src="https://z-cdn-media.chatglm.cn/files/5ecbedcb-8bec-42b9-84a1-5e724106c689.png?auth_key=1874028050-85b7e60c91bd4bf18881592ed2e8fe8c-0-a7aa1f2e2afef8cc255c05556eda560a"
+                         alt="Marca de Agua CSR"
+                         class="h-24 md:h-36 w-auto mx-auto opacity-90 rounded-xl drop-shadow-2xl transition-transform duration-500 hover:scale-110"
+                         style="filter: drop-shadow(0 10px 15px rgba(0,0,0,0.5));">
+                </div>
+
+                <!-- Etiqueta decorativa -->
+                <div class="inline-block mb-4 px-4 py-1 rounded-full border border-green-400/50 bg-green-900/30 backdrop-blur-sm">
+                    <span class="text-green-300 text-sm font-semibold tracking-wider uppercase">
+                        <i class="fas fa-leaf mr-2"></i>Tecnología Sostenible
+                    </span>
+                </div>
+
+                <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
                     Energía Solar de
-                    <span class="bg-gradient-to-r from-yellow-200 to-green-300 bg-clip-text text-transparent">
+                    <span class="bg-gradient-to-r from-green-300 to-yellow-200 bg-clip-text text-transparent drop-shadow-sm">
                         Alta Eficiencia
                     </span>
                 </h1>
-                <p class="text-xl md:text-2xl mb-10 text-gray-100 leading-relaxed">
-                    Venta profesional e instalación de paneles solares, kits fotovoltaicos y generadores EcoFlow. ¡Independencia energética para tu hogar o negocio!
+                <p class="text-xl md:text-2xl mb-10 text-gray-100 leading-relaxed max-w-3xl mx-auto">
+                    Venta profesional e instalación de paneles solares, kits fotovoltaicos y generadores EcoFlow. Transformamos la luz solar en independencia energética para tu hogar o negocio.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-6 justify-center">
                     <button onclick="scrollToSection('categorias')"
-                            class="btn-primary px-10 py-4 text-lg font-semibold shadow-lg">
-                        <i class="fas fa-solar-panel mr-3"></i>Ver Productos
+                            class="btn-primary px-10 py-4 text-lg font-semibold shadow-lg flex items-center justify-center gap-2">
+                        <i class="fas fa-solar-panel"></i> Ver Productos
                     </button>
-                    <button onclick="scrollToSection('servicios')"
-                            class="btn-secondary px-10 py-4 text-lg font-semibold">
-                        <i class="fas fa-tools mr-3"></i>Nuestros Servicios
+                    <button onclick="scrollToSection('contact')"
+                            class="btn-secondary px-10 py-4 text-lg font-semibold flex items-center justify-center gap-2">
+                        <i class="fas fa-phone-alt"></i> Cotizar Ahora
                     </button>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Stats Section - Datos de Energía -->
-    <section class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div class="text-center p-8 rounded-xl bg-gradient-to-br from-green-50 to-white border border-green-200">
-                    <div class="text-4xl font-bold text-green-600 mb-3">+500 kWp</div>
-                    <h3 class="text-xl font-semibold mb-2">Capacidad Instalada</h3>
-                    <p class="text-gray-600">En proyectos residenciales y comerciales</p>
-                </div>
-                <div class="text-center p-8 rounded-xl bg-gradient-to-br from-green-50 to-white border border-green-200">
-                    <div class="text-4xl font-bold text-green-600 mb-3">10 años</div>
-                    <h3 class="text-xl font-semibold mb-2">Garantía Extendida</h3>
-                    <p class="text-gray-600">En paneles y equipos de marca</p>
-                </div>
-                <div class="text-center p-8 rounded-xl bg-gradient-to-br from-green-50 to-white border border-green-200">
-                    <div class="text-4xl font-bold text-green-600 mb-3">24-48h</div>
-                    <h3 class="text-xl font-semibold mb-2">Instalación Rápida</h3>
-                    <p class="text-gray-600">Servicio profesional en toda La Habana</p>
-                </div>
-                <div class="text-center p-8 rounded-xl bg-gradient-to-br from-green-50 to-white border border-green-200">
-                    <div class="text-4xl font-bold text-green-600 mb-3">+18</div>
-                    <h3 class="text-xl font-semibold mb-2">Años de Experiencia</h3>
-                    <p class="text-gray-600">Especialistas en energía renovable</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Productos Section (Paneles Solares, EcoFlow, Kits) -->
+    
+    <!-- Productos Section -->
     <section id="categorias" class="py-20">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
@@ -822,7 +699,7 @@
         </div>
     </section>
 
-    <!-- Servicios Section - Instalación y Asesoría Solar -->
+    <!-- Servicios Section -->
     <section id="servicios" class="py-20 bg-gradient-to-b from-green-50 to-white">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
@@ -916,7 +793,7 @@
         </div>
     </section>
 
-    <!-- Marcas Section (Equipos que representamos) -->
+    <!-- Marcas Section -->
     <section id="marcas" class="py-20 bg-white">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
@@ -971,7 +848,7 @@
         </div>
     </section>
 
-    <!-- Proceso de Compra Section (Adaptado a Energía Solar) -->
+    <!-- Proceso de Compra Section -->
     <section class="py-20 bg-gradient-to-r from-green-100 to-green-200">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
@@ -1027,7 +904,7 @@
         </div>
     </section>
 
-    <!-- Contact Section (Igual que antes, pero con enfoque solar) -->
+    <!-- Contact Section -->
     <section id="contact" class="py-20 bg-white">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
@@ -1056,9 +933,9 @@
                                 <div>
                                     <h4 class="font-semibold text-gray-900">Teléfonos Principales</h4>
                                     <div class="mt-2 space-y-2">
-                                        <p class="text-gray-600">(Ing. Jorge Arides Estévez): <span class="font-medium">+53 63179374</span></p>
-                                        <p class="text-gray-600">(Ing. Luis Carlos Triana Alonso): <span class="font-medium">+53 50669462</span></p>
-                                        <p class="text-gray-600">(Lic. Raciel Rodríguez Temprana): <span class="font-medium">+53 52493787</span></p>
+                                        <p class="text-gray-600">(Ing. Jose Angel Tejeda Bisset ): <span class="font-medium">cell/what +53 52817489</span></p> 
+                                        <p class="text-gray-600">(Lic. Livan Molina Nápoles) Gerente: <span class="font-medium">cell/what +53 53860774</span></p>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -1070,8 +947,8 @@
                                 <div>
                                     <h4 class="font-semibold text-gray-900">Correos Electrónicos</h4>
                                     <div class="mt-2 space-y-1">
-                                        <p class="text-gray-600">csrsolar@hotmail.com</p>
                                         <p class="text-gray-600">csrhabana@gmail.com</p>
+                                        <p class="text-gray-600">csrdam@hotmail.com</p>  
                                     </div>
                                 </div>
                             </div>
@@ -1082,7 +959,8 @@
                                 </div>
                                 <div>
                                     <h4 class="font-semibold text-gray-900">Ubicación</h4>
-                                    <p class="text-gray-600 mt-2">Habana, Cuba</p>
+                                    <p class="text-gray-600 mt-2">Oficina: Calle 19 e/ 60 y 62 #6012, Playa</p>
+                                    <p class="text-gray-600 mt-2">Deposito: Calle 240 y 81 atras de la empresa Mercedes y frente de la fábrica del gas, La Lisa</p>
                                 </div>
                             </div>
 
@@ -1202,7 +1080,7 @@
         </div>
     </section>
 
-    <!-- Footer (Adaptado a Energía Solar) -->
+    <!-- Footer -->
     <footer class="bg-gray-900 text-white pt-16 pb-8">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
@@ -1218,11 +1096,6 @@
                             <h3 class="text-xl font-bold">CSR Energía Solar</h3>
                             <p class="text-gray-400 text-sm">Paneles Solares y EcoFlow</p>
                         </div>
-                    </div>
-                    <p class="text-gray-400 mb-6 leading-relaxed">
-                        Especialistas en la venta e instalación de sistemas de energía solar. Más de 18 años brindando soluciones energéticas limpias y eficientes.
-                    </p>
-                    <div class="flex gap-4">
                         <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors duration-300">
                             <i class="fab fa-facebook-f"></i>
                         </a>
@@ -1576,182 +1449,345 @@
         const solarProducts = [
             // Paneles Solares
             {
-                id: 1,
-                name: "Panel Solar 450W Monocristalino",
-                price: 250,
-                category: "panel",
-                image: "https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=2072&auto=format&fit=crop",
-                stock: 20,
-                description: "Panel solar de alta eficiencia con tecnología monocristalina. Ideal para sistemas residenciales y comerciales, garantizando la máxima generación de energía incluso en espacios reducidos.",
-                specifications: [
-                    "Potencia Máxima: 450W",
-                    "Eficiencia: 21.3%",
-                    "Tolerancia de Potencia: 0~+5W",
-                    "Tensión Máxima del Sistema: 1500V DC",
-                    "Dimensiones: 2094 x 1038 x 35 mm"
-                ],
-                features: [
-                    "Tecnología de media celda (half-cut)",
-                    "Marco de aluminio resistente a la corrosión",
-                    "Vidrio templado de alta transmitancia",
-                    "Garantía de 25 años de rendimiento lineal",
-                    "Alta tolerancia a condiciones climáticas extremas"
-                ],
-                compatibleModels: ["Sistemas On-Grid", "Sistemas Off-Grid", "Bombeo Solar"],
-                applications: ["Generación eléctrica residencial", "Plantas solares comerciales", "Sistemas híbridos"]
-            },
+    id: 1,
+    name: "Ventilador de Pedestal Solar KALABI con Kit de Iluminación",
+    price: 85,
+    category: "ventilacion",
+    image: "Imagenes de Energia/Ventilador de Pedestal Solar KALABI con Kit de Iluminación.webp",
+    stock: 15,
+    description: "Sistema de ventilación ecológico e independiente. Este ventilador de pedestal marca KALABI funciona con energía solar directa o batería interna, permitiendo su uso durante cortes de energía o en zonas sin red eléctrica. Incluye un panel solar dedicado y bombillos LED para iluminación de emergencia.",
+    specifications: [
+        "Marca: KALABI",
+        "Tipo: Ventilador de pedestal recargable",
+        "Panel Solar: Policristalino de alta eficiencia incluido",
+        "Batería: Interna recargable de plomo-ácido o litio (según versión)",
+        "Tiempo de Carga: 6-8 horas bajo luz solar directa",
+        "Autonomía: Hasta 10 horas en velocidad baja / 4-5 horas en alta"
+    ],
+    features: [
+        "Puerto de salida USB para carga de dispositivos móviles",
+        "Incluye 2 bombillos LED externos con interruptor independiente",
+        "Altura ajustable y rejilla metálica de seguridad",
+        "Indicador de estado de carga y nivel de batería",
+        "Funcionamiento silencioso con 3 niveles de velocidad"
+    ],
+    compatibleModels: ["Paneles solares de 12V-18V", "Cargadores de pared AC estándar", "Baterías externas de ciclo profundo"],
+    applications: ["Uso doméstico en zonas con cortes de luz", "Camping y actividades al aire libre", "Oficinas rurales", "Proyectos de energía autosustentable"]
+},
             {
-                id: 2,
-                name: "Kit Solar 5kW para Hogar",
-                price: 4800,
-                category: "kit",
-                image: "https://images.unsplash.com/photo-1624397640291-2e6b2d998e9c?q=80&w=2070&auto=format&fit=crop",
-                stock: 8,
-                description: "Kit solar completo de 5kW, listo para instalar en tu hogar. Incluye paneles, inversor, estructura de montaje y cableado necesario para empezar a generar tu propia energía.",
-                specifications: [
-                    "Potencia del Sistema: 5kWp",
-                    "Inversor: 5kW On-Grid / Híbrido",
-                    "Número de Paneles: 12 x 450W",
-                    "Producción Estimada: 650-750 kWh/mes",
-                    "Superficie Requerida: ~25-30 m²"
-                ],
-                features: [
-                    "Sistema 'llave en mano' listo para instalar",
-                    "Inversor con WiFi integrado para monitoreo",
-                    "Estructura de aluminio anodizado",
-                    "Cumple con normativas eléctricas internacionales",
-                    "Ampliable en el futuro"
-                ],
-                compatibleModels: ["Viviendas unifamiliares", "Pequeños comercios", "Oficinas"],
-                applications: ["Autoconsumo residencial", "Reducción de factura eléctrica", "Sistemas con baterías"]
-            },
-            // EcoFlow
+    id: 2, 
+    name: "Panel Solar Plegable KALABI 120W Portátil",
+    price: 145, 
+    category: "energia solar",
+    image: "Imagenes de Energia/El Panel Solar Plegable (120W).webp",
+    stock: 10,
+    description: "Cargador solar plegable de alta eficiencia diseñado para la vida al aire libre y emergencias. Su diseño compacto y ligero permite transportarlo fácilmente como un maletín, ofreciendo una fuente de energía limpia para estaciones de carga, laptops y dispositivos móviles mediante sus múltiples puertos de salida integrados.",
+    specifications: [
+        "Marca: KALABI",
+        "Potencia Máxima: 120W",
+        "Tipo de Célula: Monocristalina de alta eficiencia",
+        "Salidas DC: 1 x DC 18V (para estaciones de energía y laptops)",
+        "Salidas USB: 2 x USB-A (Carga rápida), 1 x USB-C (PD)",
+        "Material: Tela Oxford impermeable de alta durabilidad",
+        "Peso: Aproximadamente 4.5 kg"
+    ],
+    features: [
+        "Diseño plegable con asa de transporte integrada y cierres magnéticos",
+        "Soportes traseros ajustables para optimizar el ángulo de captación solar",
+        "Caja de control con indicadores LED de funcionamiento",
+        "Protección contra sobrecargas y cortocircuitos en puertos USB",
+        "Ojales en las esquinas para fijación en mochilas, carpas o vehículos"
+    ],
+    compatibleModels: [
+        "Estaciones de energía portátiles (EcoFlow, Jackery, Bluetti)", 
+        "Laptops con entrada DC", 
+        "Smartphones y Tablets", 
+        "Baterías de ciclo profundo de 12V (requiere controlador)"
+    ],
+    applications: [
+        "Camping y senderismo", 
+        "Carga de estaciones de energía portátiles", 
+        "Respaldo en viajes por carretera (Overlanding)", 
+        "Fuente de energía de emergencia para el hogar"
+    ]
+},
+           {
+    id: 3, 
+    name: "Kit de Bomba Sumergible Solar KALABI con Controlador MPPT",
+    price: 450, 
+    category: "energia solar",
+    image: "Imagenes de Energia/El Kit de Bomba Sumergible Solar.webp",
+    stock: 8,
+    description: "Solución integral de bombeo de agua alimentada por energía solar, ideal para extracciones en pozos profundos, riego agrícola y suministro de agua en zonas remotas. Este kit combina una bomba de acero inoxidable de alta durabilidad con un panel solar de gran capacidad y un controlador inteligente que optimiza el rendimiento del motor según la intensidad del sol.",
+    specifications: [
+        "Marca: KALABI",
+        "Tipo de Bomba: Sumergible de pozo profundo",
+        "Material: Acero inoxidable de grado industrial",
+        "Controlador: Digital MPPT (Maximum Power Point Tracking)",
+        "Panel Solar: Policristalino/Monocristalino de alta eficiencia con soporte",
+        "Voltaje de Operación: DC (compatible con el controlador incluido)",
+        "Protección: IP68 (Sumergible) e IP65 (Controlador)"
+    ],
+    features: [
+        "Motor de imán permanente sin escobillas para una mayor vida útil y eficiencia",
+        "Controlador MPPT con pantalla LCD para monitoreo de potencia y flujo en tiempo real",
+        "Protección automática contra marcha en seco, sobretensión y bajo voltaje",
+        "Arranque suave para evitar picos de corriente y prolongar la vida del equipo",
+        "Instalación sencilla sin necesidad de cableado eléctrico externo o baterías"
+    ],
+    compatibleModels: [
+        "Paneles solares de 250W a 450W (según configuración)", 
+        "Sistemas de riego por goteo y aspersión", 
+        "Tanques de almacenamiento de agua elevados", 
+        "Sensores de nivel de agua para automatización de llenado"
+    ],
+    applications: [
+        "Extracción de agua en pozos profundos y cisternas", 
+        "Riego de cultivos y huertos familiares", 
+        "Suministro de agua para ganado en ranchos", 
+        "Transferencia de agua en proyectos de acuicultura"
+    ]
+},
             {
-                id: 3,
-                name: "EcoFlow Delta 2 (1024Wh)",
-                price: 950,
-                category: "ecoflow",
-                image: "https://images.unsplash.com/photo-1647932318340-b1fe04fe5c5c?q=80&w=2070&auto=format&fit=crop",
-                stock: 15,
-                description: "Estación de energía portátil EcoFlow DELTA 2. Batería LFP (LiFePO4) de 1024Wh con salidas de CA, USB-C y CC. Carga del 0-80% en solo 50 minutos. La solución perfecta para el hogar, acampadas o como respaldo de emergencia.",
-                specifications: [
-                    "Capacidad: 1024Wh (expansible a 2048Wh)",
-                    "Química de Batería: LiFePO4 (LFP)",
-                    "Ciclos de Vida: 3000+ ciclos al 80%",
-                    "Salidas: 6 x CA (1800W, sobretensión 2700W)",
-                    "Carga Solar Máxima: 500W"
-                ],
-                features: [
-                    "Carga rápida AC (0-80% en 50 minutos)",
-                    "Sistema de gestión de batería (BMS) avanzado",
-                    "Pantalla táctil LCD para monitoreo",
-                    "Aplicación móvil EcoFlow para control remoto",
-                    "Silencioso y sin emisiones"
-                ],
-                compatibleModels: ["Uso doméstico", "Camping / Caravanas", "Eventos al aire libre"],
-                applications: ["Respaldo de energía para electrodomésticos", "Carga de dispositivos electrónicos", "Sistemas solares portátiles"]
-            },
+    id: 4, 
+    name: "Estación de Energía Portátil KALABI 1000W / 1200Wh",
+    price: 850, 
+    category: "energia solar",
+    image: "Imagenes de Energia/La Estación de Energía Portátil (1000W).webp",
+    stock: 5,
+    description: "Fuente de alimentación portátil de alta capacidad diseñada para ofrecer energía confiable en exteriores, emergencias o aplicaciones remotas. Con una potencia de salida de 1000W y una capacidad de almacenamiento de 1200Wh, esta unidad es capaz de alimentar múltiples dispositivos simultáneamente, desde teléfonos móviles hasta electrodomésticos pequeños, utilizando tecnología de inversión de onda senoidal pura para proteger equipos sensibles.",
+    specifications: [
+        "Marca: KALABI",
+        "Potencia Nominal: 1000W",
+        "Capacidad de Energía: 1200Wh",
+        "Salida AC: 110V / 60Hz (x2 puertos)",
+        "Entrada/Salida DC: 12V / 10A (Puerto de cigarrera y salidas DC5521)",
+        "Salida USB: USB-A (x2) 5V/3A, USB-C (PD) para carga rápida",
+        "Entrada de Carga Solar: Puerto PV compatible con paneles solares",
+        "Pantalla: LCD inteligente con indicadores de carga, potencia y batería"
+    ],
+    features: [
+        "Tecnología ESS (Energy Storage System) avanzada para mayor seguridad y vida útil",
+        "Inversor de onda senoidal pura que garantiza energía limpia para dispositivos electrónicos",
+        "Sistema de gestión de batería (BMS) integrado con protección contra sobrecargas y cortocircuitos",
+        "Diseño compacto con asa ergonómica para facilitar su transporte en campamentos o trabajos de campo",
+        "Múltiples métodos de recarga: mediante panel solar, toma de pared AC o cargador de vehículo"
+    ],
+    compatibleModels: [
+        "Paneles solares portátiles de 100W a 200W",
+        "Neveras portátiles de compresor",
+        "Equipos médicos CPAP y dispositivos de comunicación",
+        "Herramientas eléctricas de bajo consumo y laptops"
+    ],
+    applications: [
+        "Respaldo de energía para el hogar durante apagones",
+        "Suministro eléctrico para campamentos y actividades recreativas al aire libre",
+        "Energía para estaciones de trabajo móviles y fotografía profesional",
+        "Uso en vehículos recreativos (RV) y embarcaciones pequeñas"
+    ]
+},
+           {
+    id: 5,
+    name: "Banco de Energía Solar Portátil KALABI con Asa",
+    price: 89, 
+    category: "energía solar / accesorios móviles",
+    image: "Imagenes de Energia/Banco de Energía Solar Portátil KALABI con Asa.webp", 
+    stock: 25,
+    description: "Cargador portátil robusto e impermeable diseñado para aventureros. Este power bank combina una alta capacidad de carga con un panel solar integrado de emergencia, perfecto para mantener tus dispositivos alimentados durante escapadas de camping o senderismo. Cuenta con una práctica asa de transporte naranja y un indicador LED de batería de fácil lectura.",
+    specifications: [
+        "Marca: KALABI",
+        "Capacidad de Energía: Estimada 20,000mAh - 30,000mAh (alta capacidad)",
+        "Salida USB: x2 puertos USB-A para carga simultánea",
+        "Carga Solar: Panel solar de silicio monocristalino integrado",
+        "Indicador: Pantalla LED con porcentajes de batería (25%, 50%, 75%, 100%)",
+        "Protección: Grado de protección IP (resistente al polvo y salpicaduras de agua)",
+        "Otras características: Asa de transporte integrada color naranja"
+    ],
+    features: [
+        "Carga dual: Recarga mediante cable USB o energía solar",
+        "Indicador de carga solar: Icono de sol en la pantalla se ilumina al recibir luz solar",
+        "Diseño duradero: Carcasa robusta ideal para uso en exteriores",
+        "Portabilidad mejorada: Asa ergonómica para sujetar a mochilas o transportar fácilmente",
+        "Carga de múltiples dispositivos: Dos puertos USB-A para cargar teléfonos, tablets, etc."
+    ],
+    compatibleModels: [
+        "Smartphones (Android y iPhone)",
+        "Tablets y lectores electrónicos",
+        "Cámaras de acción y auriculares inalámbricos",
+        "Dispositivos GPS portátiles",
+        "Linternas recargables y pequeños gadgets de camping"
+    ],
+    applications: [
+        "Camping y senderismo",
+        "Viajes y actividades al aire libre",
+        "Kit de emergencia en el coche o el hogar",
+        "Uso diario para carga rápida en cualquier lugar",
+        "Festivales y eventos al aire libre"
+    ]
+},
             {
-                id: 4,
-                name: "EcoFlow Delta Pro (3600Wh)",
-                price: 3200,
-                category: "ecoflow",
-                image: "https://images.unsplash.com/photo-1647932318340-b1fe04fe5c5c?q=80&w=2070&auto=format&fit=crop",
-                stock: 5,
-                description: "La estación de energía más potente de EcoFlow para el hogar. Con 3600Wh de capacidad y 3600W de salida AC, puede alimentar electrodomésticos de alta demanda. Expandible hasta 25kWh.",
-                specifications: [
-                    "Capacidad: 3600Wh (expandible a 25kWh)",
-                    "Salida CA: 3600W (sobretensión 7200W)",
-                    "Carga Solar Máxima: 1600W",
-                    "Conexión: 120V/240V con doble voltaje",
-                    "Química de Batería: LiFePO4"
-                ],
-                features: [
-                    "Alimentación para toda la casa (hasta 12 circuitos)",
-                    "Tiempo de cambio de respaldo: 20ms (EPS)",
-                    "Compatible con generadores y red eléctrica",
-                    "Control por voz y app inteligente",
-                    "Expandible con baterías adicionales"
-                ],
-                compatibleModels: ["Respaldo para hogar completo", "Obras en construcción", "Eventos profesionales"],
-                applications: ["Respaldo de emergencia para casa", "Sistemas off-grid completos", "Almacenamiento solar"]
-            },
-            // Inversores
+    id: 6,
+    name: "Panel Solar Flexible Monocristalino KALABI 100W",
+    price: 125, 
+    category: "energía solar / paneles fotovoltaicos",
+    image: "Imagenes de Energia/Panel Solar Flexible Monocristalino KALABI 100W.webp", 
+    stock: 15,
+    description: "Panel solar ultra delgado y flexible diseñado para adaptarse a superficies curvas. Su estructura ligera y resistente lo hace ideal para instalaciones en techos de vehículos, embarcaciones o sistemas portátiles de carga. Fabricado con celdas monocristalinas de alta eficiencia que garantizan un rendimiento óptimo incluso en condiciones de espacio limitado.",
+    specifications: [
+        "Marca: KALABI",
+        "Potencia Máxima (Pmax): 100W",
+        "Tipo de Celda: Silicio Monocristalino de alta eficiencia",
+        "Flexibilidad: Hasta 30 grados de arco",
+        "Conectores: MC4 estándar integrados con cables de 90cm",
+        "Dimensiones: Aproximadamente 1050mm x 540mm x 2.5mm",
+        "Peso: 1.7 kg (Ultra ligero)",
+        "Protección: Caja de conexiones sellada IP67"
+    ],
+    features: [
+        "Diseño Aerodinámico: Perfil extremadamente bajo para reducir la resistencia al viento",
+        "Instalación Versátil: Orificios pre-perforados en las esquinas para montaje rápido con tornillos o adhesivos",
+        "Alta Durabilidad: Capa superior de ETFE resistente a la corrosión y altas temperaturas",
+        "Eficiencia Superior: Celdas de grado A que maximizan la conversión de luz solar",
+        "Resistencia Climática: Diseñado para soportar nieve, lluvia y vientos fuertes"
+    ],
+    compatibleModels: [
+        "Controladores de carga PWM y MPPT (12V/24V)",
+        "Estaciones de energía portátiles (Power Stations)",
+        "Sistemas de baterías de ciclo profundo (AGM, Gel, Litio)",
+        "Kits solares para furgonetas y caravanas",
+        "Embarcaciones y yates"
+    ],
+    applications: [
+        "Techos de furgonetas camper y autocaravanas",
+        "Cubiertas de barcos y veleros",
+        "Carga de baterías en cabañas aisladas",
+        "Sistemas de riego solar a pequeña escala",
+        "Proyectos de energía DIY y estaciones de carga móviles"
+    ]
+},
             {
-                id: 5,
-                name: "Inversor Híbrido Victron 5kW",
-                price: 1200,
-                category: "inversor",
-                image: "https://images.unsplash.com/photo-1624397640148-949b1732bb0a?q=80&w=2070&auto=format&fit=crop",
-                stock: 10,
-                description: "Inversor/cargador híbrido Victron Energy MultiPlus-II de 5kW. Gestiona la energía de paneles solares, baterías y red eléctrica de forma inteligente. Ideal para sistemas de autoconsumo con respaldo.",
-                specifications: [
-                    "Potencia: 5000VA (5kW)",
-                    "Topología: Híbrido (Inversor/Cargador)",
-                    "Tensión Batería: 48V",
-                    "Rango de Tensión MPPT: 0-450V",
-                    "Eficiencia Máxima: 96%"
-                ],
-                features: [
-                    "Tecnología PowerAssist (evita sobrecargas)",
-                    "Cargador de baterías integrado programable",
-                    "Conmutación de transferencia muy rápida (EPS)",
-                    "Comunicación inalámbrica (opcional)",
-                    "Diseño modular y expandible"
-                ],
-                compatibleModels: ["Sistemas off-grid", "Sistemas híbridos con baterías", "Ampliaciones solares"],
-                applications: ["Gestión inteligente de energía", "Respaldo domiciliario", "Autoconsumo con baterías"]
-            },
-            {
-                id: 6,
-                name: "Kit Batería Litio 48V 5kWh",
-                price: 1800,
-                category: "kit",
-                image: "https://images.unsplash.com/photo-1624397640148-949b1732bb0a?q=80&w=2070&auto=format&fit=crop",
-                stock: 7,
-                description: "Kit de baterías de litio Pylontech de 5kWh. La solución más confiable y segura para almacenar la energía solar. Diseño modular apilable y de larga duración.",
-                specifications: [
-                    "Capacidad: 5.12 kWh",
-                    "Tensión Nominal: 48V",
-                    "Química: LiFePO4 (Fosfato de Hierro y Litio)",
-                    "Ciclos de Vida: >6000 ciclos",
-                    "Comunicación: CAN / RS485"
-                ],
-                features: [
-                    "Máxima seguridad (química LFP no inflamable)",
-                    "Diseño modular y apilable (fácil ampliación)",
-                    "BMS interno de alta precisión",
-                    "Alta densidad de energía",
-                    "Requiere poco mantenimiento"
-                ],
-                compatibleModels: ["Inversores Victron", "Inversores Growatt", "Inversores SMA"],
-                applications: ["Almacenamiento de energía solar", "Respaldo para hogar", "Sistemas off-grid"]
-            },
-            {
-                id: 7,
-                name: "Panel Solar 200W Plegable EcoFlow",
-                price: 550,
-                category: "panel",
-                image: "https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=2072&auto=format&fit=crop",
-                stock: 12,
-                description: "Panel solar portátil y plegable de 200W de EcoFlow. Ideal para cargar estaciones de energía EcoFlow en exteriores. Ligero, resistente al agua y fácil de transportar.",
-                specifications: [
-                    "Potencia: 200W",
-                    "Eficiencia: 22-23%",
-                    "Conectores: MC4 (compatible con EcoFlow)",
-                    "Plegado: 4 paneles en uno",
-                    "Resistencia al Agua: IP68"
-                ],
-                features: [
-                    "Diseño plegable y portátil",
-                    "Soporte integrado para mejor ángulo",
-                    "Funda de transporte incluida",
-                    "Alta eficiencia de conversión",
-                    "Conectividad plug-and-play con EcoFlow"
-                ],
-                compatibleModels: ["EcoFlow Delta 2", "EcoFlow Delta Pro", "EcoFlow River 2"],
-                applications: ["Carga de estaciones portátiles", "Acampadas y autocaravanas", "Emergencias en exteriores"]
-            }
+    id: 7,
+    name: "Cargador de Pared KALABI 120W PD + QC 3.0",
+    price: 45, 
+    category: "accesorios electrónicos / cargadores",
+    image: "Imagenes de Energia/Cargador de Pared KALABI 120W PD + QC 3.0.webp", 
+    stock: 25,
+    description: "Cargador de pared de ultra alta velocidad diseñado para maximizar la eficiencia de carga. Equipado con tecnología de nitruro de galio (GaN) para un diseño compacto y una gestión térmica superior. Su puerto dual permite cargar simultáneamente dispositivos de alta demanda como laptops y smartphones, garantizando una entrega de energía estable y segura.",
+    specifications: [
+        "Marca: KALABI",
+        "Potencia Total: 120W",
+        "Tecnología de Carga: Power Delivery (PD) + Qualcomm Quick Charge 3.0",
+        "Puertos: Doble puerto (USB-C / USB-A)",
+        "Entrada: 100-240V ~ 50/60Hz (Universal)",
+        "Material: PC ignífugo de alta resistencia",
+        "Protección: Chip inteligente contra sobretensión, sobrecorriente y cortocircuitos",
+        "Certificaciones: QC 3.0, PD Fast Charge"
+    ],
+    features: [
+        "Carga Inteligente: Smart Chip que identifica el dispositivo para entregar la potencia óptima",
+        "Puerto Dual: Capacidad de carga rápida simultánea para dos dispositivos",
+        "Diseño Compacto: Estructura ligera ideal para viajes y espacios reducidos",
+        "Alta Eficiencia: Tecnología PD Power que reduce la pérdida de energía y el calor",
+        "Construcción Premium: Acabado metálico cepillado de larga durabilidad"
+    ],
+    compatibleModels: [
+        "Laptops con carga USB-C (MacBook, Dell XPS, HP Spectre)",
+        "Smartphones de gama alta (iPhone 13/14/15, Samsung S21/S22/S23/S24)",
+        "Tablets y iPads Pro/Air",
+        "Consolas portátiles (Nintendo Switch)",
+        "Dispositivos con tecnología Qualcomm Quick Charge"
+    ],
+    applications: [
+        "Carga rápida en el hogar u oficina",
+        "Uso en viajes internacionales (Voltaje universal)",
+        "Alimentación de estaciones de trabajo móviles",
+        "Carga de múltiples dispositivos con un solo adaptador",
+        "Sustitución de cargadores originales de laptop por una opción más compacta"
+    ]
+},
+
+{
+    id: 8,
+    name: "Luz Delantera KALABI LED recargable USB",
+    price: 25, 
+    category: "accesorios para ciclismo / iluminación",
+    image: "Imagenes de Energia/Luz Delantera KALABI LED recargable USB.webp", 
+    stock: 40,
+    description: "Luz delantera de alta intensidad diseñada para ciclistas urbanos y de montaña. Construida con un cuerpo de aleación de aluminio resistente a impactos y disipación de calor eficiente. Cuenta con una batería interna recargable de larga duración y un sistema de montaje universal de silicona que permite una instalación rápida sin herramientas.",
+    specifications: [
+        "Marca: KALABI",
+        "Potencia Lumínica: 400 - 800 Lúmenes (según modo)",
+        "Tecnología de Luz: LED de alta eficiencia con lente antirreflejo",
+        "Puertos: Recarga mediante USB-C / Micro-USB",
+        "Batería: Litio recargable de 2000mAh",
+        "Material: Aleación de aluminio y ABS de alta resistencia",
+        "Protección: Certificación IPX5 (resistente a lluvia y salpicaduras)",
+        "Certificaciones: CE, RoHS"
+    ],
+    features: [
+        "Modos de Iluminación: 4 modos (Fuerte, Medio, Suave, Flash/Intermitente)",
+        "Montaje Rápido: Correa de silicona ajustable para cualquier manubrio",
+        "Diseño Compacto: Estructura aerodinámica y ligera que no añade peso extra",
+        "Gestión Térmica: Disipador de calor integrado para prolongar la vida del LED",
+        "Indicador de Batería: Luz LED que avisa cuando el nivel de carga es bajo"
+    ],
+    compatibleModels: [
+        "Bicicletas de montaña (MTB)",
+        "Bicicletas de ruta y urbanas",
+        "Scooters eléctricos",
+        "Cualquier manubrio con diámetro de 22mm a 35mm",
+        "Soportes universales para cascos compatibles"
+    ],
+    applications: [
+        "Ciclismo nocturno en ciudad o senderos",
+        "Aumento de visibilidad diurna para seguridad vial",
+        "Uso como linterna de emergencia compacta",
+        "Trayectos bajo condiciones climáticas adversas (lluvia moderada)",
+        "Entrenamientos nocturnos de alto rendimiento"
+    ]
+},
+
+{
+    id: 9,
+    name: "Lámpara Solar Plegable KALABÍ Multi-Panel",
+    price: 35,
+    category: "iluminación / energía solar / camping",
+    image: "Imagenes de Energia/Lámpara Solar Plegable KALABÍ Multi-Panel.webp",
+    stock: 50,
+    description: "Lámpara LED versátil y de alto rendimiento diseñada para iluminación exterior y de emergencia. Su diseño plegable de 5 paneles permite una distribución de luz de 360 grados o focalizada según la apertura. Cuenta con carga híbrida mediante panel solar superior o puerto USB, siendo ideal para camping, talleres o cortes de energía.",
+    specifications: [
+        "Marca: KALABÍ",
+        "Potencia Lumínica: 500 - 1000 Lúmenes (dependiendo del modo)",
+        "Tecnología de Luz: LED SMD de alta eficiencia con difusor esmerilado",
+        "Puertos: Entrada de carga USB con protector de goma",
+        "Batería: Litio recargable integrada de alta capacidad",
+        "Carga Solar: Panel monocristalino integrado en la parte superior",
+        "Material: ABS resistente a impactos y policarbonato",
+        "Protección: Resistente a salpicaduras y polvo"
+    ],
+    features: [
+        "Diseño Plegable: Paneles laterales ajustables para controlar el ángulo de iluminación",
+        "Carga Dual: Recarga mediante energía solar directa o cable USB",
+        "Modos de Iluminación: 5 modos (Alto, Medio bajo, Estroboscópico, SOS)",
+        "Gancho de Suspensión: Gancho metálico integrado para colgar en tiendas, ramas o techos",
+        "Indicador de Carga: Luces LED que muestran el nivel de energía restante",
+        "Portabilidad: Estructura compacta que facilita su transporte en mochilas"
+    ],
+    compatibleModels: [
+        "Tiendas de campaña y gazebos",
+        "Soportes de iluminación para camping",
+        "Uso manual como linterna de área",
+        "Sistemas de carga solar portátiles",
+        "Instalaciones temporales en talleres o garajes"
+    ],
+    applications: [
+        "Iluminación principal para campamentos y actividades al aire libre",
+        "Luz de emergencia para el hogar ante fallas eléctricas",
+        "Iluminación de áreas de trabajo sin acceso a red eléctrica",
+        "Señalización de emergencia mediante modo SOS",
+        "Uso decorativo y funcional en jardines o terrazas"
+    ]
+}
         ];
 
         // Variables globales
@@ -1829,7 +1865,7 @@
             });
         }
 
-        // Crear tarjeta de producto (adaptada a verde)
+        // Crear tarjeta de producto
         function createProductCard(product) {
             const card = document.createElement('div');
             card.className = 'product-card animate-slide-up';
