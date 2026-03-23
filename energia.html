@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSR Energía Solar - Venta de Paneles Solares y EcoFlow</title>
+    <title>CSR Energía Solar - Venta de Paneles Solares y Estaciones de Energía</title>
     <meta name="description" content="CSR Energía Solar - Especialistas en venta e instalación de paneles solares, kits fotovoltaicos y generadores EcoFlow. Energía limpia para tu hogar o negocio.">
     <meta name="keywords" content="paneles solares, energía solar, EcoFlow, kits solares, instalación solar, CSR, energía renovable, baterías solares">
     <meta name="author" content="CSR Energía Solar">
@@ -532,7 +532,7 @@
                             <span class="logo-main-text">CSR</span>
                             <span class="logo-badge">Energía Solar</span>
                         </div>
-                        <span class="logo-sub-text">Paneles Solares y EcoFlow</span>
+                        <span class="logo-sub-text">Paneles Solares y Estaciones de Energía</span>
                     </div>
                 </a>
 
@@ -641,7 +641,7 @@
                     </span>
                 </h1>
                 <p class="text-xl md:text-2xl mb-10 text-gray-100 leading-relaxed max-w-3xl mx-auto">
-                    Venta profesional e instalación de paneles solares, kits fotovoltaicos y generadores EcoFlow. Transformamos la luz solar en independencia energética para tu hogar o negocio.
+                    Venta profesional e instalación de paneles solares, kits fotovoltaicos y generadores. Transformamos la luz solar en independencia energética para tu hogar o negocio.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-6 justify-center">
                     <button onclick="scrollToSection('categorias')"
@@ -1140,7 +1140,7 @@
                         <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-pink-600 transition-colors duration-300">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="https://wa.me/+5353729090" target="_blank"
+                        <a href="https://wa.me/+5356578961" target="_blank"
                            class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-green-600 transition-colors duration-300">
                             <i class="fab fa-whatsapp"></i>
                         </a>
@@ -1427,13 +1427,13 @@
                     </div>
 
                     <div>
+                        <!-- MODIFICADO: Eliminado el asterisco y el atributo required -->
                         <label for="consumo" class="block text-gray-700 font-medium mb-2">
-                            Consumo Promedio Mensual (kWh) *
+                            Consumo Promedio Mensual (kWh)
                         </label>
                         <input type="text" id="consumo" name="consumo"
                                class="form-input"
-                               placeholder="Ej: 300 kWh"
-                               required>
+                               placeholder="Ej: 300 kWh">
                     </div>
                 </div>
 
@@ -2396,7 +2396,9 @@
             whatsappMessage += `*Cliente:* ${nombre}\n`;
             whatsappMessage += `*Teléfono:* ${telefono}\n`;
             whatsappMessage += `*Tipo de Sistema:* ${tipo_sistema}\n`;
-            whatsappMessage += `*Consumo Mensual:* ${consumo} kWh\n`;
+            // MODIFICADO: Manejo de valor opcional para consumo
+            whatsappMessage += `*Consumo Mensual:* ${consumo ? consumo + ' kWh' : 'No especificado'}\n`;
+            
             whatsappMessage += `*Servicio solicitado:* ${tipo_servicio}\n\n`;
             whatsappMessage += `*PRODUCTOS SOLICITADOS:*\n\n`;
 
@@ -2429,7 +2431,7 @@
             whatsappMessage += `Por favor, envíen cotización final con detalles de instalación si aplica.`;
 
             const encodedMessage = encodeURIComponent(whatsappMessage);
-            const phoneNumber = '+5353729090';
+            const phoneNumber = '+5356578961';
 
             window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
 
@@ -2467,7 +2469,7 @@
             whatsappMessage += `*Hora:* ${new Date().toLocaleTimeString()}`;
 
             const encodedMessage = encodeURIComponent(whatsappMessage);
-            const phoneNumber = '+5353729090';
+            const phoneNumber = '+5356578961';
 
             window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
             form.reset();
