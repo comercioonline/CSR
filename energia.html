@@ -679,13 +679,17 @@
                         class="px-6 py-2 rounded-full border border-gray-300 text-gray-700 hover:border-green-600 hover:text-green-600 transition-all duration-300 font-medium">
                     <i class="fas fa-solar-panel mr-2"></i>Paneles Solares
                 </button>
-                <button onclick="filterProducts('ecoflow')"
+                <button onclick="filterProducts('kit')"
                         class="px-6 py-2 rounded-full border border-gray-300 text-gray-700 hover:border-green-600 hover:text-green-600 transition-all duration-300 font-medium">
-                    <i class="fas fa-bolt mr-2"></i>EcoFlow
+                    <i class="fas fa-toolbox mr-2"></i>Otros
                 </button>
                 <button onclick="filterProducts('inversor')"
                         class="px-6 py-2 rounded-full border border-gray-300 text-gray-700 hover:border-green-600 hover:text-green-600 transition-all duration-300 font-medium">
                     <i class="fas fa-microchip mr-2"></i>Inversores
+                </button>
+                <button onclick="filterProducts('inversor')"
+                        class="px-6 py-2 rounded-full border border-gray-300 text-gray-700 hover:border-green-600 hover:text-green-600 transition-all duration-300 font-medium">
+                    <i class="fas fa-microchip mr-2"></i>Estaciones de Energía
                 </button>
                 <button onclick="filterProducts('kit')"
                         class="px-6 py-2 rounded-full border border-gray-300 text-gray-700 hover:border-green-600 hover:text-green-600 transition-all duration-300 font-medium">
@@ -810,7 +814,16 @@
                     <div class="inline-flex items-center justify-center w-20 h-20 bg-green-100 rounded-full mb-4">
                         <i class="fas fa-sun text-4xl text-green-600"></i>
                     </div>
-                    <h4 class="font-bold text-xl mb-2">EcoFlow</h4>
+                    <h4 class="font-bold text-xl mb-2">EcoFlow, Jackery, Bluetti</h4>
+                    <p class="text-gray-600 text-sm">Generadores y baterías portátiles</p>
+                </div>
+                
+
+                <div class="brand-card text-center hover:animate-pulse">
+                    <div class="inline-flex items-center justify-center w-20 h-20 bg-green-100 rounded-full mb-4">
+                        <i class="fas fa-sun text-4xl text-green-600"></i>
+                    </div>
+                    <h4 class="font-bold text-xl mb-2">Anker, Zendure, Goal Zero</h4>
                     <p class="text-gray-600 text-sm">Generadores y baterías portátiles</p>
                 </div>
 
@@ -904,42 +917,57 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-white">
+   
+     <!-- Contact Section MEJORADA - COLOR VERDE -->
+    <section id="contact" class="py-20 bg-gradient-to-b from-green-50 to-white">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
                 <h2 class="section-title text-4xl font-bold text-gray-900">
                     Contáctanos
                 </h2>
                 <p class="text-gray-600 text-lg max-w-2xl mx-auto mt-4">
-                    Estamos aquí para resolver todas tus dudas sobre energía solar y ayudarte a dar el paso hacia la independencia energética.
+                    ¿Necesitas asesoría para elegir el aceite correcto? Estamos aquí para ayudarte
                 </p>
             </div>
-
+            
             <div class="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-                <!-- Contact Info -->
+                <!-- Contact Info - MEJORADA -->
                 <div class="space-y-8">
-                    <div class="bg-gradient-to-br from-green-50 to-white p-8 rounded-2xl border border-green-200">
+                    <div class="bg-gradient-to-br from-green-50 to-white p-8 rounded-2xl border border-green-200 shadow-md">
                         <h3 class="text-2xl font-bold mb-6 flex items-center gap-3">
                             <i class="fas fa-address-card text-green-600"></i>
                             Información de Contacto
                         </h3>
-
+                        
                         <div class="space-y-6">
+                            <!-- Teléfonos -->
                             <div class="flex items-start gap-4">
                                 <div class="flex-shrink-0 w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
-                                    <i class="fas fa-phone text-green-600"></i>
+                                    <i class="fas fa-phone-alt text-green-600"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-semibold text-gray-900">Teléfonos Principales</h4>
-                                    <div class="mt-2 space-y-2">
-                                        <p class="text-gray-600">(Ing. Jose Angel Tejeda Bisset ): <span class="font-medium">cell/what +53 52817489</span></p> 
-                                        <p class="text-gray-600">(Lic. Livan Molina Nápoles) Gerente: <span class="font-medium">cell/what +53 53860774</span></p>
-                                        
+                                    <h4 class="font-semibold text-gray-900">Teléfonos de Contacto</h4>
+                                    <div class="mt-2 space-y-3">
+                                        <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                                            <span class="font-medium text-gray-700 w-48">Ing. Jose Angel Tejeda Bisset</span>
+                                            <div class="flex gap-3">
+                                                <span class="inline-flex items-center gap-1.5 bg-gray-100 px-3 py-1 rounded-full text-sm"><i class="fas fa-phone-alt text-green-600 text-xs"></i> <span class="font-mono">+53 52817489</span></span>
+                                                <span class="inline-flex items-center gap-1.5 bg-green-50 px-3 py-1 rounded-full text-sm border border-green-200"><i class="fab fa-whatsapp text-green-600 text-xs"></i> <span class="font-mono">+53 52817489</span></span>
+                                            </div>
+                                        </div>
+                                        <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                                            <span class="font-medium text-gray-700 w-48">Lic. Livan Molina Nápoles:</span>
+                                            <div class="flex gap-3">
+                                                <span class="inline-flex items-center gap-1.5 bg-gray-100 px-3 py-1 rounded-full text-sm"><i class="fas fa-phone-alt text-green-600 text-xs"></i> <span class="font-mono">+53 53860774</span></span>
+                                                <span class="inline-flex items-center gap-1.5 bg-green-50 px-3 py-1 rounded-full text-sm border border-green-200"><i class="fab fa-whatsapp text-green-600 text-xs"></i> <span class="font-mono">+53 53860774</span></span>
+                                            </div>
+                                            <span class="text-xs font-semibold text-green-700 bg-green-100 px-2 py-0.5 rounded-full">Gerente</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-
+                        
+                            <!-- Correos -->
                             <div class="flex items-start gap-4">
                                 <div class="flex-shrink-0 w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
                                     <i class="fas fa-envelope text-green-600"></i>
@@ -947,23 +975,25 @@
                                 <div>
                                     <h4 class="font-semibold text-gray-900">Correos Electrónicos</h4>
                                     <div class="mt-2 space-y-1">
-                                        <p class="text-gray-600">csrhabana@gmail.com</p>
-                                        <p class="text-gray-600">csrdam@hotmail.com</p>  
+                                        <p class="text-gray-600"><i class="fas fa-envelope-open-text text-green-500 text-sm mr-2"></i>csrhabana@gmail.com</p>
+                                        <p class="text-gray-600"><i class="fas fa-envelope-open-text text-green-500 text-sm mr-2"></i>csrdam@hotmail.com</p>              
                                     </div>
                                 </div>
                             </div>
-
+                            
+                            <!-- Ubicación -->
                             <div class="flex items-start gap-4">
                                 <div class="flex-shrink-0 w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
                                     <i class="fas fa-map-marker-alt text-green-600"></i>
                                 </div>
                                 <div>
                                     <h4 class="font-semibold text-gray-900">Ubicación</h4>
-                                    <p class="text-gray-600 mt-2">Oficina: Calle 19 e/ 60 y 62 #6012, Playa</p>
-                                    <p class="text-gray-600 mt-2">Deposito: Calle 240 y 81 atras de la empresa Mercedes y frente de la fábrica del gas, La Lisa</p>
+                                    <p class="text-gray-600 mt-2"><i class="fas fa-building mr-2 text-green-500"></i>Oficina: Calle 19 e/ 60 y 62 #6012, Playa</p>
+                                    <p class="text-gray-600 mt-2"><i class="fas fa-warehouse mr-2 text-green-500"></i>Depósito: Calle 240 y 81 atrás de la empresa Mercedes y frente de la fábrica del gas, La Lisa</p>
                                 </div>
                             </div>
-
+                            
+                            <!-- Horarios -->
                             <div class="flex items-start gap-4">
                                 <div class="flex-shrink-0 w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
                                     <i class="fas fa-clock text-green-600"></i>
@@ -971,108 +1001,115 @@
                                 <div>
                                     <h4 class="font-semibold text-gray-900">Horarios de Atención</h4>
                                     <div class="mt-2 space-y-1">
-                                        <p class="text-gray-600">Lunes a Viernes: 9:00 AM - 6:00 PM</p>
-                                        <p class="text-gray-600">Sábado: 8:00 AM - 5:00 PM</p>
-                                        <p class="text-gray-600">Domingo: Cerrado</p>
-                                        <p class="text-gray-600 font-medium">Atención 24/7 para emergencias</p>
+                                        <p class="text-gray-600"><i class="far fa-calendar-alt mr-2 text-green-500"></i>Lunes a Viernes: 8:00 AM - 5:00 PM</p>
+                                        <p class="text-gray-600"><i class="far fa-calendar-alt mr-2 text-green-500"></i>Sábados: 8:00 AM - 12:00 PM</p>
+                                        <p class="text-gray-600 font-medium text-green-700"><i class="fas fa-headset mr-2"></i>Atención 24/7 para consultas técnicas</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
+                    
                     <!-- WhatsApp Quick Button -->
-                    <div class="bg-gradient-to-br from-green-50 to-white p-8 rounded-2xl border border-green-200">
+                    <div class="bg-gradient-to-br from-green-50 to-white p-8 rounded-2xl border border-green-200 shadow-md">
                         <div class="flex items-center gap-4">
                             <div class="flex-shrink-0 w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
                                 <i class="fab fa-whatsapp text-green-600 text-xl"></i>
                             </div>
                             <div>
-                                <h4 class="text-xl font-bold mb-2">Contacto Rápido por WhatsApp</h4>
-                                <p class="text-gray-600 mb-4">¿Necesitas asesoría o cotización? Escríbenos directamente</p>
-                                <a href="https://wa.me/+5353729090" target="_blank"
-                                   class="inline-flex items-center gap-2 bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors duration-300">
+                                <h4 class="text-xl font-bold mb-2">Asesoría Rápida por WhatsApp</h4>
+                                <p class="text-gray-600 mb-4">¿Necesitas ayuda para elegir el aceite correcto?</p>
+                                <a href="https://wa.me/+5356578961" target="_blank" 
+                                   class="inline-flex items-center gap-2 bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors duration-300 shadow-lg shadow-green-600/30">
                                     <i class="fab fa-whatsapp"></i>
-                                    Enviar Mensaje
+                                    Consultar con Experto
                                 </a>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <!-- Contact Form -->
-                <div class="bg-gradient-to-br from-green-50 to-white p-8 rounded-2xl border border-green-200">
+                
+                <!-- Contact Form (Sin cambios) -->
+                <div class="bg-gradient-to-br from-gray-50 to-white p-8 rounded-2xl border border-gray-200 shadow-sm">
                     <h3 class="text-2xl font-bold mb-6 flex items-center gap-3">
                         <i class="fas fa-comments text-green-600"></i>
-                        Envíanos un Mensaje
+                        Solicitar Asesoramiento
                     </h3>
-
+                    
                     <form id="contact-form" onsubmit="sendContactMessage(event)" class="space-y-6">
                         <div>
                             <label for="contact-empresa" class="block text-gray-700 font-medium mb-2">
-                                Tipo de Cliente *
+                                Empresa
                             </label>
-                            <select id="contact-empresa" name="empresa"
-                                    class="form-input"
-                                    required>
-                                <option value="">Selecciona una opción</option>
-                                <option value="mipyme">Empresa / Negocio</option>
-                                <option value="tcp">TCP / Autónomo</option>
-                                <option value="particular">Particular / Hogar</option>
+                            <select id="contact-empresa" name="empresa" 
+                                    class="form-input">
+                                <option value="">Selecciona tipo de cliente</option>
+                                <option value="Mipyme">Mipyme</option>
+                                <option value="TCP">TCP</option>
+                                <option value="Particular">Particular</option>
                             </select>
                         </div>
-
                         <div>
                             <label for="contact-name" class="block text-gray-700 font-medium mb-2">
                                 Nombre Completo *
                             </label>
-                            <input type="text" id="contact-name" name="name"
-                                   class="form-input"
-                                   placeholder="Tu nombre completo"
+                            <input type="text" id="contact-name" name="name" 
+                                   class="form-input" 
+                                   placeholder="Tu nombre completo" 
                                    required>
                         </div>
-
+                        
                         <div>
                             <label for="contact-phone" class="block text-gray-700 font-medium mb-2">
                                 Teléfono *
                             </label>
-                            <input type="text" id="contact-phone" name="phone"
-                                   class="form-input"
-                                   placeholder="Número de contacto"
+                            <input type="text" id="contact-phone" name="phone" 
+                                   class="form-input" 
+                                   placeholder="Número de contacto" 
                                    required>
                         </div>
-
+                        
+                        <div>
+                            <label for="contact-vehicle" class="block text-gray-700 font-medium mb-2">
+                                Marca y Modelo del Vehículo
+                                <span class="text-gray-500 font-normal text-sm">(opcional)</span>
+                            </label>
+                            <input type="text" id="contact-vehicle" name="vehicle" 
+                                   class="form-input" 
+                                   placeholder="Ej: Toyota Corolla 2018">
+                        </div>
+                        
                         <div>
                             <label for="contact-purpose" class="block text-gray-700 font-medium mb-2">
-                                ¿En qué podemos ayudarte? *
+                                Tipo de Consulta *
                             </label>
-                            <select id="contact-purpose" name="purpose"
-                                    class="form-input"
+                            <select id="contact-purpose" name="purpose" 
+                                    class="form-input" 
                                     required>
                                 <option value="">Selecciona una opción</option>
-                                <option value="venta">Compra de Paneles/EcoFlow</option>
-                                <option value="instalacion">Solicitud de Instalación</option>
-                                <option value="diagnostico">Asesoría Técnica</option>
+                                <option value="asesoramiento">Asesoramiento Técnico</option>
                                 <option value="cotizacion">Solicitar Cotización</option>
-                                <option value="emergencia">Emergencia / Soporte Técnico</option>
+                                <option value="disponibilidad">Consultar Disponibilidad</option>
+                                <option value="problema">Problema con el Motor</option>
+                                <option value="otro">Otro</option>
                             </select>
                         </div>
-
+                        
                         <div>
                             <label for="contact-message" class="block text-gray-700 font-medium mb-2">
-                                Mensaje *
+                                Descripción del Problema / Necesidad *
                             </label>
-                            <textarea id="contact-message" name="message"
-                                      rows="5"
-                                      class="form-input"
-                                      placeholder="Describe tu proyecto, consumo promedio, dudas sobre equipos..."
+                            <textarea id="contact-message" name="message" 
+                                      rows="5" 
+                                      class="form-input" 
+                                      placeholder="Describe los síntomas, kilometraje actual, tipo de conducción, etc..."
                                       required></textarea>
                         </div>
-
-                        <button type="submit"
+                        
+                        <button type="submit" 
                                 class="w-full btn-primary py-4 text-lg font-semibold">
                             <i class="fas fa-paper-plane mr-2"></i>
-                            Enviar Mensaje
+                            Enviar Consulta
                         </button>
                     </form>
                 </div>
@@ -1094,7 +1131,7 @@
                         </div>
                         <div>
                             <h3 class="text-xl font-bold">CSR Energía Solar</h3>
-                            <p class="text-gray-400 text-sm">Paneles Solares y EcoFlow</p>
+                            <p class="text-gray-400 text-sm">Paneles Solares y Estaciones de Energía</p>
                         </div>
                         <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors duration-300">
                             <i class="fab fa-facebook-f"></i>
@@ -1452,7 +1489,7 @@
     id: 1,
     name: "Ventilador de Pedestal Solar KALABI con Kit de Iluminación",
     price: 85,
-    category: "ventilacion",
+    category: "Otros",
     image: "Imagenes de Energia/Ventilador de Pedestal Solar KALABI con Kit de Iluminación.webp",
     stock: 15,
     description: "Sistema de ventilación ecológico e independiente. Este ventilador de pedestal marca KALABI funciona con energía solar directa o batería interna, permitiendo su uso durante cortes de energía o en zonas sin red eléctrica. Incluye un panel solar dedicado y bombillos LED para iluminación de emergencia.",
@@ -1478,7 +1515,7 @@
     id: 2, 
     name: "Panel Solar Plegable KALABI 120W Portátil",
     price: 145, 
-    category: "energia solar",
+    category: "Paneles Solares",
     image: "Imagenes de Energia/El Panel Solar Plegable (120W).webp",
     stock: 10,
     description: "Cargador solar plegable de alta eficiencia diseñado para la vida al aire libre y emergencias. Su diseño compacto y ligero permite transportarlo fácilmente como un maletín, ofreciendo una fuente de energía limpia para estaciones de carga, laptops y dispositivos móviles mediante sus múltiples puertos de salida integrados.",
@@ -1515,7 +1552,7 @@
     id: 3, 
     name: "Kit de Bomba Sumergible Solar KALABI con Controlador MPPT",
     price: 450, 
-    category: "energia solar",
+    category: "Kits y Accesorios",
     image: "Imagenes de Energia/El Kit de Bomba Sumergible Solar.webp",
     stock: 8,
     description: "Solución integral de bombeo de agua alimentada por energía solar, ideal para extracciones en pozos profundos, riego agrícola y suministro de agua en zonas remotas. Este kit combina una bomba de acero inoxidable de alta durabilidad con un panel solar de gran capacidad y un controlador inteligente que optimiza el rendimiento del motor según la intensidad del sol.",
@@ -1552,7 +1589,7 @@
     id: 4, 
     name: "Estación de Energía Portátil KALABI 1000W / 1200Wh",
     price: 850, 
-    category: "energia solar",
+    category: "Estaciones de Energía",
     image: "Imagenes de Energia/La Estación de Energía Portátil (1000W).webp",
     stock: 5,
     description: "Fuente de alimentación portátil de alta capacidad diseñada para ofrecer energía confiable en exteriores, emergencias o aplicaciones remotas. Con una potencia de salida de 1000W y una capacidad de almacenamiento de 1200Wh, esta unidad es capaz de alimentar múltiples dispositivos simultáneamente, desde teléfonos móviles hasta electrodomésticos pequeños, utilizando tecnología de inversión de onda senoidal pura para proteger equipos sensibles.",
@@ -1590,7 +1627,7 @@
     id: 5,
     name: "Banco de Energía Solar Portátil KALABI con Asa",
     price: 89, 
-    category: "energía solar / accesorios móviles",
+    category: "Otros",
     image: "Imagenes de Energia/Banco de Energía Solar Portátil KALABI con Asa.webp", 
     stock: 25,
     description: "Cargador portátil robusto e impermeable diseñado para aventureros. Este power bank combina una alta capacidad de carga con un panel solar integrado de emergencia, perfecto para mantener tus dispositivos alimentados durante escapadas de camping o senderismo. Cuenta con una práctica asa de transporte naranja y un indicador LED de batería de fácil lectura.",
@@ -1629,7 +1666,7 @@
     id: 6,
     name: "Panel Solar Flexible Monocristalino KALABI 100W",
     price: 125, 
-    category: "energía solar / paneles fotovoltaicos",
+    category: "Paneles Solares",
     image: "Imagenes de Energia/Panel Solar Flexible Monocristalino KALABI 100W.webp", 
     stock: 15,
     description: "Panel solar ultra delgado y flexible diseñado para adaptarse a superficies curvas. Su estructura ligera y resistente lo hace ideal para instalaciones en techos de vehículos, embarcaciones o sistemas portátiles de carga. Fabricado con celdas monocristalinas de alta eficiencia que garantizan un rendimiento óptimo incluso en condiciones de espacio limitado.",
@@ -1669,7 +1706,7 @@
     id: 7,
     name: "Cargador de Pared KALABI 120W PD + QC 3.0",
     price: 45, 
-    category: "accesorios electrónicos / cargadores",
+    category: "Otros",
     image: "Imagenes de Energia/Cargador de Pared KALABI 120W PD + QC 3.0.webp", 
     stock: 25,
     description: "Cargador de pared de ultra alta velocidad diseñado para maximizar la eficiencia de carga. Equipado con tecnología de nitruro de galio (GaN) para un diseño compacto y una gestión térmica superior. Su puerto dual permite cargar simultáneamente dispositivos de alta demanda como laptops y smartphones, garantizando una entrega de energía estable y segura.",
@@ -1710,7 +1747,7 @@
     id: 8,
     name: "Luz Delantera KALABI LED recargable USB",
     price: 25, 
-    category: "accesorios para ciclismo / iluminación",
+    category: "Otros",
     image: "Imagenes de Energia/Luz Delantera KALABI LED recargable USB.webp", 
     stock: 40,
     description: "Luz delantera de alta intensidad diseñada para ciclistas urbanos y de montaña. Construida con un cuerpo de aleación de aluminio resistente a impactos y disipación de calor eficiente. Cuenta con una batería interna recargable de larga duración y un sistema de montaje universal de silicona que permite una instalación rápida sin herramientas.",
@@ -1751,7 +1788,7 @@
     id: 9,
     name: "Lámpara Solar Plegable KALABÍ Multi-Panel",
     price: 35,
-    category: "iluminación / energía solar / camping",
+    category: "Otros",
     image: "Imagenes de Energia/Lámpara Solar Plegable KALABÍ Multi-Panel.webp",
     stock: 50,
     description: "Lámpara LED versátil y de alto rendimiento diseñada para iluminación exterior y de emergencia. Su diseño plegable de 5 paneles permite una distribución de luz de 360 grados o focalizada según la apertura. Cuenta con carga híbrida mediante panel solar superior o puerto USB, siendo ideal para camping, talleres o cortes de energía.",
