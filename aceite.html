@@ -679,6 +679,60 @@
                 font-size: 0.6rem;
             }
         }
+        
+        /* Estilos para la tabla de especificaciones de aceites */
+        .spec-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        
+        .spec-table th,
+        .spec-table td {
+            border: 1px solid #e5e7eb;
+            padding: 8px 12px;
+            text-align: left;
+            vertical-align: top;
+        }
+        
+        .spec-table th {
+            background-color: #fef3c7;
+            font-weight: 600;
+            color: #92400e;
+            width: 35%;
+        }
+        
+        .spec-table td {
+            background-color: white;
+        }
+        
+        .subcategory-title {
+            background: linear-gradient(135deg, #fef3c7, #fde68a);
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: 700;
+            color: #92400e;
+            margin: 1rem 0 0.75rem 0;
+            display: inline-block;
+        }
+        
+        .spec-list {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 0.5rem;
+        }
+        
+        .spec-list li {
+            padding: 0.25rem 0;
+            border-bottom: 1px dashed #e5e7eb;
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .spec-list li i {
+            color: var(--primary-color);
+            margin-top: 0.2rem;
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
@@ -870,7 +924,7 @@
         </div>
     </section>
 
-    <!-- Tipos de Aceite Section -->
+    <!-- Tipos de Aceite Section - ACTUALIZADA CON NUEVAS ESPECIFICACIONES -->
     <section class="py-20 bg-gradient-to-b from-white to-gray-50">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
@@ -882,68 +936,262 @@
                 </p>
             </div>
             
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="oil-type-card animate-slide-up">
-                    <div class="inline-flex items-center justify-center w-20 h-20 bg-amber-100 rounded-full mb-6">
-                        <i class="fas fa-flask text-3xl text-amber-600"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4">Aceite Sintético</h3>
-                    <p class="text-gray-600 mb-4">Máxima protección y rendimiento para motores modernos y exigentes.</p>
-                    <ul class="text-left space-y-2 text-sm text-gray-600">
-                        <li class="flex items-center gap-2">
-                            <i class="fas fa-check text-amber-500"></i>
-                            Mayor durabilidad
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <i class="fas fa-check text-amber-500"></i>
-                            Protección térmica superior
-                        </li>
-                        <li><i class="fas fa-check text-amber-500"></i>
-                            Mejor eficiencia de combustible
-                        </li>
-                    </ul>
+            <!-- Aceites de Motor -->
+            <div class="mb-16">
+                <div class="flex items-center gap-3 mb-6">
+                    <i class="fas fa-car-side text-3xl text-amber-600"></i>
+                    <h3 class="text-2xl font-bold text-gray-800">1. Aceites de Motor</h3>
                 </div>
                 
-                <div class="oil-type-card animate-slide-up">
-                    <div class="inline-flex items-center justify-center w-20 h-20 bg-orange-100 rounded-full mb-6">
-                        <i class="fas fa-flask text-3xl text-orange-600"></i>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Ligeros -->
+                    <div class="bg-white rounded-xl border border-amber-100 shadow-sm overflow-hidden">
+                        <div class="bg-gradient-to-r from-amber-50 to-amber-100 px-6 py-3 border-b border-amber-200">
+                            <h4 class="text-xl font-bold text-amber-800 flex items-center gap-2">
+                                <i class="fas fa-tachometer-alt"></i>
+                                Ligeros
+                            </h4>
+                        </div>
+                        <div class="p-6">
+                            <ul class="spec-list space-y-3">
+                                <li class="flex items-start gap-3">
+                                    <i class="fas fa-check-circle text-amber-500 mt-1"></i>
+                                    <div>
+                                        <span class="font-semibold">Gazpromneft Premium N 5W-30</span>
+                                        <p class="text-sm text-gray-500">Especificaciones: API SN, SP</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="fas fa-check-circle text-amber-500 mt-1"></i>
+                                    <div>
+                                        <span class="font-semibold">Gazpromneft Premium N 10W-40</span>
+                                        <p class="text-sm text-gray-500">Especificaciones: API SN, SP</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="fas fa-check-circle text-amber-500 mt-1"></i>
+                                    <div>
+                                        <span class="font-semibold">Gazpromneft Premium L 20W-50</span>
+                                        <p class="text-sm text-gray-500">Especificaciones: API SN, SP</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-bold mb-4">Aceite Semi-Sintético</h3>
-                    <p class="text-gray-600 mb-4">Equilibrio perfecto entre calidad y precio para uso diario.</p>
-                    <ul class="text-left space-y-2 text-sm text-gray-600">
-                        <li class="flex items-center gap-2">
-                            <i class="fas fa-check text-amber-500"></i>
-                            Protección balanceada
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <i class="fas fa-check text-amber-500"></i>
-                            Ideal para uso mixto
-                        </li>
-                        <li><i class="fas fa-check text-amber-500"></i>
-                            Excelente relación calidad-precio
-                        </li>
-                    </ul>
+                    
+                    <!-- Pesados -->
+                    <div class="bg-white rounded-xl border border-amber-100 shadow-sm overflow-hidden">
+                        <div class="bg-gradient-to-r from-amber-50 to-amber-100 px-6 py-3 border-b border-amber-200">
+                            <h4 class="text-xl font-bold text-amber-800 flex items-center gap-2">
+                                <i class="fas fa-truck"></i>
+                                Pesados
+                            </h4>
+                        </div>
+                        <div class="p-6">
+                            <ul class="spec-list space-y-3">
+                                <li class="flex items-start gap-3">
+                                    <i class="fas fa-check-circle text-amber-500 mt-1"></i>
+                                    <div>
+                                        <span class="font-semibold">Gazpromneft Diesel Ultra 10W-40</span>
+                                        <p class="text-sm text-gray-500">API CI-4</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="fas fa-check-circle text-amber-500 mt-1"></i>
+                                    <div>
+                                        <span class="font-semibold">Gazpromneft Diesel Sahara 20W-50</span>
+                                        <p class="text-sm text-gray-500">API CH-4</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="fas fa-check-circle text-amber-500 mt-1"></i>
+                                    <div>
+                                        <span class="font-semibold">Gazpromneft HD-60</span>
+                                        <p class="text-sm text-gray-500">Aceite monogrado para alta exigencia</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="oil-type-card animate-slide-up">
-                    <div class="inline-flex items-center justify-center w-20 h-20 bg-yellow-100 rounded-full mb-6">
-                        <i class="fas fa-oil-can text-3xl text-yellow-600"></i>
+                <!-- Motos, Equipos de Jardín y Plantas Eléctricas -->
+                <div class="mt-6 bg-white rounded-xl border border-amber-100 shadow-sm overflow-hidden">
+                    <div class="bg-gradient-to-r from-amber-50 to-amber-100 px-6 py-3 border-b border-amber-200">
+                        <h4 class="text-xl font-bold text-amber-800 flex items-center gap-2">
+                            <i class="fas fa-motorcycle"></i>
+                            Motos, Equipos de Jardín y Plantas Eléctricas
+                        </h4>
                     </div>
-                    <h3 class="text-xl font-bold mb-4">Aceite Mineral</h3>
-                    <p class="text-gray-600 mb-4">Para motores clásicos o de alto kilometraje que requieren lubricación básica.</p>
-                    <ul class="text-left space-y-2 text-sm text-gray-600">
-                        <li class="flex items-center gap-2">
-                            <i class="fas fa-check text-amber-500"></i>
-                            Lubricación efectiva
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <i class="fas fa-check text-amber-500"></i>
-                            Precio accesible
-                        </li>
-                        <li><i class="fas fa-check text-amber-500"></i>
-                            Ideal para motores viejos
-                        </li>
-                    </ul>
+                    <div class="p-6">
+                        <ul class="spec-list space-y-3">
+                            <li class="flex items-start gap-3">
+                                <i class="fas fa-check-circle text-amber-500 mt-1"></i>
+                                <div>
+                                    <span class="font-semibold">Gazpromneft Moto 2T</span>
+                                    <p class="text-sm text-gray-500">JASO FB</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fas fa-check-circle text-amber-500 mt-1"></i>
+                                <div>
+                                    <span class="font-semibold">Gazpromneft 4T 10W-40</span>
+                                    <p class="text-sm text-gray-500">JASO MB</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fas fa-check-circle text-amber-500 mt-1"></i>
+                                <div>
+                                    <span class="font-semibold">Gazpromneft 4T 20W-50</span>
+                                    <p class="text-sm text-gray-500">JASO MB</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Aceites de Transmisión -->
+            <div class="mb-16">
+                <div class="flex items-center gap-3 mb-6">
+                    <i class="fas fa-cogs text-3xl text-amber-600"></i>
+                    <h3 class="text-2xl font-bold text-gray-800">2. Aceites de Transmisión</h3>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Mecánicas -->
+                    <div class="bg-white rounded-xl border border-amber-100 shadow-sm overflow-hidden">
+                        <div class="bg-gradient-to-r from-amber-50 to-amber-100 px-6 py-3 border-b border-amber-200">
+                            <h4 class="text-xl font-bold text-amber-800 flex items-center gap-2">
+                                <i class="fas fa-gear"></i>
+                                Mecánicas
+                            </h4>
+                        </div>
+                        <div class="p-6">
+                            <ul class="spec-list space-y-3">
+                                <li class="flex items-start gap-3">
+                                    <i class="fas fa-check-circle text-amber-500 mt-1"></i>
+                                    <div>
+                                        <span class="font-semibold">Gazpromneft GL-4 / GL-5 75W-90</span>
+                                        <p class="text-sm text-gray-500">Aceite de transmisión multigrado</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="fas fa-check-circle text-amber-500 mt-1"></i>
+                                    <div>
+                                        <span class="font-semibold">Gazpromneft GL-5 80W-90</span>
+                                        <p class="text-sm text-gray-500">Para diferenciales y ejes</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="fas fa-check-circle text-amber-500 mt-1"></i>
+                                    <div>
+                                        <span class="font-semibold">Gazpromneft GL-5 / GL-5 85W-140</span>
+                                        <p class="text-sm text-gray-500">Alta viscosidad para condiciones extremas</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Automáticas -->
+                    <div class="bg-white rounded-xl border border-amber-100 shadow-sm overflow-hidden">
+                        <div class="bg-gradient-to-r from-amber-50 to-amber-100 px-6 py-3 border-b border-amber-200">
+                            <h4 class="text-xl font-bold text-amber-800 flex items-center gap-2">
+                                <i class="fas fa-car"></i>
+                                Automáticas
+                            </h4>
+                        </div>
+                        <div class="p-6">
+                            <ul class="spec-list space-y-3">
+                                <li class="flex items-start gap-3">
+                                    <i class="fas fa-check-circle text-amber-500 mt-1"></i>
+                                    <div>
+                                        <span class="font-semibold">Gazpromneft ATF DX-III Standard</span>
+                                    </div>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="fas fa-check-circle text-amber-500 mt-1"></i>
+                                    <div>
+                                        <span class="font-semibold">Gazpromneft ATF DX-VI</span>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="mt-4 pt-4 border-t border-gray-100">
+                                <p class="text-sm font-semibold text-amber-700 mb-2">Especificaciones y aprobaciones asociadas:</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-amber-100 text-amber-800 px-2 py-1 rounded text-xs">Allison C-4</span>
+                                    <span class="bg-amber-100 text-amber-800 px-2 py-1 rounded text-xs">Caterpillar TO-2</span>
+                                    <span class="bg-amber-100 text-amber-800 px-2 py-1 rounded text-xs">Ford MERCON</span>
+                                    <span class="bg-amber-100 text-amber-800 px-2 py-1 rounded text-xs">General Motors DEXRON III-G</span>
+                                    <span class="bg-amber-100 text-amber-800 px-2 py-1 rounded text-xs">General Motors DEXRON III-H</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Especialidades -->
+            <div>
+                <div class="flex items-center gap-3 mb-6">
+                    <i class="fas fa-flask text-3xl text-amber-600"></i>
+                    <h3 class="text-2xl font-bold text-gray-800">3. Especialidades</h3>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Grasa de Litio -->
+                    <div class="bg-white rounded-xl border border-amber-100 shadow-sm overflow-hidden">
+                        <div class="bg-gradient-to-r from-amber-50 to-amber-100 px-6 py-3 border-b border-amber-200">
+                            <h4 class="text-xl font-bold text-amber-800 flex items-center gap-2">
+                                <i class="fas fa-grease"></i>
+                                Grasa de Litio
+                            </h4>
+                        </div>
+                        <div class="p-6">
+                            <ul class="spec-list space-y-2">
+                                <li class="flex items-center gap-2"><i class="fas fa-check-circle text-amber-500 text-sm"></i> Gazpromneft Grease L EP 1</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check-circle text-amber-500 text-sm"></i> Gazpromneft Grease L EP 2</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check-circle text-amber-500 text-sm"></i> Gazpromneft Grease L Molly EP 2</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Líquido de Frenos -->
+                    <div class="bg-white rounded-xl border border-amber-100 shadow-sm overflow-hidden">
+                        <div class="bg-gradient-to-r from-amber-50 to-amber-100 px-6 py-3 border-b border-amber-200">
+                            <h4 class="text-xl font-bold text-amber-800 flex items-center gap-2">
+                                <i class="fas fa-brake"></i>
+                                Líquido de Frenos
+                            </h4>
+                        </div>
+                        <div class="p-6">
+                            <ul class="spec-list space-y-2">
+                                <li class="flex items-center gap-2"><i class="fas fa-check-circle text-amber-500 text-sm"></i> G-Energy DOT-4</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Anticongelante -->
+                    <div class="bg-white rounded-xl border border-amber-100 shadow-sm overflow-hidden">
+                        <div class="bg-gradient-to-r from-amber-50 to-amber-100 px-6 py-3 border-b border-amber-200">
+                            <h4 class="text-xl font-bold text-amber-800 flex items-center gap-2">
+                                <i class="fas fa-snowflake"></i>
+                                Anticongelante
+                            </h4>
+                        </div>
+                        <div class="p-6">
+                            <ul class="spec-list space-y-2">
+                                <li class="flex items-start gap-2">
+                                    <i class="fas fa-check-circle text-amber-500 mt-1"></i>
+                                    <div>
+                                        <span class="font-semibold">SF12+40</span>
+                                        <p class="text-xs text-gray-500 mt-1">Cuenta con el sello de "Protección total en el frío y el calor"</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -966,7 +1214,7 @@
                 <!-- Imagen 1: Calidad General -->
                 <div class="group relative rounded-2xl overflow-hidden border-2 border-amber-500/30 shadow-2xl hover:shadow-amber-900/50 transition-all duration-500">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10"></div>
-                    <img src="https://z-cdn-media.chatglm.cn/files/6eb29785-9911-467b-bb5d-00d85d832e4c.jpg?auth_key=1873805430-93d91d87acc84af6a251824b15522087-0-b0bd4324c82e7ab84662d8297514ed75" 
+                    <img src="https://z-cdn-media.chatglm.cn/files/e8f71dcd-13db-462e-9dd6-4dd2da0c4e13.png?auth_key=1874128130-2a85e1986f1e4bcdad358b062c9bc632-0-3b2b523b993337b0667082ca38b7c669" 
                          alt="Gazpromneft Calidad y Soporte" 
                          class="w-full h-auto transform group-hover:scale-105 transition-transform duration-700 ease-in-out object-cover">
                     
@@ -1153,188 +1401,212 @@
     </section>
 
 
-   <!-- Contact Section -->
-<section id="contact" class="py-20 bg-gradient-to-b from-amber-50 to-white">
-    <div class="container mx-auto px-4">
-        <div class="text-center mb-16">
-            <h2 class="section-title text-4xl font-bold text-gray-900">
-                Contáctanos
-            </h2>
-            <p class="text-gray-600 text-lg max-w-2xl mx-auto mt-4">
-                ¿Necesitas asesoría para elegir el aceite correcto? Estamos aquí para ayudarte
-            </p>
-        </div>
-        
-        <div class="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-            <!-- Contact Info -->
-            <div class="space-y-8">
-                <div class="bg-gradient-to-br from-amber-50 to-white p-8 rounded-2xl border border-amber-100 shadow-md">
-                    <h3 class="text-2xl font-bold mb-6 flex items-center gap-3">
-                        <i class="fas fa-address-card text-amber-600"></i>
-                        Información de Contacto
-                    </h3>
-                    
-                    <div class="space-y-6">
-                        <div class="flex items-start gap-4">
-                            <div class="flex-shrink-0 w-10 h-10 bg-amber-100 rounded-lg flex items-center justify-center">
-                                <i class="fas fa-phone text-amber-600"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-gray-900">Teléfonos Principales</h4>
-                                <div class="mt-2 space-y-2">
-                                    <p class="text-gray-600">(Ing. Jorge Arides Estévez): <span class="font-medium">+53 63179374</span></p>
-                                    <p class="text-gray-600">(Ing. Luis Carlos Triana Alonso): <span class="font-medium">+53 50669462</span></p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start gap-4">
-                            <div class="flex-shrink-0 w-10 h-10 bg-amber-100 rounded-lg flex items-center justify-center">
-                                <i class="fas fa-envelope text-amber-600"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-gray-900">Correos Electrónicos</h4>
-                                <div class="mt-2 space-y-1">
-                                    <p class="text-gray-600">csrhabana@gmail.com</p>
-                                    <p class="text-gray-600">csrdam@hotmail.com</p>              
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start gap-4">
-                            <div class="flex-shrink-0 w-10 h-10 bg-amber-100 rounded-lg flex items-center justify-center">
-                                <i class="fas fa-map-marker-alt text-amber-600"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-gray-900">Ubicación</h4>
-                                <p class="text-gray-600 mt-2">Oficina: Calle 19 e/ 60 y 62 #:, Playa</p>
-                                <p class="text-gray-600 mt-2">Deposito: Calle 240 y 81 atras de la empresa de Autos Mercedes, La Lisa</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start gap-4">
-                            <div class="flex-shrink-0 w-10 h-10 bg-amber-100 rounded-lg flex items-center justify-center">
-                                <i class="fas fa-clock text-amber-600"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-gray-900">Horarios de Atención</h4>
-                                <div class="mt-2 space-y-1">
-                                    <p class="text-gray-600">Lunes a Viernes: 8:00 AM - 5:00 PM</p>
-                                    <p class="text-gray-600">Sábados: 8:00 AM - 12:00 PM</p>
-                                    <p class="text-gray-600 font-medium">Atención 24/7 para consultas técnicas</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- WhatsApp Quick Button -->
-                <div class="bg-gradient-to-br from-amber-50 to-white p-8 rounded-2xl border border-amber-100 shadow-md">
-                    <div class="flex items-center gap-4">
-                        <div class="flex-shrink-0 w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center">
-                            <i class="fab fa-whatsapp text-amber-600 text-xl"></i>
-                        </div>
-                        <div>
-                            <h4 class="text-xl font-bold mb-2">Asesoría Rápida por WhatsApp</h4>
-                            <p class="text-gray-600 mb-4">¿Necesitas ayuda para elegir el aceite correcto?</p>
-                            <a href="https://wa.me/+5353729090" target="_blank" 
-                               class="inline-flex items-center gap-2 bg-amber-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-amber-700 transition-colors duration-300 shadow-lg shadow-amber-600/30">
-                                <i class="fab fa-whatsapp"></i>
-                                Consultar con Experto
-                            </a>
-                        </div>
-                    </div>
-                </div>
+   <!-- Contact Section MEJORADA -->
+    <section id="contact" class="py-20 bg-gradient-to-b from-amber-50 to-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="section-title text-4xl font-bold text-gray-900">
+                    Contáctanos
+                </h2>
+                <p class="text-gray-600 text-lg max-w-2xl mx-auto mt-4">
+                    ¿Necesitas asesoría para elegir el aceite correcto? Estamos aquí para ayudarte
+                </p>
             </div>
             
-            <!-- Contact Form -->
-            <div class="bg-gradient-to-br from-gray-50 to-white p-8 rounded-2xl border border-gray-200 shadow-sm">
-                <h3 class="text-2xl font-bold mb-6 flex items-center gap-3">
-                    <i class="fas fa-comments text-amber-600"></i>
-                    Solicitar Asesoramiento
-                </h3>
+            <div class="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+                <!-- Contact Info - MEJORADA -->
+                <div class="space-y-8">
+                    <div class="bg-gradient-to-br from-amber-50 to-white p-8 rounded-2xl border border-amber-100 shadow-md">
+                        <h3 class="text-2xl font-bold mb-6 flex items-center gap-3">
+                            <i class="fas fa-address-card text-amber-600"></i>
+                            Información de Contacto
+                        </h3>
+                        
+                        <div class="space-y-6">
+                            <!-- Teléfonos -->
+                            <div class="flex items-start gap-4">
+                                <div class="flex-shrink-0 w-10 h-10 bg-amber-100 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-phone-alt text-amber-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900">Teléfonos de Contacto</h4>
+                                    <div class="mt-2 space-y-3">
+                                        <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                                            <span class="font-medium text-gray-700 w-48">Ing. Jorge Arides Estévez:</span>
+                                            <div class="flex gap-3">
+                                                <span class="inline-flex items-center gap-1.5 bg-gray-100 px-3 py-1 rounded-full text-sm"><i class="fas fa-phone-alt text-green-600 text-xs"></i> <span class="font-mono">+53 63179374</span></span>
+                                                <span class="inline-flex items-center gap-1.5 bg-green-50 px-3 py-1 rounded-full text-sm border border-green-200"><i class="fab fa-whatsapp text-green-600 text-xs"></i> <span class="font-mono">+53 63179374</span></span>
+                                            </div>
+                                        </div>
+                                        <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                                            <span class="font-medium text-gray-700 w-48">Ing. Luis Carlos Triana Alonso:</span>
+                                            <div class="flex gap-3">
+                                                <span class="inline-flex items-center gap-1.5 bg-gray-100 px-3 py-1 rounded-full text-sm"><i class="fas fa-phone-alt text-green-600 text-xs"></i> <span class="font-mono">+53 50669462</span></span>
+                                                <span class="inline-flex items-center gap-1.5 bg-green-50 px-3 py-1 rounded-full text-sm border border-green-200"><i class="fab fa-whatsapp text-green-600 text-xs"></i> <span class="font-mono">+53 50669462</span></span>
+                                            </div>
+                                            <span class="text-xs font-semibold text-amber-700 bg-amber-100 px-2 py-0.5 rounded-full">Import/Export</span>
+                                        </div>
+                                        <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                                            <span class="font-medium text-gray-700 w-48">Lic. Livan Molina Nápoles:</span>
+                                            <div class="flex gap-3">
+                                                <span class="inline-flex items-center gap-1.5 bg-gray-100 px-3 py-1 rounded-full text-sm"><i class="fas fa-phone-alt text-green-600 text-xs"></i> <span class="font-mono">+53 53860774</span></span>
+                                                <span class="inline-flex items-center gap-1.5 bg-green-50 px-3 py-1 rounded-full text-sm border border-green-200"><i class="fab fa-whatsapp text-green-600 text-xs"></i> <span class="font-mono">+53 53860774</span></span>
+                                            </div>
+                                            <span class="text-xs font-semibold text-amber-700 bg-amber-100 px-2 py-0.5 rounded-full">Gerente</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <!-- Correos -->
+                            <div class="flex items-start gap-4">
+                                <div class="flex-shrink-0 w-10 h-10 bg-amber-100 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-envelope text-amber-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900">Correos Electrónicos</h4>
+                                    <div class="mt-2 space-y-1">
+                                        <p class="text-gray-600"><i class="fas fa-envelope-open-text text-amber-500 text-sm mr-2"></i>csrhabana@gmail.com</p>
+                                        <p class="text-gray-600"><i class="fas fa-envelope-open-text text-amber-500 text-sm mr-2"></i>csrdam@hotmail.com</p>              
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Ubicación -->
+                            <div class="flex items-start gap-4">
+                                <div class="flex-shrink-0 w-10 h-10 bg-amber-100 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-map-marker-alt text-amber-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900">Ubicación</h4>
+                                    <p class="text-gray-600 mt-2"><i class="fas fa-building mr-2 text-amber-500"></i>Oficina: Calle 19 e/ 60 y 62 #6012 en Playa,Habana,Cuba</p>
+                                    <p class="text-gray-600 mt-2"><i class="fas fa-warehouse mr-2 text-amber-500"></i>Depósito: Calle 240 y 81 atrás de la empresa Mercedes y frente de la fábrica del gas, La Lisa</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Horarios -->
+                            <div class="flex items-start gap-4">
+                                <div class="flex-shrink-0 w-10 h-10 bg-amber-100 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-clock text-amber-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900">Horarios de Atención</h4>
+                                    <div class="mt-2 space-y-1">
+                                        <p class="text-gray-600"><i class="far fa-calendar-alt mr-2 text-amber-500"></i>Lunes a Viernes: 8:00 AM - 5:00 PM</p>
+                                        <p class="text-gray-600"><i class="far fa-calendar-alt mr-2 text-amber-500"></i>Sábados: 8:00 AM - 12:00 PM</p>
+                                        <p class="text-gray-600 font-medium text-amber-700"><i class="fas fa-headset mr-2"></i>Atención 24/7 para consultas técnicas</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- WhatsApp Quick Button -->
+                    <div class="bg-gradient-to-br from-amber-50 to-white p-8 rounded-2xl border border-amber-100 shadow-md">
+                        <div class="flex items-center gap-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                                <i class="fab fa-whatsapp text-green-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-2">Asesoría Rápida por WhatsApp</h4>
+                                <p class="text-gray-600 mb-4">¿Necesitas ayuda para elegir el aceite correcto?</p>
+                                <a href="https://wa.me/+5353729090" target="_blank" 
+                                   class="inline-flex items-center gap-2 bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors duration-300 shadow-lg shadow-green-600/30">
+                                    <i class="fab fa-whatsapp"></i>
+                                    Consultar con Experto
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 
-                <form id="contact-form" onsubmit="sendContactMessage(event)" class="space-y-6">
-                    <div>
-                        <label for="contact-empresa" class="block text-gray-700 font-medium mb-2">
-                            Empresa
-                        </label>
-                        <select id="contact-empresa" name="empresa" 
-                                class="form-input">
-                            <option value="">Selecciona tipo de cliente</option>
-                            <option value="Mipyme">Mipyme</option>
-                            <option value="TCP">TCP</option>
-                            <option value="Particular">Particular</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label for="contact-name" class="block text-gray-700 font-medium mb-2">
-                            Nombre Completo *
-                        </label>
-                        <input type="text" id="contact-name" name="name" 
-                               class="form-input" 
-                               placeholder="Tu nombre completo" 
-                               required>
-                    </div>
+                <!-- Contact Form -->
+                <div class="bg-gradient-to-br from-gray-50 to-white p-8 rounded-2xl border border-gray-200 shadow-sm">
+                    <h3 class="text-2xl font-bold mb-6 flex items-center gap-3">
+                        <i class="fas fa-comments text-amber-600"></i>
+                        Solicitar Asesoramiento
+                    </h3>
                     
-                    <div>
-                        <label for="contact-phone" class="block text-gray-700 font-medium mb-2">
-                            Teléfono *
-                        </label>
-                        <input type="text" id="contact-phone" name="phone" 
-                               class="form-input" 
-                               placeholder="Número de contacto" 
-                               required>
-                    </div>
-                    
-                    <!-- CAMPO MARCA Y MODELO NO OBLIGATORIO -->
-                    <div>
-                        <label for="contact-vehicle" class="block text-gray-700 font-medium mb-2">
-                            Marca y Modelo del Vehículo
-                            <span class="text-gray-500 font-normal text-sm">(opcional)</span>
-                        </label>
-                        <input type="text" id="contact-vehicle" name="vehicle" 
-                               class="form-input" 
-                               placeholder="Ej: Toyota Corolla 2018">
-                    </div>
-                    
-                    <div>
-                        <label for="contact-purpose" class="block text-gray-700 font-medium mb-2">
-                            Tipo de Consulta *
-                        </label>
-                        <select id="contact-purpose" name="purpose" 
-                                class="form-input" 
-                                required>
-                            <option value="">Selecciona una opción</option>
-                            <option value="asesoramiento">Asesoramiento Técnico</option>
-                            <option value="cotizacion">Solicitar Cotización</option>
-                            <option value="disponibilidad">Consultar Disponibilidad</option>
-                            <option value="problema">Problema con el Motor</option>
-                            <option value="otro">Otro</option>
-                        </select>
-                    </div>
-                    
-                    <div>
-                        <label for="contact-message" class="block text-gray-700 font-medium mb-2">
-                            Descripción del Problema / Necesidad *
-                        </label>
-                        <textarea id="contact-message" name="message" 
-                                  rows="5" 
-                                  class="form-input" 
-                                  placeholder="Describe los síntomas, kilometraje actual, tipo de conducción, etc..."
-                                  required></textarea>
-                    </div>
-                    
-                    <button type="submit" 
-                            class="w-full btn-primary py-4 text-lg font-semibold">
-                        <i class="fas fa-paper-plane mr-2"></i>
-                        Enviar Consulta
-                    </button>
-                </form>
+                    <form id="contact-form" onsubmit="sendContactMessage(event)" class="space-y-6">
+                        <div>
+                            <label for="contact-empresa" class="block text-gray-700 font-medium mb-2">
+                                Empresa
+                            </label>
+                            <select id="contact-empresa" name="empresa" 
+                                    class="form-input">
+                                <option value="">Selecciona tipo de cliente</option>
+                                <option value="Mipyme">Mipyme</option>
+                                <option value="TCP">TCP</option>
+                                <option value="Particular">Particular</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="contact-name" class="block text-gray-700 font-medium mb-2">
+                                Nombre Completo *
+                            </label>
+                            <input type="text" id="contact-name" name="name" 
+                                   class="form-input" 
+                                   placeholder="Tu nombre completo" 
+                                   required>
+                        </div>
+                        
+                        <div>
+                            <label for="contact-phone" class="block text-gray-700 font-medium mb-2">
+                                Teléfono *
+                            </label>
+                            <input type="text" id="contact-phone" name="phone" 
+                                   class="form-input" 
+                                   placeholder="Número de contacto" 
+                                   required>
+                        </div>
+                        
+                        <div>
+                            <label for="contact-vehicle" class="block text-gray-700 font-medium mb-2">
+                                Marca y Modelo del Vehículo
+                                <span class="text-gray-500 font-normal text-sm">(opcional)</span>
+                            </label>
+                            <input type="text" id="contact-vehicle" name="vehicle" 
+                                   class="form-input" 
+                                   placeholder="Ej: Toyota Corolla 2018">
+                        </div>
+                        
+                        <div>
+                            <label for="contact-purpose" class="block text-gray-700 font-medium mb-2">
+                                Tipo de Consulta *
+                            </label>
+                            <select id="contact-purpose" name="purpose" 
+                                    class="form-input" 
+                                    required>
+                                <option value="">Selecciona una opción</option>
+                                <option value="asesoramiento">Asesoramiento Técnico</option>
+                                <option value="cotizacion">Solicitar Cotización</option>
+                                <option value="disponibilidad">Consultar Disponibilidad</option>
+                                <option value="problema">Problema con el Motor</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="contact-message" class="block text-gray-700 font-medium mb-2">
+                                Descripción del Problema / Necesidad *
+                            </label>
+                            <textarea id="contact-message" name="message" 
+                                      rows="5" 
+                                      class="form-input" 
+                                      placeholder="Describe los síntomas, kilometraje actual, tipo de conducción, etc..."
+                                      required></textarea>
+                        </div>
+                        
+                        <button type="submit" 
+                                class="w-full btn-primary py-4 text-lg font-semibold">
+                            <i class="fas fa-paper-plane mr-2"></i>
+                            Enviar Consulta
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- Footer MODIFICADO -->
     <footer class="bg-gray-900 text-white pt-16 pb-8 border-t-4 border-amber-600">
@@ -1691,8 +1963,8 @@
         const aceites = [
            { 
     id: 1, 
-    name: "Gaspromneft Super Multi 15W 40 CI-4 205L", 
-    price: 980, 
+    name: "Gazpromneft Super Multi 15W 40 CI-4 205L", 
+    price: 982, 
     category: "mineral", 
     image: "Imagenes de Aceites/Gaspromneft Super Multi 15W 40 CI-4 205L.jpg", 
     stock: 20,
@@ -1717,7 +1989,7 @@
             {
     id: 2,
     name: "Gazpromneft HD-60 5L",
-    price: 20.50,
+    price: 22,
     category: "mineral", 
     image: "Imagenes de Aceites/Gazpromneft HD-60 5L.jpg",
     stock: 159,
@@ -1754,7 +2026,7 @@
             {
 id: 3,
 name: "Brake Fluid G-Energy Expert DOT 4 1L",
-price: 7.50,
+price: 8.50,
 category: "mineral",
 image: "Imagenes de Aceites/Brake Fluid G- Energy Expert DOT 4 1L.png",
 stock: 600,
@@ -1779,7 +2051,7 @@ applications: ["Sistemas que requieren rendimiento DOT 3 o DOT 4", "Vehículos m
             {
     id: 4,
     name: "Gazpromneft GL-4 80W 90 1 L Premium 1L",
-    price: 5.15,
+    price: 6.15,
     category: "mineral",
     image: "Imagenes de Aceites/Gazpromneft GL-4 80W 90 1 L Premium 1L.jpg",
     stock: 288,
@@ -1814,7 +2086,7 @@ applications: ["Sistemas que requieren rendimiento DOT 3 o DOT 4", "Vehículos m
             {
     id: 5,
     name: "Gazpromneft Antifreezer SF12+40 1L",
-    price: 5.60,
+    price: 6.60,
     category: "refrigerante",
     image: "Imagenes de Aceites/Gazpromneft Antifreezer SF12+40 1L.jpg",
     stock: 324,
@@ -1843,7 +2115,7 @@ applications: ["Sistemas que requieren rendimiento DOT 3 o DOT 4", "Vehículos m
                         { 
                 id: 6, 
                 name: "Gazpromneft Grease L Moly EP 2 CL 400ml", 
-                price: 8.20, 
+                price: 9.20, 
                 category: "sintetico", 
                 image: "Imagenes de Aceites/Gazpromneft Grease L Moly EP 2 CL 400ml.jpeg", 
                 stock: 477,
@@ -1871,7 +2143,7 @@ applications: ["Sistemas que requieren rendimiento DOT 3 o DOT 4", "Vehículos m
             {
                 id: 7, 
                 name: "Gazpromneft Grease L Moly EP 2 18L", 
-                price: 160, 
+                price: 162, 
                 category: "grasa", 
                 image: "Imagenes de Aceites/Gazpromneft Grease L Moly EP 2 18L.png", 
                 stock: 10,
@@ -1896,7 +2168,7 @@ applications: ["Sistemas que requieren rendimiento DOT 3 o DOT 4", "Vehículos m
             {
     id: 8,
     name: "Gazpromneft Moto 2T 1L",
-    price: 10,
+    price: 11.30,
     category: "mineral",
     image: "Imagenes de Aceites/Gazpromneft Moto 2T 1L.jpg",
     stock: 50,
@@ -1934,8 +2206,8 @@ applications: ["Sistemas que requieren rendimiento DOT 3 o DOT 4", "Vehículos m
 },
 {
     id: 9,
-    name: "Gaspromneft Super Multi 20W 50 CI-4 205L",
-    price: 980,
+    name: "Gazpromneft Super Multi 20W 50 CI-4 205L",
+    price: 982,
     category: "mineral",
     image: "Imagenes de Aceites/Gaspromneft Super Multi 20W 50 CI-4 205L.webp",
     stock: 20,
@@ -1966,8 +2238,8 @@ applications: ["Sistemas que requieren rendimiento DOT 3 o DOT 4", "Vehículos m
 },
 {
     id: 10,
-    name: "Gaspromneft Super Multi 20W 50 CI-4 5L",
-    price: 20.50,
+    name: "Gazpromneft Super Multi 20W 50 CI-4 5L",
+    price: 21.50,
     category: "mineral",
     image: "Imagenes de Aceites/Gaspromneft Super Multi 20W 50 CI-4 5L.webp",
     stock: 20,
