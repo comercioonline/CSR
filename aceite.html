@@ -1844,7 +1844,7 @@
         </div>
     </div>
 
-    <!-- WhatsApp Form Modal -->
+    <!-- WhatsApp Form Modal - MODIFICADO SEGÚN SOLICITUD -->
     <div id="whatsapp-form-modal" class="modal-overlay">
         <div class="modal-content max-w-2xl">
             <button onclick="closeWhatsAppForm()" 
@@ -1854,15 +1854,15 @@
             
             <h2 class="text-3xl font-bold mb-2 text-center">
                 <i class="fab fa-whatsapp text-amber-500 mr-3"></i>
-                Solicitar Cotización por WhatsApp
+                Finalizar Compra de Aceites
             </h2>
-            <p class="text-gray-600 text-center mb-8">Completa el formulario para recibir tu cotización personalizada de aceites</p>
+            <p class="text-gray-600 text-center mb-8">Completa tus datos de envío y pago para procesar tu solicitud</p>
             
             <form id="whatsapp-form" onsubmit="sendWhatsAppMessage(event)" class="space-y-6">
                 <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
                     <h3 class="text-lg font-semibold mb-4 flex items-center gap-2 text-amber-700">
-                        <i class="fas fa-shopping-cart"></i>
-                        Resumen de aceites seleccionados
+                        <i class="fas fa-shopping-basket"></i>
+                        Resumen del pedido
                     </h3>
                     <div id="cart-summary" class="space-y-3">
                         <!-- Cart summary will be loaded here -->
@@ -1876,7 +1876,7 @@
                         </label>
                         <input type="text" id="nombre" name="nombre" 
                                class="form-input" 
-                               placeholder="Ej: Juan Pérez" 
+                               placeholder="Tu nombre completo" 
                                required>
                     </div>
                     
@@ -1891,59 +1891,36 @@
                     </div>
                 </div>
                 
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div>
-                        <label for="marca" class="block text-gray-700 font-medium mb-2">
-                            Marca del Vehículo *
-                        </label>
-                        <input type="text" id="marca" name="marca" 
-                               class="form-input" 
-                               placeholder="Ej: Toyota, Lada, etc." 
-                               required>
-                    </div>
-                    
-                    <div>
-                        <label for="modelo" class="block text-gray-700 font-medium mb-2">
-                            Modelo y Año *
-                        </label>
-                        <input type="text" id="modelo" name="modelo" 
-                               class="form-input" 
-                               placeholder="Ej: Corolla 2018" 
-                               required>
-                    </div>
+                <div>
+                    <label for="direccion" class="block text-gray-700 font-medium mb-2">
+                        Dirección (Solo si es a domicilio)
+                    </label>
+                    <input type="text" id="direccion" name="direccion" 
+                           class="form-input" 
+                           placeholder="Calle, Número, Apto, Municipio...">
+                    <p class="text-xs text-gray-500 mt-1">Déjalo en blanco si pasarás a recoger el pedido.</p>
                 </div>
                 
                 <div>
-                    <label for="tipo_servicio" class="block text-gray-700 font-medium mb-2">
-                        Tipo de Servicio Solicitado *
+                    <label for="tipo_pago" class="block text-gray-700 font-medium mb-2">
+                        Tipo de Pago *
                     </label>
-                    <select id="tipo_servicio" name="tipo_servicio" 
+                    <select id="tipo_pago" name="tipo_pago" 
                             class="form-input" 
                             required>
-                        <option value="">Selecciona servicio</option>
-                        <option value="venta">Venta de Aceites</option>
-                        <option value="cambio">Cambio de Aceite</option>
-                        <option value="asesoramiento">Asesoramiento Técnico</option>
-                        <option value="mantenimiento">Mantenimiento Completo</option>
-                        <option value="personalizado">Servicio Personalizado</option>
+                        <option value="">Selecciona método de pago</option>
+                        <option value="Transferencia">Transferencia Bancaria</option>
+                        <option value="Efectivo Moneda Nacional">Efectivo (Moneda Nacional)</option>
+                        <option value="Efectivo USD">Efectivo (USD)</option>
+                        <option value="Efectivo Euros">Efectivo (Euros)</option>
                     </select>
                 </div>
                 
-                <div>
-                    <label for="mensaje" class="block text-gray-700 font-medium mb-2">
-                        Información Adicional del Vehículo
-                    </label>
-                    <textarea id="mensaje" name="mensaje" 
-                              rows="4" 
-                              class="form-input" 
-                              placeholder="Kilometraje actual, tipo de conducción, problemas detectados, etc..."></textarea>
-                </div>
-                
-                <div class="flex gap-4">
+                <div class="flex gap-4 pt-4">
                     <button type="submit" 
                             class="flex-1 btn-primary py-4 text-lg font-semibold">
                         <i class="fab fa-whatsapp mr-3"></i>
-                        Enviar Cotización
+                        Enviar Pedido
                     </button>
                     <button type="button" 
                             onclick="closeWhatsAppForm()" 
@@ -2046,7 +2023,7 @@ features: [
 "Compatible con otras marcas de fluidos DOT 4/DOT 3"
 ],
 compatibleModels: ["Sistemas de frenos de disco, tambor y antibloqueo", "Vehículos de pasajeros", "Transporte comercial por carretera", "Vehículos todoterreno", "Tractores agrícolas", "Motocicletas"],
-applications: ["Sistemas que requieren rendimiento DOT 3 o DOT 4", "Vehículos modernos y antiguos", "Maquinaria pesada", "Uso en climas extremos (-50°C a +50°C)"]
+applications: ["Sistemas que requieran rendimiento DOT 3 o DOT 4", "Vehículos modernos y antiguos", "Maquinaria pesada", "Uso en climas extremos (-50°C a +50°C)"]
 },
             {
     id: 4,
@@ -2866,40 +2843,40 @@ applications: ["Sistemas que requieren rendimiento DOT 3 o DOT 4", "Vehículos m
         function sendWhatsAppMessage(event) {
             event.preventDefault();
             
-            // Obtener datos del formulario
+            // Obtener datos del formulario actualizado
             const nombre = document.getElementById('nombre').value;
             const telefono = document.getElementById('telefono').value;
-            const marca = document.getElementById('marca').value;
-            const modelo = document.getElementById('modelo').value;
-            const tipo_servicio = document.getElementById('tipo_servicio').value;
-            const mensaje = document.getElementById('mensaje').value;
+            const direccion = document.getElementById('direccion').value;
+            const tipo_pago = document.getElementById('tipo_pago').value;
             
-            // Generar mensaje para WhatsApp
-            let whatsappMessage = `*SOLICITUD DE COTIZACIÓN DE ACEITES - CSR s.r.l*\n\n`;
-            whatsappMessage += `*Cliente:* ${nombre}\n`;
+            // Generar mensaje para WhatsApp - ACTUALIZADO
+            let whatsappMessage = `*NUEVA ORDEN DE COMPRA DE ACEITE - CSR s.r.l*\n\n`;
+            whatsappMessage += `*DATOS DEL CLIENTE*\n`;
+            whatsappMessage += `*Nombre:* ${nombre}\n`;
             whatsappMessage += `*Teléfono:* ${telefono}\n`;
-            whatsappMessage += `*Vehículo:* ${marca} ${modelo}\n`;
-            whatsappMessage += `*Servicio solicitado:* ${tipo_servicio}\n\n`;
-            whatsappMessage += `*ACEITES SELECCIONADOS:*\n\n`;
+            
+            // Dirección opcional
+            if (direccion.trim() !== "") {
+                whatsappMessage += `*Dirección (Domicilio):* ${direccion}\n`;
+            } else {
+                whatsappMessage += `*Recogida:* En tienda / Depósito\n`;
+            }
+            
+            whatsappMessage += `*Método de Pago:* ${tipo_pago}\n\n`;
+            
+            whatsappMessage += `*DETALLE DEL PEDIDO*\n\n`;
             
             let total = 0;
             cart.forEach(item => {
                 const itemTotal = item.price * item.quantity;
                 total += itemTotal;
                 whatsappMessage += `• ${item.name}\n`;
-                whatsappMessage += `  Tipo: ${item.category === 'sintetico' ? 'Sintético' : 
-                                        item.category === 'semisintetico' ? 'Semi-Sintético' : 'Mineral'}\n`;
                 whatsappMessage += `  Cantidad: ${item.quantity}\n`;
                 whatsappMessage += `  Precio unitario: $${item.price.toLocaleString()}\n`;
                 whatsappMessage += `  Subtotal: $${itemTotal.toLocaleString()}\n\n`;
             });
             
-            whatsappMessage += `*TOTAL ESTIMADO: $${total.toLocaleString()}*\n\n`;
-            
-            if (mensaje) {
-                whatsappMessage += `*INFORMACIÓN ADICIONAL DEL VEHÍCULO:*\n${mensaje}\n\n`;
-            }
-            
+            whatsappMessage += `*TOTAL A PAGAR: $${total.toLocaleString()}*\n\n`;
             whatsappMessage += `---\n`;
             whatsappMessage += `*Fecha:* ${new Date().toLocaleDateString('es-ES', {
                 weekday: 'long',
@@ -2909,8 +2886,8 @@ applications: ["Sistemas que requieren rendimiento DOT 3 o DOT 4", "Vehículos m
                 hour: '2-digit',
                 minute: '2-digit'
             })}\n`;
-            whatsappMessage += `*ID de solicitud:* ${Date.now()}\n\n`;
-            whatsappMessage += `Por favor, confirmen disponibilidad y envíen cotización final.`;
+            whatsappMessage += `*ID de pedido:* ${Date.now()}\n\n`;
+            whatsappMessage += `Por favor, confirmen disponibilidad y coordenadas de pago.`;
             
             // Codificar el mensaje para URL
             const encodedMessage = encodeURIComponent(whatsappMessage);
@@ -2929,7 +2906,7 @@ applications: ["Sistemas que requieren rendimiento DOT 3 o DOT 4", "Vehículos m
             clearCart();
             
             // Mostrar confirmación
-            showNotification('Solicitud enviada correctamente', 'success');
+            showNotification('Pedido enviado correctamente', 'success');
         }
 
         // Send contact message
