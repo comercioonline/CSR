@@ -670,30 +670,31 @@
             </div>
 
             <!-- Category Filters -->
-            <div class="flex flex-wrap gap-3 justify-center mb-12">
-                <button onclick="filterProducts('all')"
-                        class="px-6 py-2 rounded-full border border-green-600 text-green-600 hover:bg-green-600 hover:text-white transition-all duration-300 font-medium">
+            <div class="flex flex-wrap gap-3 justify-center mb-12" id="filter-buttons-container">
+                <!-- Los botones ahora envían el texto EXACTO de la categoría del arreglo -->
+                <button data-filter="all"
+                        class="filter-btn active px-6 py-2 rounded-full border border-green-600 bg-green-600 text-white transition-all duration-300 font-medium shadow-md">
                     Todos los Productos
                 </button>
-                <button onclick="filterProducts('panel')"
-                        class="px-6 py-2 rounded-full border border-gray-300 text-gray-700 hover:border-green-600 hover:text-green-600 transition-all duration-300 font-medium">
+                
+                <button data-filter="Paneles Solares"
+                        class="filter-btn px-6 py-2 rounded-full border border-gray-300 text-gray-700 hover:border-green-600 hover:text-green-600 transition-all duration-300 font-medium bg-white">
                     <i class="fas fa-solar-panel mr-2"></i>Paneles Solares
                 </button>
-                <button onclick="filterProducts('kit')"
-                        class="px-6 py-2 rounded-full border border-gray-300 text-gray-700 hover:border-green-600 hover:text-green-600 transition-all duration-300 font-medium">
-                    <i class="fas fa-toolbox mr-2"></i>Otros
+                
+                <button data-filter="Estaciones de Energía"
+                        class="filter-btn px-6 py-2 rounded-full border border-gray-300 text-gray-700 hover:border-green-600 hover:text-green-600 transition-all duration-300 font-medium bg-white">
+                    <i class="fas fa-bolt mr-2"></i>Estaciones de Energía
                 </button>
-                <button onclick="filterProducts('inversor')"
-                        class="px-6 py-2 rounded-full border border-gray-300 text-gray-700 hover:border-green-600 hover:text-green-600 transition-all duration-300 font-medium">
-                    <i class="fas fa-microchip mr-2"></i>Inversores
-                </button>
-                <button onclick="filterProducts('inversor')"
-                        class="px-6 py-2 rounded-full border border-gray-300 text-gray-700 hover:border-green-600 hover:text-green-600 transition-all duration-300 font-medium">
-                    <i class="fas fa-microchip mr-2"></i>Estaciones de Energía
-                </button>
-                <button onclick="filterProducts('kit')"
-                        class="px-6 py-2 rounded-full border border-gray-300 text-gray-700 hover:border-green-600 hover:text-green-600 transition-all duration-300 font-medium">
+                
+                <button data-filter="Kits y Accesorios"
+                        class="filter-btn px-6 py-2 rounded-full border border-gray-300 text-gray-700 hover:border-green-600 hover:text-green-600 transition-all duration-300 font-medium bg-white">
                     <i class="fas fa-toolbox mr-2"></i>Kits y Accesorios
+                </button>
+
+                <button data-filter="Otros"
+                        class="filter-btn px-6 py-2 rounded-full border border-gray-300 text-gray-700 hover:border-green-600 hover:text-green-600 transition-all duration-300 font-medium bg-white">
+                    <i class="fas fa-plus-circle mr-2"></i>Otros
                 </button>
             </div>
 
@@ -926,7 +927,7 @@
                     Contáctanos
                 </h2>
                 <p class="text-gray-600 text-lg max-w-2xl mx-auto mt-4">
-                    ¿Necesitas asesoría para elegir el aceite correcto? Estamos aquí para ayudarte
+                    ¿Necesitas asesoría para elegir el sistema correcto? Estamos aquí para ayudarte
                 </p>
             </div>
             
@@ -1018,7 +1019,7 @@
                             </div>
                             <div>
                                 <h4 class="text-xl font-bold mb-2">Asesoría Rápida por WhatsApp</h4>
-                                <p class="text-gray-600 mb-4">¿Necesitas ayuda para elegir el aceite correcto?</p>
+                                <p class="text-gray-600 mb-4">¿Necesitas ayuda para elegir el sistema correcto?</p>
                                 <a href="https://wa.me/+5356578961" target="_blank" 
                                    class="inline-flex items-center gap-2 bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors duration-300 shadow-lg shadow-green-600/30">
                                     <i class="fab fa-whatsapp"></i>
@@ -1029,7 +1030,7 @@
                     </div>
                 </div>
                 
-                <!-- Contact Form (Sin cambios) -->
+                <!-- Contact Form -->
                 <div class="bg-gradient-to-br from-gray-50 to-white p-8 rounded-2xl border border-gray-200 shadow-sm">
                     <h3 class="text-2xl font-bold mb-6 flex items-center gap-3">
                         <i class="fas fa-comments text-green-600"></i>
@@ -1829,7 +1830,7 @@
 
         // Variables globales
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
-        let currentFilter = null;
+        let currentFilter = 'all';
 
         // Inicialización
         document.addEventListener('DOMContentLoaded', () => {
@@ -1842,6 +1843,7 @@
             updateCartCount();
             setupEventListeners();
             checkCartOnLoad();
+            setupFilterButtons();
         }
 
         // Configurar event listeners
@@ -1872,24 +1874,36 @@
             });
         }
 
+        // --- LÓGICA DE FILTRADO CORREGIDA ---
+        function setupFilterButtons() {
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    // Obtener la categoría del atributo data-filter
+                    const category = e.target.getAttribute('data-filter');
+                    filterProducts(category, e.target);
+                });
+            });
+        }
+
         // Renderizar productos
         function renderProducts(products, containerId) {
             const container = document.getElementById(containerId);
             container.innerHTML = '';
 
-            const filteredProducts = currentFilter && currentFilter !== 'all' ?
-                products.filter(p => p.category === currentFilter) :
-                products;
+            // Filtrado: Si currentFilter es 'all', muestra todo. Si no, compara strings exactos
+            const filteredProducts = currentFilter === 'all' 
+                ? products 
+                : products.filter(p => p.category === currentFilter);
 
             if (filteredProducts.length === 0) {
                 container.innerHTML = `
                     <div class="col-span-3 text-center py-12">
                         <i class="fas fa-solar-panel text-4xl text-gray-300 mb-4"></i>
-                        <h3 class="text-xl font-semibold text-gray-600 mb-2">No se encontraron productos</h3>
+                        <h3 class="text-xl font-semibold text-gray-600 mb-2">No se encontraron productos en esta categoría</h3>
                         <p class="text-gray-500">Intenta con otra categoría o contacta para consultar disponibilidad</p>
-                        <button onclick="scrollToSection('contact')" class="btn-primary mt-4">
-                            <i class="fas fa-phone mr-2"></i>
-                            Consultar Disponibilidad
+                        <button onclick="resetFilter()" class="btn-primary mt-4">
+                            <i class="fas fa-undo mr-2"></i>Ver Todos
                         </button>
                     </div>
                 `;
@@ -1902,15 +1916,41 @@
             });
         }
 
+        // Función principal de filtrado llamada por los botones
+        function filterProducts(category, clickedBtnElement) {
+            currentFilter = category;
+            renderProducts(solarProducts, 'solar-products-container');
+
+            // --- ACTUALIZACIÓN VISUAL DE LOS BOTONES ---
+            // Remover clase activa de todos
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-green-600', 'text-white', 'border-green-600', 'shadow-md');
+                btn.classList.add('border-gray-300', 'text-gray-700', 'bg-white');
+            });
+
+            // Añadir clase activa al botón clickeado
+            if (clickedBtnElement) {
+                clickedBtnElement.classList.remove('border-gray-300', 'text-gray-700', 'bg-white');
+                clickedBtnElement.classList.add('bg-green-600', 'text-white', 'border-green-600', 'shadow-md');
+            }
+        }
+
+        function resetFilter() {
+            // Simular clic en el botón "Todos"
+            const allBtn = document.querySelector('.filter-btn[data-filter="all"]');
+            if(allBtn) allBtn.click();
+        }
+
         // Crear tarjeta de producto
         function createProductCard(product) {
             const card = document.createElement('div');
             card.className = 'product-card animate-slide-up';
 
-            const badgeColor = product.category === 'panel' ? 'bg-green-600' :
-                              (product.category === 'ecoflow' ? 'bg-blue-600' :
-                              (product.category === 'inversor' ? 'bg-purple-600' : 'bg-yellow-600'));
-            const badgeText = getCategoryText(product.category);
+            const badgeColor = product.category === 'Paneles Solares' ? 'bg-green-600' :
+                              (product.category === 'Estaciones de Energía' ? 'bg-blue-600' :
+                              (product.category === 'Kits y Accesorios' ? 'bg-purple-600' : 'bg-yellow-600'));
+            
             const stockColor = product.stock > 10 ? 'bg-green-500' : product.stock > 0 ? 'bg-yellow-500' : 'bg-red-500';
 
             card.innerHTML = `
@@ -1921,7 +1961,7 @@
                          onerror="this.src='https://via.placeholder.com/400x300?text=Imagen+no+disponible'">
 
                     <span class="product-badge ${badgeColor} text-white">
-                        ${badgeText}
+                        ${product.category}
                     </span>
 
                     <span class="product-badge ${stockColor} text-white" style="top: 50px;">
@@ -1965,33 +2005,11 @@
             return card;
         }
 
-        // Obtener texto de categoría
+        // Obtener texto de categoría (Simplificado para usar los valores reales del array)
         function getCategoryText(category) {
-            const categories = {
-                'panel': 'Panel Solar',
-                'ecoflow': 'EcoFlow',
-                'inversor': 'Inversor',
-                'kit': 'Kit Solar'
-            };
-            return categories[category] || 'Producto Solar';
-        }
-
-        // Filtrar productos
-        function filterProducts(category) {
-            currentFilter = category;
-            renderProducts(solarProducts, 'solar-products-container');
-
-            // Actualizar botones activos
-            document.querySelectorAll('#categorias .flex-wrap button').forEach(btn => {
-                btn.classList.remove('border-green-600', 'text-white', 'bg-green-600');
-                btn.classList.add('border', 'border-gray-300', 'text-gray-700', 'hover:border-green-600', 'hover:text-green-600');
-            });
-
-            const activeBtn = event?.target;
-            if (activeBtn) {
-                activeBtn.classList.remove('border', 'border-gray-300', 'text-gray-700', 'hover:border-green-600', 'hover:text-green-600');
-                activeBtn.classList.add('bg-green-600', 'text-white');
-            }
+            // Como los botones usan los nombres exactos, podemos devolverlos directamente
+            // o hacer un mapeo si quisiéramos nombres cortos.
+            return category;
         }
 
         // Mostrar detalles del producto
@@ -2001,10 +2019,10 @@
             if (!product) return;
 
             const detailContainer = document.getElementById('detail-container');
-            const badgeColor = product.category === 'panel' ? 'bg-green-600' :
-                              (product.category === 'ecoflow' ? 'bg-blue-600' :
-                              (product.category === 'inversor' ? 'bg-purple-600' : 'bg-yellow-600'));
-            const badgeText = getCategoryText(product.category);
+            const badgeColor = product.category === 'Paneles Solares' ? 'bg-green-600' :
+                              (product.category === 'Estaciones de Energía' ? 'bg-blue-600' :
+                              (product.category === 'Kits y Accesorios' ? 'bg-purple-600' : 'bg-yellow-600'));
+            
             const stockColor = product.stock > 10 ? 'text-green-600' : product.stock > 0 ? 'text-yellow-600' : 'text-red-600';
 
             let specificationsHTML = '';
@@ -2090,7 +2108,7 @@
 
                             <div class="absolute top-4 left-4 flex flex flex-col gap-2">
                                 <span class="${badgeColor} text-white px-3 py-1 rounded-full text-sm font-semibold">
-                                    ${badgeText}
+                                    ${product.category}
                                 </span>
                                 <span class="${stockColor} bg-white px-3 py-1 rounded-full text-sm font-semibold">
                                     ${product.stock > 0 ? `${product.stock} disponibles` : 'Agotado'}
@@ -2255,7 +2273,7 @@
                         <div class="flex items-center gap-2 mb-1">
                             <h4 class="font-semibold text-gray-900 truncate">${item.name}</h4>
                             <span class="px-2 py-0.5 text-xs font-medium bg-green-100 text-green-800 rounded-full">
-                                ${getCategoryText(item.category)}
+                                ${item.category}
                             </span>
                         </div>
                         <p class="text-gray-600 text-sm">$${item.price.toLocaleString()} c/u</p>
