@@ -1629,7 +1629,7 @@
                             <div>
                                 <h4 class="text-xl font-bold mb-2">Asesoría Rápida por WhatsApp</h4>
                                 <p class="text-gray-600 mb-4">¿Necesitas ayuda para elegir el aceite correcto?</p>
-                                <a href="https://wa.me/+5353729090" target="_blank" 
+                                <a href="https://wa.me/+5356578961" target="_blank" 
                                    class="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-300 shadow-lg shadow-blue-600/30">
                                     <i class="fab fa-whatsapp"></i>
                                     Consultar con Experto
@@ -1756,7 +1756,7 @@
                         <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-pink-600 transition-colors duration-300">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="https://wa.me/+5353729090" target="_blank" 
+                        <a href="https://wa.me/+5356578961" target="_blank" 
                            class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-green-600 transition-colors duration-300">
                             <i class="fab fa-whatsapp"></i>
                         </a>
@@ -2008,7 +2008,8 @@
                     
                     <div>
                         <label for="empresa" class="block text-gray-700 font-medium mb-2">
-                            Empresa (opcional)
+                            Empresa
+                            <span class="text-gray-500 font-normal text-sm">(opcional)</span>
                         </label>
                         <input type="text" id="empresa" name="empresa" 
                                class="form-input" 
@@ -2029,12 +2030,12 @@
                     
                     <div>
                         <label for="direccion" class="block text-gray-700 font-medium mb-2">
-                            Dirección de Entrega *
+                            Dirección de Entrega
+                            <span class="text-gray-500 font-normal text-sm">(opcional)</span>
                         </label>
                         <input type="text" id="direccion" name="direccion" 
                                class="form-input" 
-                               placeholder="Dirección completa" 
-                               required>
+                               placeholder="Dirección completa">
                     </div>
                 </div>
                 
@@ -2866,7 +2867,7 @@
                         <i class="fas fa-search text-4xl text-gray-300 mb-4"></i>
                         <h3 class="text-xl font-semibold text-gray-600 mb-2">No se encontraron contenedores</h3>
                         <p class="text-gray-500">Intenta con otra categoría o contacta para consultar disponibilidad</p>
-                        <button onclick="resetFilters()" class="btn-primary mt-4">
+                        <button onclick="resetFilters()" class="btn-primary">
                             <i class="fas fa-undo mr-2"></i>
                             Limpiar Filtros
                         </button>
@@ -3550,7 +3551,9 @@
                 whatsappMessage += `*Empresa:* ${empresa}\n`;
             }
             whatsappMessage += `*Teléfono:* ${telefono}\n`;
-            whatsappMessage += `*Dirección:* ${direccion}\n`;
+            if (direccion) {
+                whatsappMessage += `*Dirección:* ${direccion}\n`;
+            }
             whatsappMessage += `*Tipo de servicio:* ${tipo_servicio}\n`;
             if (plazo_entrega) {
                 whatsappMessage += `*Plazo de entrega:* ${plazo_entrega}\n`;
@@ -3600,7 +3603,7 @@
             const encodedMessage = encodeURIComponent(whatsappMessage);
             
             // Número de WhatsApp
-            const phoneNumber = '+5353729090';
+            const phoneNumber = '+5356578961';
             
             // Abrir WhatsApp
             window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
@@ -3653,12 +3656,12 @@
             const encodedMessage = encodeURIComponent(whatsappMessage);
             
             // Número de WhatsApp
-            const phoneNumber = '+5353729090';
+            const phoneNumber = '+5356578961';
             
             // Abrir WhatsApp
             window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
             
-            // Resetear formulario
+             // Resetear formulario
             form.reset();
             
             // Mostrar confirmación
