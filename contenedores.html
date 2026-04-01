@@ -830,7 +830,7 @@
             </p>
         </div>
         
-        <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div class="grid md:grid-cols-4 gap-8 max-w-6xl mx-auto">
             <!-- Clase A -->
             <div class="bg-white rounded-2xl p-8 border-2 border-green-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
                 <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
@@ -932,6 +932,40 @@
                     </li>
                 </ul>
             </div>
+
+            <!-- Clase D -->
+            <div class="bg-white rounded-2xl p-8 border-2 border-red-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <span class="text-3xl font-bold text-red-600">D</span>
+                </div>
+                <h3 class="text-2xl font-bold text-center text-red-700 mb-4">Clase D</h3>
+                <div class="text-center mb-4">
+                    <span class="inline-block bg-red-100 text-red-800 px-4 py-1 rounded-full text-sm font-semibold">
+                        Estado de Recuperación / Proyecto
+                    </span>
+                </div>
+                <p class="text-gray-600 text-center leading-relaxed">
+                    Contenedor con <strong>daños estructurales o estéticos</strong>. Requiere reparaciones para uso estándar o es ideal para proyectos de reciclaje, almacenamiento secundario o construcción donde la estética no es prioritaria.
+                </p>
+                <ul class="mt-6 space-y-2 text-sm text-gray-600">
+                    <li class="flex items-center gap-2">
+                        <i class="fas fa-check text-red-500"></i>
+                        Estructura con daños 
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i class="fas fa-check text-red-500"></i>
+                        Oxidación o abolladuras 
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i class="fas fa-check text-red-500"></i>
+                        Requiere reparaciones
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i class="fas fa-check text-red-500"></i>
+                        Precio altamente competitivo
+                    </li>
+                </ul>
+            </div>
         </div>
         
         <div class="mt-12 text-center">
@@ -948,12 +982,12 @@
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div class="text-center p-8 rounded-xl bg-gradient-to-br from-blue-50 to-white border border-blue-100">
-                    <div class="text-4xl font-bold text-blue-600 mb-3">+500</div>
+                    <div class="text-4xl font-bold text-blue-600 mb-3">+200</div>
                     <h3 class="text-xl font-semibold mb-2">Contenedores Disponibles</h3>
                     <p class="text-gray-600">Amplio inventario para venta y alquiler</p>
                 </div>
                 <div class="text-center p-8 rounded-xl bg-gradient-to-br from-green-50 to-white border border-green-100">
-                    <div class="text-4xl font-bold text-green-600 mb-3">2 años</div>
+                    <div class="text-4xl font-bold text-green-600 mb-3">1 años</div>
                     <h3 class="text-xl font-semibold mb-2">Garantía Extendida</h3>
                     <p class="text-gray-600">En contenedores nuevos con certificación ISO</p>
                 </div>
@@ -963,7 +997,7 @@
                     <p class="text-gray-600">Servicio de transporte profesional</p>
                 </div>
                 <div class="text-center p-8 rounded-xl bg-gradient-to-br from-purple-50 to-white border border-purple-100">
-                    <div class="text-4xl font-bold text-purple-600 mb-3">+18</div>
+                    <div class="text-4xl font-bold text-purple-600 mb-3">+20</div>
                     <h3 class="text-xl font-semibold mb-2">Años de Experiencia</h3>
                     <p class="text-gray-600">Especialistas en soluciones logísticas</p>
                 </div>
@@ -1002,7 +1036,7 @@
         <i class="fas fa-star mr-2"></i>Especial
     </button>
     
-    <!-- BOTONES DE FILTRO POR CLASE -->
+    <!-- BOTONES DE FILTRO POR CLASE (AHORA INCLUYE CLASE D) -->
     <div class="w-full flex flex-wrap gap-3 justify-center mt-4">
         <span class="text-gray-500 text-sm flex items-center mr-2">Filtrar por calidad:</span>
         <button onclick="filterByClass('A')" 
@@ -1016,6 +1050,11 @@
         <button onclick="filterByClass('C')" 
                 class="px-4 py-2 rounded-full border border-orange-200 text-orange-700 hover:bg-orange-500 hover:text-white transition-all duration-300 font-medium text-sm">
             <i class="fas fa-star mr-1"></i>Clase C
+        </button>
+        <!-- NUEVO BOTÓN CLASE D -->
+        <button onclick="filterByClass('D')" 
+                class="px-4 py-2 rounded-full border border-red-200 text-red-700 hover:bg-red-500 hover:text-white transition-all duration-300 font-medium text-sm">
+            <i class="fas fa-exclamation-triangle mr-1"></i>Clase D
         </button>
     </div>
 </div>
@@ -1095,7 +1134,7 @@
                     <div class="feature-icon orange">
                         <i class="fas fa-tools text-2xl"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-3">Reparación y Mantenimiento</h3>
+                    <h3 class="text-xl font-semibold mb-3">Reparación, Mantenimiento y Modificaciones</h3>
                     <p class="text-gray-600 mb-4">Servicio técnico especializado para garantizar el óptimo funcionamiento de sus contenedores.</p>
                     <ul class="space-y-2">
                         <li class="flex items-center gap-2 text-gray-700">
@@ -1266,7 +1305,6 @@
                     </ul>
                 </div>
                 
-                <!-- NUEVO CONTENEDOR REFRIGERADO 40' HIGH CUBE -->
                 <div class="spec-card">
                     <h4 class="font-bold text-lg mb-3 text-green-700">40' High Cube Refrigerado</h4>
                     <ul class="space-y-2 text-gray-600">
@@ -1448,7 +1486,7 @@
                     <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-8">
                         <div>
                             <h3 class="text-white text-2xl font-bold mb-2">Perfil y Catálogo de Servicios</h3>
-                            <p class="text-gray-200 text-sm">Conoce nuestra trayectoria de 18 años y el alcance de nuestras soluciones.</p>
+                            <p class="text-gray-200 text-sm">Conoce nuestra trayectoria de 20 años y el alcance de nuestras soluciones.</p>
                         </div>
                     </div>
                 </div>
@@ -2889,16 +2927,16 @@
             
             // Resetear estilos de botones de clase
             document.querySelectorAll('#tipos .flex-wrap button').forEach(btn => {
-                // Si es un botón de clase (contiene la palabra Clase o está en el div inferior)
                 if(btn.innerText.includes('Clase')) {
-                    btn.classList.remove('bg-green-600', 'bg-yellow-500', 'bg-orange-500', 'text-white');
-                    // Restaurar colores originales según texto
+                    btn.classList.remove('bg-green-600', 'bg-yellow-500', 'bg-orange-500', 'bg-red-500', 'text-white');
                     if(btn.innerText.includes('A')) {
                          btn.classList.add('border', 'border-green-200', 'text-green-700');
                     } else if(btn.innerText.includes('B')) {
                          btn.classList.add('border', 'border-yellow-200', 'text-yellow-700');
                     } else if(btn.innerText.includes('C')) {
                          btn.classList.add('border', 'border-orange-200', 'text-orange-700');
+                    } else if(btn.innerText.includes('D')) {
+                         btn.classList.add('border', 'border-red-200', 'text-red-700');
                     }
                 }
             });
@@ -2945,6 +2983,11 @@
             gradeColor = 'bg-orange-500';
             gradeText = 'text-orange-600';
             gradeLabel = 'Clase C - Funcional';
+            break;
+        case 'D':
+            gradeColor = 'bg-red-500';
+            gradeText = 'text-red-600';
+            gradeLabel = 'Clase D - Recuperación / Proyecto';
             break;
         default:
             gradeColor = 'bg-gray-500';
@@ -3000,8 +3043,8 @@
                 </div>
                 <!-- Indicador de Clase -->
                 <div class="flex items-center gap-2 mb-2">
-                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${gradeColor.replace('bg-', 'bg-opacity-20 text-').replace('500', '700')} ${gradeColor.replace('bg-', 'bg-')} bg-opacity-20">
-                        <i class="fas fa-award mr-1 ${gradeText}"></i>
+                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-opacity-20 ${gradeColor.replace('bg-', 'bg-')} bg-opacity-20 ${gradeText}">
+                        <i class="fas fa-award mr-1"></i>
                         ${gradeLabel}
                     </span>
                 </div>
@@ -3108,6 +3151,12 @@
             gradeBg = 'bg-orange-100';
             gradeLabel = 'Clase C';
             gradeDescription = 'Funcional - Detalles significativos pero operativo';
+            break;
+        case 'D':
+            gradeColor = 'text-red-600';
+            gradeBg = 'bg-red-100';
+            gradeLabel = 'Clase D';
+            gradeDescription = 'Estado de recuperación - Ideal para proyectos o reparaciones';
             break;
         default:
             gradeColor = 'text-gray-600';
@@ -3575,7 +3624,7 @@
                 
                 whatsappMessage += `• ${item.name}\n`;
                 whatsappMessage += `  Tipo: ${categoryText}\n`;
-                whatsappMessage += `  Clase: ${item.classType || 'N/A'}\n`; // Mostrar clase
+                whatsappMessage += `  Clase: ${item.classType || 'N/A'}\n`;
                 whatsappMessage += `  Cantidad: ${item.quantity}\n`;
                 whatsappMessage += `  Precio unitario: $${item.price.toLocaleString()}\n`;
                 whatsappMessage += `  Subtotal: $${itemTotal.toLocaleString()}\n\n`;
@@ -3808,13 +3857,15 @@ function filterByClass(classType) {
     const classFilterButtons = document.querySelectorAll('#tipos > div:nth-child(2) button');
     classFilterButtons.forEach(btn => {
         // Resetear todos los botones de clase
-        btn.classList.remove('bg-green-600', 'bg-yellow-500', 'bg-orange-500', 'text-white');
+        btn.classList.remove('bg-green-600', 'bg-yellow-500', 'bg-orange-500', 'bg-red-500', 'text-white');
         if(btn.innerText.includes('A')) {
              btn.classList.add('border', 'border-green-200', 'text-green-700');
         } else if(btn.innerText.includes('B')) {
              btn.classList.add('border', 'border-yellow-200', 'text-yellow-700');
         } else if(btn.innerText.includes('C')) {
              btn.classList.add('border', 'border-orange-200', 'text-orange-700');
+        } else if(btn.innerText.includes('D')) {
+             btn.classList.add('border', 'border-red-200', 'text-red-700');
         }
     });
     
@@ -3822,12 +3873,13 @@ function filterByClass(classType) {
     const classColors = {
         'A': 'bg-green-600',
         'B': 'bg-yellow-500', 
-        'C': 'bg-orange-500'
+        'C': 'bg-orange-500',
+        'D': 'bg-red-500'
     };
     
     const activeBtn = event?.target;
     if (activeBtn) {
-        activeBtn.classList.remove('border', 'border-green-200', 'border-yellow-200', 'border-orange-200', 'text-green-700', 'text-yellow-700', 'text-orange-700');
+        activeBtn.classList.remove('border', 'border-green-200', 'border-yellow-200', 'border-orange-200', 'border-red-200', 'text-green-700', 'text-yellow-700', 'text-orange-700', 'text-red-700');
         activeBtn.classList.add(classColors[classType], 'text-white');
     }
     
