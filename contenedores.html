@@ -687,6 +687,32 @@
 <base target="_blank">
 </head>
 <body class="bg-gray-50 text-gray-800">
+ 
+    <!-- NUEVA BARRA SUPERIOR (TOP BAR) CENTRALIZADA -->
+    <div class="bg-gray-900 text-gray-200 border-b border-amber-700 py-2 text-sm z-50 relative">
+        <!-- 'container mx-auto' centra la barra en la página, 'justify-between' distribuye el contenido, 'justify-center' (en móvil) centra los iconos -->
+        <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-2">
+            
+            <!-- Espacio para Ubicación y Teléfono -->
+            <!-- En móvil, 'flex-wrap justify-center' asegura que los elementos estén en el centro visualmente -->
+            <div class="flex flex-wrap justify-center gap-4 md:gap-8 text-xs md:text-sm font-medium">
+                <div class="flex items-center gap-2 hover:text-amber-400 transition-colors cursor-pointer" title="Ver ubicación en mapa">
+                    <i class="fas fa-map-marker-alt text-amber-500"></i>
+                    <span>Calle 19 e/ 60 y 62, Playa, Habana</span>
+                </div>
+                <div class="flex items-center gap-2 hover:text-amber-400 transition-colors cursor-pointer" title="Llamar ahora">
+                    <i class="fas fa-phone-alt text-amber-500"></i>
+                    <span>+53 56578961</span>
+                </div>
+                <!-- Horario rápido opcional -->
+                <div class="hidden lg:flex items-center gap-2 text-gray-400">
+                    <i class="far fa-clock text-amber-500"></i>
+                    <span>Lun-Vie: 8:00 AM - 5:00 PM</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Header -->
     <header class="navbar sticky top-0 z-50">
         <div class="container mx-auto px-4">
