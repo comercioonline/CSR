@@ -74,6 +74,7 @@
             animation: fadeIn 1s ease-out forwards;
         }
         
+        /* Navbar Styles */
         .navbar {
             background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(10px);
@@ -193,19 +194,53 @@
             text-transform: uppercase;
         }
         
+        /* Hero Slider Styles */
         .hero-section {
-            background-color: #0f172a;
-            background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2071&auto=format&fit=crop');
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: cover;
             position: relative;
             overflow: hidden;
             min-height: 80vh;
             display: flex;
             align-items: center;
+            /* Background color fallback */
+            background-color: #0f172a; 
         }
 
+        .hero-slider {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out, transform 8s ease-out;
+            transform: scale(1);
+        }
+
+        .slide.active {
+            opacity: 1;
+            transform: scale(1.05); /* Slight zoom effect on active slide */
+        }
+
+        /* Ensure the overlay sits on top of slides */
+        .hero-overlay {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.85), rgba(37, 99, 235, 0.75));
+            position: absolute;
+            inset: 0;
+            z-index: 2; /* Above slider */
+        }
+
+        /* Watermark z-index */
         .hero-watermark-logo {
             position: absolute;
             top: 50%;
@@ -214,20 +249,45 @@
             width: 60%;
             max-width: 700px;
             height: auto;
-            opacity: 0.1;
-            z-index: 1;
+            opacity: 0.15;
+            z-index: 3; /* Above overlay */
             pointer-events: none;
             object-fit: contain;
             filter: grayscale(100%) brightness(150%);
         }
 
-        .hero-overlay {
-            background: linear-gradient(135deg, rgba(15, 23, 42, 0.9), rgba(37, 99, 235, 0.8));
+        /* Slider Controls (Dots) */
+        .slider-dots {
             position: absolute;
-            inset: 0;
-            z-index: 2;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 20; /* Above everything */
+            display: flex;
+            gap: 12px;
         }
 
+        .dot {
+            width: 12px;
+            height: 12px;
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .dot:hover {
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        .dot.active {
+            background: #fff;
+            transform: scale(1.3);
+            border-color: rgba(255,255,255,0.3);
+        }
+
+        /* Cards & Other Sections (Preserved) */
         .team-card {
             transition: all 0.3s ease;
             background: white;
@@ -243,11 +303,10 @@
             border-color: var(--primary-color);
         }
 
-        /* Estilos específicos para las tarjetas del equipo (Dark Theme) */
         .team-card.dark-theme {
-            background: #1f2937; /* gray-800 */
+            background: #1f2937;
             color: white;
-            border: 1px solid #374151; /* gray-700 */
+            border: 1px solid #374151;
         }
         
         .team-card.dark-theme:hover {
@@ -371,7 +430,7 @@
             transform: scale(1.1);
         }
 
-        /* Warranty Section - Enhanced Icons */
+        /* Warranty Section */
         .warranty-card {
             background: white;
             border-radius: 24px;
@@ -628,14 +687,45 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero Section (Updated with Slider) -->
     <section class="hero-section text-white py-24 relative">
+        <!-- Slider Background -->
+        <div class="hero-slider">
+            <!-- Image 1: oficina.jpg (Auto parts/G-Energy) -->
+            <div class="slide active" 
+                 style="background-image: url('https://z-cdn-media.chatglm.cn/files/922a5723-ba08-43d0-9e21-4ce7e4f2bfa1.jpg?auth_key=1875199273-a1272cd555f246a7ba31ee7ab76974f0-0-6b48a1caf1563482ea4741ff60fa381d');">
+            </div>
+            <!-- Image 2: oficina1.jpg (Modern waiting area) -->
+            <div class="slide" 
+                 style="background-image: url('https://z-cdn-media.chatglm.cn/files/580db1ad-5f77-4e44-9df7-6d355f649dee.jpg?auth_key=1875199273-ada9ec48f54f40069ef8cbfd4e684636-0-9d81ce9ff4ad8f0781e57974d27666a2');">
+            </div>
+            <!-- Image 3: oficina2.jpg (Container commerce office) -->
+            <div class="slide" 
+                 style="background-image: url('https://z-cdn-media.chatglm.cn/files/4b0e68c2-5302-48dc-9d7d-99a064a057ba.jpg?auth_key=1875199273-2358f7e86db3404ba37c02b7b0d19513-0-f2d699f4750ad25b2d8d23e24611b66c');">
+            </div>
+            <!-- Image 4: oficina3.jpg (CSR branding/partitions) -->
+            <div class="slide" 
+                 style="background-image: url('https://z-cdn-media.chatglm.cn/files/e4aee213-aa83-4a74-ae30-5c2d4c980246.jpg?auth_key=1875199273-bcce549927c04934a86bee72e55c4909-0-1a51d5bb836532cd3859704c5ebef9a2');">
+            </div>
+        </div>
+
+        <!-- Navigation Dots -->
+        <div class="slider-dots">
+            <div class="dot active" onclick="goToSlide(0)"></div>
+            <div class="dot" onclick="goToSlide(1)"></div>
+            <div class="dot" onclick="goToSlide(2)"></div>
+            <div class="dot" onclick="goToSlide(3)"></div>
+        </div>
+
+        <!-- Watermark Logo -->
         <img src="https://z-cdn-media.chatglm.cn/files/eacc73b2-2122-4c19-9553-dd6b06d2be00_Logo2.jpg?auth_key=1790430396-abc36b9bd8c349ef9d9a7dc13691e34d-0-a4a7e44781f0d1447a417d2e80143d68" 
              alt="Logo CSR Background" 
              class="hero-watermark-logo">
              
+        <!-- Overlay for readability -->
         <div class="hero-overlay"></div>
         
+        <!-- Content -->
         <div class="container mx-auto px-4 relative z-10">
             <div class="max-w-4xl mx-auto text-center animate-slide-up">
                 <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
@@ -850,7 +940,7 @@
         </div>
     </section>
 
-    <!-- Equipo Directivo - ACTUALIZADO CON 7 MIEMBROS -->
+    <!-- Equipo Directivo -->
     <section id="equipo" class="py-20 bg-gradient-to-b from-gray-900 to-gray-800 text-white">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
@@ -956,6 +1046,37 @@
                 answer.classList.add('active');
             }
         }
+
+        // --- Hero Slider Logic ---
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.dot');
+        let currentSlide = 0;
+        const slideInterval = 5000; // 5 seconds per slide
+
+        function goToSlide(n) {
+            // Remove active class from current
+            slides[currentSlide].classList.remove('active');
+            dots[currentSlide].classList.remove('active');
+            
+            // Update index
+            currentSlide = (n + slides.length) % slides.length;
+            
+            // Add active class to new
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
+        }
+
+        function nextSlide() {
+            goToSlide(currentSlide + 1);
+        }
+
+        // Auto play
+        let slideTimer = setInterval(nextSlide, slideInterval);
+
+        // Pause on hover (optional, for better UX)
+        const heroSection = document.querySelector('.hero-section');
+        heroSection.addEventListener('mouseenter', () => clearInterval(slideTimer));
+        heroSection.addEventListener('mouseleave', () => slideTimer = setInterval(nextSlide, slideInterval));
     </script>
 </body>
 </html>
