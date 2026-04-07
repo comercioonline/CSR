@@ -421,21 +421,26 @@
         }
 
         /* --------------------------------------------------- */
-        /* NUEVO: LOGO CENTRADO (WATERMARK) TRANSPARENTE */
+        /* NUEVO: LOGO PRINCIPAL EN EL HERO (Arriba del título) */
         /* --------------------------------------------------- */
-        .hero-logo-watermark {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 70%; /* Ocupa el 70% del ancho para ser grande e imponente */
-            max-width: 900px; /* Tamaño máximo para pantallas muy grandes */
+        .hero-logo-img {
+            display: block;
+            margin: 0 auto 2rem auto; /* Centrado y margen inferior */
+            width: 100%;
+            max-width: 450px; /* Tamaño controlado para que no sea gigante */
             height: auto;
-            opacity: 0.6; /* AUMENTADO: de 0.15 a 0.3 - Más visible pero sutil */
-            z-index: 1; /* Detrás del texto (z-10) pero detrás del overlay (z-2) */
-            pointer-events: none; /* Permite hacer clic a través de la imagen */
-            object-fit: contain;
-            filter: brightness(1.0) contrast(1.1); /* Ajustado: Brillo neutro para mejor visibilidad */
+            z-index: 20; /* Por encima del overlay */
+            position: relative;
+            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.5)); /* Sombra suave para resaltar */
+            border-radius: 12px; /* Bordes redondeados suaves */
+        }
+        
+        /* Ajuste responsivo para el logo */
+        @media (max-width: 640px) {
+            .hero-logo-img {
+                max-width: 320px; /* Un poco más pequeño en móviles */
+                margin-bottom: 1.5rem;
+            }
         }
         
         /* Estilos para especificaciones */
@@ -744,7 +749,7 @@
                     <a href="https://comercioonline.github.io/CSR/aceite" 
                        class="desktop-nav-link text-blue-700 font-semibold flex items-center gap-2 group">
                         <i class="fas fa-oil-can nav-icon"></i>
-                        <span>Aceites</span>
+                        <span>Lubricantes</span>
                     </a>
                     <a href="https://comercioonline.github.io/CSR/energia" 
                        class="desktop-nav-link text-blue-700 font-semibold flex items-center gap-2 group">
@@ -789,7 +794,7 @@
                     <a href="https://comercioonline.github.io/CSR/aceite" 
                        class="mobile-menu-item text-blue-800 font-bold flex items-center gap-4">
                         <i class="fas fa-oil-can"></i>
-                        <span>Aceites y Lubricantes</span>
+                        <span>Lubricantes</span>
                     </a> 
                     <a href="https://comercioonline.github.io/CSR/energia" 
                        class="mobile-menu-item text-blue-800 font-bold flex items-center gap-4">
@@ -814,13 +819,14 @@
     <!-- Hero Section -->
     <section class="hero-section text-white py-24 relative overflow-hidden">
         
-        <!-- NUEVO ELEMENTO: LOGO CENTRADO TRANSPARENTE -->
-        <img src="https://z-cdn-media.chatglm.cn/files/7a6442a2-cc30-478a-8570-3ff7f2b94db3.jpeg?auth_key=1873506252-2eea1eb166da4e83871c3aa48bae79cb-0-da80ff8db3664c7d1e8e8f639b2516e2" 
-             alt="CSR Logo Watermark" 
-             class="hero-logo-watermark">
-
         <div class="container mx-auto px-4 relative z-10">
             <div class="max-w-4xl mx-auto text-center animate-slide-up">
+                
+                <!-- NUEVO LOGO PRINCIPAL COLOCADO AQUÍ (Arriba del título) -->
+                <img src="https://z-cdn-media.chatglm.cn/files/327a7da1-132d-41b0-a729-7314a870253e.png?auth_key=1875482056-516bb6924c0d45f6b4be06d1d468dee0-0-13296c3b2092b61dce90ecf33fd3d954" 
+                     alt="Logo CSR s.r.l" 
+                     class="hero-logo-img">
+
                 <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
                     Soluciones de 
                     <span class="bg-gradient-to-r from-yellow-300 to-orange-400 bg-clip-text text-transparent">
@@ -1912,7 +1918,7 @@
                             <a href="https://comercioonline.github.io/CSR/aceite" 
                                class="text-gray-400 hover:text-white transition-colors duration-300 flex items-center gap-2">
                                 <i class="fas fa-chevron-right text-xs"></i>
-                                Aceites
+                                Lubricantes
                             </a>
                         </li>
                     </ul>
@@ -2282,7 +2288,7 @@
                 price: 1900, 
                 category: "Carga Seca", 
                 image: "Imagenes de Contenedores/contenedor funcional.webp", 
-                classType: "C",
+                classType: "D",
                 stock: 10,
                 description: "Contenedor de acero corten de alta resistencia, fabricado con materiales premium. Certificado ISO, ideal para transporte marítimo, terrestre y almacenamiento seguro.",
                 specifications: [
