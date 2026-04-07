@@ -12,10 +12,10 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="CSR s.r.l - Aceites y Lubricantes Automotrices">
     <meta property="og:description" content="Aceites y lubricantes de alta calidad para el cuidado y mantenimiento de tu motor">
-    <meta property="og:image" content="https://z-cdn-media.chatglm.cn/files/99351cb1-7686-4e4f-b7cc-f7d853766756.jpeg?auth_key=1872911882-b8fa5b42fc55412baa9ee2e839567271-0-e724c68f4659faf69047cdb492914ccf">
+    <meta property="og:image" content="https://z-cdn-media.chatglm.cn/files/51e2ffb1-e165-41ed-9ffd-c31689103962.png?auth_key=1875398386-c798dc37edbd499abbfba69fcfcd3658-0-5f7ed89a3291e951e1d0e9a5dca1b535">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="https://z-cdn-media.chatglm.cn/files/99351cb1-7686-4e4f-b7cc-f7d853766756.jpeg?auth_key=1872911882-b8fa5b42fc55412baa9ee2e839567271-0-e724c68f4659faf69047cdb492914ccf">
+    <link rel="icon" type="image/x-icon" href="https://z-cdn-media.chatglm.cn/files/eacc73b2-2122-4c19-9553-dd6b06d2be00_Logo2.jpg?auth_key=1790430396-abc36b9bd8c349ef9d9a7dc13691e34d-0-a4a7e44781f0d1447a417d2e80143d68">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -57,6 +57,18 @@
             }
             to {
                 opacity: 1;
+            }
+        }
+
+        /* Animación para el logo entrando desde arriba */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
         
@@ -352,45 +364,40 @@
         }
         
         /* -------------------------------------------------------------------------- */
-        /* ESTILOS ACTUALIZADOS: FONDO DE ACEITE + LOGO ENCIMA */
+        /* ESTILOS HERO SECTION ACTUALIZADOS */
         /* -------------------------------------------------------------------------- */
         .hero-section {
-            /* Color de fondo base por si la imagen tarda en cargar */
+            /* Color de fondo base */
             background-color: #111827;
             
-            /* FONDO 1 (Capa trasera): Aceite dorado vertiéndose */
+            /* FONDO: Aceite dorado vertiéndose */
             background-image: url('https://z-cdn-media.chatglm.cn/files/2921795d-8998-4b3b-bbf5-7a26443f2bea.png?auth_key=1873424500-94f2313572d54654ad80e92f490983f8-0-505e67a9d9ca07efbd96780331ca1f42');
             
             background-repeat: no-repeat;
             background-position: center center;
-            background-size: cover; /* Cubre toda la sección */
+            background-size: cover; 
             
             position: relative;
             overflow: hidden;
+            display: flex; /* Flex para centrar contenido verticalmente */
+            align-items: center;
+            justify-content: center;
+            min-height: 600px; /* Altura mínima para dar espacio */
         }
 
-        /* NUEVO ESTILO: Logo superpuesto (Marca de agua) */
-        .hero-watermark-logo {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 50%; /* Tamaño relativo al contenedor */
-            max-width: 600px;
+        /* Logo principal del Hero (Encima del texto) */
+        .hero-logo-display {
+            width: 100%;
+            max-width: 450px; /* Tamaño controlado para no ser demasiado grande */
             height: auto;
-            z-index: 2; /* Encima del fondo (1), pero debajo del texto (10) */
-            opacity: 0.5; /* Transparencia para que el aceite se vea "detrás" o a través */
-            filter: brightness(1.2); /* Aclara el logo un poco para mezclarse con el oro */
-            pointer-events: none; /* Permite hacer clic a través del logo */
-            animation: pulse-slow 8s infinite ease-in-out;
-        }
-
-        @keyframes pulse-slow {
-            0%, 100% { opacity: 0.4; transform: translate(-50%, -50%) scale(1); }
-            50% { opacity: 0.6; transform: translate(-50%, -50%) scale(1.05); }
+            margin: 0 auto 2rem auto; /* Centrado, margen inferior para separar del texto */
+            display: block;
+            /* Sombra para que resalte sobre el fondo y el overlay */
+            filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.6));
+            animation: fadeInDown 1s ease-out; /* Animación de entrada suave */
         }
         
-        /* Superposición (Overlay) ajustada */
+        /* Superposición (Overlay) */
         .hero-section::after {
             content: '';
             position: absolute;
@@ -398,8 +405,9 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(135deg, rgba(17, 24, 39, 0.6), rgba(17, 24, 39, 0.4));
-            z-index: 3; /* Por encima del logo y el aceite */
+            /* Oscurece el fondo para que el texto sea legible, pero permite ver el logo que tiene su propia sombra */
+            background: linear-gradient(135deg, rgba(17, 24, 39, 0.8), rgba(17, 24, 39, 0.6));
+            z-index: 1; /* Detrás del contenido (z-index 10) */
             pointer-events: none;
         }
         
@@ -415,7 +423,7 @@
             background-size: cover;
             background-position: bottom;
             opacity: 0.5;
-            z-index: 4;
+            z-index: 2;
             pointer-events: none;
         }
         
@@ -678,6 +686,11 @@
             .logo-sub-text {
                 font-size: 0.6rem;
             }
+            
+            /* Ajuste del logo del Hero en móvil */
+            .hero-logo-display {
+                max-width: 280px;
+            }
         }
         
         /* Estilos para la tabla de especificaciones de aceites */
@@ -733,17 +746,116 @@
             color: var(--primary-color);
             margin-top: 0.2rem;
         }
+
+        /* -------------------------------------------------------------------------- */
+        /* NUEVOS ESTILOS PARA EL CATALOGO DE PRODUCTOS (ESTILO PÓSTER) */
+        /* -------------------------------------------------------------------------- */
+        .catalog-section {
+            background-color: #ffffff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .catalog-header-decor {
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(217,119,6,0.1) 0%, rgba(255,255,255,0) 70%);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .category-block {
+            margin-bottom: 4rem;
+            border: 1px solid #e5e7eb;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+        }
+
+        .category-block:hover {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            border-color: var(--primary-color);
+        }
+
+        .category-header {
+            background: linear-gradient(135deg, #111827 0%, #1f2937 100%);
+            padding: 1.5rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 100%;
+            background: var(--primary-color);
+        }
+
+        .category-header::after {
+            content: '';
+            position: absolute;
+            right: -20px;
+            top: -20px;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, rgba(251, 191, 36, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .category-title-group h3 {
+            color: #fbbf24; /* Amber 400 */
+            font-size: 1.75rem;
+            font-weight: 800;
+            margin: 0;
+            line-height: 1.2;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .category-subtitle {
+            color: #9ca3af; /* Gray 400 */
+            font-size: 0.95rem;
+            font-weight: 400;
+            margin-top: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .category-icon {
+            font-size: 2.5rem;
+            color: rgba(251, 191, 36, 0.2);
+            position: relative;
+            z-index: 1;
+        }
+
+        .category-grid {
+            padding: 2rem;
+            background-color: #f9fafb; /* Gray 50 */
+        }
+
+        /* Estilo específico para grid de productos */
+        .catalog-grid-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
     
     <!-- NUEVA BARRA SUPERIOR (TOP BAR) CENTRALIZADA -->
     <div class="bg-gray-900 text-gray-200 border-b border-amber-700 py-2 text-sm z-50 relative">
-        <!-- 'container mx-auto' centra la barra en la página, 'justify-between' distribuye el contenido, 'justify-center' (en móvil) centra los iconos -->
         <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-2">
-            
-            <!-- Espacio para Ubicación y Teléfono -->
-            <!-- En móvil, 'flex-wrap justify-center' asegura que los elementos estén en el centro visualmente -->
             <div class="flex flex-wrap justify-center gap-4 md:gap-8 text-xs md:text-sm font-medium">
                 <div class="flex items-center gap-2 hover:text-amber-400 transition-colors cursor-pointer" title="Ver ubicación en mapa">
                     <i class="fas fa-map-marker-alt text-amber-500"></i>
@@ -753,7 +865,6 @@
                     <i class="fas fa-phone-alt text-amber-500"></i>
                     <span>+53 56578961</span>
                 </div>
-                <!-- Horario rápido opcional -->
                 <div class="hidden lg:flex items-center gap-2 text-gray-400">
                     <i class="far fa-clock text-amber-500"></i>
                     <span>Lun-Vie: 8:00 AM - 5:00 PM</span>
@@ -766,10 +877,9 @@
     <header class="navbar sticky top-0 z-40">
         <div class="container mx-auto px-4">
             <div class="flex items-center justify-between h-24 md:h-28">
-                <!-- Logo Profesional Mejorado (Se mantiene en el menú principal para visibilidad al hacer scroll) -->
+                <!-- Logo Profesional Mejorado -->
                 <a href="https://comercioonline.github.io/CSR/aceite" class="logo-container group">
                     <div class="logo-icon-wrapper">
-                        <!-- IMAGEN DEL LOGO INSERTADA AQUÍ -->
                         <img src="https://z-cdn-media.chatglm.cn/files/eacc73b2-2122-4c19-9553-dd6b06d2be00_Logo2.jpg?auth_key=1790430396-abc36b9bd8c349ef9d9a7dc13691e34d-0-a4a7e44781f0d1447a417d2e80143d68" 
                              alt="Logo CSR s.r.l" 
                              class="logo-img">
@@ -793,7 +903,7 @@
                     <a href="https://comercioonline.github.io/CSR/aceite" 
                        class="desktop-nav-link text-amber-600 font-semibold flex items-center gap-2 group">
                         <i class="fas fa-oil-can nav-icon"></i>
-                        <span>Aceites</span>
+                        <span>Lubricantes</span>
                     </a>
                     <a href="https://comercioonline.github.io/CSR/energia" 
                       class="desktop-nav-link text-amber-600 font-semibold flex items-center gap-2 group">
@@ -838,7 +948,7 @@
                     <a href="https://comercioonline.github.io/CSR/aceite" 
                        class="mobile-menu-item text-amber-400 font-bold flex items-center gap-4">
                         <i class="fas fa-oil-can"></i>
-                        <span>Aceites</span>
+                        <span>Lubricantes</span>
                     </a> 
                     <a href="https://comercioonline.github.io/CSR/energia" 
                        class="mobile-menu-item text-amber-400 font-bold flex items-center gap-4">
@@ -861,63 +971,107 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="hero-section text-white py-24 relative overflow-hidden">
-        <!-- IMAGEN DEL LOGO ENCIMA DEL ACEITE -->
-        <!-- Esta imagen está en z-index 2, encima del fondo (aceite) pero debajo del texto -->
-        <img src="https://z-cdn-media.chatglm.cn/files/1aad9084-851e-4d03-94b7-6f6e62c9852e.jpeg?auth_key=1873425781-c7d2ff3ffd7243b484f60f5b0b95bed0-0-1e4454305999662f81cfe99e187bc63e" 
-             alt="Logo CSR Fondo" 
-             class="hero-watermark-logo">
+    <section class="hero-section text-white py-24 relative">
+        <!-- Container con Flexbox para apilar elementos verticalmente -->
+        <div class="container mx-auto px-4 relative z-10 flex flex-col items-center justify-center text-center">
+            
+            <!-- LOGO: Imagen de Cubos 3D posicionada ENCIMA del texto -->
+            <img src="https://z-cdn-media.chatglm.cn/files/51e2ffb1-e165-41ed-9ffd-c31689103962.png?auth_key=1875398386-c798dc37edbd499abbfba69fcfcd3658-0-5f7ed89a3291e951e1d0e9a5dca1b535" 
+                 alt="Logo CSR Cubos 3D" 
+                 class="hero-logo-display">
 
-        <div class="container mx-auto px-4 relative z-10">
-            <div class="max-w-4xl mx-auto text-center animate-slide-up">
-                <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight drop-shadow-lg">
-                    Aceites y Lubricantes de 
-                    <span class="bg-gradient-to-r from-amber-400 to-yellow-200 bg-clip-text text-transparent drop-shadow-sm">
-                        Alta Calidad
-                    </span>
-                </h1>
-                <p class="text-xl md:text-2xl mb-10 text-amber-100 leading-relaxed drop-shadow-md">
-                    Protege y optimiza el rendimiento de tu motor con los mejores lubricantes del mercado
-                </p>
-            </div>
+            <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight drop-shadow-lg animate-slide-up max-w-5xl">
+                Aceites y Lubricantes de 
+                <span class="bg-gradient-to-r from-amber-400 to-yellow-200 bg-clip-text text-transparent drop-shadow-sm">
+                    Alta Calidad
+                </span>
+            </h1>
+            <p class="text-xl md:text-2xl mb-10 text-amber-100 leading-relaxed drop-shadow-md animate-slide-up max-w-3xl">
+                Protege y optimiza el rendimiento de tu motor con los mejores lubricantes del mercado
+            </p>
         </div>
     </section>
 
-     <!-- Productos Section -->
-    <section id="productos" class="py-20 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
+     <!-- RESTRUCTURED Productos Section -->
+    <section id="productos" class="py-20 catalog-section">
+        <div class="container mx-auto px-4 relative">
+            <div class="catalog-header-decor"></div>
+            
+            <div class="text-center mb-16 relative z-10">
                 <h2 class="section-title text-4xl font-bold text-gray-900">
-                    Nuestros Productos
+                    Catálogo de Productos
                 </h2>
                 <p class="text-gray-600 text-lg max-w-2xl mx-auto mt-4">
-                    Selección premium de aceites y lubricantes para cada necesidad
+                    Encuentra el lubricante exacto para tu necesidad. Nuestra línea está dividida para facilitar tu búsqueda.
                 </p>
             </div>
-            
-            <!-- Category Filters -->
-            <div class="flex flex-wrap gap-3 justify-center mb-12">
-                <button onclick="filterProducts('all')" 
-                        class="px-6 py-2 rounded-full border border-amber-600 text-amber-600 hover:bg-amber-600 hover:text-white transition-all duration-300 font-medium shadow-sm">
-                    Todos los Aceites
-                </button>
-                <button onclick="filterProducts('sintetico')" 
-                        class="px-6 py-2 rounded-full border border-amber-200 text-gray-700 hover:border-amber-600 hover:text-amber-600 transition-all duration-300 font-medium">
-                    <i class="fas fa-flask mr-2"></i>Sintético
-                </button>
-                <button onclick="filterProducts('semisintetico')" 
-                        class="px-6 py-2 rounded-full border border-amber-200 text-gray-700 hover:border-amber-600 hover:text-amber-600 transition-all duration-300 font-medium">
-                    <i class="fas fa-flask mr-2"></i>Semi-Sintético
-                </button>
-                <button onclick="filterProducts('mineral')" 
-                        class="px-6 py-2 rounded-full border border-amber-200 text-gray-700 hover:border-amber-600 hover:text-amber-600 transition-all duration-300 font-medium">
-                    <i class="fas fa-oil-can mr-2"></i>Mineral
-                </button>
+
+            <!-- CATEGORIA 1: Aceites de motores ligeros -->
+            <div class="category-block animate-slide-up">
+                <div class="category-header">
+                    <div class="category-title-group">
+                        <h3>Aceites de Motores</h3>
+                        <div class="category-subtitle">
+                            <i class="fas fa-info-circle text-amber-500"></i>
+                            (para coches, taxis, vehículos ligeros y transporte pesado disponible)
+                        </div>
+                    </div>
+                    <div class="category-icon">
+                        <i class="fas fa-car-side"></i>
+                    </div>
+                </div>
+                <div class="category-grid">
+                    <!-- Grid para Motores -->
+                    <div class="catalog-grid-layout" id="container-motores">
+                        <!-- JS will populate this -->
+                    </div>
+                </div>
             </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="aceites-container">
-                <!-- Productos se cargarán aquí -->
+
+            <!-- CATEGORIA 2: Aceites de Transmisión -->
+            <div class="category-block animate-slide-up" style="animation-delay: 0.1s;">
+                <div class="category-header">
+                    <div class="category-title-group">
+                        <h3>Aceites de Transmisión</h3>
+                        <div class="category-subtitle">
+                            <i class="fas fa-info-circle text-amber-500"></i>
+                            (para cajas de cambios, diferenciales, transporte y maquinaria)
+                        </div>
+                    </div>
+                    <div class="category-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                </div>
+                <div class="category-grid">
+                    <!-- Grid para Transmisión -->
+                    <div class="catalog-grid-layout" id="container-transmision">
+                        <!-- JS will populate this -->
+                    </div>
+                </div>
             </div>
+
+            <!-- CATEGORIA 3: Especialidades -->
+            <div class="category-block animate-slide-up" style="animation-delay: 0.2s;">
+                <div class="category-header">
+                    <div class="category-title-group">
+                        <h3>Especialidades</h3>
+                        <div class="category-subtitle">
+                            <i class="fas fa-info-circle text-amber-500"></i>
+                            (para mantenimiento industrial, plantas eléctricas y sistemas hidráulicos)
+                        </div>
+                    </div>
+                    <div class="category-icon">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                </div>
+                <div class="category-grid">
+                    <!-- Grid para Especialidades -->
+                    <div class="catalog-grid-layout" id="container-especialidades">
+                        <!-- JS will populate this -->
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -942,7 +1096,7 @@
                     <p class="text-gray-600">Expertos en lubricación</p>
                 </div>
                 <div class="text-center p-8 rounded-xl bg-gradient-to-br from-gray-100 to-white border border-gray-200">
-                    <div class="text-4xl font-bold text-gray-700 mb-3">+20</div>
+                    <div class="text-4xl font-bold text-gray-700 mb-3">+2</div>
                     <h3 class="text-xl font-semibold mb-2">Años de Experiencia</h3>
                     <p class="text-gray-600">Especialistas en lubricantes</p>
                 </div>
@@ -1485,6 +1639,7 @@
                                                 <span class="inline-flex items-center gap-1.5 bg-gray-100 px-3 py-1 rounded-full text-sm"><i class="fas fa-phone-alt text-green-600 text-xs"></i> <span class="font-mono">+53 63179374</span></span>
                                                 <span class="inline-flex items-center gap-1.5 bg-green-50 px-3 py-1 rounded-full text-sm border border-green-200"><i class="fab fa-whatsapp text-green-600 text-xs"></i> <span class="font-mono">+53 63179374</span></span>
                                             </div>
+                                            <span class="text-xs font-semibold text-amber-700 bg-amber-100 px-2 py-0.5 rounded-full">Especialista en Lubricantes</span>
                                         </div>
                                         <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
                                             <span class="font-medium text-gray-700 w-48">Ing. Luis Carlos Triana:</span>
@@ -1749,7 +1904,7 @@
                             <a href="https://comercioonline.github.io/CSR/aceite" 
                                class="text-gray-400 hover:text-amber-400 transition-colors duration-300 flex items-center gap-2">
                                 <i class="fas fa-chevron-right text-xs text-amber-600"></i>
-                                Aceites
+                                Lubricantes
                             </a>
                         </li>
                         <li>
@@ -2292,7 +2447,7 @@ applications: ["Sistemas que requieran rendimiento DOT 3 o DOT 4", "Vehículos m
   price: 0,
   category: "mineral",
   image: "Imagenes de Aceites/G-Energy Turbine ISO VG 46 205L.webp",
-  stock: 200,
+  stock: 0, // Mantenido en 0 porque no hay stock físico, pero lo trataremos como reserva
   description: "Aceite lubricante premium diseñado para el sistema de lubricación y regulación de turbinas de vapor, gas e hidráulicas. Formulado con aceites base minerales altamente refinados y aditivos antioxidantes, anticorrosivos y antiespumantes de alto rendimiento para garantizar una operación continua y confiable.",
   specifications: [
     "Especificaciones: ISO 6743-5 L-TSA/L-TGS, DIN 51515-1, ASTM D4304",
@@ -2314,7 +2469,7 @@ applications: ["Sistemas que requieran rendimiento DOT 3 o DOT 4", "Vehículos m
     "Turbinas de vapor de plantas de generación de energía",
     "Turbinas hidráulicas",
     "Sistemas de accionamiento de turbo-compresores",
-    "Equipos que requieren aceites tipo Turbine Oil según DIN 51515"
+    "Equipos que requieran aceites tipo Turbine Oil según DIN 51515"
   ],
   applications: [
     "Plantas de generación de energía eléctrica (ciclo combinado y térmica)",
@@ -2336,7 +2491,7 @@ applications: ["Sistemas que requieran rendimiento DOT 3 o DOT 4", "Vehículos m
 
         // Función de inicialización
         function initApp() {
-            renderProducts(aceites, 'aceites-container');
+            renderCategorizedProducts();
             updateCartCount();
             setupEventListeners();
             checkCartOnLoad();
@@ -2378,31 +2533,41 @@ applications: ["Sistemas que requieran rendimiento DOT 3 o DOT 4", "Vehículos m
             });
         }
 
-        // Renderizar productos
-        function renderProducts(products, containerId) {
+        // Nueva función para renderizar productos por categorías específicas
+        function renderCategorizedProducts() {
+            // IDs basados en el análisis de los datos proporcionados
+            // 1, 2, 9, 10 son Aceites de Motor (Mineral/Service Pesado - colocados en la sección de motores por ser los únicos aceites de motor disponibles)
+            // 4 es Transmisión
+            // 3, 5, 6, 7, 8, 11 son Especialidades
+            
+            const motoresIds = [1, 2, 9, 10];
+            const transmisionIds = [4];
+            const especialidadesIds = [3, 5, 6, 7, 8, 11];
+
+            const motoresProducts = aceites.filter(p => motoresIds.includes(p.id));
+            const transmisionProducts = aceites.filter(p => transmisionIds.includes(p.id));
+            const especialidadesProducts = aceites.filter(p => especialidadesIds.includes(p.id));
+
+            renderGrid(motoresProducts, 'container-motores');
+            renderGrid(transmisionProducts, 'container-transmision');
+            renderGrid(especialidadesProducts, 'container-especialidades');
+        }
+
+        // Renderizar grid genérico
+        function renderGrid(products, containerId) {
             const container = document.getElementById(containerId);
             container.innerHTML = '';
             
-            const filteredProducts = currentFilter && currentFilter !== 'all' ? 
-                products.filter(p => p.category === currentFilter) : 
-                products;
-            
-            if (filteredProducts.length === 0) {
+            if (products.length === 0) {
                 container.innerHTML = `
-                    <div class="col-span-3 text-center py-12">
-                        <i class="fas fa-search text-4xl text-gray-300 mb-4"></i>
-                        <h3 class="text-xl font-semibold text-gray-600 mb-2">No se encontraron aceites</h3>
-                        <p class="text-gray-500">Intenta con otra categoría o contacta para consultar disponibilidad</p>
-                        <button onclick="scrollToSection('contact')" class="btn-primary mt-4">
-                            <i class="fas fa-phone mr-2"></i>
-                            Consultar Disponibilidad
-                        </button>
+                    <div class="col-span-full text-center py-8 text-gray-500">
+                        No hay productos disponibles en esta categoría actualmente.
                     </div>
                 `;
                 return;
             }
             
-            filteredProducts.forEach(product => {
+            products.forEach(product => {
                 const productCard = createProductCard(product);
                 container.appendChild(productCard);
             });
@@ -2417,23 +2582,48 @@ applications: ["Sistemas que requieran rendimiento DOT 3 o DOT 4", "Vehículos m
             let badgeColor, badgeText;
             switch(product.category) {
                 case 'sintetico':
-                    badgeColor = 'bg-amber-700'; // Amber oscuro
+                    badgeColor = 'bg-amber-700'; 
                     badgeText = 'Sintético';
                     break;
                 case 'semisintetico':
-                    badgeColor = 'bg-amber-600'; // Amber medio
+                    badgeColor = 'bg-amber-600';
                     badgeText = 'Semi-Sintético';
                     break;
                 case 'mineral':
-                    badgeColor = 'bg-yellow-600'; // Amarillo oscuro
+                    badgeColor = 'bg-yellow-600';
                     badgeText = 'Mineral';
+                    break;
+                case 'refrigerante':
+                    badgeColor = 'bg-blue-600';
+                    badgeText = 'Refrigerante';
+                    break;
+                case 'grasa':
+                    badgeColor = 'bg-gray-600';
+                    badgeText = 'Grasa';
                     break;
                 default:
                     badgeColor = 'bg-amber-500';
                     badgeText = 'Aceite';
             }
             
-            const stockColor = product.stock > 10 ? 'bg-green-500' : product.stock > 0 ? 'bg-yellow-500' : 'bg-red-500';
+            // MODIFICACIÓN: Lógica especial para ID 11 (Turbine Oil) - No mostrar "Agotado" si es el producto de reserva
+            let stockColor, stockText;
+            let isAvailableForPurchase = product.stock > 0;
+
+            if (product.id === 11) {
+                stockColor = 'bg-blue-600'; // Color azul para indicar "Bajo Pedido"
+                stockText = 'Bajo Pedido / Reserva';
+                isAvailableForPurchase = true; // Permitir compra
+            } else if (product.stock > 10) {
+                stockColor = 'bg-green-500';
+                stockText = `${product.stock} disponibles`;
+            } else if (product.stock > 0) {
+                stockColor = 'bg-yellow-500';
+                stockText = `${product.stock} disponibles`;
+            } else {
+                stockColor = 'bg-red-500';
+                stockText = 'Agotado';
+            }
             
             // Lógica condicional para el precio y el fondo del tag
             let priceTagStyle = '';
@@ -2449,6 +2639,12 @@ applications: ["Sistemas que requieran rendimiento DOT 3 o DOT 4", "Vehículos m
                 priceTagContent = '$' + product.price.toLocaleString();
             }
 
+            // CAMBIO SOLICITADO: Texto del botón "Reservar" si es ID 11
+            const actionButtonText = (product.id === 11) ? 'Reservar' : 'Cotizar';
+
+            // MODIFICACIÓN: El botón se deshabilita solo si NO es el ID 11 Y el stock es 0
+            const isButtonDisabled = (!isAvailableForPurchase) ? 'disabled' : '';
+
             card.innerHTML = `
                 <div class="product-image-container">
                     <img src="${product.image}" 
@@ -2463,7 +2659,7 @@ applications: ["Sistemas que requieran rendimiento DOT 3 o DOT 4", "Vehículos m
                     
                     <!-- Badge de stock -->
                     <span class="product-badge ${stockColor}" style="top: 50px;">
-                        ${product.stock > 0 ? `${product.stock} disponibles` : 'Agotado'}
+                        ${stockText}
                     </span>
                     
                     <!-- Precio -->
@@ -2474,52 +2670,34 @@ applications: ["Sistemas que requieran rendimiento DOT 3 o DOT 4", "Vehículos m
                 
                 <div class="p-6 flex-1 flex flex-col">
                     <div class="mb-4 flex-1">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">${product.name}</h3>
-                        <p class="text-gray-600 text-sm line-clamp-2">${product.description}</p>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2 line-clamp-2">${product.name}</h3>
+                        <p class="text-gray-600 text-sm line-clamp-3">${product.description}</p>
                     </div>
                     
                     <div class="flex flex-wrap gap-2 mb-4">
-                        ${product.applications.slice(0, 3).map(app => 
-                            `<span class="application-tag">${app}</span>`
+                        ${product.applications.slice(0, 2).map(app => 
+                            `<span class="application-tag text-xs">${app}</span>`
                         ).join('')}
                     </div>
                     
-                    <div class="flex justify-between items-center">
+                    <div class="flex justify-between items-center mt-auto">
                         <button onclick="showProductDetail(${product.id})" 
-                                class="flex items-center gap-2 text-amber-600 hover:text-amber-800 font-medium transition-colors duration-300">
+                                class="flex items-center gap-2 text-amber-600 hover:text-amber-800 font-medium transition-colors duration-300 text-sm">
                             <i class="fas fa-info-circle"></i>
                             Detalles
                         </button>
                         
                         <button onclick="addToCart(${product.id})" 
-                                class="flex items-center gap-2 px-4 py-2 bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-md shadow-amber-600/20"
-                                ${product.stock === 0 ? 'disabled' : ''}>
+                                class="flex items-center gap-2 px-4 py-2 bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-md shadow-amber-600/20 text-sm font-semibold"
+                                ${isButtonDisabled}>
                             <i class="fas fa-cart-plus"></i>
-                            Cotizar
+                            ${actionButtonText}
                         </button>
                     </div>
                 </div>
             `;
             
             return card;
-        }
-
-        // Filtrar productos
-        function filterProducts(category) {
-            currentFilter = category;
-            renderProducts(aceites, 'aceites-container');
-            
-            // Actualizar botones activos
-            document.querySelectorAll('#productos .flex-wrap button').forEach(btn => {
-                btn.classList.remove('bg-amber-600', 'text-white');
-                btn.classList.add('border', 'border-amber-200', 'text-gray-700');
-            });
-            
-            const activeBtn = event?.target;
-            if (activeBtn) {
-                activeBtn.classList.remove('border', 'border-amber-200', 'text-gray-700');
-                activeBtn.classList.add('bg-amber-600', 'text-white');
-            }
         }
 
         // Mostrar detalles del producto
@@ -2550,7 +2728,24 @@ applications: ["Sistemas que requieran rendimiento DOT 3 o DOT 4", "Vehículos m
                     badgeText = 'Aceite';
             }
             
-            const stockColor = product.stock > 10 ? 'text-green-600' : product.stock > 0 ? 'text-yellow-600' : 'text-red-600';
+            // MODIFICACIÓN: Lógica de stock para el modal (ID 11)
+            let stockColor, stockText;
+            let isAvailableForPurchase = product.stock > 0;
+
+            if (product.id === 11) {
+                stockColor = 'text-blue-600';
+                stockText = 'Bajo Pedido / Reserva';
+                isAvailableForPurchase = true;
+            } else if (product.stock > 10) {
+                stockColor = 'text-green-600';
+                stockText = `${product.stock} disponibles`;
+            } else if (product.stock > 0) {
+                stockColor = 'text-yellow-600';
+                stockText = `${product.stock} disponibles`;
+            } else {
+                stockColor = 'text-red-600';
+                stockText = 'Agotado';
+            }
             
             let specificationsHTML = '';
             let featuresHTML = '';
@@ -2558,79 +2753,93 @@ applications: ["Sistemas que requieran rendimiento DOT 3 o DOT 4", "Vehículos m
             let applicationsHTML = '';
             
             // Generar HTML para especificaciones
-            specificationsHTML = `
-                <div class="mb-8">
-                    <h4 class="font-semibold text-lg mb-4 flex items-center gap-2 text-amber-600">
-                        <i class="fas fa-list-alt"></i>
-                        Especificaciones Técnicas
-                    </h4>
-                    <ul class="grid grid-cols-1 md:grid-cols-2 gap-2">
-                        ${product.specifications.map(spec => `
-                            <li class="flex items-center gap-2 text-gray-700">
-                                <i class="fas fa-check text-amber-500 text-sm"></i>
-                                ${spec}
-                            </li>
-                        `).join('')}
-                    </ul>
-                </div>
-            `;
+            if (product.specifications && product.specifications.length > 0) {
+                specificationsHTML = `
+                    <div class="mb-8">
+                        <h4 class="font-semibold text-lg mb-4 flex items-center gap-2 text-amber-600">
+                            <i class="fas fa-list-alt"></i>
+                            Especificaciones Técnicas
+                        </h4>
+                        <ul class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                            ${product.specifications.map(spec => `
+                                <li class="flex items-center gap-2 text-gray-700 text-sm">
+                                    <i class="fas fa-check text-amber-500 text-xs"></i>
+                                    ${spec}
+                                </li>
+                            `).join('')}
+                        </ul>
+                    </div>
+                `;
+            }
             
             // Generar HTML para características
-            featuresHTML = `
-                <div class="mb-8">
-                    <h4 class="font-semibold text-lg mb-4 flex items-center gap-2 text-amber-600">
-                        <i class="fas fa-star"></i>
-                        Características y Beneficios
-                    </h4>
-                    <ul class="grid grid-cols-1 md:grid-cols-2 gap-2">
-                        ${product.features.map(feature => `
-                            <li class="flex items-center gap-2 text-gray-700">
-                                <i class="fas fa-check-circle text-amber-500 text-sm"></i>
-                                ${feature}
-                            </li>
-                        `).join('')}
-                    </ul>
-                </div>
-            `;
+            if (product.features && product.features.length > 0) {
+                featuresHTML = `
+                    <div class="mb-8">
+                        <h4 class="font-semibold text-lg mb-4 flex items-center gap-2 text-amber-600">
+                            <i class="fas fa-star"></i>
+                            Características y Beneficios
+                        </h4>
+                        <ul class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                            ${product.features.map(feature => `
+                                <li class="flex items-center gap-2 text-gray-700 text-sm">
+                                    <i class="fas fa-check-circle text-amber-500 text-xs"></i>
+                                    ${feature}
+                                </li>
+                            `).join('')}
+                        </ul>
+                    </div>
+                `;
+            }
             
             // Generar HTML para modelos compatibles
-            compatibleModelsHTML = `
-                <div class="mb-8">
-                    <h4 class="font-semibold text-lg mb-4 flex items-center gap-2 text-amber-600">
-                        <i class="fas fa-car"></i>
-                        Aplicaciones Recomendadas
-                    </h4>
-                    <div class="flex flex-wrap gap-2">
-                        ${product.compatibleModels.map(model => `
-                            <span class="bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm font-medium border border-amber-200">
-                                ${model}
-                            </span>
-                        `).join('')}
+            if (product.compatibleModels && product.compatibleModels.length > 0) {
+                compatibleModelsHTML = `
+                    <div class="mb-8">
+                        <h4 class="font-semibold text-lg mb-4 flex items-center gap-2 text-amber-600">
+                            <i class="fas fa-car"></i>
+                            Aplicaciones Recomendadas
+                        </h4>
+                        <div class="flex flex-wrap gap-2">
+                            ${product.compatibleModels.map(model => `
+                                <span class="bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm font-medium border border-amber-200">
+                                    ${model}
+                                </span>
+                            `).join('')}
+                        </div>
                     </div>
-                </div>
-            `;
+                `;
+            }
             
             // Generar HTML para aplicaciones
-            applicationsHTML = `
-                <div class="mb-8">
-                    <h4 class="font-semibold text-lg mb-4 flex items-center gap-2 text-amber-600">
-                        <i class="fas fa-wrench"></i>
-                        Usos Específicos
-                    </h4>
-                    <div class="flex flex-wrap gap-2">
-                        ${product.applications.map(app => `
-                            <span class="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm font-medium border border-orange-200">
-                                ${app}
-                            </span>
-                        `).join('')}
+            if (product.applications && product.applications.length > 0) {
+                applicationsHTML = `
+                    <div class="mb-8">
+                        <h4 class="font-semibold text-lg mb-4 flex items-center gap-2 text-amber-600">
+                            <i class="fas fa-wrench"></i>
+                            Usos Específicos
+                        </h4>
+                        <div class="flex flex-wrap gap-2">
+                            ${product.applications.map(app => `
+                                <span class="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm font-medium border border-orange-200">
+                                    ${app}
+                                </span>
+                            `).join('')}
+                        </div>
                     </div>
-                </div>
-            `;
+                `;
+            }
             
             // Lógica condicional para mostrar precio o "Solicitar presupuesto" en el modal
             const priceDisplayHTML = (product.id === 11)
                 ? `<p class="text-2xl font-bold text-gray-800 italic">Solicitar presupuesto</p>`
                 : `<p class="text-3xl font-bold text-amber-600">$${product.price.toLocaleString()}</p>`;
+
+            // CAMBIO SOLICITADO: Texto del botón en el modal
+            const modalActionButtonText = (product.id === 11) ? 'Reservar' : 'Añadir a Cotización';
+
+            // MODIFICACIÓN: Botón deshabilitado en modal si es necesario
+            const isModalButtonDisabled = (!isAvailableForPurchase) ? 'disabled' : '';
 
             detailContainer.innerHTML = `
                 <div class="grid lg:grid-cols-2 gap-8">
@@ -2648,7 +2857,7 @@ applications: ["Sistemas que requieran rendimiento DOT 3 o DOT 4", "Vehículos m
                                     ${badgeText}
                                 </span>
                                 <span class="${stockColor} bg-white px-3 py-1 rounded-full text-sm font-semibold shadow-sm border border-gray-100">
-                                    ${product.stock > 0 ? `${product.stock} disponibles` : 'Agotado'}
+                                    ${stockText}
                                 </span>
                             </div>
                         </div>
@@ -2681,9 +2890,9 @@ applications: ["Sistemas que requieran rendimiento DOT 3 o DOT 4", "Vehículos m
                         <div class="flex gap-4 mt-8">
                             <button onclick="addToCartFromDetail(${product.id})" 
                                     class="flex-1 btn-primary py-4 text-lg font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
-                                    ${product.stock === 0 ? 'disabled' : ''}>
+                                    ${isModalButtonDisabled}>
                                 <i class="fas fa-cart-plus mr-3"></i>
-                                Añadir a Cotización
+                                ${modalActionButtonText}
                             </button>
                             <button onclick="closeDetailModal()" 
                                     class="flex-1 btn-secondary py-4 text-lg font-semibold">
@@ -2702,15 +2911,22 @@ applications: ["Sistemas que requieran rendimiento DOT 3 o DOT 4", "Vehículos m
         function addToCart(productId) {
             const product = aceites.find(p => p.id === productId);
             
-            if (!product || product.stock === 0) {
+            // MODIFICACIÓN: Permitir añadir al carrito si es ID 11 aunque stock sea 0
+            if (!product) return;
+            
+            const isProduct11 = product.id === 11;
+            
+            if (!isProduct11 && product.stock === 0) {
                 showNotification('Producto no disponible', 'error');
                 return;
             }
             
             const existingItem = cart.find(item => item.id === productId);
             
+            // Si es ID 11, no comprobamos stock máximo (asumimos reserva ilimitada o gestionada externamente)
+            // Si no es ID 11, comprobamos stock
             if (existingItem) {
-                if (existingItem.quantity < product.stock) {
+                if (isProduct11 || existingItem.quantity < product.stock) {
                     existingItem.quantity++;
                 } else {
                     showNotification('Stock insuficiente', 'error');
@@ -2726,7 +2942,10 @@ applications: ["Sistemas que requieran rendimiento DOT 3 o DOT 4", "Vehículos m
             
             saveCart();
             updateCartCount();
-            showNotification('Aceite añadido a la cotización', 'success');
+            
+            // Mensaje personalizado según si es "Reservar" o "Cotizar"
+            const message = (product.id === 11) ? 'Producto añadido para reserva' : 'Aceite añadido a la cotización';
+            showNotification(message, 'success');
             
             // Animar el botón del carrito
             animateCartButton();
@@ -2888,7 +3107,10 @@ applications: ["Sistemas que requieran rendimiento DOT 3 o DOT 4", "Vehículos m
                 return;
             }
             
-            if (newQuantity > product.stock) {
+            // MODIFICACIÓN: Para ID 11, permitimos añadir cantidad sin comprobar stock
+            const isProduct11 = product.id === 11;
+            
+            if (!isProduct11 && newQuantity > product.stock) {
                 showNotification('Stock insuficiente', 'error');
                 return;
             }
@@ -3060,19 +3282,52 @@ applications: ["Sistemas que requieran rendimiento DOT 3 o DOT 4", "Vehículos m
             // Mapear empresa a texto legible
             const empresaText = empresa === 'No especificado' ? empresa : `Tipo: ${empresa}`;
             
-            // Generar mensaje para WhatsApp
-            let whatsappMessage = `*CONSULTA TÉCNICA DE ACEITES - CSR s.r.l*\n\n`;
+            // Generar mensaje para WhatsApp - UPDATED ACTUALIZADO
+            let whatsappMessage = `*NUEVA ORDEN DE COMPRA DE ACEITE - CSR s.r.l*\n\n`;
+            whatsappMessage += `*DATOS DEL CLIENTE*\n`;
             whatsappMessage += `*Nombre:* ${nombre}\n`;
             whatsappMessage += `*Teléfono:* ${telefono}\n`;
-            whatsappMessage += `*${empresaText}*\n`;
-            whatsappMessage += `*Vehículo:* ${vehicle}\n`;
-            whatsappMessage += `*Motivo:* ${purposeMap[proposito] || proposito}\n\n`;
-            whatsappMessage += `*DESCRIPCIÓN:*\n${mensaje}\n\n`;
-            whatsappMessage += `---\n`;
-            whatsappMessage += `*Fecha:* ${new Date().toLocaleDateString()}\n`;
-            whatsappMessage += `*Hora:* ${new Date().toLocaleTimeString()}`;
             
-            // Codificar el mensaje
+            // Dirección opcional
+            if (direccion.trim() !== "") {
+                whatsappMessage += `*Dirección (Domicilio):* ${direccion}\n`;
+            } else {
+                whatsappMessage += `*Recogida:* En tienda / Depósito\n`;
+            }
+            
+            whatsappMessage += `*Método de Pago:* ${tipo_pago}\n\n`;
+            
+            whatsappMessage += `*DETALLE DEL PEDIDO*\n\n`;
+            
+            let total = 0;
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                let priceDisplay = item.price > 0 ? `$${item.price.toLocaleString()}` : 'A cotizar';
+                let subtotalDisplay = itemTotal > 0 ? `$${itemTotal.toLocaleString()}` : 'A cotizar';
+
+                whatsappMessage += `• ${item.name}\n`;
+                whatsappMessage += `  Cantidad: ${item.quantity}\n`;
+                whatsappMessage += `  Precio unitario: ${priceDisplay}\n`;
+                whatsappMessage += `  Subtotal: ${subtotalDisplay}\n\n`;
+            });
+            
+            let totalDisplay = total > 0 ? `$${total.toLocaleString()}` : "SOLICITAR COTIZACIÓN";
+            
+            whatsappMessage += `*TOTAL A PAGAR: ${totalDisplay}*\n\n`;
+            whatsappMessage += `---\n`;
+            whatsappMessage += `*Fecha:* ${new Date().toLocaleDateString('es-ES', {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            })}\n`;
+            whatsappMessage += `*ID de pedido:* ${Date.now()}\n\n`;
+            whatsappMessage += `Por favor, confirmen disponibilidad y coordenadas de pago.`;
+            
+            // Codificar el mensaje para URL
             const encodedMessage = encodeURIComponent(whatsappMessage);
             
             // Número de WhatsApp
@@ -3081,11 +3336,15 @@ applications: ["Sistemas que requieran rendimiento DOT 3 o DOT 4", "Vehículos m
             // Abrir WhatsApp
             window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
             
-            // Resetear formulario
-            form.reset();
+            // Cerrar el formulario
+            closeWhatsAppForm();
+            
+            // Actualizar stock y limpiar carrito
+            updateProductStock();
+            clearCart();
             
             // Mostrar confirmación
-            showNotification('Redirigiendo a WhatsApp...', 'success');
+            showNotification('Pedido enviado correctamente', 'success');
         }
 
         // Actualizar stock de productos
@@ -3098,7 +3357,7 @@ applications: ["Sistemas que requieran rendimiento DOT 3 o DOT 4", "Vehículos m
             });
             
             // Actualizar la vista de productos
-            renderProducts(aceites, 'aceites-container');
+            renderCategorizedProducts();
         }
 
         // Abrir modal
@@ -3186,6 +3445,8 @@ applications: ["Sistemas que requieran rendimiento DOT 3 o DOT 4", "Vehículos m
                 // Verificar stock de productos en el carrito
                 cart = cart.filter(item => {
                     const product = aceites.find(p => p.id === item.id);
+                    // Si es el producto 11, siempre lo permitimos en el carrito
+                    if (product.id === 11) return true;
                     return product && product.stock >= item.quantity;
                 });
                 saveCart();
