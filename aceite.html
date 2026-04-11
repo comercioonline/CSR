@@ -2197,33 +2197,8 @@
     <script>
         // Datos de productos (aceites y lubricantes)
         const aceites = [
-           { 
-    id: 1, 
-    name: "Gazpromneft Super Multi 15W 40 CI-4 205L", 
-    price: 980, 
-    category: "mineral", 
-    image: "Imagenes de Aceites/Gaspromneft Super Multi 15W 40 CI-4 205L.jpg", 
-    stock: 20,
-    description: "Aceite mineral de alto rendimiento para motores diesel de 4 tiempos. Formulado con tecnología aditivada que proporciona una excelente protección contra el desgaste, control de depósitos y estabilidad a la oxidación, ideal para flotas de transporte y maquinaria pesada que opera en condiciones severas.",
-    specifications: [
-        "Viscosidad: 15W-40",
-        "Tipo: Mineral", 
-        "API: CI-4 / CH-4",
-        "ACEA: E7",
-        "Volumen: 205 litros"
-    ],
-    features: [
-        "Alta estabilidad a la oxidación y cizallamiento",
-        "Control superior de depósitos de alta temperatura",
-        "Protección excepcional contra el desgaste del motor",
-        "Compatibilidad con sistemas de postratamiento EGR",
-        "Mantiene la viscosidad en condiciones extremas de trabajo"
-    ],
-    compatibleModels: ["Volvo", "Scania", "MAN", "Mercedes-Benz", "Cummins", "Caterpillar"],
-    applications: ["Motores diesel turboalimentados", "Vehículos de carga pesada", "Maquinaria agrícola y de construcción", "Flotas de transporte comercial"]
-},
-            {
-    id: 2,
+          {
+    id: 1,
     name: "Gazpromneft HD-60 5L",
     price: 21.50,
     category: "mineral", 
@@ -2259,7 +2234,34 @@
         "Maquinaria industrial y pesada"
     ]
 },
-            {
+{
+    id: 2,
+    name: "Gazpromneft Super Multi 20W 50 CI-4 5L",
+    price: 22.50,
+    category: "mineral",
+    image: "Imagenes de Aceites/Gaspromneft Super Multi 20W 50 CI-4 5L.webp",
+    stock: 20,
+    description: "Aceite mineral de alto rendimiento para motores diesel de 4 tiempos, especialmente formulado para aplicaciones severas. Su tecnología aditivada proporciona una excelente protección contra el desgaste, control de depósitos y neutralización de ácidos, garantizando la limpieza del motor y prolongando su vida útil en flotas de transporte y maquinaria pesada.",
+    specifications: [
+        "Viscosidad SAE: 20W-50",
+        "Tipo de base: Mineral",
+        "Nivel de calidad API: CI-4 / CH-4 / CG-4 / CF-4",
+        "Nivel de calidad ACEA: E7",
+        "Volumen: 5 litros"
+    ],
+    features: [
+        "Excelente poder detergente y dispersante para mantener el motor limpio",
+        "Alta estabilidad térmica y a la oxidación para intervalos de drenaje prolongados",
+        "Protección superior contra el desgaste, la corrosión y la formación de espuma",
+        "Compatibilidad con sistemas de recirculación de gases de escape (EGR)",
+        "Elevado índice de viscosidad para mantener la película lubricante a altas temperaturas"
+    ],
+    compatibleModels: ["Volvo", "Scania", "MAN", "Mercedes-Benz", "Cummins", "Caterpillar", "Renault Trucks", "DAF", "Iveco"],
+    applications: ["Motores diesel turboalimentados de alta potencia", "Vehículos de carga pesada y transporte de larga distancia", "Maquinaria agrícola, forestal y de construcción", "Equipos industriales y generación eléctrica"]
+},
+
+           
+{
 id: 3,
 name: "Brake Fluid G-Energy Expert DOT 4 1L",
 price: 7.50,
@@ -2348,61 +2350,10 @@ applications: ["Sistemas que requieran rendimiento DOT 3 o DOT 4", "Vehículos m
     compatibleModels: ["Motores de gasolina y diésel", "Motores con culata de aluminio", "Sistemas de refrigeración con radiadores de cobre o aluminio", "Vehículos que requieran especificación VW TL 774-F (G12+)"],
     applications: ["Sistemas de refrigeración de autos ligeros", "Motores de combustión interna (gasolina y diésel)", "Vehículos comerciales", "Maquinaria agrícola e industrial", "Uso en regiones con climas extremos (frío/calor)"]
 },
-                        { 
-                id: 6, 
-                name: "Gazpromneft Grease L Moly EP 2 CL 400ml", 
-                price: 8.80, 
-                category: "sintetico", 
-                image: "Imagenes de Aceites/Gazpromneft Grease L Moly EP 2 CL 400ml.jpeg", 
-                stock: 477,
-                description: "Grasa lubricante multiusos de alta calidad, formulada con una base de aceites minerales de alta viscosidad y espesante de jabón de litio. Enriquecida con aditivos de presión extrema (EP) y disulfuro de molibdeno para una protección superior contra el desgaste, la corrosión y cargas de impacto en condiciones de operación severas.",
-                specifications: [
-                    "Tipo de base: Mineral",
-                    "Viscosidad del aceite base (a 40°C): 150 mm²/s",
-                    "Clasificación NLGI: 2",
-                    "Especificación: DIN 51502 KPF 2 K-30",
-                    "Temperatura de aplicación: -30°C a +120°C (pico hasta +150°C)",
-                    "Punto de goteo: >190°C",
-                    "Color: Gris oscuro",
-                    "Volumen: 400ml"
-        ],
-                features: [
-                    "Soporta cargas extremas y golpes gracias a los aditivos EP y al disulfuro de molibdeno",
-                    "Excelente protección contra el desgaste, la fricción y el gripado",
-                    "Alta resistencia al agua, previene la corrosión y el óxido",
-                    "Amplio rango de temperaturas de trabajo, de -30°C a +120°C",
-                    "Buena bombeabilidad a bajas temperaturas"
-                ],
-                compatibleModels: ["Vehículos de pasajeros", "Camiones", "Tractores", "Excavadoras", "Bulldozers", "Cargadoras", "Maquinaria de construcción y minería", "Equipos industriales como trituradoras y cribas vibratorias"],
-                applications: ["Lubricación de chasis y rodamientos en maquinaria pesada", "Articulaciones y pasadores sometidos a alta carga", "Sistemas de suspensión y dirección", "Equipos de construcción, minería y agricultura"]
-            },
-            {
-                id: 7, 
-                name: "Gazpromneft Grease L Moly EP 2 18L", 
-                price: 170, 
-                category: "grasa", 
-                image: "Imagenes de Aceites/Gazpromneft Grease L Moly EP 2 18L.png", 
-                stock: 210,
-                description: "Gazpromneft Grease L Moly EP 2 es una grasa lubricante multifuncional de alta calidad, formulada con jabón de litio y aditivos extremamente presion (EP). Contiene disulfuro de molibdeno (Moly), un sólido lubricante que proporciona una protección excepcional contra el desgaste y el agarrotamiento, incluso en condiciones de extrema presión y en entornos contaminados. Ideal para la lubricación de maquinaria industrial y vehículos que operan en las condiciones más exigentes.",
-                specifications: [
-                    "Tipo de grasa: Multifuncional con jabón de litio",
-                    "Clasificación NLGI: 2",
-                    "Especificación DIN: 51502 KPF 2 K -30",
-                    "Aditivos: Extreme Pressure (EP) y disulfuro de molibdeno (Moly)",
-                    "Volumen: 18 litros / 18 kg"
-                ],
-                features: [
-                    "Soporta cargas extremas y impactos pesados gracias a los aditivos EP y al disulfuro de molibdeno",
-                    "Amplio rango de temperaturas de trabajo: de -30°C a +120°C (picos de hasta +150°C)",
-                    "Excelente resistencia al agua, protegiendo contra la corrosión y el óxido",
-                    "Buena bombeabilidad a bajas temperaturas",
-                    "Alta resistencia a la oxidación, prolongando la vida útil de los componentes"
-                ],
-                compatibleModels: ["Sistemas de lubricación centralizados", "Rodamientos y cojinetes", "Chasis y pasadores", "Articulaciones y juntas", "Guias y deslizamientos"],
-                applications: ["Maquinaria de construcción (excavadoras, bulldozers, cargadoras)", "Equipos mineros", "Maquinaria agrícola (tractores)", "Vehículos pesados (camiones)", "Equipos industriales (trituradoras, cribas vibratorias)"]
-            },
-            {
-    id: 8,
+                        
+            
+    {
+    id: 6,
     name: "Gazpromneft Moto 2T 1L",
     price: 9.50,
     category: "mineral",
@@ -2440,8 +2391,91 @@ applications: ["Sistemas que requieran rendimiento DOT 3 o DOT 4", "Vehículos m
         "Motobloques"
     ]
 },
+
+{ 
+                id: 7, 
+                name: "Gazpromneft Grease L Moly EP 2 CL 400ml", 
+                price: 8.80, 
+                category: "sintetico", 
+                image: "Imagenes de Aceites/Gazpromneft Grease L Moly EP 2 CL 400ml.jpeg", 
+                stock: 477,
+                description: "Grasa lubricante multiusos de alta calidad, formulada con una base de aceites minerales de alta viscosidad y espesante de jabón de litio. Enriquecida con aditivos de presión extrema (EP) y disulfuro de molibdeno para una protección superior contra el desgaste, la corrosión y cargas de impacto en condiciones de operación severas.",
+                specifications: [
+                    "Tipo de base: Mineral",
+                    "Viscosidad del aceite base (a 40°C): 150 mm²/s",
+                    "Clasificación NLGI: 2",
+                    "Especificación: DIN 51502 KPF 2 K-30",
+                    "Temperatura de aplicación: -30°C a +120°C (pico hasta +150°C)",
+                    "Punto de goteo: >190°C",
+                    "Color: Gris oscuro",
+                    "Volumen: 400ml"
+        ],
+                features: [
+                    "Soporta cargas extremas y golpes gracias a los aditivos EP y al disulfuro de molibdeno",
+                    "Excelente protección contra el desgaste, la fricción y el gripado",
+                    "Alta resistencia al agua, previene la corrosión y el óxido",
+                    "Amplio rango de temperaturas de trabajo, de -30°C a +120°C",
+                    "Buena bombeabilidad a bajas temperaturas"
+                ],
+                compatibleModels: ["Vehículos de pasajeros", "Camiones", "Tractores", "Excavadoras", "Bulldozers", "Cargadoras", "Maquinaria de construcción y minería", "Equipos industriales como trituradoras y cribas vibratorias"],
+                applications: ["Lubricación de chasis y rodamientos en maquinaria pesada", "Articulaciones y pasadores sometidos a alta carga", "Sistemas de suspensión y dirección", "Equipos de construcción, minería y agricultura"]
+            },
+
+
 {
-    id: 9,
+                id: 8, 
+                name: "Gazpromneft Grease L Moly EP 2 18L", 
+                price: 170, 
+                category: "grasa", 
+                image: "Imagenes de Aceites/Gazpromneft Grease L Moly EP 2 18L.png", 
+                stock: 210,
+                description: "Gazpromneft Grease L Moly EP 2 es una grasa lubricante multifuncional de alta calidad, formulada con jabón de litio y aditivos extremamente presion (EP). Contiene disulfuro de molibdeno (Moly), un sólido lubricante que proporciona una protección excepcional contra el desgaste y el agarrotamiento, incluso en condiciones de extrema presión y en entornos contaminados. Ideal para la lubricación de maquinaria industrial y vehículos que operan en las condiciones más exigentes.",
+                specifications: [
+                    "Tipo de grasa: Multifuncional con jabón de litio",
+                    "Clasificación NLGI: 2",
+                    "Especificación DIN: 51502 KPF 2 K -30",
+                    "Aditivos: Extreme Pressure (EP) y disulfuro de molibdeno (Moly)",
+                    "Volumen: 18 litros / 18 kg"
+                ],
+                features: [
+                    "Soporta cargas extremas y impactos pesados gracias a los aditivos EP y al disulfuro de molibdeno",
+                    "Amplio rango de temperaturas de trabajo: de -30°C a +120°C (picos de hasta +150°C)",
+                    "Excelente resistencia al agua, protegiendo contra la corrosión y el óxido",
+                    "Buena bombeabilidad a bajas temperaturas",
+                    "Alta resistencia a la oxidación, prolongando la vida útil de los componentes"
+                ],
+                compatibleModels: ["Sistemas de lubricación centralizados", "Rodamientos y cojinetes", "Chasis y pasadores", "Articulaciones y juntas", "Guias y deslizamientos"],
+                applications: ["Maquinaria de construcción (excavadoras, bulldozers, cargadoras)", "Equipos mineros", "Maquinaria agrícola (tractores)", "Vehículos pesados (camiones)", "Equipos industriales (trituradoras, cribas vibratorias)"]
+            },
+
+{
+    id: 9, 
+    name: "Gazpromneft Super Multi 15W 40 CI-4 205L", 
+    price: 980, 
+    category: "mineral", 
+    image: "Imagenes de Aceites/Gaspromneft Super Multi 15W 40 CI-4 205L.jpg", 
+    stock: 20,
+    description: "Aceite mineral de alto rendimiento para motores diesel de 4 tiempos. Formulado con tecnología aditivada que proporciona una excelente protección contra el desgaste, control de depósitos y estabilidad a la oxidación, ideal para flotas de transporte y maquinaria pesada que opera en condiciones severas.",
+    specifications: [
+        "Viscosidad: 15W-40",
+        "Tipo: Mineral", 
+        "API: CI-4 / CH-4",
+        "ACEA: E7",
+        "Volumen: 205 litros"
+    ],
+    features: [
+        "Alta estabilidad a la oxidación y cizallamiento",
+        "Control superior de depósitos de alta temperatura",
+        "Protección excepcional contra el desgaste del motor",
+        "Compatibilidad con sistemas de postratamiento EGR",
+        "Mantiene la viscosidad en condiciones extremas de trabajo"
+    ],
+    compatibleModels: ["Volvo", "Scania", "MAN", "Mercedes-Benz", "Cummins", "Caterpillar"],
+    applications: ["Motores diesel turboalimentados", "Vehículos de carga pesada", "Maquinaria agrícola y de construcción", "Flotas de transporte comercial"]
+},
+
+{
+    id: 10,
     name: "Gazpromneft Super Multi 20W 50 CI-4 205L",
     price: 990,
     category: "mineral",
@@ -2472,31 +2506,7 @@ applications: ["Sistemas que requieran rendimiento DOT 3 o DOT 4", "Vehículos m
     compatibleModels: ["Volvo", "Scania", "MAN", "Mercedes-Benz", "Cummins", "Caterpillar", "Mack", "DAF", "Iveco", "Renault Trucks"],
     applications: ["Motores diesel turboalimentados", "Vehículos de carga pesada", "Maquinaria agrícola y de construcción", "Flotas de transporte comercial", "Motores Euro 3 y Euro 4", "Vehículos fuera de carretera"]
 },
-{
-    id: 10,
-    name: "Gazpromneft Super Multi 20W 50 CI-4 5L",
-    price: 22.50,
-    category: "mineral",
-    image: "Imagenes de Aceites/Gaspromneft Super Multi 20W 50 CI-4 5L.webp",
-    stock: 20,
-    description: "Aceite mineral de alto rendimiento para motores diesel de 4 tiempos, especialmente formulado para aplicaciones severas. Su tecnología aditivada proporciona una excelente protección contra el desgaste, control de depósitos y neutralización de ácidos, garantizando la limpieza del motor y prolongando su vida útil en flotas de transporte y maquinaria pesada.",
-    specifications: [
-        "Viscosidad SAE: 20W-50",
-        "Tipo de base: Mineral",
-        "Nivel de calidad API: CI-4 / CH-4 / CG-4 / CF-4",
-        "Nivel de calidad ACEA: E7",
-        "Volumen: 5 litros"
-    ],
-    features: [
-        "Excelente poder detergente y dispersante para mantener el motor limpio",
-        "Alta estabilidad térmica y a la oxidación para intervalos de drenaje prolongados",
-        "Protección superior contra el desgaste, la corrosión y la formación de espuma",
-        "Compatibilidad con sistemas de recirculación de gases de escape (EGR)",
-        "Elevado índice de viscosidad para mantener la película lubricante a altas temperaturas"
-    ],
-    compatibleModels: ["Volvo", "Scania", "MAN", "Mercedes-Benz", "Cummins", "Caterpillar", "Renault Trucks", "DAF", "Iveco"],
-    applications: ["Motores diesel turboalimentados de alta potencia", "Vehículos de carga pesada y transporte de larga distancia", "Maquinaria agrícola, forestal y de construcción", "Equipos industriales y generación eléctrica"]
-},
+
 {
   id: 11,
   name: "G-Energy Turbine ISO VG 46 205L",
