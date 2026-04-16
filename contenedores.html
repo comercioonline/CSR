@@ -688,6 +688,62 @@
             box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
             text-align: center;
         }
+
+        /* --------------------------------------------------- */
+/* ESTILOS PARA EL BOTÓN FLOTANTE (BACK TO TOP)      */
+/* --------------------------------------------------- */
+.back-to-top {
+    position: fixed;               /* Fija el botón en la pantalla */
+    bottom: 30px;                  /* Distancia desde abajo */
+    right: 30px;                   /* Distancia desde la derecha */
+    width: 50px;                   /* Ancho del botón */
+    height: 50px;                  /* Alto del botón (cuadrado) */
+    border-radius: 50%;            /* Lo hace circular */
+    background: linear-gradient(135deg, var(--container-color), var(--primary-color)); /* Fondo azul gradiente */
+    color: white;                  /* Color del icono */
+    border: none;                  /* Sin borde */
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3); /* Sombra suave */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;                 /* Nivel Z alto para que esté encima */
+    opacity: 0;                    /* Oculto por defecto */
+    visibility: hidden;
+    transform: translateY(20px);    /* Efecto de desplazamiento inicial */
+    transition: all 0.3s ease-in-out; /* Animación suave */
+    font-size: 1.2rem;
+}
+
+/* Clase visible (se añade con JS) */
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Efecto al pasar el mouse (Hover) */
+.back-to-top:hover {
+    transform: translateY(-5px);  /* Un poco hacia arriba */
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.5); /* Sombra más fuerte */
+    background: linear-gradient(135deg, var(--primary-color), #1e3a8a);
+}
+
+.back-to-top:active {
+    transform: translateY(-2px);
+}
+
+/* Ajuste para móviles para que no tape cosas importantes */
+@media (max-width: 768px) {
+    .back-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;       /* Un poco más pequeño en celus */
+        height: 45px;
+        font-size: 1rem;
+    }
+}
+
     </style>
 <base target="_blank">
 </head>
@@ -2167,6 +2223,10 @@
 
     <!-- Notification Container -->
     <div id="notification-container" class="fixed top-4 right-4 z-50 space-y-3"></div>
+
+    <button id="back-to-top" class="back-to-top" aria-label="Volver al inicio" title="Ir al inicio">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <script>
         // Datos de contenedores
@@ -3960,6 +4020,26 @@ function filterByClass(classType) {
                 toggleMobileMenu();
             }
         });
+
+// --- EVENT LISTENER FOR BACK TO TOP BUTTON --- TOP ---
+const backToTopBtn = document.getElementById('back-to-top');
+
+// 1. Detectar el scroll para mostrar u ocultar el botón
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) { // Mostrar si bajó más de 300px
+        backToTopBtn.classList.add('visible');
+    } else {
+        backToTopBtn.classList.remove('visible'); // Ocultar si está arriba
+    }
+});
+
+// 2. Acción al hacer clic (ir arriba suavemente)
+backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth' // Desplazamiento suave nativo
+    });
+});
     </script>
 </body>
 </html>
