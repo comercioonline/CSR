@@ -1014,7 +1014,7 @@
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div class="text-center p-8 rounded-xl bg-gradient-to-br from-blue-50 to-white border border-blue-100">
-                    <div class="text-4xl font-bold text-blue-600 mb-3">+145</div>
+                    <div class="text-4xl font-bold text-blue-600 mb-3">+200</div>
                     <h3 class="text-xl font-semibold mb-2">Contenedores Disponibles</h3>
                     <p class="text-gray-600">Amplio inventario para venta y alquiler</p>
                 </div>
@@ -3027,7 +3027,15 @@
             gradeLabel = 'Sin Clase';
     }
     
-    const stockColor = product.stock > 5 ? 'bg-green-500' : product.stock > 0 ? 'bg-yellow-500' : 'bg-red-500';
+    // Lógica actualizada para Stock:
+    // Si la categoría es 'especial', NO mostramos el badge de stock.
+    let stockBadgeHtml = '';
+    if (product.category !== 'especial') {
+        const stockColor = product.stock > 5 ? 'bg-green-500' : product.stock > 0 ? 'bg-yellow-500' : 'bg-red-500';
+        stockBadgeHtml = `<span class="product-badge ${stockColor} text-white" style="top: 90px;">
+                            ${product.stock > 0 ? `${product.stock} disponibles` : 'Agotado'}
+                        </span>`;
+    }
     
     // Modificar la sección de precio para mostrar "Solicitar Presupuesto" si es categoría especial
     let priceHtml = '';
@@ -3041,6 +3049,10 @@
                         $${product.price.toLocaleString()}
                     </div>`;
     }
+    
+    // Lógica actualizada para el botón:
+    // Si es especial, siempre activo. Si no, check stock.
+    const isDisabled = product.category === 'especial' ? false : product.stock === 0;
     
     card.innerHTML = `
         <div class="product-image-container">
@@ -3059,10 +3071,8 @@
                 <i class="fas fa-star mr-1"></i>Clase ${product.classType}
             </span>
             
-            <!-- Badge de stock -->
-            <span class="product-badge ${stockColor} text-white" style="top: 90px;">
-                ${product.stock > 0 ? `${product.stock} disponibles` : 'Agotado'}
-            </span>
+            <!-- Badge de stock (CONDICIONAL) -->
+            ${stockBadgeHtml}
             
             <!-- Precio o Solicitar Presupuesto -->
             ${priceHtml}
@@ -3096,9 +3106,10 @@
                     Especificaciones
                 </button>
                 
+                <!-- BOTÓN SOLICITAR (CONDICIONAL DISABLED) -->
                 <button onclick="addToCart(${product.id})" 
                         class="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
-                        ${product.stock === 0 ? 'disabled' : ''}>
+                        ${isDisabled ? 'disabled' : ''}>
                     <i class="fas fa-cart-plus"></i>
                     Solicitar
                 </button>
@@ -3197,7 +3208,14 @@
             gradeDescription = 'No especificado';
     }
     
-    const stockColor = product.stock > 5 ? 'text-green-600' : product.stock > 0 ? 'text-yellow-600' : 'text-red-600';
+    // Lógica para stock badge en modal (CONDICIONAL)
+    let stockInfoHtml = '';
+    if (product.category !== 'especial') {
+        const stockColor = product.stock > 5 ? 'text-green-600' : product.stock > 0 ? 'text-yellow-600' : 'text-red-600';
+        stockInfoHtml = `<span class="${stockColor} bg-white px-3 py-1 rounded-full text-sm font-semibold">
+                            ${product.stock > 0 ? `${product.stock} disponibles` : 'Agotado'}
+                        </span>`;
+    }
     
     // Generar HTML para especificaciones
     const specificationsHTML = `
@@ -3286,6 +3304,9 @@
             </div>
         `;
     }
+
+    // Lógica para el botón en el modal (CONDICIONAL)
+    const isModalDisabled = product.category === 'especial' ? false : product.stock === 0;
     
     detailContainer.innerHTML = `
         <div class="grid lg:grid-cols-2 gap-8">
@@ -3307,9 +3328,8 @@
                             <i class="fas fa-award"></i>
                             ${gradeLabel}
                         </span>
-                        <span class="${stockColor} bg-white px-3 py-1 rounded-full text-sm font-semibold">
-                            ${product.stock > 0 ? `${product.stock} disponibles` : 'Agotado'}
-                        </span>
+                        <!-- Badge de Stock (CONDICIONAL) -->
+                        ${stockInfoHtml}
                     </div>
                 </div>
                 
@@ -3339,7 +3359,7 @@
                 <div class="flex gap-4 mt-8">
                     <button onclick="addToCartFromDetail(${product.id})" 
                             class="flex-1 btn-primary py-4 text-lg font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
-                            ${product.stock === 0 ? 'disabled' : ''}>
+                            ${isModalDisabled ? 'disabled' : ''}>
                         <i class="fas fa-cart-plus mr-3"></i>
                         Añadir a Cotización
                     </button>
@@ -3360,7 +3380,10 @@
         function addToCart(productId) {
             const product = containers.find(p => p.id === productId);
             
-            if (!product || product.stock === 0) {
+            if (!product) return;
+            
+            // ACTUALIZACIÓN: Si la categoría es 'especial', ignoramos el stock 0
+            if (product.category !== 'especial' && product.stock === 0) {
                 showNotification('Contenedor no disponible', 'error');
                 return;
             }
@@ -3368,7 +3391,8 @@
             const existingItem = cart.find(item => item.id === productId);
             
             if (existingItem) {
-                if (existingItem.quantity < product.stock) {
+                // Si es especial, permitimos aumentar cantidad sin chequear stock
+                if (product.category === 'especial' || existingItem.quantity < product.stock) {
                     existingItem.quantity++;
                 } else {
                     showNotification('Stock insuficiente', 'error');
