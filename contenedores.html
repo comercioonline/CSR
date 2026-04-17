@@ -166,6 +166,25 @@
             z-index: 10;
             box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
         }
+
+        /* ESTILO PARA EL TAG DE SOLICITAR PRESUPUESTO (NUEVO) */
+        .price-tag-presupuesto {
+            position: absolute;
+            bottom: 12px;
+            right: 12px;
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 8px 0 8px 0;
+            font-weight: 700;
+            font-size: 0.9rem;
+            z-index: 10;
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+            text-align: center;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
         
         /* Estilos para botones */
         .btn-primary {
@@ -672,77 +691,61 @@
                 font-size: 0.6rem;
             }
         }
-
-        /* Estilo para el tag de solicitar presupuesto */
-        .price-tag-presupuesto {
-            position: absolute;
-            bottom: 12px;
-            right: 12px;
-            background: linear-gradient(135deg, #f59e0b, #d97706);
-            color: white;
-            padding: 6px 12px;
-            border-radius: 8px 0 8px 0;
-            font-weight: 700;
-            font-size: 0.9rem;
-            z-index: 10;
-            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
-            text-align: center;
+        
+        /* --------------------------------------------------- */
+        /* ESTILOS PARA EL BOTÓN FLOTANTE (BACK TO TOP)      */
+        /* --------------------------------------------------- */
+        .back-to-top {
+            position: fixed;               /* Fija el botón en la pantalla */
+            bottom: 30px;                  /* Distancia desde abajo */
+            right: 30px;                   /* Distancia desde la derecha */
+            width: 50px;                   /* Ancho del botón */
+            height: 50px;                  /* Alto del botón (cuadrado) */
+            border-radius: 50%;            /* Lo hace circular */
+            background: linear-gradient(135deg, var(--container-color), var(--primary-color)); /* Fondo azul gradiente */
+            color: white;                  /* Color del icono */
+            border: none;                  /* Sin borde */
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3); /* Sombra suave */
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;                 /* Nivel Z alto para que esté encima */
+            opacity: 0;                    /* Oculto por defecto */
+            visibility: hidden;
+            transform: translateY(20px);    /* Efecto de desplazamiento inicial */
+            transition: all 0.3s ease-in-out; /* Animación suave */
+            font-size: 1.2rem;
         }
 
-        /* --------------------------------------------------- */
-/* ESTILOS PARA EL BOTÓN FLOTANTE (BACK TO TOP)      */
-/* --------------------------------------------------- */
-.back-to-top {
-    position: fixed;               /* Fija el botón en la pantalla */
-    bottom: 30px;                  /* Distancia desde abajo */
-    right: 30px;                   /* Distancia desde la derecha */
-    width: 50px;                   /* Ancho del botón */
-    height: 50px;                  /* Alto del botón (cuadrado) */
-    border-radius: 50%;            /* Lo hace circular */
-    background: linear-gradient(135deg, var(--container-color), var(--primary-color)); /* Fondo azul gradiente */
-    color: white;                  /* Color del icono */
-    border: none;                  /* Sin borde */
-    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3); /* Sombra suave */
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;                 /* Nivel Z alto para que esté encima */
-    opacity: 0;                    /* Oculto por defecto */
-    visibility: hidden;
-    transform: translateY(20px);    /* Efecto de desplazamiento inicial */
-    transition: all 0.3s ease-in-out; /* Animación suave */
-    font-size: 1.2rem;
-}
+        /* Clase visible (se añade con JS) */
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
 
-/* Clase visible (se añade con JS) */
-.back-to-top.visible {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
+        /* Efecto al pasar el mouse (Hover) */
+        .back-to-top:hover {
+            transform: translateY(-5px);  /* Un poco hacia arriba */
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.5); /* Sombra más fuerte */
+            background: linear-gradient(135deg, var(--primary-color), #1e3a8a);
+        }
 
-/* Efecto al pasar el mouse (Hover) */
-.back-to-top:hover {
-    transform: translateY(-5px);  /* Un poco hacia arriba */
-    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.5); /* Sombra más fuerte */
-    background: linear-gradient(135deg, var(--primary-color), #1e3a8a);
-}
+        .back-to-top:active {
+            transform: translateY(-2px);
+        }
 
-.back-to-top:active {
-    transform: translateY(-2px);
-}
-
-/* Ajuste para móviles para que no tape cosas importantes */
-@media (max-width: 768px) {
-    .back-to-top {
-        bottom: 20px;
-        right: 20px;
-        width: 45px;       /* Un poco más pequeño en celus */
-        height: 45px;
-        font-size: 1rem;
-    }
-}
+        /* Ajuste para móviles para que no tape cosas importantes */
+        @media (max-width: 768px) {
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;       /* Un poco más pequeño en celus */
+                height: 45px;
+                font-size: 1rem;
+            }
+        }
 
     </style>
 <base target="_blank">
@@ -2066,7 +2069,7 @@
                     <button onclick="showWhatsAppForm()" 
                             class="w-full btn-primary py-4 text-lg font-semibold mt-6">
                         <i class="fab fa-whatsapp mr-3"></i>
-                        Solicitar Cotización
+                        Solicitar Presupuesto
                     </button>
                     
                     <button onclick="closeCart()" 
@@ -2106,7 +2109,7 @@
             
             <h2 class="text-3xl font-bold mb-2 text-center">
                 <i class="fab fa-whatsapp text-green-500 mr-3"></i>
-                Solicitar Cotización por WhatsApp
+                Solicitar Presupuesto por WhatsApp
             </h2>
             <p class="text-gray-600 text-center mb-8">Completa el formulario para recibir tu cotización empresarial</p>
             
@@ -2209,7 +2212,7 @@
                     <button type="submit" 
                             class="flex-1 btn-primary py-4 text-lg font-semibold">
                         <i class="fab fa-whatsapp mr-3"></i>
-                        Enviar Cotización
+                        Enviar Presupuesto
                     </button>
                     <button type="button" 
                             onclick="closeWhatsAppForm()" 
@@ -3421,7 +3424,7 @@
                             class="flex-1 btn-primary py-4 text-lg font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
                             ${isModalDisabled ? 'disabled' : ''}>
                         <i class="fas fa-cart-plus mr-3"></i>
-                        Añadir a Cotización
+                        Añadir a Presupuesto
                     </button>
                     <button onclick="closeDetailModal()" 
                             class="flex-1 btn-secondary py-4 text-lg font-semibold">
@@ -3550,15 +3553,40 @@
             
             cart.forEach((item, index) => {
                 const itemTotal = item.price * item.quantity;
-                subtotal += itemTotal;
+                // Solo sumar al subtotal si NO es especial (precio 0)
+                if (item.category !== 'especial') {
+                    subtotal += itemTotal;
+                }
                 
-                // Determinar categoría para mostrar
+// Determine category to displayría para mostrar
                 let categoryText = '';
                 switch(item.category) {
                     case 'Carga Seca': categoryText = 'Carga Seca'; break;
-                    case 'refrigerado': categoryText = 'Refrigerado'; break;
-                    case 'especial': categoryText = 'Especial'; break;
-                    default: categoryText = 'Contenedor';
+                                        case 'refrigerado':
+                        categoryText = 'Refrigerado';
+                        break;
+                    case 'especial':
+                        categoryText = 'Especial';
+                        break;
+                    default:
+                        categoryText = 'Contenedor';
+                }
+                
+                // Lógica para mostrar precio en el carrito
+                // Si es especial o precio es 0, mostramos "A cotizar"
+                let priceDisplay = '';
+                let itemTotalDisplay = '';
+                let numericItemTotal = 0;
+
+                if (item.category === 'especial' || item.price === 0) {
+                    priceDisplay = 'A cotizar';
+                    itemTotalDisplay = 'A cotizar';
+                    numericItemTotal = 0; // No sumar al subtotal numérico
+                } else {
+                    priceDisplay = `$${item.price.toLocaleString()}`;
+                    itemTotalDisplay = `$${itemTotal.toLocaleString()}`;
+                    numericItemTotal = itemTotal;
+                    subtotal += numericItemTotal; // Sumar solo si tiene precio
                 }
                 
                 const cartItem = document.createElement('div');
@@ -3576,7 +3604,7 @@
                                 ${categoryText}
                             </span>
                         </div>
-                        <p class="text-gray-600 text-sm">$${item.price.toLocaleString()} c/u</p>
+                        <p class="text-gray-600 text-sm">${priceDisplay} c/u</p>
                         <div class="flex items-center gap-2 mt-2">
                             <button onclick="updateCartItem(${index}, -1)" 
                                     class="w-8 h-8 flex items-center justify-center bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors duration-300">
@@ -3591,7 +3619,7 @@
                     </div>
                     
                     <div class="text-right">
-                        <p class="font-semibold text-gray-900">$${itemTotal.toLocaleString()}</p>
+                        <p class="font-semibold text-gray-900">${itemTotalDisplay}</p>
                         <button onclick="removeCartItem(${index})" 
                                 class="text-red-500 hover:text-red-700 mt-2 transition-colors duration-300">
                             <i class="fas fa-trash text-sm"></i>
@@ -3619,7 +3647,8 @@
                 return;
             }
             
-            if (newQuantity > product.stock) {
+            // Si es especial, no chequeamos stock. Si es normal, sí.
+            if (item.category !== 'especial' && newQuantity > product.stock) {
                 showNotification('Stock insuficiente', 'error');
                 return;
             }
@@ -3662,9 +3691,6 @@
             let total = 0;
             
             cart.forEach((item, index) => {
-                const itemTotal = item.price * item.quantity;
-                total += itemTotal;
-                
                 let categoryText = '';
                 switch(item.category) {
                     case 'Carga Seca': categoryText = 'Carga Seca'; break;
@@ -3673,13 +3699,28 @@
                     default: categoryText = 'Contenedor';
                 }
                 
+                // Lógica especial para mostrar precio en el resumen del formulario
+                let priceText = '';
+                let itemTotalVal = 0;
+
+                if (item.category === 'especial' || item.price === 0) {
+                    priceText = 'A cotizar';
+                    itemTotalVal = 0;
+                } else {
+                    priceText = `$${item.price.toLocaleString()}`;
+                    itemTotalVal = item.price * item.quantity;
+                    total += itemTotalVal;
+                }
+                
+                let totalText = (item.category === 'especial' || item.price === 0) ? 'A cotizar' : `$${itemTotalVal.toLocaleString()}`;
+
                 cartSummaryHTML += `
                     <div class="flex justify-between items-center py-2 border-b border-gray-200">
                         <div>
                             <p class="font-medium">${item.name}</p>
-                            <p class="text-sm text-gray-600">${item.quantity} x $${item.price.toLocaleString()}</p>
+                            <p class="text-sm text-gray-600">${item.quantity} x ${priceText}</p>
                         </div>
-                        <span class="font-semibold">$${itemTotal.toLocaleString()}</span>
+                        <span class="font-semibold">${totalText}</span>
                     </div>
                 `;
             });
@@ -3726,10 +3767,8 @@
             whatsappMessage += `\n*CONTENEDORES SOLICITADOS:*\n\n`;
             
             let total = 0;
+            
             cart.forEach(item => {
-                const itemTotal = item.price * item.quantity;
-                total += itemTotal;
-                
                 let categoryText = '';
                 switch(item.category) {
                     case 'Carga Seca': categoryText = 'Carga Seca'; break;
@@ -3737,13 +3776,28 @@
                     case 'especial': categoryText = 'Especial'; break;
                     default: categoryText = 'Contenedor';
                 }
+
+                // Lógica para mensaje de WhatsApp
+                let itemTotal = item.price * item.quantity;
+                let priceString = '';
+                let subtotalString = '';
+                
+                if (item.category === 'especial' || item.price === 0) {
+                    priceString = 'Precio: A cotizar';
+                    subtotalString = 'Subtotal: A cotizar';
+                    // No sumamos al total numérico
+                } else {
+                    priceString = `Precio unitario: $${item.price.toLocaleString()}`;
+                    subtotalString = `Subtotal: $${itemTotal.toLocaleString()}`;
+                    total += itemTotal;
+                }
                 
                 whatsappMessage += `• ${item.name}\n`;
                 whatsappMessage += `  Tipo: ${categoryText}\n`;
                 whatsappMessage += `  Clase: ${item.classType || 'N/A'}\n`;
                 whatsappMessage += `  Cantidad: ${item.quantity}\n`;
-                whatsappMessage += `  Precio unitario: $${item.price.toLocaleString()}\n`;
-                whatsappMessage += `  Subtotal: $${itemTotal.toLocaleString()}\n\n`;
+                whatsappMessage += `  ${priceString}\n`;
+                whatsappMessage += `  ${subtotalString}\n\n`;
             });
             
             whatsappMessage += `*TOTAL ESTIMADO: $${total.toLocaleString()}*\n\n`;
@@ -3838,7 +3892,10 @@
             cart.forEach(item => {
                 const product = containers.find(p => p.id === item.id);
                 if (product) {
-                    product.stock = Math.max(0, product.stock - item.quantity);
+                    // Si NO es especial (especial = price 0), entonces restamos stock
+                    if (item.category !== 'especial' && item.price > 0) {
+                        product.stock = Math.max(0, product.stock - item.quantity);
+                    }
                 }
             });
             
@@ -3931,6 +3988,8 @@
                 // Verificar stock de productos en el carrito
                 cart = cart.filter(item => {
                     const product = containers.find(p => p.id === item.id);
+                    // Si es especial, siempre lo mantenemos (sin chequear stock numérico)
+                    if (item.category === 'especial') return true;
                     return product && product.stock >= item.quantity;
                 });
                 saveCart();
