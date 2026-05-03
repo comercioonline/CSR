@@ -892,6 +892,32 @@
         .back-to-top:active {
             transform: scale(0.95);
         }
+
+        /* Estilos adicionales para el input de cantidad en el carrito */
+        .quantity-input {
+            width: 65px;
+            text-align: center;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 6px 0;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .quantity-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(217, 119, 6, 0.2);
+        }
+        /* Ocultar flechas del input number en navegadores basados en WebKit (Chrome, Safari) */
+        .quantity-input::-webkit-outer-spin-button,
+        .quantity-input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        .quantity-input {
+            -moz-appearance: textfield; /* Firefox */
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
@@ -2691,7 +2717,7 @@ applications: ["Sistemas que requieran rendimiento DOT 3 o DOT 4", "Vehículos m
             const container = document.getElementById(containerId);
             container.innerHTML = '';
             
-            if (products.length === 0) { // AQUÍ CONTINUABA EL CÓDIGO CORTADO
+            if (products.length === 0) {
                 container.innerHTML = `
                     <div class="col-span-full text-center py-8 text-gray-500">
                         No hay productos disponibles en esta categoría actualmente.
@@ -3040,11 +3066,10 @@ applications: ["Sistemas que requieran rendimiento DOT 3 o DOT 4", "Vehículos m
             openModal('detail-modal');
         }
 
-        // Añadir al carrito
+        // Añadir al carrito MODIFICADO: Establecer cantidad inicial 1 (funciona bien con el input)
         function addToCart(productId) {
             const product = aceites.find(p => p.id === productId);
             
-            // MODIFICACIÓN: Permitir añadir al carrito si es ID 11 aunque stock sea 0
             if (!product) return;
             
             const isProduct11 = product.id === 11;
@@ -3056,8 +3081,7 @@ applications: ["Sistemas que requieran rendimiento DOT 3 o DOT 4", "Vehículos m
             
             const existingItem = cart.find(item => item.id === productId);
             
-            // Si es ID 11, no comprobamos stock máximo (asumimos reserva ilimitada o gestionada externamente)
-            // Si no es ID 11, comprobamos stock
+            // Si es ID 11, no comprobamos stock máximo
             if (existingItem) {
                 if (isProduct11 || existingItem.quantity < product.stock) {
                     existingItem.quantity++;
@@ -3076,11 +3100,8 @@ applications: ["Sistemas que requieran rendimiento DOT 3 o DOT 4", "Vehículos m
             saveCart();
             updateCartCount();
             
-            // Mensaje personalizado según si es "Reservar" o "Cotizar"
             const message = (product.id === 11) ? 'Producto añadido para reserva' : 'Aceite añadido a la cotización';
             showNotification(message, 'success');
-            
-            // Animar el botón del carrito
             animateCartButton();
         }
 
@@ -3101,7 +3122,6 @@ applications: ["Sistemas que requieran rendimiento DOT 3 o DOT 4", "Vehículos m
             const cartCount = document.getElementById('cart-count');
             cartCount.textContent = count;
             
-            // Animar si hay cambios
             if (count > 0) {
                 cartCount.classList.add('animate-pulse');
                 setTimeout(() => cartCount.classList.remove('animate-pulse'), 300);
@@ -3132,7 +3152,7 @@ applications: ["Sistemas que requieran rendimiento DOT 3 o DOT 4", "Vehículos m
             }, 300);
         }
 
-        // Renderizar items del carrito
+        // Renderizar items del carrito con input numérico tecleable NUEVO
         function renderCartItems() {
             const cartItemsContainer = document.getElementById('cart-items');
             const cartSubtotal = document.getElementById('cart-subtotal');
@@ -3165,13 +3185,11 @@ applications: ["Sistemas que requieran rendimiento DOT 3 o DOT 4", "Vehículos m
                 const cartItem = document.createElement('div');
                 cartItem.className = 'flex items-center gap-4 p-4 bg-white rounded-lg border border-gray-200 mb-4 animate-slide-in shadow-sm';
                 
-                // Categoría a texto legible
                 let categoryText = 'Aceite';
                 if(item.category === 'sintetico') categoryText = 'Sintético';
                 if(item.category === 'semisintetico') categoryText = 'Semi-Sintético';
                 if(item.category === 'mineral') categoryText = 'Mineral';
 
-                // Display para precio
                 let priceDisplay = '$' + item.price.toLocaleString();
                 let totalDisplay = '$' + itemTotal.toLocaleString();
                 
@@ -3199,7 +3217,14 @@ applications: ["Sistemas que requieran rendimiento DOT 3 o DOT 4", "Vehículos m
                                     class="w-8 h-8 flex items-center justify-center bg-gray-100 rounded-lg hover:bg-amber-100 hover:text-amber-700 transition-colors duration-300">
                                 <i class="fas fa-minus text-xs"></i>
                             </button>
-                            <span class="w-12 text-center font-medium">${item.quantity}</span>
+                            <input type="number" 
+                                   id="qty-input-${index}"
+                                   value="${item.quantity}" 
+                                   min="1" 
+                                   max="${item.id === 11 ? 9999 : item.stock + item.quantity}" 
+                                   class="quantity-input w-16 text-center border rounded px-1 py-1 text-sm"
+                                   data-index="${index}"
+                                   onchange="handleQuantityChange(${index}, this.value)">
                             <button onclick="updateCartItem(${index}, 1)" 
                                     class="w-8 h-8 flex items-center justify-center bg-gray-100 rounded-lg hover:bg-amber-100 hover:text-amber-700 transition-colors duration-300">
                                 <i class="fas fa-plus text-xs"></i>
@@ -3218,7 +3243,6 @@ applications: ["Sistemas que requieran rendimiento DOT 3 o DOT 4", "Vehículos m
                 cartItemsContainer.appendChild(cartItem);
             });
             
-            // Mostrar total o "A cotizar" si todo es a cotizar
             let totalDisplay = '$' + subtotal.toLocaleString();
             if(subtotal === 0 && cart.length > 0) totalDisplay = "A cotizar";
             
@@ -3226,7 +3250,41 @@ applications: ["Sistemas que requieran rendimiento DOT 3 o DOT 4", "Vehículos m
             cartTotal.textContent = totalDisplay;
         }
 
-        // Actualizar item del carrito
+        // Nueva función para manejar cambios de cantidad desde el input
+        function handleQuantityChange(index, newValue) {
+            let quantity = parseInt(newValue);
+            if (isNaN(quantity) || quantity < 1) quantity = 1;
+            
+            const item = cart[index];
+            if (!item) return;
+            
+            const product = aceites.find(p => p.id === item.id);
+            if (!product) return;
+            
+            const isProduct11 = product.id === 11;
+            let maxAllowed = 9999;
+            
+            if (!isProduct11) {
+                maxAllowed = product.stock + item.quantity;
+                if (quantity > maxAllowed) {
+                    showNotification(`Stock máximo disponible: ${maxAllowed}`, 'error');
+                    quantity = maxAllowed;
+                }
+            }
+            
+            if (item.quantity !== quantity) {
+                item.quantity = quantity;
+                saveCart();
+                updateCartCount();
+                renderCartItems();
+                showNotification('Cantidad actualizada', 'success');
+            } else {
+                // Forzar render para mantener el input sincronizado si el valor no cambió pero se perdió el foco
+                renderCartItems();
+            }
+        }
+
+        // Actualizar item del carrito (usado por botones +/-)
         function updateCartItem(index, change) {
             const item = cart[index];
             const product = aceites.find(p => p.id === item.id);
@@ -3240,7 +3298,6 @@ applications: ["Sistemas que requieran rendimiento DOT 3 o DOT 4", "Vehículos m
                 return;
             }
             
-            // MODIFICACIÓN: Para ID 11, permitimos añadir cantidad sin comprobar stock
             const isProduct11 = product.id === 11;
             
             if (!isProduct11 && newQuantity > product.stock) {
@@ -3281,7 +3338,6 @@ applications: ["Sistemas que requieran rendimiento DOT 3 o DOT 4", "Vehículos m
                 return;
             }
             
-            // Generar resumen del carrito
             let cartSummaryHTML = '';
             let total = 0;
             
@@ -3320,19 +3376,16 @@ applications: ["Sistemas que requieran rendimiento DOT 3 o DOT 4", "Vehículos m
         function sendWhatsAppMessage(event) {
             event.preventDefault();
             
-            // Obtener datos del formulario actualizado
             const nombre = document.getElementById('nombre').value;
             const telefono = document.getElementById('telefono').value;
             const direccion = document.getElementById('direccion').value;
             const tipo_pago = document.getElementById('tipo_pago').value;
             
-            // Generar mensaje para WhatsApp - ACTUALIZADO
             let whatsappMessage = `*NUEVA ORDEN DE COMPRA DE ACEITE - CSR s.r.l*\n\n`;
             whatsappMessage += `*DATOS DEL CLIENTE*\n`;
             whatsappMessage += `*Nombre:* ${nombre}\n`;
             whatsappMessage += `*Teléfono:* ${telefono}\n`;
             
-            // Dirección opcional
             if (direccion.trim() !== "") {
                 whatsappMessage += `*Dirección (Domicilio):* ${direccion}\n`;
             } else {
@@ -3340,7 +3393,6 @@ applications: ["Sistemas que requieran rendimiento DOT 3 o DOT 4", "Vehículos m
             }
             
             whatsappMessage += `*Método de Pago:* ${tipo_pago}\n\n`;
-            
             whatsappMessage += `*DETALLE DEL PEDIDO*\n\n`;
             
             let total = 0;
@@ -3371,67 +3423,55 @@ applications: ["Sistemas que requieran rendimiento DOT 3 o DOT 4", "Vehículos m
             whatsappMessage += `*ID de pedido:* ${Date.now()}\n\n`;
             whatsappMessage += `Por favor, confirmen disponibilidad y coordenadas de pago.`;
             
-            // Codificar el mensaje para URL
             const encodedMessage = encodeURIComponent(whatsappMessage);
-            
-            // Número de WhatsApp
             const phoneNumber = '+5356578961';
-            
-            // Abrir WhatsApp
             window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
             
-            // Cerrar el formulario
             closeWhatsAppForm();
-            
-            // Actualizar stock y limpiar carrito
             updateProductStock();
             clearCart();
-            
-            // Mostrar confirmación
             showNotification('Pedido enviado correctamente', 'success');
         }
 
-       // Send contact message (C O R R E G I D A)
-function sendContactMessage(event) {
-    event.preventDefault();
-    
-    const form = event.target;
-    const nombre = form.name.value;
-    const telefono = form.phone.value;
-    const empresa = form.empresa.value || 'No especificado';
-    const vehicle = form.vehicle.value || 'No especificado';
-    const proposito = form.purpose.value;
-    const mensaje = form.message.value;
-    
-    // Mapeo de propósitos
-    const purposeMap = {
-        'asesoramiento': 'Asesoramiento Técnico',
-        'cotizacion': 'Solicitar Cotización',
-        'disponibilidad': 'Consultar Disponibilidad',
-        'problema': 'Problema con el Motor',
-        'otro': 'Otro'
-    };
-    const propositoText = purposeMap[proposito] || proposito;
-    
-    // Generar mensaje para WhatsApp
-    let whatsappMessage = `*NUEVA CONSULTA - CSR s.r.l*\n\n`;
-    whatsappMessage += `*DATOS DEL CLIENTE*\n`;
-    whatsappMessage += `*Nombre:* ${nombre}\n`;
-    whatsappMessage += `*Teléfono:* ${telefono}\n`;
-    whatsappMessage += `*Empresa/Tipo:* ${empresa}\n`;
-    whatsappMessage += `*Vehículo:* ${vehicle}\n`;
-    whatsappMessage += `*Tipo de Consulta:* ${propositoText}\n\n`;
-    whatsappMessage += `*MENSAJE:*\n${mensaje}\n\n`;
-    whatsappMessage += `---\n`;
-    whatsappMessage += `*Fecha:* ${new Date().toLocaleDateString('es-ES')}`;
-    
-    const encodedMessage = encodeURIComponent(whatsappMessage);
-    const phoneNumber = '+5356578961';
-    window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
-    
-    form.reset();
-    showNotification('Consulta enviada correctamente', 'success');
-}
+        // Send contact message
+        function sendContactMessage(event) {
+            event.preventDefault();
+            
+            const form = event.target;
+            const nombre = form.name.value;
+            const telefono = form.phone.value;
+            const empresa = form.empresa.value || 'No especificado';
+            const vehicle = form.vehicle.value || 'No especificado';
+            const proposito = form.purpose.value;
+            const mensaje = form.message.value;
+            
+            const purposeMap = {
+                'asesoramiento': 'Asesoramiento Técnico',
+                'cotizacion': 'Solicitar Cotización',
+                'disponibilidad': 'Consultar Disponibilidad',
+                'problema': 'Problema con el Motor',
+                'otro': 'Otro'
+            };
+            const propositoText = purposeMap[proposito] || proposito;
+            
+            let whatsappMessage = `*NUEVA CONSULTA - CSR s.r.l*\n\n`;
+            whatsappMessage += `*DATOS DEL CLIENTE*\n`;
+            whatsappMessage += `*Nombre:* ${nombre}\n`;
+            whatsappMessage += `*Teléfono:* ${telefono}\n`;
+            whatsappMessage += `*Empresa/Tipo:* ${empresa}\n`;
+            whatsappMessage += `*Vehículo:* ${vehicle}\n`;
+            whatsappMessage += `*Tipo de Consulta:* ${propositoText}\n\n`;
+            whatsappMessage += `*MENSAJE:*\n${mensaje}\n\n`;
+            whatsappMessage += `---\n`;
+            whatsappMessage += `*Fecha:* ${new Date().toLocaleDateString('es-ES')}`;
+            
+            const encodedMessage = encodeURIComponent(whatsappMessage);
+            const phoneNumber = '+5356578961';
+            window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
+            
+            form.reset();
+            showNotification('Consulta enviada correctamente', 'success');
+        }
 
         // Actualizar stock de productos
         function updateProductStock() {
@@ -3442,7 +3482,6 @@ function sendContactMessage(event) {
                 }
             });
             
-            // Actualizar la vista de productos
             renderCategorizedProducts();
         }
 
@@ -3481,7 +3520,6 @@ function sendContactMessage(event) {
             const notification = document.createElement('div');
             notification.className = `notification ${type}`;
             
-            // Iconos por tipo
             const icons = {
                 success: 'fas fa-check-circle',
                 error: 'fas fa-exclamation-circle',
@@ -3495,7 +3533,6 @@ function sendContactMessage(event) {
             
             container.appendChild(notification);
             
-            // Remover después de 5 segundos
             setTimeout(() => {
                 notification.style.opacity = '0';
                 notification.style.transform = 'translateX(100%)';
@@ -3528,10 +3565,8 @@ function sendContactMessage(event) {
         // Verificar carrito al cargar
         function checkCartOnLoad() {
             if (cart.length > 0) {
-                // Verificar stock de productos en el carrito
                 cart = cart.filter(item => {
                     const product = aceites.find(p => p.id === item.id);
-                    // Si es el producto 11, siempre lo permitimos en el carrito
                     if (product.id === 11) return true;
                     return product && product.stock >= item.quantity;
                 });
@@ -3552,50 +3587,44 @@ function sendContactMessage(event) {
             }
         });
 
-function filterCatalog(type, event) {
-    // Actualizar estilos de botones (código existente se mantiene)
-    document.querySelectorAll('.filter-btn').forEach(btn => {
-        btn.classList.remove('bg-amber-600', 'text-white');
-        btn.classList.add('bg-gray-200', 'text-gray-700');
-    });
-    if (event && event.target) {
-        event.target.classList.remove('bg-gray-200', 'text-gray-700');
-        event.target.classList.add('bg-amber-600', 'text-white');
-    }
-
-    // Obtener todas las tarjetas de producto
-    const allProductCards = document.querySelectorAll('.product-card');
-    
-    if (type === 'all') {
-        allProductCards.forEach(card => card.style.display = 'flex');
-        return;
-    }
-    
-    // Mapear el tipo de filtro a los IDs de los productos que debe mostrar
-    // Esta lógica debe coincidir con la de `renderCategorizedProducts`
-    let validIds = [];
-    if (type === 'motores') validIds = [1, 2, 9, 10];
-    if (type === 'transmision') validIds = [4];
-    if (type === 'especialidades') validIds = [3, 5, 6, 7, 8, 11];
-    
-    allProductCards.forEach(card => {
-        // Buscar el ID del producto dentro de la tarjeta. Asumiendo que está en un data attribute o en el botón.
-        // Una forma simple: buscar el botón "Cotizar/Reservar" y obtener el ID de su onclick.
-        const button = card.querySelector('button[onclick*="addToCart"]');
-        if (button) {
-            const onclickAttr = button.getAttribute('onclick');
-            const match = onclickAttr.match(/addToCart\((\d+)\)/);
-            if (match && match[1]) {
-                const productId = parseInt(match[1]);
-                if (validIds.includes(productId)) {
-                    card.style.display = 'flex';
-                } else {
-                    card.style.display = 'none';
-                }
+        function filterCatalog(type, event) {
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('bg-amber-600', 'text-white');
+                btn.classList.add('bg-gray-200', 'text-gray-700');
+            });
+            if (event && event.target) {
+                event.target.classList.remove('bg-gray-200', 'text-gray-700');
+                event.target.classList.add('bg-amber-600', 'text-white');
             }
+
+            const allProductCards = document.querySelectorAll('.product-card');
+            
+            if (type === 'all') {
+                allProductCards.forEach(card => card.style.display = 'flex');
+                return;
+            }
+            
+            let validIds = [];
+            if (type === 'motores') validIds = [1, 2, 9, 10, 12];
+            if (type === 'transmision') validIds = [4];
+            if (type === 'especialidades') validIds = [3, 5, 6, 7, 8, 11];
+            
+            allProductCards.forEach(card => {
+                const button = card.querySelector('button[onclick*="addToCart"]');
+                if (button) {
+                    const onclickAttr = button.getAttribute('onclick');
+                    const match = onclickAttr.match(/addToCart\((\d+)\)/);
+                    if (match && match[1]) {
+                        const productId = parseInt(match[1]);
+                        if (validIds.includes(productId)) {
+                            card.style.display = 'flex';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    }
+                }
+            });
         }
-    });
-}
     </script>
 </body>
 </html>
