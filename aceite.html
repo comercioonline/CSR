@@ -2426,6 +2426,7 @@
 
     <script>
         // Datos de productos (aceites y lubricantes)
+        // MODIFICACIÓN DE ORDEN: Se movió el ID 12 (Diesel Extra 15W 40) para estar antes del ID 2 (Super Multi 20W 50)
         const aceites = [
           {
     id: 1,
@@ -2465,6 +2466,47 @@
     ]
 },
 {
+    id: 12,
+    name: "Gazpromneft Diesel Extra 15W 40 5L",
+    price: 22.50,
+    category: "mineral",
+    image: "Imagenes de Aceites/Gazpromneft Diesel Extra 15W 40 5L.webp",
+    stock: 404,
+    description: "Aceite mineral de alto rendimiento para motores diésel de 4 tiempos. Formulado con tecnología aditivada que proporciona una excelente protección contra el desgaste, control de depósitos y estabilidad a la oxidación. Ideal para motores que requieren especificaciones API CK-4/CI-4, especialmente en condiciones severas de trabajo. Su baja viscosidad en frío (15W) mejora el arranque a bajas temperaturas frente a un 20W-50.",
+    specifications: [
+        "Viscosidad SAE: 15W-40",
+        "Tipo: Mineral",
+        "API: CK-4 / CJ-4 / CI-4 Plus / CI-4 / CH-4",
+        "ACEA: E9 / E7",
+        "Cummins: CES 20081",
+        "Mack: EO-S 4.5",
+        "Volvo: VDS-4.5",
+        "MAN: M 3575",
+        "MTU: Categoría 2.1",
+        "Detroit Diesel: 93K218",
+        "Caterpillar: ECF-3 / ECF-2",
+        "Volumen: 5 litros"
+    ],
+    features: [
+        "Alta estabilidad térmica y al cizallamiento",
+        "Excelente control de hollín y depósitos de alta temperatura",
+        "Protección superior contra el desgaste y la corrosión",
+        "Compatibilidad con sistemas EGR, DPF y SCR (bajo contenido de cenizas, SAPS medio/bajo según norma)",
+        "Mejora el flujo en frío para arranques rápidos hasta -20°C",
+        "Neutralización ácida avanzada (TBN elevado)",
+        "Extiende los intervalos de cambio de aceite"
+    ],
+    compatibleModels: ["Volvo", "Scania", "MAN", "Mercedes-Benz", "Cummins", "Caterpillar", "Mack", "DAF", "Iveco", "Renault Trucks", "Kenworth", "Peterbilt"],
+    applications: [
+        "Motores diésel turboalimentados con o sin EGR",
+        "Vehículos de carga pesada (camiones, tractomulas)",
+        "Autobuses y transporte de pasajeros",
+        "Maquinaria agrícola y de construcción (off-highway)",
+        "Flotas comerciales que operan en climas templados a fríos",
+        "Motores Euro 4, Euro 5 y algunos Euro 6 con DPF"
+    ]
+},
+{
     id: 2,
     name: "Gazpromneft Super Multi 20W 50 CI-4 5L",
     price: 22.50,
@@ -2497,7 +2539,7 @@ name: "Brake Fluid G-Energy Expert DOT 4 1L",
 price: 7.50,
 category: "mineral",
 image: "Imagenes de Aceites/Brake Fluid G-Energy Expert DOT 4 1L.webp",
-stock: 600,
+stock: 599,
 description: "Líquido de frenos de alto rendimiento para sistemas de frenos hidráulicos y embrague convencionales. Formulado con una combinación compleja de poliglicoles, éteres de poliglicol y ésteres boratos de éter de glicol, mezclados con inhibidores diseñados para prevenir la corrosión, oxidación y controlar las características de hinchamiento de los sellos.",
 specifications: [
 "Especificaciones: FMVSS 116 DOT 3, DOT 4; ISO 4925; SAE J1703; SAE J1704",
@@ -2518,11 +2560,11 @@ applications: ["Sistemas que requieran rendimiento DOT 3 o DOT 4", "Vehículos m
 },
             {
     id: 4,
-    name: "Gazpromneft GL-4 80W 90 1 L Premium 1L",
+    name: "Gazpromneft GL-4 80W 90 Premium 1L",
     price: 5.90,
     category: "mineral",
     image: "Imagenes de Aceites/Gazpromneft GL-4 80W 90 1 L Premium 1L.webp",
-    stock: 288,
+    stock: 284,
     description: "Aceite de transmisión desarrollado para su uso en sistemas que requieren lubricantes con especificación GL-4. Formulado con una base mineral y un paquete de aditivos que garantizan una excelente protección de los engranajes y sincronizadores contra el desgaste, la corrosión y la formación de espuma, incluso en condiciones de operación severas y con variaciones de temperatura. Es apto para cajas de cambios manuales de turismos, vehículos comerciales y todoterreno.",
     specifications: [
         "Viscosidad: 80W-90",
@@ -2773,50 +2815,7 @@ applications: ["Sistemas que requieran rendimiento DOT 3 o DOT 4", "Vehículos m
     "Compresores estacionarios impulsados por turbinas",
     "Sistemas hidráulicos de control y regulación"
   ]
-},
-
-{
-    id: 12,
-    name: "Gazpromneft Diesel Extra 15W 40 5L",
-    price: 22.50,
-    category: "mineral",
-    image: "Imagenes de Aceites/Gazpromneft Diesel Extra 15W 40 5L.webp",
-    stock: 405,
-    description: "Aceite mineral de alto rendimiento para motores diésel de 4 tiempos. Formulado con tecnología aditivada que proporciona una excelente protección contra el desgaste, control de depósitos y estabilidad a la oxidación. Ideal para motores que requieren especificaciones API CK-4/CI-4, especialmente en condiciones severas de trabajo. Su baja viscosidad en frío (15W) mejora el arranque a bajas temperaturas frente a un 20W-50.",
-    specifications: [
-        "Viscosidad SAE: 15W-40",
-        "Tipo: Mineral",
-        "API: CK-4 / CJ-4 / CI-4 Plus / CI-4 / CH-4",
-        "ACEA: E9 / E7",
-        "Cummins: CES 20081",
-        "Mack: EO-S 4.5",
-        "Volvo: VDS-4.5",
-        "MAN: M 3575",
-        "MTU: Categoría 2.1",
-        "Detroit Diesel: 93K218",
-        "Caterpillar: ECF-3 / ECF-2",
-        "Volumen: 5 litros"
-    ],
-    features: [
-        "Alta estabilidad térmica y al cizallamiento",
-        "Excelente control de hollín y depósitos de alta temperatura",
-        "Protección superior contra el desgaste y la corrosión",
-        "Compatibilidad con sistemas EGR, DPF y SCR (bajo contenido de cenizas, SAPS medio/bajo según norma)",
-        "Mejora el flujo en frío para arranques rápidos hasta -20°C",
-        "Neutralización ácida avanzada (TBN elevado)",
-        "Extiende los intervalos de cambio de aceite"
-    ],
-    compatibleModels: ["Volvo", "Scania", "MAN", "Mercedes-Benz", "Cummins", "Caterpillar", "Mack", "DAF", "Iveco", "Renault Trucks", "Kenworth", "Peterbilt"],
-    applications: [
-        "Motores diésel turboalimentados con o sin EGR",
-        "Vehículos de carga pesada (camiones, tractomulas)",
-        "Autobuses y transporte de pasajeros",
-        "Maquinaria agrícola y de construcción (off-highway)",
-        "Flotas comerciales que operan en climas templados a fríos",
-        "Motores Euro 4, Euro 5 y algunos Euro 6 con DPF"
-    ]
 }
-
         ];
 
         // Variables globales
@@ -3010,12 +3009,8 @@ applications: ["Sistemas que requieran rendimiento DOT 3 o DOT 4", "Vehículos m
 
         // Nueva función para renderizar productos por categorías específicas
         function renderCategorizedProducts() {
-            // IDs basados en el análisis de los datos proporcionados
-            // 1, 2, 9, 10 son Aceites de Motor (Mineral/Service Pesado - colocados en la sección de motores por ser los únicos aceites de motor disponibles)
-            // 4 es Transmisión
-            // 3, 5, 6, 7, 8, 11 son Especialidades
             
-            const motoresIds = [1, 2, 9, 10, 12];
+            const motoresIds = [1, 12, 2, 9, 10];
             const transmisionIds = [4];
             const especialidadesIds = [3, 5, 6, 7, 8, 11];
 
@@ -3891,7 +3886,7 @@ applications: ["Sistemas que requieran rendimiento DOT 3 o DOT 4", "Vehículos m
             }
         }
 
-        // Cerrar menú al hacer clic fuera
+// Close menu when clicking outlic fuera
         document.addEventListener('click', (e) => {
             const mobileMenu = document.getElementById('mobile-menu');
             const menuBtn = document.getElementById('mobile-menu-btn');
